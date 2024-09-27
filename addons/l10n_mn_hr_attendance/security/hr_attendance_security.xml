@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">   
+
+		<!-- Ирц - Ахисан тохиргоо эрхийн групп нэмэв. -->
+		<record id="group_hr_attendance_advanced" model="res.groups">
+			<field name="name">Advanced Configuration</field>
+			<field name="comment">Only this group users can delete/import attendance raw data.</field>
+			<field name="implied_ids" eval="[(4, ref('hr_attendance.group_hr_attendance_manager'))]"/>
+	      	<field name="category_id" ref="base.module_category_human_resources_attendances"/>
+		</record>
+
+    </data>
+</odoo>

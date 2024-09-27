@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ирцийн төхөөрөмжийн форм харагдац -->
+    <record id="view_hr_attendance_device_form" model="ir.ui.view">
+        <field name="name">hr.attendance.device.form</field>
+        <field name="model">hr.attendance.device</field>
+        <field name="arch" type="xml">
+            <form string="Time Attendance Device">
+              <sheet>
+                <group col="2">
+                    <field name="name"/>
+                </group>
+                <group col="4" string="Connection Information">
+                    <field name="ip"/>
+                    <field name="port"/>
+                    <field name="use_udp"/>
+                    <field name="password" password="True"/>
+                    <field name="tz"/>
+                    <field name="download_automatically"/>
+                </group>
+                <group col="2">
+                    <button name="test_connection" type="object" string="Test Connection" icon="fa-plug"/>
+                </group>
+              </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Ирцийн төхөөрөмжийн мод харагдац -->
+    <record id="view_hr_attendance_device_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.device.tree</field>
+        <field name="model">hr.attendance.device</field>
+        <field name="arch" type="xml">
+            <tree string="Time Attendance Device">
+                <field name="name"/>
+                <field name="ip"/>
+                <field name="port"/>
+                <field name="use_udp"/>
+                <field name="tz"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Ирц - Тохиргоо цэсийн форм харадац дээрх "Цаг бүртгэлийн төхөөрөмжийн тохиргоо" товчны action -->
+    <record id="action_hr_attendance_device" model="ir.actions.act_window">
+        <field name="name">Time Attendance Device</field>
+        <field name="res_model">hr.attendance.device</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_hr_attendance_device_tree"/>
+    </record>
+
+    
+
+</odoo>

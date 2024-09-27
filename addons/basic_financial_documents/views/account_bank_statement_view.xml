@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Account bank statement form inherit -->
+    <!-- <record id="l10n_mn_bank_statement_inherit_mn" model="ir.ui.view">
+        <field name="name">l10n.mn.bank.statement.inherit.mn</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page/field[@name='line_ids']/tree/field[@name='sequence']" position="after">
+                <field name="is_sequence" invisible="1"/>
+                <field name="sequence_new" attrs="{'readonly': [('move_check', '=', True)]}"/>
+            </xpath>
+        </field>
+    </record> -->
+	<record id="l10n_mn_bank_statement_inherit_mn" model="ir.ui.view">
+        <field name="name">l10n.mn.bank.statement.inherit.mn</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/tree/field[@name='amount']" position="after">
+                <button name="print_cash_order" type="object" string="Print" icon="fa-print"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/tree/field[@name='foreign_currency_id']" position="after">
+                <field name="bank_account_id" attrs="{'readonly':[('state','=','confirm')]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

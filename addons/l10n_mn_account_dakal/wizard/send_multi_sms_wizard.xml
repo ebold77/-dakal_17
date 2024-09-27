@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="send_multi_sms_form" model="ir.ui.view">
+	    <field name="name">send.multi.sms.form</field>
+	    <field name="model">send.multi.sms</field>
+	    <field name="arch"  type="xml">
+	        <form string="SIS XLSX">
+	            <group col="4">
+		           <field name="sms_type"/>     	
+	            </group>
+               
+               <notebook colspan="4">
+                   <page string="Partner">
+                       <field name="partner_ids" nolabel="1" colspan="4"/>
+                   </page>
+                   <page string="Invoice">
+                       <field name="invoice_ids" nolabel="1" colspan="4"/>
+                   </page>
+                   
+                </notebook>
+	            <footer>
+	                <button name="send_sms" type="object"
+	                    class="btn-primary" string="Send SMS"/>
+	                <button special="cancel" string="Close" class="btn-default"/>
+	            </footer>
+	        </form>
+	    </field>
+	</record>
+
+	<record id="send_multi_sms_action" model="ir.actions.act_window">
+	    <field name="name">Send Multi SMS</field>
+	    <field name="res_model">send.multi.sms</field>
+	    <field name="view_mode">form</field>
+	    <field name="target">new</field>
+	</record>
+
+	 <menuitem id="web2sms_multi_send_menu" name="Send multi sms" parent="l10n_mn_account_dakal.webtosms" sequence="3" action="send_multi_sms_action"/>
+
+</odoo>

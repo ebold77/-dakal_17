@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!--Гарын үсгийн тохиргооны групп-->
+		<record model="ir.module.category" id="module_report_footer_config">
+			<field name="name">Report Footer Configuration</field>
+			<field name="sequence">10</field>
+		</record>
+
+		<!--Гарын үсгийн тохиргооны менежер групп-->
+		<record id="group_report_footer_manager" model="res.groups">
+			<field name="name">Report Footer Manager</field>
+			<field name="category_id" ref="module_report_footer_config" />
+		</record>
+	</data>
+	<data noupdate="1">
+		<!-- Тайлангийн хөлийн тохиргооны мульт компани дүрэм -->
+		<record id="report_footer_config_multi_company_rule" model="ir.rule">
+			<field name="name">Report Footer Config Multi Company Rule</field>
+			<field name="model_id" search="[('model','=','report.footer.config')]" model="ir.model" />
+			<field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+		</record>
+
+		<!-- Тайлангийн хөлийн тохиргооны мөрийн мульт компани дүрэм -->
+		<record id="report_footer_config_line_multi_company_rule" model="ir.rule">
+			<field name="name">Report Footer Config Line Multi Company Rule</field>
+			<field name="model_id" search="[('model','=','report.footer.config.line')]" model="ir.model" />
+			<field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+		</record>
+	</data>
+
+</openerp>

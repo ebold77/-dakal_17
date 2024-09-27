@@ -1,0 +1,852 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* buy_sell
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-04 07:20+0000\n"
+"PO-Revision-Date: 2021-01-04 07:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: buy_sell
+#: model:res.groups,name:buy_sell.group_buy_sell_manager
+msgid "Administrator Buy and Sell"
+msgstr "Администратор"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Approve"
+msgstr "Батлах"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Approve Date"
+msgstr "Зөвшөөрсөн огноо"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__buy_sell_order__state__approved
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Approved"
+msgstr "Батлагдсан"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Approved User"
+msgstr "Зөвшөөрсөн"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.stock_warehouse_view_form_inherit_buy_sell
+msgid "Barter"
+msgstr "Бараа солилцоо хийх"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Buy Order Lines"
+msgstr "Худалдан авах бараа"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__buy_total
+msgid "Buy Total Amount"
+msgstr "Худалдан авалтын дүн"
+
+#. module: buy_sell
+#: model:ir.actions.act_window,name:buy_sell.action_buy_sell_order
+#: model:ir.ui.menu,name:buy_sell.menu_buy_sell_root
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_tree_view
+#: model_terms:ir.ui.view,arch_db:buy_sell.res_config_settings_view_form_buy_sell
+msgid "Buy and Sell"
+msgstr "Худалдах, Худалдан авах"
+
+#. module: buy_sell
+#: model:ir.model,name:buy_sell.model_buy_sell_in_line
+msgid "Buy and Sell In Line"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model,name:buy_sell.model_buy_sell_order
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Buy and Sell Order"
+msgstr "Худалдах худалдан авах захиалга"
+
+#. module: buy_sell
+#: model:ir.model,name:buy_sell.model_buy_sell_out_line
+msgid "Buy and Sell Out Line"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__bs_price
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__bs_price
+msgid "Buy and Sell Price"
+msgstr "Солилцооны үнэ"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__bs_price_total
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__bs_price_total
+msgid "Buy and Sell Total Price"
+msgstr "Нийт солилцооны дүн"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Buy products"
+msgstr "Худалдан авах бараа"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_stock_warehouse__can_barter
+msgid "Can Do Barter"
+msgstr ""
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Cancel"
+msgstr "Цуцлах"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__buy_sell_order__state__canceled
+msgid "Canceled"
+msgstr "Цуцлагдсан"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__buy_sell_order__state__checked
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Checked"
+msgstr "Хянасан"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__company_id
+msgid "Company"
+msgstr "Компани"
+
+#. module: buy_sell
+#: model:ir.model,name:buy_sell.model_res_config_settings
+msgid "Config Settings"
+msgstr "Тохиргооны тохируулга"
+
+#. module: buy_sell
+#: model:ir.ui.menu,name:buy_sell.menu_buy_sell_config
+msgid "Configuration"
+msgstr "Тохиргоо"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Created User"
+msgstr "Үүсгэсэн"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__create_uid
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__create_uid
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__create_uid
+msgid "Created by"
+msgstr "Үүсгэсэн"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__create_date
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__create_date
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__currency_id
+msgid "Currency"
+msgstr "Валют"
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__date_approve
+msgid "Date Approved"
+msgstr "Зөвшөөрсөн огноо"
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__date_approve
+msgid "Date on which sale purchase order has been approved"
+msgstr ""
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Define your terms and conditions ..."
+msgstr "Тайлбар ..."
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__delivered
+msgid "Delivered"
+msgstr "Хүргэгдсэн"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__buy_sell_order__state__delivered
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Delivery Done"
+msgstr "Хүргэгдсэн"
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__date_order
+msgid ""
+"Depicts the date where the Quotation should be validated and converted into "
+"a purchase order."
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__discount_total
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__discount_total
+msgid "Discount Total"
+msgstr "Хөн.Дүн"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__display_name
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__display_name
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__display_name
+#: model:ir.model.fields,field_description:buy_sell.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:buy_sell.field_stock_warehouse__display_name
+msgid "Display Name"
+msgstr "Дэлгэрэнгүй нэр"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__buy_sell_order__state__draft
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Draft"
+msgstr "Ноорог"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.res_config_settings_view_form_buy_sell
+msgid "Extra warehouses..."
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Group By"
+msgstr "Бүлэглэх"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__id
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__id
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__id
+#: model:ir.model.fields,field_description:buy_sell.field_res_config_settings__id
+#: model:ir.model.fields,field_description:buy_sell.field_stock_warehouse__id
+msgid "ID"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__message_needaction
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__message_has_error
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__buy_order_line
+msgid "In Order Lines"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__received
+msgid "It indicates that a reception of goods has been done"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__delivered
+msgid "It indicates that a sending of goods has been done"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line____last_update
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order____last_update
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line____last_update
+#: model:ir.model.fields,field_description:buy_sell.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:buy_sell.field_stock_warehouse____last_update
+msgid "Last Modified on"
+msgstr "Сүүлд зассан огноо"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__write_uid
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__write_uid
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__write_date
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__write_date
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__list_price
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__list_price
+msgid "List Price"
+msgstr "Зарах үнэ"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__month_average_amount
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__month_average_amount
+msgid "Month average sale amount"
+msgstr "Сарын дундаж борлуулалт"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "My Order's"
+msgstr ""
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Name, TIN, Email, or Reference"
+msgstr "Нэр, И-мэйл"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.ui.menu,name:buy_sell.menu_buy_sell_order
+msgid "Order"
+msgstr "Захиалга"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__date_order
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Order Date"
+msgstr "Захиалгын огноо"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__order_id
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__name
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__order_id
+msgid "Order Reference"
+msgstr "Дугаар"
+
+#. module: buy_sell
+#: model:ir.ui.menu,name:buy_sell.menu_buy_sell
+msgid "Orders"
+msgstr "Захиалгууд"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Other Info"
+msgstr "Бусад мэдээлэл"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__sell_order_line
+msgid "Out Order Lines"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__partner_id
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Partner"
+msgstr "Харилцагч"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__price_difference
+msgid "Price Difference"
+msgstr "Үнийн зөрүү"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__pricelist_id
+msgid "PriceList"
+msgstr "Үнийн хүснэгт"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.res_config_settings_view_form_buy_sell
+msgid "Pricelist"
+msgstr "Үнийн хүснэгт"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_config_settings__base_pricelist_id
+msgid "Pricelist"
+msgstr "Суурь үнийн хүснэгт"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__pricelist_discount
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__pricelist_discount
+msgid "PriceList Discount"
+msgstr "Бор.Хөн %"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__product_id
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__product_id
+msgid "Product"
+msgstr "Бараа"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__purchase_order_id
+msgid "Purchase Order"
+msgstr "ХА захиалга"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__buy_sell_tax_id
+msgid "Purchase's Taxes"
+msgstr "ХА-ын татвар"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__product_qty
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__product_qty
+msgid "Quantity"
+msgstr "Тоо ширхэг"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__buy_sell_order__state__received
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Receive Done"
+msgstr "Хүлээн авсан"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__received
+msgid "Received"
+msgstr "Хүлээн авсан"
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__origin
+msgid ""
+"Reference of the document that generated this purchase order request (e.g. a"
+" sales order)"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__activity_user_id
+msgid "Responsible User"
+msgstr "Хариуцагч"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__sale_order_id
+msgid "Sale Order"
+msgstr "Борлуулалтын захиалга"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__sale_tax_id
+msgid "Sale's Taxes"
+msgstr "Борлуулалтын татвар"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Search Buy and Sell"
+msgstr "Хулдах Худалдан авалт хайлт"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Sell Order Lines"
+msgstr "Борлуулалтын мөрүүд"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__sell_total
+msgid "Sell Total Amount"
+msgstr "Борлуулалтын дүн"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Sell products"
+msgstr "Худалдах бараа"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Send by Manager"
+msgstr "Менежерт илгээх"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__buy_sell_order__state__sent
+msgid "Sent"
+msgstr "Илгээсэн"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__sequence
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__sequence
+msgid "Sequence"
+msgstr "№"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_form_view
+msgid "Set Draft"
+msgstr "Ноороглох\t"
+
+#. module: buy_sell
+#: model:ir.actions.act_window,name:buy_sell.action_buy_sell_configuration
+#: model:ir.ui.menu,name:buy_sell.menu_buy_sell_general_settings
+msgid "Settings"
+msgstr "Тохиргоо"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__origin
+msgid "Source Document"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__state
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Status"
+msgstr "Төлөв"
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__notes
+msgid "Terms and Conditions"
+msgstr ""
+
+#. module: buy_sell
+#: code:addons/buy_sell/models/buy_sell_order.py:0
+#, python-format
+msgid "This order cannot be canceled as there is a related purchases order"
+msgstr ""
+
+#. module: buy_sell
+#: code:addons/buy_sell/models/buy_sell_order.py:0
+#, python-format
+msgid "This order cannot be canceled as there is a related sales order"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__list_price_total
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__list_price_total
+msgid "Total Price"
+msgstr "Нийт үнэ"
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__product_uom
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__product_uom
+msgid "Unit of Measure"
+msgstr "Хэмжих нэгж"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__user_id
+msgid "User"
+msgstr "Үүсгэсэн"
+
+#. module: buy_sell
+#: model:res.groups,name:buy_sell.group_buy_sell_user
+msgid "User Buy and Sell"
+msgstr "ХХА хэрэглэгч"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__validator_id
+msgid "Validated by"
+msgstr "Зөвшөөрсөн"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Waiting Approve"
+msgstr "Зөвшөөрөл хүлээж буй"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.buy_sell_order_search_view
+msgid "Waiting Check"
+msgstr "Хяналт хүлээж буй"
+
+#. module: buy_sell
+#: model:ir.model,name:buy_sell.model_stock_warehouse
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__warehouse_id
+msgid "Warehouse"
+msgstr "Агуулах"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_config_settings__bs_allowed_warehouse_ids
+msgid "Warehouses"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.res_config_settings_view_form_buy_sell
+msgid "Wharehouse"
+msgstr "Агуулах"
+
+#. module: buy_sell
+#: model:ir.model.fields,help:buy_sell.field_buy_sell_order__partner_id
+msgid "You can find a vendor by its Name, TIN, Email or Internal Reference."
+msgstr ""
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_in_line__stock_available_qty
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_out_line__stock_available_qty
+msgid "stock_available_qty"
+msgstr "Боломжит тоо"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__profit_loss_buy
+#: model:ir.model.fields,field_description:buy_sell.field_buy_sell_order__profit_loss_sale
+msgid "Profit and Loss"
+msgstr "Ашиг/Алдагдал"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_company__barter_warehouse_id
+msgid "Default Barter Warehouse"
+msgstr "Бараа солилцооны агуулах"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_company__base_pricelist_id
+msgid "Default Base Pricelist"
+msgstr "Суурь үнийн хүснэгт"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_company__barter_pricelist_id
+msgid "Barter Base Pricelist"
+msgstr "Бараа солилцооны үнийн хүснэгт"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_config_settings__barter_pricelist_id
+msgid "Barter Pricelist"
+msgstr "Бараа солилцооны үнийн хүснэгт"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_config_settings__sale_pricelist_id
+msgid "Sale Pricelist"
+msgstr "Борлуулалтын үнийн хүснэгт"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_company__sale_pricelist_id
+msgid "Sale Base Pricelist"
+msgstr "Борлуулалтын үнийн хүснэгт"
+
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_res_config_settings__bs_allowed_warehouse_id
+msgid "Warehouses"
+msgstr "Бараа солилцоо хийх агуулах"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_purchase_order__purchase_type
+msgid "Purchase Type"
+msgstr "Худалдан авалтын төрөл"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__purchase_order__purchase_type__import
+msgid "Import"
+msgstr "Импорт"
+
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__purchase_order__purchase_type__sale_return
+msgid "Sale Return"
+msgstr "Борлуулалтын буцаалт"
+
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__purchase_order__purchase_type__market
+msgid "Market"
+msgstr "Дотоод"
+
+#. module: buy_sell
+#: model:ir.model.fields.selection,name:buy_sell.selection__purchase_order__purchase_type__barter
+msgid "Barter"
+msgstr "Бараа солилцоо"
+
+#. module: buy_sell
+#: model:ir.actions.report,name:buy_sell.report_print_buy_sell
+msgid "Reciept"
+msgstr "Баримт"
+
+#. module: buy_sell
+#: model:ir.ui.menu,name:buy_sell.menu_buy_sell_report
+msgid "Report"
+msgstr "Тайлан"
+
+#. module: buy_sell
+#: model:ir.actions.act_window,name:buy_sell.sale_purchase_report_xlsx_action
+#: model:ir.ui.menu,name:buy_sell.menu_sale_purchase_report_xlsx
+msgid "SPO Report"
+msgstr "SPO тайлан"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_sale_purchase_order_report__start_date
+msgid "Start Date"
+msgstr "Эхлэх огноо"
+
+#. module: buy_sell
+#: model:ir.model.fields,field_description:buy_sell.field_sale_purchase_order_report__end_date
+msgid "End Date"
+msgstr "Дуусах огноо"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.sale_purchase_order_report_xlsx_form
+msgid "Generate"
+msgstr "Боловсруулах"
+
+#. module: buy_sell
+#: model_terms:ir.ui.view,arch_db:buy_sell.sale_purchase_order_report_xlsx_form
+msgid "Close"
+msgstr "Хаах"
+
+#. module: buy_sell
+#: code:addons/buy_sell/models/buy_sell_order.py:0
+#, python-format
+msgid "You cannot delete an barter which has been draft once."
+msgstr "Зөвхөн ноорог төлөвтэй солилцоог устгах боломжтой."

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="sale_purchase_order_report_xlsx_form" model="ir.ui.view">
+	    <field name="name">sale.purchase.order.report.xlsx.form</field>
+	    <field name="model">sale.purchase.order.report</field>
+	    <field name="arch"  type="xml">
+	        <form string="SPO XLSX">
+	            <div name="help">
+	                <p>Тайлант хугацааг сонгоно уу.</p>
+	            </div>
+	            <group name="start_end">
+	                <group name="start">
+	                    <field name="start_date"/>
+	                </group>
+	                <group name="end">
+	                    <field name="end_date"/>
+	                </group>
+	            </group>
+
+	            <footer>
+	                <button name="export_xls" type="object"
+	                    class="btn-primary" string="Generate"/>
+	                <button special="cancel" string="Close" class="btn-default"/>
+	            </footer>
+	        </form>
+	    </field>
+	</record>
+
+	<record id="sale_purchase_report_xlsx_action" model="ir.actions.act_window">
+	    <field name="name">SPO Report</field>
+	    <field name="res_model">sale.purchase.order.report</field>
+	    <field name="view_mode">form</field>
+	    <field name="target">new</field>
+	</record>
+
+	<!-- Replace native menu, to avoid user confusion 
+	<record id="stock_account.menu_action_wizard_valuation_history" model="ir.ui.menu">
+	    <field name="action" ref="stock_valuation_xlsx.stock_valuation_xlsx_action"/>
+	    <field name="name">Stock Valuation XLSX</field>
+	    <field name="sequence">0</field>
+	</record>
+	-->
+
+	 <menuitem id="menu_sale_purchase_report_xlsx" action="sale_purchase_report_xlsx_action"
+	              parent="menu_buy_sell_report"
+              sequence="1"/>
+
+</odoo>

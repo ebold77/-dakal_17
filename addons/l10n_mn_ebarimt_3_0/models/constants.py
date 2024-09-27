@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+
+""" EBarimt Constants """
+
+DEFAULT_AIMAG_CITY_CODE = '23'
+TAX_TYPE_VAT = '1'
+TAX_TYPE_CITY = '4'
+TAX_TYPE_VAT_FREE = '2'
+TAX_TYPE_VAT_ZERO = '3'
+
+BILL_TYPE_NOTAX = '0'
+BILL_TYPE_INDIVIDUAL = '1'
+BILL_TYPE_COMPANY = '3'
+BILL_TYPE_INVOICE = '5'

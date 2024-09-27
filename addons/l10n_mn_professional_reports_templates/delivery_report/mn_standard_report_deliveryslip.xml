@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="mn_std_report_deliveryslip_document">
+
+			<t t-if="o and 'company_id' in o">
+				<t t-set="company" t-value="o.company_id"></t>
+			</t>
+			<t t-if="not o or not 'company_id' in o">
+				<t t-set="company" t-value="res_company"></t>
+			</t>
+			<div class="header">
+				<div class="row mt32 mb32">
+					<div class="col-6">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
+                             style="max-height: 80px;"/>
+                    </div>
+					<div class="col-6 text-right"
+						style="font:12px lucida-console,sans-serif !important;">
+						<span>Байгууллагын нэр:</span>
+						<span t-field="company.partner_id" />
+						<br />
+					</div>
+				</div>
+			</div>
+
+			<t t-call="web.internal_layout">
+				<t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
+				<div class="page l10n_mn_base_report" t-if="o.picking_type_code=='outgoing'">
+					<h3 class="text-center" style="font:14px lucida-console,sans-serif !important;" t-if="o.sale_id">БАРАА МАТЕРИАЛЫН ЗАРЛАГЫН БАРИМТ
+					</h3>
+					<h3 class="text-center" t-if="not o.sale_id">НӨХӨН ДҮҮРГЭЛТИЙН ЗАРЛАГЫН БАРИМТ
+					</h3>
+					<div class="row mt32 mb32">
+						<p class="col-6"
+							style="font:12px lucida-console,sans-serif !important;">
+							<span>Баримтын дугаар</span>
+							:
+							<b t-field="o.name" />
+							<br />
+							<span>Эх баримт</span>
+							:
+							<span t-if="o.origin">
+								<b t-field="o.origin" />
+							</span>
+							<br />
+							<span>Салбар нэгж</span>
+							:
+							<span t-if="o.picking_type_id.warehouse_id">
+								<b t-field="o.picking_type_id.warehouse_id" />
+							</span>
+							<br />
+							<span t-if="o.sale_id">Захиалга авсан
+							: <b t-field="o.sale_id.user_id.name" />(<b t-field="o.sale_id.user_id.partner_id.phone" />)</span>
+							<br />
+						</p>
+						<p class="col-6 text-right"
+							style="font:12px lucida-console,sans-serif !important;">
+							<span>Огноо</span>
+							:
+							<b t-if="o.state=='done'" t-field="o.date_done" />
+							<b t-if="o.state!='done'" t-field="o.scheduled_date" />
+							<br />
+							
+							<span t-if="o.picking_type_code=='outgoing'">Харилцагч</span>
+							:
+							<span t-if="o.partner_id">
+								<b t-field="o.partner_id"/>
+							</span>
+							<br />
+							<span t-if="o.partner_id.street">
+								РД: <b t-field="o.partner_id.vat" />
+							</span>
+							<br/>
+							<span t-if="o.partner_id.street">
+								Хаяг: <b t-field="o.partner_id.street" />
+							</span>
+							<br />
+							<span t-if="o.partner_id.phone">
+								Утас: <b t-field="o.partner_id.phone" />
+							</span>
+						</p>
+					</div>
+					<br />
+					<table class="table-l10n_mn-grid" width="100%" t-if="o.sale_id">
+						<thead>
+							<tr style="background:  #92dff8;color: #000000;">
+								<th width="*">№</th>
+								<th width="10%">Бар код</th>
+								<th width="30%">Бараа материалын нэр</th>
+								<th>Серийн дугаар</th>
+								<th width="15%">Дуусах хугацаа</th>
+								<th>Х.Н</th>
+								<th>Тоо</th>
+								<th>Нэгж үнэ</th>
+								<th>Хөн</th>
+								<th width="10%">Нийт дүн</th>
+							</tr>
+						</thead>
+						<t t-set="number" t-value="1" />
+						<t t-set="total_qty" t-value="0" />
+						<t t-set="total_amount" t-value="0" />
+						<t t-set="amount" t-value="0" />
+						<t t-set="amount_discount" t-value="0" />
+						<t t-set="amount_discounted" t-value="0" />
+						<t t-set="amount_untaxed" t-value="0" />
+						
+
+						<tbody>
+							<t t-set="lines"
+								t-value="o.move_line_ids_without_package.filtered(lambda x: x.quantity)" />
+							<tr t-foreach="lines" t-as="move">
+								<t>
+									<td>
+										<span t-esc="number" />
+									</td>
+									<td>
+										<span t-field="move.product_id.barcode" />
+									</td>
+									<td>
+										<span t-field="move.product_id" />
+										<p t-if="move.description_picking != move.product_id.name">
+											<span t-field="move.description_picking" />
+										</p>
+									</td>
+									<td>
+										<span t-esc="move.lot_id.name" />
+									</td>
+									<td>
+										<span t-esc="move.lot_id.removal_date" />
+									</td>
+									<td>
+										<span t-field="move.product_uom_id" />
+									</td>
+									<td style="text-align: right">
+										<span t-field="move.quantity" />
+									</td>
+									<t t-set="price" t-value="move.move_id.sale_line_id.get_price_discount()['base_price']" />
+									<td style="text-align: right">
+										<span t-esc="round(price,2)" />
+									</td>
+									<t t-set="pricelist_disc" t-value="move.move_id.sale_line_id.get_price_discount()['discount']" />
+									<t t-set="display_discount" t-value="pricelist_disc"/>
+									<td>
+										<span t-esc="display_discount" />
+									</td>
+									<td style="text-align: right">
+										<span>
+											<t t-set="amount"
+												t-value="price * move.quantity" />
+											<t t-set="amount_discounted" t-value="amount_discounted + move.move_id.sale_line_id.price_unit*move.quantity" />
+										</span>
+										<b>
+											<span t-esc="'{0:,.2f}'.format(float((1 - move.move_id.sale_line_id.discount/100)* move.move_id.sale_line_id.price_unit * move.quantity))" />
+										</b>
+									</td>
+									<t t-set="number" t-value="number + 1" />
+									<t t-set="total_qty"
+										t-value="total_qty + move.quantity" />
+									<t t-set="total_amount" t-value="total_amount + amount" />
+									<t t-if ="move.move_id.sale_line_id.discount > 0">
+										<t t-set="amount_discount" t-value="amount_discount + (price * move.move_id.sale_line_id.discount/100)*move.quantity" />
+									</t>
+									<t t-if ="move.move_id.sale_line_id.discount == 0">
+										<t t-set="amount_discount" t-value="amount_discount + (amount-(move.move_id.sale_line_id.price_unit*move.quantity))" />
+									</t>
+									
+								</t>
+							</tr>
+						<t t-set="amount_untaxed" t-value="(total_amount - amount_discount)/1.1" />
+						</tbody>
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td t-if="lot" align="center" colspan="7">
+								<b>НИЙТ ДҮН</b>
+							</td>
+							<td t-if="not lot" align="center" colspan="6">
+								<b>НИЙТ ДҮН</b>
+							</td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="total_qty" />
+								</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float(total_amount))" />
+								</b>
+							</td>
+						</tr>
+						
+						<tr>
+							<td align="center" colspan="7">
+								<b>ХӨНГӨЛӨЛТ</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float(amount_discount))" />
+								</b>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="7">
+								<b>ТАТВАР</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float((total_amount - amount_discount) - amount_untaxed))" />
+								</b>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="7">
+								<b>ТАТВАРГҮЙ ДҮН</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float(amount_untaxed))"/>
+								</b>
+							</td>
+						</tr>
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td t-if="lot" align="center" colspan="7">
+								<b>НИЙТ ТӨЛӨХ ДҮН</b>
+							</td>
+							<td t-if="not lot" align="center" colspan="7">
+								<b>НИЙТ ТӨЛӨХ ДҮН</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float(total_amount - amount_discount))" />
+								</b>
+							</td>
+						</tr>
+					</table>
+
+					<table class="table-l10n_mn-grid" width="100%"  t-if="not o.sale_id">
+						<thead>
+							<tr style="background:  #92dff8;color: #000000;">
+								<th width="*">№</th>
+								<th width="15%">Бар код</th>
+								<th width="35%">Бараа материалын нэр</th>
+								<th>Серийн дугаар</th>
+								<th width="13%">Дуусах хугацаа</th>
+								<th>Х.Н</th>
+								<th>Захиалсан тоо</th>
+								<th>Х/Өгсөн тоо</th>
+								<th>Зөрүү</th>
+								
+							</tr>
+						</thead>
+						<t t-set="number" t-value="1" />
+						<t t-set="total_qty" t-value="0" />
+						<t t-set="total_zuruu" t-value="0" />
+						<t t-set="zuruu" t-value="0" />
+						<t t-set="total_uom_qty" t-value="0" />
+						<tbody>
+							<t t-if="o.state!='done'" t-set="lines"
+								t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)" />
+							<t t-if="o.state=='done'" t-set="lines"
+								t-value="o.move_line_ids_without_package.filtered(lambda x: x.quantity)" />
+
+							<tr t-foreach="lines" t-as="move">
+								<td>
+									<span t-esc="number" />
+								</td>
+								<td>
+									<span t-field="move.product_id.barcode" />
+								</td>
+								<td>
+									<span t-field="move.product_id" />
+									<p t-if="move.description_picking != move.product_id.name">
+										<span t-field="move.description_picking" />
+									</p>
+								</td>
+								<td>
+									<span t-if="o.state=='done'" t-esc="move.lot_id.name" />
+								</td>
+								<td>
+									<span t-if="o.state=='done'" t-esc="move.lot_id.removal_date" />
+								</td>
+								<td>
+									<span t-if="o.state=='done'" t-field="move.product_uom_id" />
+									<span t-if="o.state!='done'" t-field="move.product_uom" />
+								</td>
+								<td>
+									<span t-if="o.state=='done'" t-field="move.move_id.product_uom_qty" />
+									<span t-if="o.state!='done'" t-field="move.product_uom_qty" />
+								</td>
+								<td style="text-align: right">
+									<span t-if="o.state=='done'" t-field="move.quantity" />
+								</td>
+								<t t-if="o.state=='done'" t-set="zuruu"
+									t-value="move.move_id.product_uom_qty - move.quantity" />
+								<td style="text-align: right">
+									<span t-if="o.state=='done'" t-esc="zuruu" />
+								</td>
+								
+								<t t-set="number" t-value="number + 1" />
+								<t t-if="o.state=='done'" t-set="total_qty"
+									t-value="total_qty + move.quantity" />
+								<t t-if="o.state=='done'" t-set="total_zuruu"
+									t-value="total_zuruu + zuruu" />
+								<t t-if="o.state=='done'" t-set="total_uom_qty"
+									t-value="total_uom_qty + move.move_id.product_uom_qty" />
+								<t t-if="o.state!='done'" t-set="total_uom_qty"
+									t-value="total_uom_qty + move.product_uom_qty" />
+							</tr>
+						</tbody>
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td align="center" colspan="6">
+								<b>НИЙТ ДҮН</b>
+							</td>
+
+							<td style="text-align: center">
+								<b>
+									<span t-esc="total_uom_qty" />
+								</b>
+							</td>
+
+							<td style="text-align: center">
+								<b>
+									<span t-if="o.state=='done'" t-esc="total_qty" />
+								</b>
+							</td>
+							
+							<td style="text-align: center">
+								<b>
+									<span t-if="o.state=='done'" t-esc="total_zuruu" />
+								</b>
+							</td>
+							
+						</tr>
+					</table>
+
+					<br />
+
+					<p style="font:12px lucida-console,sans-serif !important;" t-if="o.sale_id">
+						<span><b>
+							&#160;&#160;Төлбөр төлөх банк :</b></span><br/>
+							<t t-foreach="o.company_id.partner_id.bank_ids" t-as="bank">
+								<span t-if="bank.view_report">
+								 &#160;&#160;<span  t-field="bank.bank_id.name" /> &#160;&#160;Данс : <span t-field="bank.acc_number" />
+								</span>
+							</t>
+						<br /><br />
+					</p>
+					
+					<p style="font:14px lucida-console,sans-serif !important;" t-if="o.sale_id">
+						<b>Тайлбар:</b>
+							<span t-if="o.sale_id">
+								<b t-field="o.sale_id.note" />
+							</span>
+					</p>
+					<br />
+					<br />
+
+					<table class="table-l10n_mn-grid" >
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td colspan = "6" align="center">
+								<b>Хүргэлтийн мэдээлэл</b>
+							</td>
+						</tr>
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td colspan = "3" align="center">
+								<b>Борлуулалгч талаас</b>
+							</td>
+							<td colspan = "3" align="center">
+								<b>Захиалагч талаас</b>
+							</td>
+						</tr>
+						<tr>
+							<td width="3%" align="center" valign="center"><b>1</b></td>
+							<td width="20%">Бэлтгэсэн:</td>
+							<td width="20%"></td>
+							<td width="3%" rowspan="3" align="center" valign="center"><b>4</b></td>
+							<td width="20%" rowspan="3" align="center" valign="center">Хадгалалт, тээвэрлэлтийн горим алдагдаагүйг шалган хүлээж авсан:
+							</td>
+							<td rowspan="3" width="20%"></td>
+						</tr>
+						<tr>
+							<td width="3%" align="center" valign="center"><b>2</b></td>
+							<td width="20%">Шалгасан:</td>
+							<td width="20%"></td>
+						</tr>
+						<tr>
+							<td width="3%" align="center" valign="center"><b>3</b></td>
+							<td width="20%">Хүлээлгэн өгсөн түгээгч:</td>
+							<td width="20%"><b t-field="o.driver_id.name" /></td>
+						</tr>
+						<tr style="background: #DDDDDD;color: #000000;" t-if="o.sale_id">
+							<td colspan = "6" align="center">
+								<b>Төлбөр</b>
+							</td>
+						</tr>
+						<tr t-if="o.sale_id">
+							<td colspan = "3" align="center">
+								<b>Төлөх дүн: <span t-esc="'{0:,.2f}'.format(float(total_amount-amount_discount))" /></b>
+							</td>
+							<td colspan = "3" align="center">
+								<b>Төлсөн дүн:.............</b>
+							</td>
+						</tr>
+						<tr t-if="o.sale_id">
+							<td width="3%" align="center" valign="center"><b>5</b></td>
+							<td width="20%">Мөнгө хүлээн авсан:</td>
+							<td width="20%"></td>
+							<td width="3%" align="center" valign="center"><b>6</b></td>
+							<td align="center" valign="center">Мөнгө хүлээлгэн өгсөн: /Утас:.................../
+							</td>
+							<td width="20%"></td>
+						</tr>
+						<tr style="background: #DDDDDD;color: #000000;" t-if="o.sale_id">
+							<td colspan = "6" align="center">
+								<b>Та борлуулалттай холбоотой санал, хүсэлтээ 99104451 утсанд өгнө үү. Баярлалаа.</b>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="page l10n_mn_base_report" t-if="o.picking_type_code=='incoming'">
+					<h3 class="text-center" style="font:14px lucida-console,sans-serif !important;" t-if="o.location_id.usage=='supplier'">БАРАА МАТЕРИАЛЫН ОРЛОГЫН БАРИМТ
+					</h3>
+					<h3 class="text-center" t-if="o.location_id.usage=='transit'">НӨХӨН ДҮҮРГЭЛТИЙН ОРЛОГЫН БАРИМТ
+					</h3>
+					<div class="row mt32 mb32">
+						<p class="col-6"
+							style="font:12px lucida-console,sans-serif !important;">
+							<span>Баримтын дугаар</span>
+							:
+							<b t-field="o.name" />
+							<br />
+							<span>Эх баримт</span>
+							:
+							<span t-if="o.origin">
+								<b t-field="o.origin" />
+							</span>
+							<br />
+							<span>Салбар нэгж</span>
+							:
+							<span t-if="o.picking_type_id.warehouse_id">
+								<b t-field="o.picking_type_id.warehouse_id" />
+							</span>
+							<br />
+						</p>
+						<p class="col-6 text-right"
+							style="font:12px lucida-console,sans-serif !important;">
+							<span>Огноо</span>
+							:
+							<b t-if="o.state=='done'" t-field="o.date_done" />
+							<b t-if="o.state!='done'" t-field="o.scheduled_date" />
+							<br />
+							<span t-if="o.location_id.usage=='supplier'">Нийлүүлэгч</span>
+							:
+							<span t-if="o.partner_id">
+								<b t-field="o.partner_id"/>
+							</span>
+							<br />
+							<span t-if="o.partner_id.street">
+								Хаяг: <b t-field="o.partner_id.street" />
+							</span>
+							<br />
+							<span t-if="o.partner_id.phone">
+								Утас: <b t-field="o.partner_id.phone" />
+							</span>
+						</p>
+					</div>
+					<br />
+					<table class="table-l10n_mn-grid" width="100%"  t-if="o.location_id.usage=='supplier'">
+						<thead>
+							<tr style="background:  #92dff8;color: #000000;">
+								<th width="*">№</th>
+								<th width="15%">Бар код</th>
+								<th width="35%">Бараа материалын нэр</th>
+								<th>Серийн дугаар</th>
+								<th width="15%">Дуусах хугацаа</th>
+								<th>Х.Н</th>
+								<th>Тоо</th>
+								<th>Нэгж үнэ</th>
+								<th width="15%">Нийт</th>
+							</tr>
+						</thead>
+						<t t-set="number" t-value="1" />
+						<t t-set="total_qty" t-value="0" />
+						<t t-set="total_amount" t-value="0" />
+						<t t-set="amount" t-value="0" />
+						<tbody>
+							<t t-set="lines"
+								t-value="o.move_line_ids_without_package.filtered(lambda x: x.quantity)" />
+							<tr t-foreach="lines" t-as="move">
+								<td>
+									<span t-esc="number" />
+								</td>
+								<td>
+									<span t-field="move.product_id.barcode" />
+								</td>
+								<td>
+									<span t-field="move.product_id" />
+									<p t-if="move.description_picking != move.product_id.name">
+										<span t-field="move.description_picking" />
+									</p>
+								</td>
+								<td>
+									<span t-esc="move.lot_id.name" />
+								</td>
+								<td>
+									<span t-esc="move.lot_id.removal_date" />
+								</td>
+								<td>
+									<span t-field="move.product_uom_id" />
+								</td>
+								<td style="text-align: right">
+									<span t-field="move.quantity" />
+								</td>
+								<td style="text-align: right">
+									<span t-field="move.move_id.purchase_line_id.price_unit" />
+								</td>
+								<td style="text-align: right">
+									<span>
+										<t t-set="amount"
+											t-value="move.move_id.purchase_line_id.price_unit*move.quantity" />
+									</span>
+									<b>
+										<span t-esc="'{0:,.2f}'.format(float(amount))" />
+									</b>
+								</td>
+								<t t-set="number" t-value="number + 1" />
+								<t t-set="total_qty"
+									t-value="total_qty + move.quantity" />
+								<t t-set="total_amount" t-value="total_amount + amount" />
+							</tr>
+						</tbody>
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td t-if="lot" align="center" colspan="6">
+								<b>НИЙТ ДҮН</b>
+							</td>
+							<td t-if="not lot" align="center" colspan="6">
+								<b>НИЙТ ДҮН</b>
+							</td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="total_qty" />
+								</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float(total_amount))" />
+								</b>
+							</td>
+						</tr>
+						
+						
+						<tr>
+							<td align="center" colspan="6">
+								<b>ТАТВАР</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float(total_amount - total_amount/1.1))" />
+								</b>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="6">
+								<b>ТАТВАРГҮЙ ДҮН</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float(total_amount/1.1))" />
+								</b>
+							</td>
+						</tr>
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td t-if="lot" align="center" colspan="6">
+								<b>НИЙТ ТӨЛӨХ ДҮН</b>
+							</td>
+							<td t-if="not lot" align="center" colspan="6">
+								<b>НИЙТ ТӨЛӨХ ДҮН</b>
+							</td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center"></td>
+							<td style="text-align: center">
+								<b>
+									<span t-esc="'{0:,.2f}'.format(float(total_amount))" />
+								</b>
+							</td>
+						</tr>
+					</table>
+					<table class="table-l10n_mn-grid" width="100%"  t-if="o.location_id.usage=='transit'">
+						<thead>
+							<tr style="background:  #92dff8;color: #000000;">
+								<th width="*">№</th>
+								<th width="15%">Бар код</th>
+								<th width="35%">Бараа материалын нэр</th>
+								<th>Серийн дугаар</th>
+								<th width="15%">Дуусах хугацаа</th>
+								<th>Х.Н</th>
+								<th>Захиалсан тоо</th>
+								<th>Х/Авсан тоо</th>
+								<th>Зөрүү</th>
+								
+							</tr>
+						</thead>
+						<t t-set="number" t-value="1" />
+						<t t-set="total_qty" t-value="0" />
+						<t t-set="total_zuruu" t-value="0" />
+						<t t-set="zuruu" t-value="0" />
+						<t t-set="total_uom_qty" t-value="0" />
+						<tbody>
+							<t t-if="o.state!='done'" t-set="lines"
+								t-value="o.move_line_ids_without_package.filtered(lambda x: x.product_uom_qty)" />
+							<t t-if="o.state=='done'" t-set="lines"
+								t-value="o.move_line_ids_without_package.filtered(lambda x: x.quantity)" />
+
+							<tr t-foreach="lines" t-as="move">
+								<td>
+									<span t-esc="number" />
+								</td>
+								<td>
+									<span t-field="move.product_id.barcode" />
+								</td>
+								<td>
+									<span t-field="move.product_id" />
+									<p t-if="move.description_picking != move.product_id.name">
+										<span t-field="move.description_picking" />
+									</p>
+								</td>
+								<td>
+									<span t-esc="move.lot_id.name" />
+								</td>
+								<td>
+									<span t-esc="move.lot_id.removal_date" />
+								</td>
+								<td>
+									<span t-field="move.product_uom_id" />
+								</td>
+								<td>
+									<span t-field="move.move_id.product_uom_qty" />
+								</td>
+								<td style="text-align: right">
+									<span t-if="o.state=='done'" t-field="move.quantity" />
+								</td>
+								<t t-set="zuruu"
+									t-value="move.move_id.product_uom_qty - move.quantity" />
+								<td style="text-align: right">
+									<span t-if="o.state=='done'" t-esc="zuruu" />
+								</td>
+								
+								<t t-set="number" t-value="number + 1" />
+								<t t-set="total_qty"
+									t-value="total_qty + move.quantity" />
+								<t t-set="total_zuruu"
+									t-value="total_zuruu + zuruu" />
+								<t t-set="total_uom_qty"
+									t-value="total_uom_qty + move.move_id.product_uom_qty" />
+							</tr>
+						</tbody>
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td align="center" colspan="6">
+								<b>НИЙТ ДҮН</b>
+							</td>
+
+							<td style="text-align: center">
+								<b>
+									<span t-esc="total_uom_qty" />
+								</b>
+							</td>
+
+							<td style="text-align: center">
+								<b>
+									<span t-if="o.state=='done'" t-esc="total_qty" />
+								</b>
+							</td>
+							
+							<td style="text-align: center">
+								<b>
+									<span t-if="o.state=='done'" t-esc="total_zuruu" />
+								</b>
+							</td>
+							
+						</tr>
+					</table>
+					<br />
+
+					<p style="font:12px lucida-console,sans-serif !important;"  t-if="o.location_id.usage=='supplier'">
+						<span><b>
+							&#160;&#160;Төлбөр төлөх банк :</b></span><br/>
+							<t t-foreach="o.partner_id.bank_ids" t-as="bank">
+								<span t-if="bank.view_report">
+								 &#160;&#160;<span  t-field="bank.bank_id.name" /> &#160;&#160;Данс : <span t-field="bank.acc_number" />
+								</span>
+							</t>
+						<br /><br />
+					</p>
+					
+					<br />
+					<br />
+
+					<table class="table-l10n_mn-grid" >
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td colspan = "6" align="center">
+								<b>Хүргэлтийн мэдээлэл</b>
+							</td>
+						</tr>
+						<tr style="background: #DDDDDD;color: #000000;">
+							<td colspan = "3" align="center">
+								<b>Нийлүүлэгч талаас</b>
+							</td>
+							<td colspan = "3" align="center">
+								<b>Захиалагч талаас</b>
+							</td>
+						</tr>
+						<tr>
+							<td width="3%" align="center" valign="center"><b>1</b></td>
+							<td width="20%">Бэлтгэсэн:</td>
+							<td width="20%"></td>
+							<td width="3%" rowspan="3" align="center" valign="center"><b>4</b></td>
+							<td width="20%" rowspan="3" align="center" valign="center">Хадгалалт, тээвэрлэлтийн горим алдагдаагүйг шалган хүлээж авсан:
+							</td>
+							<td rowspan="3" width="20%"></td>
+						</tr>
+						<tr>
+							<td width="3%" align="center" valign="center"><b>2</b></td>
+							<td width="20%">Шалгасан:</td>
+							<td width="20%"></td>
+						</tr>
+						<tr>
+							<td width="3%" align="center" valign="center"><b>3</b></td>
+							<td width="20%">Хүлээлгэн өгсөн түгээгч:</td>
+							<td width="20%"><b t-field="o.driver_id.name" /></td>
+						</tr>
+					</table>
+				</div>
+			</t>
+		</template>
+
+		<template id="report_deliveryslip"
+			inherit_id="stock.report_deliveryslip">
+			<xpath expr="//t[@t-call='stock.report_delivery_document']"
+				position='replace'>
+
+				<t t-call="web.html_container">
+					<t t-foreach="docs" t-as="o">
+						<t t-if="o.company_id.stock_template == 'mn_standard'">
+							<t
+								t-call="l10n_mn_professional_reports_templates.mn_std_report_deliveryslip_document"
+								t-lang="o.partner_id.lang" />
+						</t>s
+						<t t-if="o.company_id.stock_template == 'odoo_standard'">
+							<t
+								t-call="l10n_mn_professional_reports_templates.odoo_std_report_deliveryslip_document"
+								t-lang="o.partner_id.lang" />
+						</t>
+					</t>
+				</t>
+			</xpath>
+		</template>
+
+	</data>
+</odoo>

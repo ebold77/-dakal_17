@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="partner_limit_settings_form" model="ir.ui.view">
+	    <field name="name">partner.limit.settings.form</field>
+	    <field name="model">partner.limit.settings</field>
+	    <field name="arch"  type="xml">
+	        <form string="Set Partner Limit">
+	            <group col="4">
+		           <field name="current_date"/> 
+		           <field name="check_date"/>  	
+		           <field name="category_id"/> 
+	            </group>
+	            <footer>
+	                <button name="set_credit_limit" type="object"
+	                    class="btn-primary" string="Set credit limit"/>
+	                <button special="cancel" string="Close" class="btn-default"/>
+	            </footer>
+	        </form>
+	    </field>
+	</record>
+
+	<record id="partner_limit_settings_action" model="ir.actions.act_window">
+	    <field name="name">Set Partner Limit</field>
+	    <field name="res_model">partner.limit.settings</field>
+	    <field name="view_mode">form</field>
+	    <field name="target">new</field>
+	</record>
+
+	 <menuitem id="partner_limit_settings_menu" name="Set Partner Limit" parent="account.menu_finance_entries" sequence="3" action="partner_limit_settings_action"/>
+
+</odoo>

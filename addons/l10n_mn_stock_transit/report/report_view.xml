@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+        <!-- QWeb Reports -->
+
+        <report
+            id="report_print_transit_order"
+            model="stock.transit.order"
+            report_type="qweb-pdf"
+            string="Print Order"
+            name="l10n_mn_stock_transit.report_stock_transit_order"
+            file="l10n_mn_stock_transit.report_stock_transit_order"
+            />
+</openerp>

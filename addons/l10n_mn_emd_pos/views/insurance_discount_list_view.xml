@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view"
+			id="insurance_discount_list_tree_view">
+			<field name="name">insurance.discount.list.tree</field>
+			<field name="model">insurance.discount.list</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Insurance Discount List">
+					<field name="tbltId" />
+					<field name="tbltNameMon" />
+					<field name="tbltNameInter" />
+					<field name="tbltNameSales" />
+					<field name="tbltType" />
+					<field name="tbltSizeUnit" />
+					<field name="tbltSizeMixture" />
+					<field name="tbltBarCode" />
+					<field name="tbltIsDiscount"/>
+					<field name="status" />
+					<field name="tbltTypeName"/>
+					<field name="tbltGroup"/>
+					<field name="tbltSCode"/>
+					<field name="groupName"/>
+					<field name="packGroup" />
+					<field name="tbltUnitDisAmt"/>
+					<field name="tbltUnitPrice"/>
+					<field name="isBc"/>
+					<field name="tbltManufacture"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="insurance_discount_list_form_view" model="ir.ui.view">
+            <field name="name">insurance.discount.list.form</field>
+            <field name="model">insurance.discount.list</field>
+            <field name="arch" type="xml">
+                <form string="Insurance Discount List">
+                	<header>
+						<button name="get_insurense_list" string="Get EMD List"
+							type="object" class="oe_highlight" groups="l10n_mn_emd_pos.group_pharmacy_pos_manager" />
+					</header> 
+                	<sheet>
+	                	<group colspan="2">
+		                    <group>
+		                        <field name="tbltId" />
+								<field name="tbltNameMon" />
+								<field name="tbltNameInter" />
+								<field name="tbltNameSales" />
+								<field name="tbltType" />
+								<field name="tbltSizeUnit" />
+								<field name="tbltSizeMixture" />
+								<field name="tbltBarCode" />
+								<field name="tbltIsDiscount"/>
+								<field name="status" />
+		                    </group>
+		                    <group>
+								<field name="tbltTypeName"/>
+								<field name="tbltGroup"/>
+								<field name="tbltSCode"/>
+								<field name="groupName"/>
+								<field name="packGroup" />
+								<field name="tbltUnitDisAmt"/>
+								<field name="tbltUnitPrice"/>
+								<field name="isBc"/>
+								<field name="tbltManufacture"/>
+							</group>
+	                	</group>
+	                	<notebook>
+	                		<page string="Products">
+	                			<field name="product_ids"/>
+	                		</page>
+	                	</notebook>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+		<record id="insurance_discount_list_search_view"
+			model="ir.ui.view">
+			<field name="name">insurance.discount.list.search.form</field>
+			<field name="model">insurance.discount.list</field>
+			<field name="arch" type="xml">
+				<search string="Insurance Discount List">
+					<field name="tbltNameMon" />
+					<field name="tbltNameInter" />
+					<field name="tbltNameSales" />
+					<field name="tbltManufacture" />
+					<group expand="0" string="Group By">
+                        <filter string="Inter Name" name="tbltNameInter" domain="[]" context="{'group_by': 'tbltNameInter'}"/>
+                        <filter string="Mon Name" name="tbltNameMon" domain="[]" context="{'group_by': 'tbltNameMon'}"/>
+                        <filter string="Size Mixture" name="tbltSizeMixture" domain="[]" context="{'group_by': 'tbltSizeMixture'}"/>
+                        <filter string="Manufacture" name="tbltManufacture" domain="[]" context="{'group_by': 'tbltManufacture'}"/>
+                    </group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window"
+			id="action_insurance_discount_list_tree_view">
+			<field name="name">insurance.discount.list</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">insurance.discount.list</field>
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> 
+				<field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<!-- <field name="view_id" ref="insurance_discount_list_tree_view"/> -->
+		</record>
+
+		<menuitem id="insurance_discount_list_menu"
+			name="Insurance Discount List"
+			parent="point_of_sale.menu_point_of_sale"
+			action="action_insurance_discount_list_tree_view" />
+
+
+	</data>
+</odoo>

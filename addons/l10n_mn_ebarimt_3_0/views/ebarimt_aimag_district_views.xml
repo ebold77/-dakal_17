@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ebarimt_aimag_district_form_view" model="ir.ui.view">
+            <field name="name">ebarimt.aimag.district.form</field>
+            <field name="model">ebarimt.aimag.district</field>
+            <field name="arch" type="xml">
+                <form string="EBarimt Aimag/District">
+                    <header>
+						<button name="get_district_list" string="Get District"
+							type="object" class="oe_highlight" groups="l10n_mn_ebarimt_3_0.group_ebarimt_gs1barcode" />
+					</header> 
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="ebarimt_aimag_district_tree_view" model="ir.ui.view">
+            <field name="name">ebarimt.aimag.district.tree</field>
+            <field name="model">ebarimt.aimag.district</field>
+            <field name="arch" type="xml">
+                <tree string="EBarimt Aimag/District List">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ebarimt_aimag_district_form_action" model="ir.actions.act_window">
+            <field name="name">EBarimt Aimag/District List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ebarimt.aimag.district</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+              Click to add a new EBarimt Aimag/District.
+              </p>
+            </field>
+        </record>
+        <menuitem name='EBarimt' id='root_ebarimt_menu' parent='point_of_sale.menu_point_config_product' sequence="41"/>
+        <menuitem action="ebarimt_aimag_district_form_action" id="menu_ebarimt_aimag_district_form_action" parent="root_ebarimt_menu" sequence="2"/>
+    </data>
+</odoo>

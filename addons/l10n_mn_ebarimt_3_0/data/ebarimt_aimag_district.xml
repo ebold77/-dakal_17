@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate='1'>
+        <record id="aimag_district_id_arkhangai" model="ebarimt.aimag.district">
+            <field name="code">01</field>
+            <field name="name">Архангай</field>
+        </record>
+        <record id="aimag_district_id_bayanulgii" model="ebarimt.aimag.district">
+            <field name="code">02</field>
+            <field name="name">Баян-Өлгий</field>
+        </record>
+        <record id="aimag_district_id_bayankhongor" model="ebarimt.aimag.district">
+            <field name="code">03</field>
+            <field name="name">Баянхонгор</field>
+        </record>
+        <record id="aimag_district_id_bulgan" model="ebarimt.aimag.district">
+            <field name="code">04</field>
+            <field name="name">Булган</field>
+        </record>
+        <record id="aimag_district_id_govialtai" model="ebarimt.aimag.district">
+            <field name="code">05</field>
+            <field name="name">Говь-Алтай</field>
+        </record>
+        <record id="aimag_district_id_dornogovi" model="ebarimt.aimag.district">
+            <field name="code">06</field>
+            <field name="name">Дорноговь</field>
+        </record>
+        <record id="aimag_district_id_dornod" model="ebarimt.aimag.district">
+            <field name="code">07</field>
+            <field name="name">Дорнод</field>
+        </record>
+        <record id="aimag_district_id_dundgovi" model="ebarimt.aimag.district">
+            <field name="code">08</field>
+            <field name="name">Дундговь</field>
+        </record>
+        <record id="aimag_district_id_zavkhan" model="ebarimt.aimag.district">
+            <field name="code">09</field>
+            <field name="name">Завхан</field>
+        </record>
+        <record id="aimag_district_id_uvurkhangai" model="ebarimt.aimag.district">
+            <field name="code">10</field>
+            <field name="name">Өвөрхангай</field>
+        </record>
+        <record id="aimag_district_id_umnugovi" model="ebarimt.aimag.district">
+            <field name="code">11</field>
+            <field name="name">Өмнөговь</field>
+        </record>
+        <record id="aimag_district_id_sukhbaatar" model="ebarimt.aimag.district">
+            <field name="code">12</field>
+            <field name="name">Сүхбаатар</field>
+        </record>
+        <record id="aimag_district_id_selenge" model="ebarimt.aimag.district">
+            <field name="code">13</field>
+            <field name="name">Сэлэнгэ</field>
+        </record>
+        <record id="aimag_district_id_tuv" model="ebarimt.aimag.district">
+            <field name="code">14</field>
+            <field name="name">Төв</field>
+        </record>
+        <record id="aimag_district_id_uvs" model="ebarimt.aimag.district">
+            <field name="code">15</field>
+            <field name="name">Увс</field>
+        </record>
+        <record id="aimag_district_id_khovd" model="ebarimt.aimag.district">
+            <field name="code">16</field>
+            <field name="name">Ховд</field>
+        </record>
+        <record id="aimag_district_id_khuvsgul" model="ebarimt.aimag.district">
+            <field name="code">17</field>
+            <field name="name">Хөвсгөл</field>
+        </record>
+        <record id="aimag_district_id_khentii" model="ebarimt.aimag.district">
+            <field name="code">18</field>
+            <field name="name">Хэнтий</field>
+        </record>
+        <record id="aimag_district_id_darkhanuul" model="ebarimt.aimag.district">
+            <field name="code">19</field>
+            <field name="name">Дархан-Уул</field>
+        </record>
+        <record id="aimag_district_id_orkhon" model="ebarimt.aimag.district">
+            <field name="code">20</field>
+            <field name="name">Орхон</field>
+        </record>
+        <record id="aimag_district_id_khanuul" model="ebarimt.aimag.district">
+            <field name="code">23</field>
+            <field name="name">Хан-Уул дүүрэг</field>
+        </record>
+        <record id="aimag_district_id_bayanzurkh" model="ebarimt.aimag.district">
+            <field name="code">24</field>
+            <field name="name">Баянзүрх дүүрэг</field>
+        </record>
+        <record id="aimag_district_id_sukhbaatar_district" model="ebarimt.aimag.district">
+            <field name="code">25</field>
+            <field name="name">Сүхбаатар дүүрэг</field>
+        </record>
+        <record id="aimag_district_id_bayangol" model="ebarimt.aimag.district">
+            <field name="code">26</field>
+            <field name="name">Баянгол дүүрэг</field>
+        </record>
+        <record id="aimag_district_id_baganuur" model="ebarimt.aimag.district">
+            <field name="code">27</field>
+            <field name="name">Багануур дүүрэг</field>
+        </record>
+        <record id="aimag_district_id_bagakhangai" model="ebarimt.aimag.district">
+            <field name="code">28</field>
+            <field name="name">Багахангай дүүрэг</field>
+        </record>
+        <record id="aimag_district_id_nalaikh" model="ebarimt.aimag.district">
+            <field name="code">29</field>
+            <field name="name">Налайх дүүрэг</field>
+        </record>
+        <record id="aimag_district_id_govisumber" model="ebarimt.aimag.district">
+            <field name="code">32</field>
+            <field name="name">Говьсүмбэр</field>
+        </record>
+        <record id="aimag_district_id_songinokhairkhan" model="ebarimt.aimag.district">
+            <field name="code">34</field>
+            <field name="name">Сонгинохайрхан дүүрэг</field>
+        </record>
+        <record id="aimag_district_id_chingeltei" model="ebarimt.aimag.district">
+            <field name="code">3501</field>
+            <field name="name">Чингэлтэй дүүрэг</field>
+        </record>
+    </data>
+</odoo>

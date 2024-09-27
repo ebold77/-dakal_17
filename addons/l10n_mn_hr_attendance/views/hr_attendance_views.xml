@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ирцийн форм харагдцыг удамшуулав. -->
+    <record id="view_hr_attendance_form_inherit_mn" model="ir.ui.view">
+        <field name="name">hr.attendance.form.inherit.mn</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+        <field name="arch" type="xml">
+        	<xpath expr="//sheet" position="replace">
+       			<sheet>
+	               	<group>
+	               		<group name='workable_hours'>
+	               			<field name="employee_id"/>
+	               			<field name="identification_id" readonly="1"/>
+	               		</group>
+	               		<group name='attendance_hours'>
+	               			<field name="check_in"/>
+	            			<field name="check_out"/>
+	               			<field name="total_attendance_hours" widget="float_time"/>
+			                <field name="in_time" />
+			                <field name="out_time" />
+                            <field name="time_lag"/>
+	               		</group>
+	               	</group>
+	            </sheet>
+	        </xpath>
+        </field>
+    </record>
+
+    <!-- Ирцийн мод харагдцыг удамшуулав. -->
+    <record id="view_attendance_tree_inherit_mn" model="ir.ui.view">
+        <field name="name">hr.attendance.tree.inherit.mn</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">total_attendance_hours&lt;0.1</attribute>
+                <attribute name="decoration-info">is_attendance_repair == True</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='employee_id']" position="after">
+            	<field name="identification_id" readonly="1"/>
+            </xpath>
+            <field name="worked_hours" position="after">
+                <field name="total_attendance_hours" widget="float_time"/>
+                <field name="time_lag" widget="float_time"/>
+                <field name="is_attendance_repair" invisible="1"/>
+                <field name="department_id"/>
+                <field name="company_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Ирцийн хайлт харагдцыг удамшуулав. -->
+    <record id="view_hr_attendance_filter_inherit_mn" model="ir.ui.view">
+        <field name="name">hr.attendance.filter.inherit.mn</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//field[@name='employee_id']" position="after">
+            	<field name="identification_id"/>
+            </xpath>
+            <xpath expr="//filter[@name='employee']" position="after">
+            	<filter name="group_identification_id" string="Identification No" context="{'group_by': 'identification_id'}"/>
+                <filter name="company" string="Company" context="{'group_by': 'company_id'}"/>
+                <filter name="department" string="Department" context="{'group_by': 'department_id'}"/>
+                <filter string="Archived Attendance" name="filter_archived" domain="[('active', '=', False)]" context="{}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Ирцийн пивот харагдцыг удамшуулав. -->
+    <record id="view_hr_attendance_pivot_inherit_mn" model="ir.ui.view">
+        <field name="name">hr.attendance.pivot.inherit.mn</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_pivot"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_id']" position="attributes">
+                <attribute name="type">col</attribute>
+            </xpath>
+            <xpath expr="//field[@name='check_in']" position="attributes">
+                <attribute name="type">row</attribute>
+            </xpath>
+            <xpath expr="//field[@name='worked_hours']" position="replace">
+                <field name="in_time" type="measure"/>
+                <field name="out_time" type="measure"/>
+                <field name="time_lag" type="measure"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Ирц - Тохиргоо цэс -->
+    <menuitem id="menu_hr_attendance_base_settings" name="Configuration" parent="hr_attendance.menu_hr_attendance_root" sequence="99" groups="hr_attendance.group_hr_attendance_manager"/>
+
+    <!-- Ирц - Тохиргоо - Тохиргоо цэс -->
+    <menuitem id="menu_hr_attendance_settings" name="Configuration" action="hr_attendance.action_hr_attendance_settings" parent="menu_hr_attendance_base_settings" sequence="1" groups="hr_attendance.group_hr_attendance_manager"/>
+
+    <!-- Ирц - Тохиргоо - Цаг бүртгэлийн төхөөрөмжийн тохиргоо цэс -->
+    <menuitem id="menu_attendance_device" name="Attendance Device" action="action_hr_attendance_device" parent="menu_hr_attendance_base_settings" sequence="5"/>
+
+
+</odoo>

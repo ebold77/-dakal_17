@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="mn_standard_report_invoice_document">
+        
+        	<t t-if="o and 'company_id' in o">
+				<t t-set="company" t-value="o.company_id"></t>
+			</t>
+			<t t-if="not o or not 'company_id' in o">
+				<t t-set="company" t-value="res_company"></t>
+			</t>
+			<div class="header">
+				<div class="row mt32 mb32">
+					<div class="col-6">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
+                             style="max-height: 50px;"/>
+                    </div>
+					<div class="col-6 text-right"
+						style="font:12px lucida-console,sans-serif !important;">
+						<span>Байгууллагын нэр:</span>
+						<span t-field="company.partner_id" />
+						<br />
+					</div>
+				</div>
+			</div>
+
+			<t t-call="web.internal_layout">
+				<t t-set="o"
+					t-value="o.with_context({'lang':o.partner_id.lang})"/>
+				<div class="page l10n_mn_base_report">
+					<h2 class="text-center" t-if="o.move_type=='in_invoice' or  o.move_type=='out_invoice'">НЭХЭМЖЛЭХ </h2>
+                    <h2 class="text-center" t-if="o.move_type=='in_refund' or  o.move_type=='out_refund'">БУЦААЛТЫН НЭХЭМЖЛЭХ </h2>
+
+					<div class="row mt32 mb32">
+						<p class="col-6" style="font:12px lucida-console,sans-serif !important;">
+							<span>Дугаар : </span><b t-esc="o.name"/><span t-if="o.state == 'draft'"><b> (Ноорог) </b></span> <br />
+							<span><b>Нэхэмжлэгчийн нэр : </b></span><span t-field="o.company_id.partner_id.name"/> <br/>
+							<span><b>Нэхэмжлэгчийн хаяг : </b></span><span t-field="o.company_id.partner_id.street"/><br/>
+							<span><b>Утас : </b></span><span t-field="o.company_id.partner_id.phone"/><br/>
+							<span><b>Гар утас : </b></span><span t-field="o.company_id.partner_id.mobile"/><br/>
+							<span><b>Цахим шуудан : </b></span> <span t-field="o.company_id.partner_id.email"/><br/>
+							<span><b>Цахим хаяг : </b></span> <span t-field="o.company_id.partner_id.website"/><br/>
+							<span><b>ТТД: </b></span><span t-field="o.company_id.partner_id.vat"/><br/>
+						</p>
+						<p class="col-6 text-right" style="font:12px lucida-console,sans-serif !important;">
+							<span><b>Огноо : </b></span><span t-field="o.invoice_date"/><br/>
+                            <span><b>Төлөгчийн нэр : </b></span><span t-field="o.partner_id.name"/><br/>
+                            <span><b>Хаяг : </b></span> <span t-field="o.partner_id.street"/><br/>
+                            <span><b>Утас : </b></span><span t-field="o.partner_id.phone"/><br/>
+			  
+	                        <span><b>ДДТД: </b></span> <br/>
+                      
+                            <span><b>ТТД: </b></span><span t-field="o.partner_id.vat"/><br/>
+                            <span><b>Гэрээний дугаар : </b></span><span>............................................</span><br/>
+                            <span><b>Эх баримтын дугаар :</b></span><span t-field="o.invoice_origin"/>
+                                  <span t-if="not o.source_id">.........</span><br/>
+                            <span><b>Төлбөр хийх хугацаа : </b></span><span t-if="o.invoice_date_due" t-field="o.invoice_date_due"/>
+                                  <span t-if="not o.invoice_date_due">.............</span><br/>
+						</p>
+					</div>
+					<div>
+						<p class="text-left" style="font:12px lucida-console,sans-serif !important;">
+							<span><b>Банкны нэр, дансны дугаар : </b></span>
+                            <span t-if="o.move_type == 'in_invoice' or o.move_type == 'out_refund'">
+                                   <span t-if="o.partner_id.bank_ids" t-foreach="o.partner_id.bank_ids" t-as="b" >
+                                       <span t-if="b.view_report"><span t-field="b.bank_name"/>-
+                                       <span t-if="b.view_report and b.acc_number" t-field="b.acc_number"/>(
+                                       <span t-if="b.view_report and b.currency_id" t-field="b.currency_id.name"/>
+                                       )
+                                       </span>
+                                   </span>
+                                   </span>
+                              <span t-if="o.move_type == 'out_invoice' or o.move_type == 'in_refund'">
+                                   <span t-if="o.company_id.partner_id.bank_ids" t-foreach="o.company_id.partner_id.bank_ids" t-as="b" >
+                                       <span t-if="b.view_report"><span t-field="b.bank_name"/>-
+                                       <span t-if="b.view_report and b.acc_number" t-field="b.acc_number"/>(
+                                       <span t-if="b.view_report and b.currency_id" t-field="b.currency_id.name"/>
+                                       ), 
+                                       </span>
+                                   </span>
+                                   </span>
+                       </p>
+					</div>
+					<br />
+					<table class="table-l10n_mn-grid" width="100%">
+						 <thead>
+	                         <tr>
+	                         	<th>№</th>
+	                            <th>Барааны нэр</th>
+	                            <th>Х.Н</th>
+	                            <th>Тоо хэмжээ</th>
+	                            <th>Нэгж үнэ</th>
+	                            <th>Хөнгөлөлт</th>
+	                            <th>Нийт дүн</th>
+	                         </tr>
+                         </thead>
+						<t t-set="count" t-value="1" />
+						<t t-set="dis_amount" t-value="0" />
+						<tbody class="invoice_tbody">
+                           <tr t-foreach="o.invoice_line_ids" t-as="l">
+                           <td align="center" t-esc="count"></td>
+                           <td align="left"><span t-field="l.name"/></td>
+                           <td align="center"><span t-field="l.uom_id" groups="product.group_uom"/></td>
+                           <td align="right"><span t-field="l.quantity"/></td>
+                           <td align="right"><span t-field="l.price_unit"/></td>
+                           <td align="right"><span t-field="l.discount"/></td>
+                           <td align="right"><span t-field="l.price_subtotal"/></td>
+                           <t t-set="count" t-value="count+1"/>
+                           </tr>
+                       </tbody>
+						<tr>
+							<td colspan="6" align="right">
+								<span><b>Нийт дүн :</b></span>
+							</td>
+							<td align="right">
+								<span t-field="o.amount_untaxed"
+                                      t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+							</td>
+						</tr>
+                         
+                     	
+						<tr>
+							<td colspan="6" align="right">
+								<b>НӨАТ-н дүн</b>
+							</td>
+							<td align="right">
+								<b>
+									<span t-field="o.amount_tax_signed" t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+								</b>
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="6" align="right">
+								<span><b>Төлбөл зохих дүн :</b></span>
+							</td>
+							<td align="right">
+								<b>
+									<span t-field="o.amount_total"
+                                   t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+								</b>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="6" align="right">
+								<span><b>Валют :</b></span>
+							</td>
+							<td align="right">
+								<b>
+									<span><b t-field="o.currency_id.name"/></span>
+								</b>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<p style="font:12px lucida-console,sans-serif !important;"> <span>Нийт дүн (үсгээр): </span></p>
+					
+					<p style="font:12px lucida-console,sans-serif !important;">
+						<span>
+							&#160;&#160;Захирал :
+							....................................................../
+							<font color="white">-----------------------------</font>
+							/
+						</span><br />
+						<span>
+							&#160;&#160;Ерөнхий нягтлан бодогч :
+							....................................................../
+							<font color="white">-----------------------------</font>
+							/
+						</span><br />
+						<span>
+							&#160;&#160;Хүлээн авсан :
+							....................................................../
+							<font color="white">-----------------------------</font>
+							/
+						</span><br />
+					</p>
+				</div>
+			</t>
+        </template>
+<!-- 
+        <template id="report__invoice" inherit_id="account.report_invoice_with_payments">
+            <xpath expr="//t[@t-call='account.report_invoice_document']" position="replace">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-if="o.company_id.account_template == 'fency' ">
+                            <t t-call="l10n_mn_professional_reports_templates.fency_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                        </t>
+                        <t t-if="o.company_id.account_template == 'classic' ">
+                            <t t-call="l10n_mn_professional_reports_templates.classic_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                        </t>
+                        <t t-if="o.company_id.account_template == 'modern' ">
+                            <t t-call="l10n_mn_professional_reports_templates.modern_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                        </t>
+                        <t t-if="o.company_id.account_template == 'odoo_standard' ">
+                            <t t-call="l10n_mn_professional_reports_templates.odoo_std_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                        </t>
+                    </t>
+                </t>
+            </xpath>
+
+        </template> -->
+
+        <template id="account.report_invoice_with_payments">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.invoice_user_id.sudo().lang if o.move_type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                    <t t-set="print_with_payments" t-value="True"/>
+                    <t t-if="o.company_id.account_template == 'mn_standard' ">                    
+                        <t t-call="l10n_mn_professional_reports_templates.mn_standard_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                    </t>
+                    <t t-if="o.company_id.account_template == 'odoo_standard' ">
+                        <t t-call="l10n_mn_professional_reports_templates.odoo_std_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+    
+<!--    <template id="report_invoices" inherit_id="account.report_invoice">
+             <xpath expr="//t[@t-set='account.print_with_payments']" position="replace">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-if="o.company_id.account_template == 'fency' ">
+                            <t t-call="l10n_mn_professional_reports_templates.fency_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                        </t>
+                        <t t-if="o.company_id.account_template == 'classic' ">
+                            <t t-call="l10n_mn_professional_reports_templates.classic_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                        </t>
+                        <t t-if="o.company_id.account_template == 'modern' ">
+                            <t t-call="l10n_mn_professional_reports_templates.modern_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                        </t>
+                        <t t-if="o.company_id.account_template == 'odoo_standard' ">
+                            <t t-call="l10n_mn_professional_reports_templates.odoo_std_report_invoice_document"
+                               t-lang="o.partner_id.lang"/>
+                        </t>
+                    </t>
+                </t>
+            </xpath>
+        </template> -->
+
+        <template id="account.report_invoice">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.invoice_user_id.sudo().lang if o.move_type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                    <t t-set="print_with_payments" t-value="True"/>
+                    <t t-if="o.company_id.account_template == 'mn_standard' ">
+                        <t t-call="l10n_mn_professional_reports_templates.mn_standard_report_invoice_document"
+                           t-lang="o.partner_id.lang"/>
+                    </t>
+                    <t t-if="o.company_id.account_template == 'odoo_standard' ">
+                        <t t-call="l10n_mn_professional_reports_templates.odoo_std_report_invoice_document"
+                           t-lang="o.partner_id.lang"/>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

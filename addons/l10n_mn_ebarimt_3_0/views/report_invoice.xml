@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <br/>
+            <div class="row mb64" t-if="o.bill_id">
+                <div class="col-6">
+                    <strong>Bill ID: </strong><span t-field="o.bill_id"/>
+                </div>
+                <div class="col-6">
+                    <div t-if="o.partner_id.company_type == 'person' and data">
+                        <strong>Lottery: </strong><span t-esc="data['lottery_no']" />
+                    </div>
+                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', data['qr_data'], 200, 200)"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="report_invoice_receipt">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                
+                <t t-call="l10n_mn_ebarimt_3_0.report_invoice_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

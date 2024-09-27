@@ -1,0 +1,17 @@
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_download_currency_rate" model="ir.cron">
+            <field name="name">Download currency rate</field>
+            <field name="model_id" ref="model_res_currency"/>
+            <field name="state">code</field>
+            <field name="code">
+currencies = self.env['res.currency'].search([('active', '=', True), ('name', '!=', 'MNT')])
+if currencies:
+    currencies._download_currency_rate()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

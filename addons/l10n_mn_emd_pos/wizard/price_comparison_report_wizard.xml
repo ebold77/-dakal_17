@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="price_comparison_report_xlsx_form" model="ir.ui.view">
+        <field name="name">view.report.price.comparison.form</field>
+        <field name="model">report.price.comparison</field>
+        <field name="arch"  type="xml">
+            <form string="Price Comparison Report">
+                <group colspan="4" col="4">
+                    <group col="4">
+                       <field name="company_id" readonly="1"/>
+                       <field name="date"/>
+                       
+                    </group>
+                    <group>
+                        <notebook colspan="4">
+                           <page string="Pricelist">
+                               <field name="pricelist_ids" nolabel="1" colspan="4" widget="many2many_checkboxes" required="1"/>
+                           </page>
+                           <page string="Product">
+                               <field name="product_ids" nolabel="1" colspan="4"/>
+                           </page>
+                        </notebook>
+                    </group>
+                </group>
+                <footer>
+                    <button name="export_report_xls" type="object"
+                        class="btn-primary" string="Generate"/>
+                    <button special="cancel" string="Close" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_report_price_comparison" model="ir.actions.act_window">
+        <field name="name">Price Comparison Report</field>
+        <field name="res_model">report.price.comparison</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Replace native menu, to avoid user confusion 
+    <record id="stock_account.menu_action_wizard_valuation_history" model="ir.ui.menu">
+        <field name="action" ref="stock_valuation_xlsx.stock_valuation_xlsx_action"/>
+        <field name="name">Stock Valuation XLSX</field>
+        <field name="sequence">0</field>
+    </record>
+    -->
+
+     <menuitem id="menu_report_price_comparison" name="Price Comparison Report" action="action_report_price_comparison"
+                  parent="point_of_sale.menu_point_rep"
+              sequence="10"/>
+
+</odoo>

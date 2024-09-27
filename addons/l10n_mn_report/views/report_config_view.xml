@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Report Footer Config Tree -->
+        <record id="view_report_footer_config_tree" model="ir.ui.view">
+            <field name="name">report.footer.config.tree</field>
+            <field name="model">report.footer.config</field>
+            <field name="priority">2</field>
+            <field name="arch" type="xml">
+                <tree string="Report Footer Configure">
+                    <field name="name" />
+                    <field name="report_id" />
+                    <field name="company_id" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Report Footer Config Form -->
+        <record id="view_report_footer_config_form" model="ir.ui.view">
+            <field name="name">report.footer.config.form</field>
+            <field name="model">report.footer.config</field>
+            <field name="arch" type="xml">
+                <form string="Report Footer Configure">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="company_id" />
+                            </group>
+                            <group>
+                                <field name="report_id" required="1"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Report Footer Configure Lines">
+                                <field name="line_ids" nolabel="1" colspan="4">
+                                    <tree string="Workflow" editable="bottom">
+                                        <field name="sequence" required="1"/>
+                                        <field name="name" required="1"/>
+                                        <field name="partner_id"/>
+                                        <field name="job_title"/>
+                                        <field name="signature" />
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="sequence" />
+                                                <field name="name" />
+                                            </group>
+                                            <group>
+                                                <field name="partner_id" />
+                                                <field name="job_title" />
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Report Footer Config Search -->
+        <record id="view_report_footer_config_filter" model="ir.ui.view">
+            <field name="name">report.footer.config.search</field>
+            <field name="model">report.footer.config</field>
+            <field name="arch" type="xml">
+                <search string="Report Footer Configure">
+                    <field name="name" />
+                    <field name="report_id" />
+                    <group expand="0" string="Group By">
+                        <filter string="Report" name="report_id" domain="[]" context="{'group_by':'report_id'}" />
+                        <filter string="Company" name="company_id" domain="[]" context="{'group_by':'company_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Report Footer Config Action -->
+        <record id="action_report_footer_config" model="ir.actions.act_window">
+            <field name="name">Report Footer Configure</field>
+            <field name="res_model">report.footer.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_report_footer_config_filter" />
+        </record>
+
+        <!-- Report Footer Config Menu -->
+        <menuitem id="menu_report_footer_configure" name="Report Footer Configure" parent="base.menu_administration" sequence="4" action="action_report_footer_config" groups="group_report_footer_manager" />
+
+    </data>
+</openerp>

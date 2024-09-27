@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paperformat_admission_form" model="report.paperformat">
+            <field name="name">Admission Form</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">15</field>
+            <field name="dpi">90</field>
+        </record>
+	
+	    <record id="sale.action_report_saleorder" model="ir.actions.report">
+            <field name="paperformat_id" ref="l10n_mn_professional_reports_templates.paperformat_admission_form"/>
+        </record>
+
+        <record id="account.account_invoices_without_payment" model="ir.actions.report">
+            <field name="paperformat_id" ref="l10n_mn_professional_reports_templates.paperformat_admission_form"/>
+        </record>
+        
+        <record id="account.account_invoices" model="ir.actions.report">
+            <field name="paperformat_id" ref="l10n_mn_professional_reports_templates.paperformat_admission_form"/>
+        </record>
+
+        <record id="purchase.action_report_purchase_order" model="ir.actions.report">
+            <field name="paperformat_id" ref="l10n_mn_professional_reports_templates.paperformat_admission_form"/>
+        </record>
+    </data>
+</odoo>

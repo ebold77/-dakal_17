@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="buy_sell_order_form_view" model="ir.ui.view">
+        <field name="name">buy.sell.order.form.view</field>
+        <field name="model">buy.sell.order</field>
+        <field name="arch" type="xml">
+            <form string="Buy and Sell Order">
+            	<header>
+            		<button name="action_sent" string="Send by Manager" type="object" class="oe_highlight"/>
+            		<button name="action_check" string="Checked" type="object" class="oe_highlight" groups="buy_sell.group_buy_sell_manager"/>
+            		<button name="action_approve"  string="Approve" type="object" class="oe_highlight" groups="account.group_account_manager"/>
+                    <button name="print_report" type="object"
+                            string="Print Order" class="oe_highlight" />
+            		<button name="action_cancel"  string="Cancel" type="object" class="oe_highlight"/>
+            		<button name="action_set_draft" string="Set Draft" type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,checked,approved,received,delivered,canceled" readonly="1"/>
+            	</header>
+                <sheet>
+                	 <!-- <div class="oe_button_box" name="button_box">
+                       
+                        <button name="action_view_invoice"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-pencil-square-o"
+                            attrs="{'invisible': [('invoice_count', '=', 0)]}">
+                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                        </button>
+                        <field name="picking_ids" invisible="1"/>
+	                    <button type="object"
+	                        name="action_view_delivery"
+	                        class="oe_stat_button"
+	                        icon="fa-truck"
+	                        attrs="{'invisible': [('delivery_count', '=', 0)]}" groups="base.group_user">
+	                        <field name="delivery_count" widget="statinfo" string="Delivery"/>
+	                    </button>
+                    </div> -->
+                       <field name="name" class="oe_inline" force_save="1"/>
+                   	 <group>
+                        <group>
+                            <field name="warehouse_id"/>
+                            <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'supplier', 'show_vat': True}"
+                                placeholder="Name, TIN, Email, or Reference"
+                            />
+                            <field name="pricelist_id"/>
+                            <field name='currency_id' invisible="1"/>
+                            <field name="sale_tax_id" domain="[('type_tax_use','=','sale')]" context="{'default_type_tax_use': 'sale', 'search_view_ref': 'account.account_tax_view_search'}" options="{'no_create': True}" optional="show"/>
+                            <field name="sale_order_id" force_save="1" />
+                        </group>
+                        <group>
+                            <field name="date_order"/>
+                            <field name="origin"/>
+                            <field name="buy_sell_tax_id" domain="[('type_tax_use','=','purchase')]" context="{'default_type_tax_use': 'purchase', 'search_view_ref': 'account.account_tax_view_search'}" options="{'no_create': True}" optional="show"/>
+                            <field name="purchase_order_id" force_save="1"/>
+                            <field name="user_id" force_save="1"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Sell products">
+                        	<field name="sell_order_line">
+                                <tree string="Sell Order Lines" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id"/>
+                                    <field name="product_qty"/>
+                                    <field name="product_uom" force_save="1"/>
+                                    <field name="bs_price"/>
+                                    <field name="list_price" force_save="1"/>
+                                    <field name="pricelist_discount" force_save="1"/>
+                                    <field name="stock_available_qty" force_save="1"/>
+                                    <field name="month_average_amount" force_save="1"/>
+                                    <field name="bs_price_total" force_save="1" sum="Total"/>
+                                    <field name="list_price_total" force_save="1" sum="Total List Price"/>
+                                    <field name="discount_total" force_save="1" sum="Total Discount"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                            	<field name="profit_loss_sale" force_save="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                        </page>
+                        <page string="Buy products">
+                        	<field name="buy_order_line">
+                                <tree string="Buy Order Lines" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id"/>
+                                    <field name="product_qty"/>
+                                    <field name="product_uom" force_save="1"/>
+                                    <field name="bs_price"/>
+                                    <field name="list_price" force_save="1"/>
+                                    <field name="pricelist_discount" force_save="1"/>
+                                    <field name="stock_available_qty" force_save="1"/>
+                                    <field name="month_average_amount" force_save="1"/>
+                                    <field name="bs_price_total" force_save="1" sum="Total"/>
+                                    <field name="list_price_total" force_save="1" sum="Total List Price"/>
+                                    <field name="discount_total" force_save="1" sum="Total Discount"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                            	<field name="profit_loss_buy" force_save="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                        </page>
+                        <page string="Other Info">
+                        	<group>
+	                     		<group>
+	                     			<field name="delivered"/>
+									<field name="date_approve"/>
+                            		<field name="validator_id"/>	                     		
+                            	</group>
+	                     		<group>
+	                     			<field name="received"/>
+			                     	<field name="company_id" groups="base.group_multi_company"/>
+	                     		</group>
+	                     	</group>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer oe_right">
+                    
+                        <field name="sell_total" force_save="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <field name="buy_total" force_save="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <div class="oe_subtotal_footer_separator oe_inline">
+                            <label for="price_difference"/>
+                        </div>
+                        <field name="price_difference" nolabel="1" force_save="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    </group>
+                    <field name="notes" class="oe_inline" placeholder="Define your terms and conditions ..."/>
+                    <div class="oe_clear"/> 
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"
+                           groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="buy_sell_order_tree_view" model="ir.ui.view">
+        <field name="name">buy.sell.order.tree.view</field>
+        <field name="model">buy.sell.order</field>
+        <field name="arch" type="xml">
+            <tree string="Buy and Sell">
+                <field name="name"/>
+                <field name="date_order"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="validator_id"/>
+                <field name="sell_total"/>
+                <field name="buy_total"/>
+                <field name="price_difference"/>
+                <field name="date_approve"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Search View -->
+		<record id="buy_sell_order_search_view" model="ir.ui.view">
+			<field name="name">Search Buy and Sell</field>
+			<field name="model">buy.sell.order</field>
+			<field name="type">search</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<search string="Search Buy and Sell">
+					<separator orientation="vertical" />
+					<field name="name" />
+					<field name="partner_id" />
+					<field name="warehouse_id" />
+					<newline />
+					 <filter name="my_purchases" string="My Order's" domain="[('user_id', '=', uid)]"/>
+                    <separator/>
+                    <filter name="draft_rfqs" string="Draft" domain="[('state', '=', 'draft')]"/>
+                    <filter name="sented" string="Waiting Check" domain="[('state', 'in', ['draft', 'sent']),('date_order', '&lt;', datetime.datetime.now())]"/>
+                    <filter name="waiting_approve" string="Waiting Approve" domain="[('state', 'in', ['draft', 'sent', 'checked']),('date_order', '&lt;', datetime.datetime.now())]"/>
+                    <separator/>
+                    <filter name="approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+                    <filter name="approved" string="Receive Done" domain="[('state', '=', 'received')]"/>
+                    <filter name="approved" string="Delivery Done" domain="[('state', '=', 'delivered')]"/>
+                    <separator/>
+                    <filter name="order_date" string="Order Date" date="date_order"/>
+                    <filter name="date_approve" string="Approve Date" date="date_approve"/>
+					<group expand="0" string="Group By">
+                        <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
+                        <filter string="Partner" name="partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Created User" name="created_user" domain="[]" context="{'group_by': 'user_id'}"/>
+                        <filter string="Approved User" name="approved_user" domain="[]" context="{'group_by': 'validator_id'}"/>
+                        <filter string="Order Date" name="order_date" domain="[]" context="{'group_by': 'date_order'}"/>
+                         <filter string="Approve Date" name="order_date" domain="[]" context="{'group_by': 'date_approve'}"/>
+                    </group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_buy_sell_order">
+			<field name="name">Buy and Sell</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">buy.sell.order</field>
+			<field name="binding_view_types">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="buy_sell_order_search_view" />
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+		</record>
+	
+		<menuitem id="menu_buy_sell_order" name="Order" parent="buy_sell.menu_buy_sell"
+			sequence="0" groups="base.group_user" action="action_buy_sell_order"/>
+
+</odoo>

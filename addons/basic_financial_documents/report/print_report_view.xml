@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="paperformat_payment_assignment_line_a4" model="report.paperformat">
+		<field name="name">Payment assignment - A4</field>
+		<field name="default" eval="True" />
+		<field name="format">A4</field>
+		<field name="page_height">0</field>
+		<field name="page_width">0</field>
+		<field name="orientation">Portrait</field>
+		<field name="margin_top">20</field>
+		<field name="margin_bottom">0</field>
+		<field name="margin_left">7</field>
+		<field name="margin_right">7</field>
+		<field name="header_line" eval="False" />
+		<field name="header_spacing">20</field>
+		<field name="dpi">90</field>
+	</record>
+	<!-- Кассын орлогын баримт хэвлэх -->
+	<record id="action_print_cash_income_order" model="ir.actions.report">
+		<field name="name">Print Income Expense</field>
+		<field name="model">account.bank.statement.line</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">basic_financial_documents.print_cash_income_order</field>
+		<field name="report_file">basic_financial_documents.print_cash_income_order</field>
+		<field name="print_report_name">('Cash Income - %s' % (object.date)) </field>
+		<field name="paperformat_id" ref="basic_financial_documents.paperformat_payment_assignment_line_a4"/>
+	</record>
+
+	<!-- Кассын зарлагын баримт хэвлэх -->
+	<record id="action_print_cash_expense_order" model="ir.actions.report">
+		<field name="name">Print Cash Expense</field>
+		<field name="model">account.bank.statement.line</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">basic_financial_documents.print_cash_expense_order</field>
+		<field name="report_file">basic_financial_documents.print_cash_expense_order</field>
+		<field name="print_report_name">('Cash Expense - %s' % (object.date)) </field>
+		<field name="paperformat_id" ref="basic_financial_documents.paperformat_payment_assignment_line_a4"/>
+	</record>
+
+	<!-- Нэхэмжлэл хэвлэх 
+	<record id="account.account_invoices" model="ir.actions.report">
+		<field name="name">Invoices</field>
+		<field name="model">account.move</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">basic_financial_documents.print_invoice_order</field>
+		<field name="report_file">basic_financial_documents.print_invoice_order</field>
+		<field name="print_report_name">(object._get_report_base_filename())</field>
+		<field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field>
+		<field name="binding_model_id" ref="model_account_move"/>
+		<field name="binding_type">report</field>
+		<field name="groups_id" eval="[(4, ref('account.group_account_invoice')),
+(4, ref('account.group_account_readonly'))]"/>
+	</record>-->
+
+
+
+<!--	Төлбөрийн даалгавар мөрүүд -->
+	<record id="action_payment_assignment_line" model="ir.actions.report">
+		<field name="name">Payment assignment line</field>
+		<field name="model">account.payment</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">basic_financial_documents.payment_report_view</field>
+		<field name="report_file">basic_financial_documents.payment_report_view</field>
+		<field name="binding_model_id" ref="account.model_account_payment"/>
+		<field name="binding_type">report</field>
+		<field name="print_report_name">('Cash Income') </field>
+		<field name="paperformat_id" ref="basic_financial_documents.paperformat_payment_assignment_line_a4"/>
+	</record>
+<!--	Төлбөрийн даалгавар
+	<record id="action_payment_assignment" model="ir.actions.report">
+		<field name="name">Payment assignment</field>
+		<field name="model">account.bank.statement</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">basic_financial_documents.payment_report_view_from_statement</field>
+		<field name="report_file">basic_financial_documents.payment_report_view_from_statement</field>
+		<field name="binding_model_id" ref="model_account_bank_statement"/>
+		<field name="binding_type">report</field>
+	</record>-->
+</odoo>

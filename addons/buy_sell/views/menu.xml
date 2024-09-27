@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Top menu item -->
+	<menuitem name="Buy and Sell"
+        id="menu_buy_sell_root"
+        groups="base.group_user"
+        web_icon="buy_sell,static/description/icon.png"
+        sequence="26"/>
+        
+	<!--Orders menu-->
+	
+	<menuitem id="menu_buy_sell" name="Orders" parent="buy_sell.menu_buy_sell_root" 
+			  sequence="98" groups="base.group_user"/>
+	    
+	    
+	
+	<!--Configuration menu-->
+	
+	<menuitem id="menu_buy_sell_config" name="Configuration" parent="menu_buy_sell_root" 
+	  		  sequence="100" groups="group_buy_sell_manager"/>
+
+	<!--Report menu-->
+	
+	 <menuitem id="menu_buy_sell_report" name="Report" parent="buy_sell.menu_buy_sell_root" 
+			  sequence="99" groups="base.group_user"/>
+	
+</odoo>

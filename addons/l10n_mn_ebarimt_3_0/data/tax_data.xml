@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate='1'>
+        <!--
+        Resource: ebarimt.tax.type
+            You must not change following code values. Because they're set according to Pos API 2.1.2 User Guide.
+        -->
+        <record id="tax_type_vat_included" model="ebarimt.tax.type">
+            <field name="name">VAT</field>
+            <field name="code">1</field>
+        </record>
+        <record id="tax_type_vat_free" model="ebarimt.tax.type">
+            <field name="name">VAT free</field>
+            <field name="code">2</field>
+        </record>
+        <record id="tax_type_vat_zero" model="ebarimt.tax.type">
+            <field name="name">VAT 0</field>
+            <field name="code">3</field>
+        </record>
+        <record id="tax_type_city" model="ebarimt.tax.type">
+            <field name="name">City Tax</field>
+            <field name="code">4</field>
+        </record>
+<!--
+        <record id="sale_tax_10%" model="account.tax">
+            <field name="name">НӨАТ 10%</field>
+            <field name="amount">10</field>
+        <field name="type_tax_use">sale</field>
+        <field name="ebarimt_tax_type_id" ref="l10n_mn_ebarimt_3_0.tax_type_vat_included" />
+            <field name="description">НӨАТ</field>
+            <field name="price_include">True</field>
+        </record> 
+        <record id="sale_tax_0%" model="account.tax">
+            <field name="name">НӨАТ 0%</field>
+            <field name="amount">0</field>
+        <field name="type_tax_use">sale</field>
+        <field name="ebarimt_tax_type_id" ref="l10n_mn_ebarimt_3_0.tax_type_vat_zero" />
+            <field name="description">НӨАТ 0</field>
+            <field name="price_include">True</field>
+        </record>
+        <record id="purchase_tax_10%" model="account.tax">
+            <field name="name">НӨАТ 10%</field>
+            <field name="amount">10</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="ebarimt_tax_type_id" ref="l10n_mn_ebarimt_3_0.tax_type_vat_included" />
+            <field name="description">НӨАТ</field>
+            <field name="price_include">True</field>
+        </record>
+        <record id="purchase_tax_0%" model="account.tax">
+            <field name="name">НӨАТ 0%</field>
+            <field name="amount">0</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="ebarimt_tax_type_id" ref="l10n_mn_ebarimt_3_0.tax_type_vat_zero" />
+            <field name="description">НӨАТ 0</field>
+            <field name="price_include">True</field>
+        </record>-->
+
+    </data>
+</odoo>

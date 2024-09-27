@@ -1,0 +1,51 @@
+// .ebarimt_radio {
+//     width: 15px !important;
+// }
+
+.ebarimt_control {
+    margin-right: 15px;
+    font-size: 16px;
+}
+.pos .payment-screen .partner-detail {
+    margin-top: 16px;
+    text-align: center;
+}
+.pos .payment-screen .partner-detail input {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 0px 8px;
+}
+.pos-receipt-print {
+    font-size: 14px;
+}
+.pos-receipt .pos-receipt-logo {
+    width: 20%;
+    display: block;
+    margin-left: auto;
+}
+.pos-receipt .mn_class_qr_data{
+    width: 30%;
+    padding-top: 50px;
+    display: block;
+    margin: 0 auto;
+}
+.pos-receipt .mn_class_lottery{
+    text-align: center;
+    font-size: 75%;
+}
+.pos-receipt .pos-receipt-amount {
+    font-size: 75%;
+    padding-left: 2em;
+}
+.pos-receipt .pos-receipt-contact {
+    text-align: center;
+    font-size: 75%;
+}
+.pos-receipt .receipt-orderlines{
+   text-align: center;
+    font-size: 75%; 
+}
+.pos-receipt-right-align{
+    font-size: 75%; 
+}

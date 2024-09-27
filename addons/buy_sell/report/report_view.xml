@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+        <!-- QWeb Reports -->
+
+        <report
+            id="report_print_buy_sell"
+            model="buy.sell.order"
+            report_type="qweb-pdf"
+            string="Reciept"
+            name="buy_sell.report_buy_sell"
+            file="buy_sell.report_buy_sell"
+            />
+</openerp>

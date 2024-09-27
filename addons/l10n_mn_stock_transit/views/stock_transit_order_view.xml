@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Stock Transit Order Search -->
+	<record id="view_stock_transit_order_search" model="ir.ui.view">
+		<field name="name">stock.transit.order.search</field>
+		<field name="model">stock.transit.order</field>
+		<field name="type">search</field>
+		<field name="arch" type="xml">
+			<search string="Replenishment Order">
+				<field name="name" />
+				<!-- <field name="product_id"/> -->
+				<field name="message_ids" filter_domain="[('message_ids.body', 'ilike', self)]" string="Old Transit Number"/>
+				<field name="warehouse_id" string="Warehouse" />
+				<field name="route_id"/>
+				<field name="date_order" widget="date" />
+				<field name="state" />
+				<field name="user_id"/>
+				<separator/>
+				<filter string="Draft"
+					domain="[('state','=','draft')]" name="draft" />
+				<filter name="confirmed" string="Confirmed"
+					domain="[('state','=','confirmed')]" separator="1" />
+				<filter domain="[('user_id','=',uid)]" help="My Created Orders"
+					 name="my_orders" />
+				<separator/>
+				<group expand="0" string="Group By">
+					<filter string="Warehouse" name="group_by_warehouse"  domain="[]" context="{'group_by':'warehouse_id'}" />
+					<filter string="Supply Warehouse" name="group_by_warehouse"  domain="[]" context="{'group_by':'supply_warehouse_id'}" />
+					<filter string="State" name="group_by_state" domain="[]" context="{'group_by':'state'}" />
+			 		<filter string="Ordered Date" name="group_by_date_order" domain="[]" context="{'group_by':'date_order'}" />
+				</group>
+			</search>
+		</field>
+	</record>
+
+	<!-- Stock Transit Order Form -->
+	<record id="view_stock_transit_order_form" model="ir.ui.view">
+		<field name="name">view.stock.transit.order.form</field>
+		<field name="model">stock.transit.order</field>
+		<field name="arch" type="xml">
+			<form string="Replenishment Order">
+				<header>
+                    <button name="approve" string="Approve" type="object" invisible="state != 'draft'" class="oe_highlight" groups="stock.group_stock_manager" />
+                    <button name="action_cancel_draft" string="To draft" type="object" invisible="state != 'cancel'" statusbar_colors='{"cancelled":"red"}'/>
+                    <button name="action_cancel" string="Cancel" type="object" invisible="state == 'draft'" />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,done,cancelled"/>
+				</header>
+				<sheet>
+					<div class="o_right oe_button_box" name="buttons">
+						<button type="object" name="view_picking" class="oe_stat_button" icon="fa-truck fa-flip-horizontal"
+								invisible ="shipment_count ==0" context="{'type':'outgoing'}">
+							<field name="shipment_count" widget="statinfo" string="Out Shipments"
+								   help="Outgoing Shipments from Supply Warehouse" />
+						</button>
+						<button type="object" name="view_picking" class="oe_stat_button" icon="fa-truck"
+								invisible ="receipt_count ==0" context="{'type':'incoming'}">
+							<field name="receipt_count" widget="statinfo" string="In Shipments"
+								help="Incoming Shipments to Receive Warehouse" />
+						</button>
+					</div>
+					<div class="oe_title">
+						<h1>
+							<!-- <label string="Replenishment Draft " attrs="{'invisible':[('state','!=','draft')]}" for="name"/>
+							<label string="Replenishment Order " attrs="{'invisible':[('state','=','draft')]}" for="name"/> -->
+							<field name="name" class="oe_inline" readonly="1" />
+						</h1>
+					</div>
+					<group>
+						<group>
+							<field name="supply_warehouse_id" required="1" readonly="state != 'draft'"/>
+							<field name="route_id" readonly="state != 'draft'"/>
+							<field name="supply_picking_type_id" required="1" readonly="state != 'draft'"/>
+							<field name="partner_id" readonly="state != 'draft'"/>
+							<field name="company_id" readonly="state != 'draft'" widget="selection" />
+						</group>
+						<group>
+							<field name="warehouse_id" required="1" readonly="state != 'draft'"/>
+							<field name="receive_picking_type_id" required="1" readonly="state != 'draft'"/>
+							<field name="date_order" readonly="state != 'draft'"/>
+							<field name="receive_date" readonly="state not in ('draft','send')"/>
+							<field name="user_id" readonly="state != 'draft'"/>
+							<field name="driver_id" readonly="state != 'draft'"/>
+						</group>
+					</group>
+					
+					<notebook>
+						<page string="Order Lines">
+							<field name="id" invisible="1"/>
+							
+							<field name="order_line_ids" context="{'default_supply_warehouse_id': supply_warehouse_id, 'default_warehouse_id': warehouse_id}" readonly="state != 'draft'">
+								<tree string="Replenishment Lines" editable="bottom">
+									<field name="product_id" readonly="state != 'draft'"/>
+									<field name="name" readonly="state != 'draft'"/>
+									<field name="box_qty" sum="Total Box" readonly="state != 'draft'"/>
+									<field name="product_qty" sum="Total" readonly="state != 'draft'"/>
+									<field name="product_uom_id" string="UOM" readonly="state != 'draft'"/>
+									<field name="balance"/>
+									<field name="availability"/>
+									<field name="price_unit"/>
+									<field name="sub_total" sum="Total"/>
+									<field name="state" invisible="1" />
+								</tree>
+							</field>
+							<div class="oe_clear" />
+						</page>
+						<page string="Picking List">
+							<field name="picking_ids" nolabel="1" colspan="4" widget="many2many"/>
+						</page>
+					</notebook>
+					<field name="note" class="oe_inline" placeholder="Notes" />
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+					<field name="message_ids" widget="mail_thread" />
+				</div>
+			</form>
+		</field>
+	</record>
+
+	<!-- Stock Transit Order Tree -->
+	<record id="view_stock_transit_order_tree" model="ir.ui.view">
+		<field name="name">stock.transit.order.tree</field>
+		<field name="model">stock.transit.order</field>
+		<field name="arch" type="xml">
+			<tree string="Replenishment Order">
+				<field name="name" />
+				<field name="supply_warehouse_id" />
+				<field name="warehouse_id" />
+				<field name="date_order" />
+				<field name="receive_date"/>
+				<field name="user_id" />
+				<field name="company_id" groups="base.group_multi_company" />
+				<field name="state" />
+				<field name="is_supplied" />
+				<field name="is_received" />
+			</tree>
+		</field>
+	</record>
+
+	<!-- Stock Transit Order Calendar -->
+	<record id="view_stock_transit_order_calendar" model="ir.ui.view">
+		<field name="name">stock.transit.order.calendar</field>
+		<field name="model">stock.transit.order</field>
+		<field name="type">calendar</field>
+		<field name="priority" eval="2" />
+		<field name="arch" type="xml">
+			<calendar string="Calendar View" date_start="date_order"
+				color="warehouse_id">
+				<field name="name" />
+				<field name="warehouse_id" />
+			</calendar>
+		</field>
+	</record>
+
+	<!-- Stock Transit Order Action -->
+	<record id="action_stock_transit_order" model="ir.actions.act_window">
+		<field name="name">Replenishment Order</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">stock.transit.order</field>
+		<field name="context">{'search_default_my_orders': 1}</field>
+		<field name="domain">[]</field>
+		<field name="view_mode">tree,form,calendar</field>
+		<field name="search_view_id" ref="view_stock_transit_order_search" />
+	</record>
+
+	<!-- Stock Transit Order Menu -->
+	<menuitem action="action_stock_transit_order" id="menu_action_stock_transit_order"
+		parent="stock.menu_stock_warehouse_mgmt" sequence="40" />
+
+	<!-- Нөхөн дүүргэлтийн захиалгын мөр -->
+
+	<!-- Stock Transit Order Line Search -->
+	<record id="view_stock_transit_order_line_search" model="ir.ui.view">
+		<field name="name">stock.transit.order.line.search</field>
+		<field name="model">stock.transit.order.line</field>
+		<field name="type">search</field>
+		<field name="arch" type="xml">
+			<search string="Replenishment Order Line">
+				<field name="product_id" />
+				<field name="transit_order_id" />
+				<field name="supply_warehouse_id"/>
+				<field name="warehouse_id"/>
+				<separator/>
+				<filter string="Draft" name="draft" domain="[('state','=','draft')]"  />
+				<filter string="Confirmed" name="confirmed" domain="[('state','=','confirmed')]"/>
+				<separator/>
+				<group expand="0" string="Group By">
+					<filter string="Replenishment Order" name="group_by_transit_order" domain="[]" context="{'group_by':'transit_order_id'}" />
+					<filter string="State" name="group_by_supply_state" domain="[]" context="{'group_by':'state'}" />
+					<filter string="Receive Warehouse" name="group_by_warehouse_id" context="{'group_by': 'warehouse_id'}" />
+					<filter string="Supply Warehouse" name="group_by_supply_warehouse_id" context="{'group_by': 'supply_warehouse_id'}" />
+					<filter string="Ordered Date" name="group_by_date_order" context="{'group_by': 'date_order'}" />
+				</group>
+			</search>
+		</field>
+	</record>
+
+	<!-- Stock Transit Order Line Tree -->
+	<record id="view_stock_transit_order_line_tree" model="ir.ui.view">
+		<field name="name">stock.transit.order.line.tree</field>
+		<field name="model">stock.transit.order.line</field>
+		<field name="arch" type="xml">
+			<tree string="Replenishment Lines" create="false">
+				<field name="date_order"/>
+				<field name="transit_order_id" invisible="1"/>
+				<field name="product_id" />
+				<field name="name" />
+				<field name="product_uom_id" />
+				<field name="warehouse_id"/>
+				<field name="supply_warehouse_id"/>
+				<field name="box_qty"/>
+				<field name="product_qty"/>
+				<field name="availability" nolabel="1"/>
+				<field name="state"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Stock Transit Order Line Pivot -->
+	<record id="view_transit_order_line_pivot" model="ir.ui.view">
+        <field name="name">stock.transit.order.line.pivot</field>
+        <field name="model">stock.transit.order.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Replenishment Lines">
+            	<field name="warehouse_id" type="col"/>
+                <field name="product_id" type="row"/>
+                <field name="product_qty" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+	<!-- Stock Transit Order Line Action -->
+	<record id="action_stock_transit_order_line" model="ir.actions.act_window">
+		<field name="name">Replenishment Order Line</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">stock.transit.order.line</field>
+		<field name="context">{}</field>
+		<field name="domain">[]</field>
+		<field name="view_mode">tree,pivot</field>
+		<field name="search_view_id" ref="view_stock_transit_order_line_search" />
+	</record>
+
+	<!-- Stock Transit Order Line Menu -->
+	<menuitem action="action_stock_transit_order_line" id="menu_action_stock_transit_order_line"
+		parent="stock.menu_stock_warehouse_mgmt" sequence="40" />
+</odoo>

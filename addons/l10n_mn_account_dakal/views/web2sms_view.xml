@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- Smartbutton тухайн нэхэмжлэхийн илгээсэн sms 
+        <record model="ir.actions.act_window" id="action_sent_sms_smartbutton">
+            <field name="name">Sent SMS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">web.to.sms</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('invoice_id','=',active_id)]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="action_sent_sms_smartbutton" model="ir.actions.act_window">
+            <field name="name">Sent sms</field>
+            <field name="res_model">web.to.sms</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[('invoice_id','=',active_id)]</field>
+        </record> -->
+         
+        <!-- Захиалагчийн нэхэмжлэл -->
+        <record id="invoice_form_inherit_account_web2sms" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherit.account_web2sms</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+            <data>
+                <xpath expr="//button[@name='action_invoice_sent']" position="after">
+                    <button name="send_sms" type="object" string="Send SMS" invisible = "move_type == 'entry'" groups="account.group_account_manager"/>
+                </xpath>
+            </data>
+            </field>
+        </record>
+        
+        <record id="invoice_form_inherit_account_web2sms1" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherit.account_web2sms1</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//form/sheet/group' position="before">
+                    <div class="oe_button_box" name="buttons" groups="base.group_user">
+                        <button name="action_web2sms"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-history"
+                            invisible = "sms_count == 0">
+                            <field name="sms_count" widget="statinfo" string="Sent SMS"/>
+                        </button>
+                    </div>
+                </xpath>
+            </field>
+        </record> 
+                
+                   
+                
+        <!-- Sms илгээсэн бүртгэл -->
+        <record id="view_web2sms_form" model="ir.ui.view">
+            <field name="name">web2sms.form</field>
+            <field name="model">web.to.sms</field>
+            <field name="arch" type="xml">
+                <form string="Area" version="7.0">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,success"/>
+                    </header>
+                    <sheet>
+                        
+                        <group>
+                            <group col="2" colspan="2">
+                                <group>
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="sms_number"/>
+                                    <field name="partner_id"/>
+                                    <field name="user_id"/>
+                                    <field name="invoice_id"/>
+                                </group>
+                                <group>
+                                    <field name="sms_value"/>
+                                </group>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_web2sms_tree" model="ir.ui.view">
+            <field name="name">web2sms.tree</field>
+            <field name="model">web.to.sms</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                    <field name="sms_number"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_web2sms_search" model="ir.ui.view">
+            <field name="name">web2sms.search</field>
+            <field name="model">web.to.sms</field>
+            <field name="arch" type="xml">
+                <search string="Search web2sms">
+                    <field name="date"/>
+                    <field name="sms_number"/>
+                    <field name="partner_id"/>
+                    <field name="user_id"/>
+                    <group expand="0" string="Group by...">
+                        <filter string="Partner" name='partner' context="{'group_by':'partner_id'}"/>
+                        <filter string="User" name='user' context="{'group_by':'user_id'}"/>
+                        <filter string="Date" name='date' context="{'group_by':'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_web_to_sms_tree" model="ir.actions.act_window">
+            <field name="name">Web to SMS</field>
+            <field name="res_model">web.to.sms</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_web2sms_search"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Web2sms
+              </p>
+            </field>
+        </record>
+
+        <!-- <record model="ir.actions.act_window" id="action_web2sms">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_web2sms_tree"/>
+            <field name="act_window_id" ref="action_web_to_sms_tree"/>
+        </record> -->
+
+        <record model="ir.actions.act_window" id="action_web2sms">
+            <field name="name">Web to SMS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">web.to.sms</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_web2sms_search" />
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        
+        <!-- SMS TOKEN -->
+        <record id="view_web2sms_token_form" model="ir.ui.view">
+            <field name="name">web2sms.token.form</field>
+            <field name="model">webto.sms.token</field>
+            <field name="arch" type="xml">
+                <form string="Area">
+                    <sheet>
+                       
+                        <group>
+                            <field name="token"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_web2sms_token_tree" model="ir.ui.view">
+            <field name="name">web2sms.token.tree</field>
+            <field name="model">webto.sms.token</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="token"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_web2sms_token">
+            <field name="name">Web to SMS token</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">webto.sms.token</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_web2sms_token_tree"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        
+        <!-- SMS Value -->
+        <record id="view_web2sms_value_form" model="ir.ui.view">
+            <field name="name">web2sms.value.form</field>
+            <field name="model">webto.sms.value</field>
+            <field name="arch" type="xml">
+                <form string="Area">
+                    <sheet>
+                        
+                        <group>
+                            <field name="name"/>
+                            <field name="key1"/>
+                            <field name="const1"/>
+                            <field name="key2"/>
+                            <field name="const2"/>
+                            <field name="key3"/>
+                            <field name="const3"/>
+                            <field name="key4"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_web2sms_value_tree" model="ir.ui.view">
+            <field name="name">web2sms.value.tree</field>
+            <field name="model">webto.sms.value</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="key1"/>
+                    <field name="key2"/>
+                    <field name="key3"/>
+                    <field name="key4"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_web2sms_value">
+            <field name="name">Web to SMS token</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">webto.sms.value</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_web2sms_value_tree"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+            <menuitem id="webtosms" name="Message" sequence="14" parent="account.menu_finance_entries" groups="account.group_account_manager"/> 
+            <menuitem id="web2sms_history" name="Sent message" parent="webtosms" sequence="1" action="action_web2sms"/>
+            <menuitem id="web2sms_token" name="Config token" parent="webtosms" sequence="2" action="action_web2sms_token"/>
+            <menuitem id="web2sms_value" name="Config sms value" parent="webtosms" sequence="3" action="action_web2sms_value"/>
+</odoo>

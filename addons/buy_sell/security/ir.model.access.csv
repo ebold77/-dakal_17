@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_buy_sell_order,buy.sell.order,model_buy_sell_order,group_buy_sell_user,1,1,1,1
+access_buy_sell_order_manager,buy.sell.order,model_buy_sell_order,group_buy_sell_manager,1,1,1,1
+access_buy_sell_out_line,buy.sell.out.line,model_buy_sell_out_line,group_buy_sell_user,1,1,1,1
+access_buy_sell_out_line_manager,buy.sell.out.line,model_buy_sell_out_line,group_buy_sell_manager,1,1,1,1
+access_buy_sell_in_line,buy.sell.in.line,model_buy_sell_in_line,group_buy_sell_user,1,1,1,1
+access_buy_sell_in_line_manager,buy.sell.in.line,model_buy_sell_in_line,group_buy_sell_manager,1,1,1,1
+access_buy_sell_report,sale.purchase.order.report,model_sale_purchase_order_report,group_buy_sell_user,1,1,1,1
+access_buy_sell_report_manager,sale.purchase.order.report,model_sale_purchase_order_report,group_buy_sell_manager,1,1,1,

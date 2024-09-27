@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_buy_sell" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.buy_sell</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="25"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="buy_sell" string="Buy and Sell" name="buy_sell" groups="buy_sell.group_buy_sell_manager">
+                    <h2>Wharehouse</h2>
+                    	<group>
+                    		<field name="bs_allowed_warehouse_id" class="oe_inline" placeholder="Extra warehouses..."/>
+                    	</group>
+                    <h2>Pricelist</h2>
+                    	<group>
+	                    	<field name="base_pricelist_id"/>
+	                    	<field name="barter_pricelist_id"/>
+	                    	<field name="sale_pricelist_id"/>
+                    	</group>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_buy_sell_configuration" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'buy_sell'}</field>
+    </record>
+	
+	<menuitem id="menu_buy_sell_general_settings" name="Settings" parent="buy_sell.menu_buy_sell_config"
+	  sequence="0" action="action_buy_sell_configuration" groups="base.group_system"/> 
+	  
+</odoo>

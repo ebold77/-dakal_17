@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_oderp_report_excel_output,access_oderp_report_excel_output,model_oderp_report_excel_output,base.group_user,1,1,1,0
+access_report_footer_config_user,access_report_footer_config_user,model_report_footer_config,base.group_user,1,1,1,0
+access_report_footer_config_manager,access_report_footer_config_manager,model_report_footer_config_line,group_report_footer_manager,1,1,1,1

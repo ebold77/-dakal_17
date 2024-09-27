@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="l10n_mn_ebarimt_3_0.report_receipt_document">
+            <t t-call="web.basic_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" />
+                <div class="page">
+                    <div class="col-auto">
+                        <h2 t-esc="o.company_id.name"/>
+                        <div t-field="o.company_name"/>
+                        <p t-if="o.company_reg">VAT: <span t-field="o.company_reg"/></p>
+                        Bill ID: <span t-field="o.bill_id"/><br/>
+                        Served by: <span t-field="o.user_id"/><br/>
+                        Date: <span t-field="o.date_order"/><br/>
+                    </div>
+
+                    <div class="col-auto">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th class="text-right">Quantity</th>
+                                    <th class="text-right">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.lines" t-as="line">
+                                    <td><span t-field="line.product_id"/></td>
+                                    <td class="text-right">
+                                        <span t-field="line.qty"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": res_company.currency_id}'/>
+                                        <t t-if="line.discount != 0.0">
+                                             Discount:<span t-esc="line.discount"/>%
+                                        </t>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>Taxes:</strong></td>
+                                <td class="text-right">
+                                    <span class="text-nowrap" t-field="o.amount_tax"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total:</strong></td>
+                                <td class="text-right">
+                                     <span class="text-nowrap" t-field="o.amount_total"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Payment Method</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.payment_ids" t-as="p">
+                                    <td>
+                                        <span t-field="p.payment_method_id"/>:
+                                    </td>
+
+                                    <td class="text-right">
+                                        <span t-esc="p.amount" t-options='{"widget": "monetary", "display_currency": res_company.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div t-if="o.bill_type == '1' and data" align="center">
+                            <div>
+                                <strong>Lottery: </strong><span t-esc="data['lottery_no']" />
+                            </div>
+                            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', data['qr_data'], 200, 200)"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        
+        <template id="report_receipt">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="l10n_mn_ebarimt_3_0.report_receipt_document" t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ирцийн төхөөрөмжийн хайлт харагдац -->
+    <record id="view_emp_att_device_search" model="ir.ui.view">
+        <field name="name">hr.employee.attendance.device.search</field>
+        <field name="model">hr.employee.attendance.device</field>
+        <field name="arch" type="xml">
+            <search>
+				<field name="employee_id" />
+				<field name="device_id"/>
+				<field name="employee_device_id"/>
+				<group expand="0">
+					<filter name="group_device_id" string="Attendance Device" context="{'group_by': 'device_id'}"/>
+					<filter name="group_employee_id" string="Employee" context="{'group_by': 'employee_id'}"/>
+					<filter name="group_employee_device_id" string="Employee Device ID" context="{'group_by': 'employee_device_id'}"/>
+	            </group>
+			</search>
+        </field>
+    </record>
+
+    <!-- Ирцийн төхөөрөмжийн мод харагдац -->
+    <record id="view_emp_att_device_tree" model="ir.ui.view">
+        <field name="name">hr.employee.attendance.device.tree</field>
+        <field name="model">hr.employee.attendance.device</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Attendance Device IDs">
+                <field name="employee_id"/>
+                <field name="device_id"/>
+                <field name="employee_device_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Ирцийн төхөөрөмжийн форм харагдац -->
+    <record id="view_emp_att_device_form" model="ir.ui.view">
+        <field name="name">hr.employee.attendance.device.form</field>
+        <field name="model">hr.employee.attendance.device</field>
+        <field name="arch" type="xml">
+        	<form string="Employee Attendance Device IDs">
+        		<sheet>
+        			<group>
+	                	<group>
+			                <field name="employee_id"/>
+			                <field name="device_id"/>
+	                    </group>
+	                    <group>
+							<field name="employee_device_id"/>
+	                    </group>
+	                </group>
+        		</sheet>
+        	</form>
+        </field>
+    </record>
+
+    <!-- Ирц - Тохиргоо - Ажилтны төхөөрөмж дээрх дугаарууд цэсийн action -->
+    <record id="action_emp_att_device" model="ir.actions.act_window">
+        <field name="name">Employee Attendance Device IDs</field>
+        <field name="res_model">hr.employee.attendance.device</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_emp_att_device_tree"/>
+        <field name="search_view_id" ref="view_emp_att_device_search"/>
+    </record>
+    
+    <!-- Ирц - Тохиргоо - Ажилтны төхөөрөмж дээрх дугаарууд цэс -->
+    <menuitem id="menu_employee_attendance_device" name="Employee Attendance Device IDs" action="action_emp_att_device" parent="l10n_mn_hr_attendance.menu_hr_attendance_base_settings" sequence="5"/>
+
+</odoo>

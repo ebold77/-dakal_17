@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ирц татах визардын форм харагдац -->
+    <record id="view_hr_attendance_download_form" model="ir.ui.view">
+        <field name="name">hr.attendance.download.form</field>
+        <field name="model">hr.attendance.download</field>
+        <field name="arch" type="xml">
+            <form string="Download Attendance">
+                <group col="1">
+                    <field name="device_ids"/>
+                </group>
+                <group col="4">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <group col="1">
+                    <field name="employee_ids"/>
+                </group>
+                <footer>
+                    <button name="download" confirm="Do you want to download ATTENDANCE ?" type="object" string="Download Attendance" class="oe_highlight"/> or
+                    <button name="download_raw_attendance" confirm="Do you want to download RAW ATTENDANCE ?" type="object" groups="hr_attendance.group_hr_attendance_manager" string="Download Raw Attendance" class="oe_right btn btn-warning oe_highlight"/> or
+                    <button special="cancel" string="Close" type="object" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Ирц - Удирдлага - Ирц татах цэсийн action -->
+    <record id="action_hr_attendance_download" model="ir.actions.act_window">
+        <field name="name">Download Attendance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance.download</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_hr_attendance_download_form"/>
+        <field name="context" eval="{'from_menu': False}"/>
+        <field name="target">new</field>
+        <field name="groups_id" eval="[(4,ref('hr_attendance.group_hr_attendance_officer'))]"></field>
+    </record>
+
+    <!-- Ирц - Удирдлага - Ирц татах цэс -->
+    <menuitem id="hr_attendance_download_menu" name="Download Attendance" parent="menu_attendance_control" action="action_hr_attendance_download" sequence="26"/>
+
+</odoo>

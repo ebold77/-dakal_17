@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <template id="indices" inherit_id="point_of_sale.assets">
+          <xpath expr="." position="inside">
+              <script type="text/javascript" src="/l10n_mn_ebarimt_3_0/static/src/js/mn_ebarimt.js" />
+              <script type="text/javascript" src="/l10n_mn_ebarimt_3_0/static/src/js/PaymentScreen.js" />
+              <script type="text/javascript" src="/l10n_mn_ebarimt_3_0/static/src/js/OrderReceipt.js" />
+              <script type="text/javascript" src="/l10n_mn_ebarimt_3_0/static/src/js/ReceiptScreen.js" />
+              <script type="text/javascript" src="/l10n_mn_ebarimt_3_0/static/src/js/PaymentScreenStatus.js" />
+              <script type="text/javascript" src="/l10n_mn_ebarimt_3_0/static/src/js/ProductScreen.js" />
+              <script type="text/javascript" src="/l10n_mn_ebarimt_3_0/static/src/js/ClientDetailsEdit.js" />
+              <script type="text/javascript" src="/l10n_mn_ebarimt_3_0/static/src/js/Chrome.js" />
+
+              <link rel="stylesheet" href="/l10n_mn_ebarimt_3_0/static/src/css/pos.css" />
+          </xpath>
+      </template>
+    </data>
+</odoo>

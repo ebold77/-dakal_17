@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="dakal_invoice_form_view" model="ir.ui.view">
+            <field name="name">ebarimt.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//button[@name='action_register_payment']" position="attributes">
+					<attribute name="groups">account.group_account_user</attribute>
+				</xpath>
+				<xpath expr="//button[@name='action_reverse']" position="attributes">
+					<attribute name="groups">account.group_account_user</attribute>
+				</xpath>
+				<xpath expr="//button[@name='button_draft']" position="attributes">
+					<attribute name="groups">account.group_account_user</attribute>
+				</xpath>
+            </field>
+        </record>
+        
+       <!--  <record id="dakal_ebarimt_invoice_form_view" model="ir.ui.view">
+            <field name="name">ebarimt.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="es_mongolian_ebarimt.ebarimt_invoice_form_view"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//button[@name='print_ebarimt']" position="attributes">
+					<attribute name="groups">account.group_account_user</attribute>
+				</xpath>
+            </field>
+        </record> -->
+
+        <record id="dakal_nuat_invoice_form_view" model="ir.ui.view">
+            <field name="name">nuat.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//sheet/group/group/div/field[@name='partner_id']" position="after">
+					<field name="reg_no"/>
+				</xpath>
+            </field>
+        </record>
+
+        <record id="dakal_nuat_view_tree" model="ir.ui.view">
+			<field name="name">nuat.invoice.tree</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_invoice_tree" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='invoice_partner_display_name']" position="after">
+					<field name="reg_no"/>
+				</xpath>
+
+			</field>
+		</record>
+
+<!--         
+        <record model='ir.ui.menu' id='account.menu_finance_payables'>
+		    <field name="groups_id" eval="[(4,ref('account.group_account_user'))]"/>
+		</record>
+		
+		<record model='ir.ui.menu' id='account_reports.menu_action_account_report_aged_payable'>
+		    <field name="groups_id" eval="[(4,ref('account.group_account_user'))]"/>
+		</record>
+		
+		<record model='ir.ui.menu' id='account_reports.account_reports_audit_reports_menu'>
+		    <field name="groups_id" eval="[(4,ref('account.group_account_user'))]"/>
+		</record>
+		
+		<record model='ir.ui.menu' id='account_reports.menu_action_report_account_analytic'>
+		    <field name="groups_id" eval="[(4,ref('account.group_account_user'))]"/>
+		</record>
+		
+		<record model='ir.ui.menu' id='account_reports.menu_action_account_report_multicurrency_revaluation'>
+		    <field name="groups_id" eval="[(4,ref('account.group_account_user'))]"/>
+		</record>
+		
+		<record model='ir.ui.menu' id='account_asset.menu_action_account_report_assets'>
+		    <field name="groups_id" eval="[(4,ref('account.group_account_user'))]"/>
+		</record> -->
+    </data>
+</odoo>

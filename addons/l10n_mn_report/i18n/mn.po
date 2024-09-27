@@ -1,0 +1,223 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_mn_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-19 06:13+0000\n"
+"PO-Revision-Date: 2020-10-19 06:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mn_report
+#: code:addons/l10n_mn_report/models/report_config.py:0
+#, python-format
+msgid "%s report footer configure."
+msgstr "%s тайлангийн гарын үсгийн тохиргоо"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config__active
+msgid "Active"
+msgstr "Идэвхитэй"
+
+#. module: l10n_mn_report
+#: model:ir.model,name:l10n_mn_report.model_report_footer_config
+msgid "All Report Footer Configure"
+msgstr "Тайлангийн гарын үсгийн тохиргоо"
+
+#. module: l10n_mn_report
+#: model:ir.model,name:l10n_mn_report.model_report_footer_config_line
+msgid "All Report Footer Configure Line"
+msgstr "Тайлангийн гарын үсгийн тохиргооны мөрүүд"
+
+#. module: l10n_mn_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.report_excel_output_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.report_html_output_view_form
+msgid "Close"
+msgstr "Хаах"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config__company_id
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config_line__company_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.view_report_footer_config_filter
+msgid "Company"
+msgstr "Компани"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config__line_ids
+msgid "Config Line"
+msgstr "Мөрүүд"
+
+#. module: l10n_mn_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.view_report_footer_config_tree
+#: model:ir.actions.act_window,name:l10n_mn_report.action_report_footer_config
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.view_report_footer_config_filter
+msgid "Report Footer Configure"
+msgstr "Гарын үсгийн тохиргоо"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output__create_uid
+msgid "Created by"
+msgstr "Үүсгэгч"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output__create_date
+msgid "Created on"
+msgstr "Үүсгэсэн"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output__display_name
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_html_output__display_name
+msgid "Display Name"
+msgstr "Дэлгэцийн нэр"
+
+#. module: l10n_mn_report
+#: model:ir.model,name:l10n_mn_report.model_oderp_report_excel_output
+msgid "Excel Report Output"
+msgstr "Эксел тайлангийн гаралт"
+
+#. module: l10n_mn_report
+#: model:ir.model,name:l10n_mn_report.model_oderp_report_html_output
+msgid "Excel Report html"
+msgstr "Эксел тайлангийн html"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output__filedata
+msgid "File data"
+msgstr "Файлын өгөгдөл"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output__filename
+msgid "File name"
+msgstr "Файлын нэр"
+
+#. module: l10n_mn_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.view_report_footer_config_filter
+msgid "Group By"
+msgstr "Бүлэглэх"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output__id
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_html_output__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config_line__job_title
+msgid "Job Title"
+msgstr "Албан тушаал"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output____last_update
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_html_output____last_update
+msgid "Last Modified on"
+msgstr "Сүүлийн засвар хийсэн огноо"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output__write_uid
+msgid "Last Updated by"
+msgstr "Сүүлийн засвар хийсэн"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_excel_output__write_date
+msgid "Last Updated on"
+msgstr "Сүүлийн засвар хийсэн огноо"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config__name
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config_line__name
+msgid "Name"
+msgstr "Нэр"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config_line__partner_id
+msgid "Partner"
+msgstr "Харилцагч"
+
+#. module: l10n_mn_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.report_excel_output_view_form
+msgid "Processing done"
+msgstr "Боловсруулалт хийгдсэн"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_oderp_report_html_output__report_id
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config__report_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.view_report_footer_config_filter
+msgid "Report"
+msgstr "Тайлан"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config_line__config_id
+msgid "Report Footer Config"
+msgstr "Тайлангийн гарын үсгийн тохиргоо"
+
+#. module: l10n_mn_report
+#: model:ir.module.category,name:l10n_mn_report.module_report_footer_config
+msgid "Report Footer Configuration"
+msgstr "Гарын үсгийн тохиргоо"
+
+#. module: l10n_mn_report
+#: model:ir.ui.menu,name:l10n_mn_report.menu_report_footer_configure
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.view_report_footer_config_form
+msgid "Report Footer Configure"
+msgstr "Гарын үсгийн тохиргоо"
+
+#. module: l10n_mn_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.view_report_footer_config_form
+msgid "Report Footer Configure Lines"
+msgstr "Гарын үсгийн тохиргоо мөрүүд"
+
+#. module: l10n_mn_report
+#: model:res.groups,name:l10n_mn_report.group_report_footer_manager
+msgid "Report Footer Manager"
+msgstr "Менежер"
+
+#. module: l10n_mn_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.report_excel_output_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.report_html_output_view_form
+msgid "Report Output"
+msgstr "Тайлангийн гаралт"
+
+#. module: l10n_mn_report
+#: code:addons/l10n_mn_report/models/report_excel.py:0
+#, python-format
+msgid "Report Result"
+msgstr "Тайлангийн үр дүн"
+
+#. module: l10n_mn_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.report_html_output_view_form
+msgid "See"
+msgstr "Харах"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config_line__sequence
+msgid "Sequence"
+msgstr "Дараалал"
+
+#. module: l10n_mn_report
+#: model:ir.model.constraint,message:l10n_mn_report.constraint_report_footer_config_line_sequence_nonzero
+msgid "Sequence must be greater than zero!"
+msgstr "Дарааллын утга 0-с их байх ёстой!"
+
+#. module: l10n_mn_report
+#: model:ir.model.fields,field_description:l10n_mn_report.field_report_footer_config_line__signature
+msgid "Signature"
+msgstr "Гарын үсэг"
+
+#. module: l10n_mn_report
+#: code:addons/l10n_mn_report/tools/report_excel_fit_sheet_wrapper.py:0
+#: code:addons/l10n_mn_report/tools/report_excel_fit_sheet_wrapper.py:0
+#, python-format
+msgid "Undefined"
+msgstr "Тодорхойлоогүй"
+
+#. module: l10n_mn_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_report.report_html_output_view_form
+msgid "or"
+msgstr "эсвэл"

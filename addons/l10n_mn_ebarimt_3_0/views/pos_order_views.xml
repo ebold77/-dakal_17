@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="ebarimt_pos_form_view" model="ir.ui.view">
+            <field name="name">ebarimt.pos.form</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='refund']" position="after">
+                    <button name="print_ebarimt" string="Print EBarimt" type="object"  invisible="state not in ['draft','cancel','invoiced']"/>
+                </xpath>
+                <group name="order_fields" position="inside">
+                    <field name="bill_type" readonly="True"/>
+                    <field name="company_reg" readonly="True"/>
+                    <field name="bill_id" readonly="True"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>

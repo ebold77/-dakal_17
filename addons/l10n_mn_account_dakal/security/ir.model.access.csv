@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_web_to_sms,web.to.sms,model_web_to_sms,base.group_user,1,1,1,0
+accessweb_to_sms_manager,web.to.sms,model_web_to_sms,sales_team.group_sale_manager,1,1,1,0
+accessweb_to_sms_manager,web.to.sms,model_web_to_sms,account.group_account_user,1,1,1,0
+access_web_sms_token,webto.sms.token,model_webto_sms_token,base.group_user,1,0,0,0
+access_web_sms_token_manager,webto.sms.token,model_webto_sms_token,account.group_account_manager,1,1,1,1
+access_webto_sms_value_sale_manager,webto.sms.value,model_webto_sms_value,sales_team.group_sale_manager,1,1,1,1
+access_webto_sms_manager,webto.sms.value,model_webto_sms_value,account.group_account_manager,1,1,1,1
+access_webto_sms_value_user,webto.sms.value,model_webto_sms_value,base.group_user,1,0,0,0
+access_send_multi_sms,send.multi.sms,model_send_multi_sms,account.group_account_manager,1,1,1,1
+access_partner_limit_settings,partner.limit.settings,model_partner_limit_settings,account.group_account_manager,1,1,1,1

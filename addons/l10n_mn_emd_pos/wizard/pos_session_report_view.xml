@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_session_report_xlsx_form" model="ir.ui.view">
+        <field name="name">view.report.pos.session.form</field>
+        <field name="model">report.pos.session</field>
+        <field name="arch"  type="xml">
+            <form string="POS Session Report">
+                <group>
+                    <group col="6">
+                       <field name="company_id" readonly="1"/>
+                       <field name="start_date"/>
+                       <field name="end_date"/>
+                    </group>
+                    <group colspan="6">
+                        <notebook>
+                           <page string="Pos Config">
+                               <field name="config_ids" nolabel="1" colspan="4" widget="many2many_tags" required="1"/>
+                           </page>
+                        </notebook>
+                    </group>
+                </group>
+                <footer>
+                    <button name="export_report_xls" type="object"
+                        class="btn-primary" string="Generate"/>
+                    <button special="cancel" string="Close" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_report_pos_session" model="ir.actions.act_window">
+        <field name="name">POS Session Report</field>
+        <field name="res_model">report.pos.session</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+     <menuitem id="menu_report_pos_session" name="POS Session Report" action="action_report_pos_session"
+                  parent="point_of_sale.menu_point_rep"
+              sequence="10"/>
+
+</odoo>

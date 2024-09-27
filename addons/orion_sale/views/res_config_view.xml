@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_orion" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.orion</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='order_default_values']" position="after">
+                <setting id="orion_sys_order" string="Sale for Orion systems" help="Get sale orion systems">
+                    <h2>Orion Warehouse</h2>
+                    <group>
+                        <field name="orion_warehouse_id" class="oe_inline" placeholder="Orion warehouse"/>
+                    </group>
+                    <h2>Orion Pricelist</h2>
+                    <group>
+                        <field name="orion_base_pricelist_id"/>
+                        <field name="orion_sale_pricelist_id"/>
+                    </group>
+                </setting>
+            </xpath>
+        </field>
+    </record>	  
+</odoo>

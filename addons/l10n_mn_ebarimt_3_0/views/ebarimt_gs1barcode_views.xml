@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ebarimt_gs1barcode_form_view" model="ir.ui.view">
+            <field name="name">ebarimt.gs1barcode.form</field>
+            <field name="model">ebarimt.gs1barcode</field>
+            <field name="arch" type="xml">
+                <form string="EBarimt GS1 Barcodes">
+                     <group>
+                         <field name="parent_id"/>
+                         <field name="name"/>
+                         <field name="code"/>
+                     </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="ebarimt_gs1barcode_tree_view" model="ir.ui.view">
+            <field name="name">ebarimt.gs1barcode.tree</field>
+            <field name="model">ebarimt.gs1barcode</field>
+            <field name="arch" type="xml">
+                <tree string="EBarimt GS1 Barcodes">
+                    <field name="parent_id"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_ebarimt_gs1barcode_search">
+            <field name="name">ebarimt.gs1barcode.search.view</field>
+            <field name="model">ebarimt.gs1barcode</field>
+            <field name="arch" type="xml">
+                <search string="EBarimt GS1 Barcode">
+                    <field name="code" />
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+
+        <record id="ebarimt_gs1barcode_form_action" model="ir.actions.act_window">
+            <field name="name">EBarimt GS1 Barcodes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ebarimt.gs1barcode</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new ebarimt.gs1barcode.
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="ebarimt_gs1barcode_form_action" id="menu_ebarimt_gs1barcode_form_action" parent="root_ebarimt_menu" sequence="3" groups="l10n_mn_ebarimt_3_0.group_ebarimt_gs1barcode"/>
+    </data>
+</odoo>

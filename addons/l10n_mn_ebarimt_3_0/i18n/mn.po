@@ -1,0 +1,935 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_mn_ebarimt_3_0
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-28 07:34+0000\n"
+"PO-Revision-Date: 2023-06-28 07:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "% discount"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid ""
+"<br/>\n"
+"                        Date:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid ""
+"<br/>\n"
+"                        Served by:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_invoice_document
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_payment_document
+msgid "<strong>Bill ID: </strong>"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_invoice_document
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_payment_document
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "<strong>Lottery: </strong>"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "<strong>Taxes:</strong>"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "<strong>Total:</strong>"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_config__aimag_district_id
+msgid "Aimag/District"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "Amount"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_bank_statement_line__bill_id
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move__bill_id
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_payment__bill_id
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order__bill_id
+msgid "Bill ID"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+#, python-format
+msgid "Bill ID:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_bank_statement_line__bill_mac_address
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move__bill_mac_address
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_payment__bill_mac_address
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order__bill_mac_address
+msgid "Bill MAC Address"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_bank_statement_line__bill_printed_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move__bill_printed_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_payment__bill_printed_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order__bill_printed_date
+msgid "Bill Printed Date"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_bank_statement_line__tax_type
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move__tax_type
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_payment__tax_type
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order__tax_type
+msgid "Bill Tax Type"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_bank_statement_line__bill_type
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move__bill_type
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_payment__bill_type
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order__bill_type
+msgid "Bill Type"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_config__branch_no
+msgid "Branch No"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "CHANGE"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_config_form_view_ebarimt
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "Check API"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_config_form_view_ebarimt
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "Check API on EBarimt Administration"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__child_ids
+msgid "Child Codes"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ebarimt.tax.type,name:l10n_mn_ebarimt_3_0.tax_type_city
+msgid "City Tax"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.actions.act_window,help:l10n_mn_ebarimt_3_0.ebarimt_aimag_district_form_action
+msgid "Click to add a new EBarimt Aimag/District."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.actions.act_window,help:l10n_mn_ebarimt_3_0.ebarimt_tax_type_form_action
+msgid "Click to add a new EBarimt Tax Type."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.actions.act_window,help:l10n_mn_ebarimt_3_0.ebarimt_gs1barcode_form_action
+msgid "Click to add a new ebarimt.gs1barcode."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_session_report_xlsx_form
+msgid "Close"
+msgstr "Хаах"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district__code
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__code
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type__code
+msgid "Code"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_res_company
+msgid "Companies"
+msgstr "Компаниуд"
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/ClientDetailsEdit.xml:0
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/PaymentScreen.xml:0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__company_id
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__account_move__bill_type__3
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__account_payment__bill_type__3
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__pos_order__bill_type__3
+#, python-format
+msgid "Company"
+msgstr "Компани"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_res_config_settings
+msgid "Config Settings"
+msgstr "Тохиргооны тохируулга"
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "Config error message: %s "
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_service__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district__create_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__create_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_service__create_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type__create_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Customer:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "Database error message: %s "
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "Description"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "Discount:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district__display_name
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_service__display_name
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type__display_name
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.ui.menu,name:l10n_mn_ebarimt_3_0.root_ebarimt_menu
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "EBarimt"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_ebarimt_aimag_district
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_aimag_district_form_view
+msgid "EBarimt Aimag/District"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.actions.act_window,name:l10n_mn_ebarimt_3_0.ebarimt_aimag_district_form_action
+#: model:ir.ui.menu,name:l10n_mn_ebarimt_3_0.menu_ebarimt_aimag_district_form_action
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_aimag_district_tree_view
+msgid "EBarimt Aimag/District List"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_account_bank_statement_line__bill_id
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_account_move__bill_id
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_account_payment__bill_id
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_pos_order__bill_id
+msgid "EBarimt Bill Id."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_ebarimt_gs1barcode
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.view_ebarimt_gs1barcode_search
+msgid "EBarimt GS1 Barcode"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.actions.act_window,name:l10n_mn_ebarimt_3_0.ebarimt_gs1barcode_form_action
+#: model:ir.ui.menu,name:l10n_mn_ebarimt_3_0.menu_ebarimt_gs1barcode_form_action
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_gs1barcode_form_view
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_gs1barcode_tree_view
+msgid "EBarimt GS1 Barcodes"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_product_product__ebarimt_gs1barcode_id
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_product_template__ebarimt_gs1barcode_id
+msgid "EBarimt GS1 barcode"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.actions.server,name:l10n_mn_ebarimt_3_0.ebarimt_senddata_job_ir_actions_server
+#: model:ir.cron,cron_name:l10n_mn_ebarimt_3_0.ebarimt_senddata_job
+#: model:ir.cron,name:l10n_mn_ebarimt_3_0.ebarimt_senddata_job
+msgid "EBarimt Send Data"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/PaymentScreen.xml:0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_tax__ebarimt_tax_type_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_tax_type_form_view
+#, python-format
+msgid "EBarimt Tax Type"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.actions.act_window,name:l10n_mn_ebarimt_3_0.ebarimt_tax_type_form_action
+#: model:ir.ui.menu,name:l10n_mn_ebarimt_3_0.menu_ebarimt_tax_type_form_action
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_tax_type_tree_view
+msgid "EBarimt Tax Type List"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_product_product__tax_type
+msgid "EBarimt VAT type"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "EBarimt connection successful."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "EBarimt connection was not successful."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "EBarimt data could not sent. Check your EBarimt connection."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "EBarimt data sent successfully."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_ebarimt_tax_type
+msgid "EBarimt tax type"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_config__ebarimt_service_host
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_config__ebarimt_service_port
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_res_config_settings__ebarimt_service_host
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_res_config_settings__ebarimt_service_port
+msgid "Ebarimt service address"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__end_date
+msgid "End Date"
+msgstr "Дуусах огноо"
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "Error occurred when putting VAT data. Error code: %s Message: %s"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "Error occurred when putting VAT data: %s"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "Error occurred when send VAT data. Error code: %s Error Message: %s"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__display_name
+msgid "Full Name"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_res_company__pos_library_filename
+msgid "General setting of POS Library file name."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_res_config_settings__pos_library_filename
+msgid ""
+"General setting of POS Library file name. The file must be issued by "
+"Mongolian Tax Administration."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_session_report_xlsx_form
+msgid "Generate"
+msgstr "Боловсруулах"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_report_pos_session
+msgid "Generate XLSX report for Pos session"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/ClientDetailsEdit.xml:0
+#, python-format
+msgid "Get"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_config_form_view_ebarimt
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "Get EBarimt information from Administration"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_config_form_view_ebarimt
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "Get Information"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__sequence
+msgid "Gives the sequence order when displaying a list of gs1 barcodes."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district__id
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__id
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_service__id
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type__id
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/ClientDetailsEdit.xml:0
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/PaymentScreen.xml:0
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__account_move__bill_type__1
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__account_payment__bill_type__1
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__pos_order__bill_type__1
+#, python-format
+msgid "Individual"
+msgstr "Хувь хүн"
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/PaymentScreen.xml:0
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__account_move__bill_type__5
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__account_payment__bill_type__5
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__pos_order__bill_type__5
+#, python-format
+msgid "Invoice"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_account_move
+msgid "Journal Entry"
+msgstr "Ажил гүйлгээ"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_account_move_line
+msgid "Journal Item"
+msgstr "Журналын бичилт"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district____last_update
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode____last_update
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_service____last_update
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type____last_update
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_service__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district__write_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__write_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_service__write_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type__write_date
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__parent_left
+msgid "Left Parent"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_config__library_filename
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_res_config_settings__pos_library_filename
+msgid "Library Filename"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Lottery:"
+msgstr "Сугалаа"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_config_form_view_ebarimt
+msgid "Mongolian EBarimt"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:res.groups,name:l10n_mn_ebarimt_3_0.group_ebarimt_gs1barcode
+msgid "Mongolian GS1 Barcode"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_ebarimt_service
+msgid "Mongolian VAT information service"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_aimag_district__name
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__name
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_tax_type__name
+msgid "Name"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Name:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid "Network error message: %s "
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "No ''Internal Reference''"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/PaymentScreen.xml:0
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__account_move__bill_type__0
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__account_payment__bill_type__0
+#: model:ir.model.fields.selection,name:l10n_mn_ebarimt_3_0.selection__pos_order__bill_type__0
+#, python-format
+msgid "No Tax"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_res_company__pos_library_filename
+msgid "POS Library Filename"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_config__pos_no
+msgid "POS No"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.actions.act_window,name:l10n_mn_ebarimt_3_0.action_report_pos_session
+#: model:ir.ui.menu,name:l10n_mn_ebarimt_3_0.menu_report_pos_session
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_session_report_xlsx_form
+msgid "POS Session Report"
+msgstr "Посын сэшний тайлан"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__parent_id
+msgid "Parent Code"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "Payment Method"
+msgstr "Төлбөрийн арга"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_account_payment
+msgid "Payments"
+msgstr "Төлбөрүүд"
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Please register ''Internal Reference'' of this product."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Please register product tax according to Mongolian Tax Law."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "Please select the Customer"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Борлуулалтын цэгийн тохиргоо"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "ПОС захиалгын мөр"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "ПОС захиалга"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_pos_session
+msgid "Point of Sale Session"
+msgstr "ПОС сэшн"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__config_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_session_report_xlsx_form
+msgid "Pos Config"
+msgstr "Борлуулалтын цэг"
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/wizard/pos_session_report.py:0
+#, python-format
+msgid "Pos session report"
+msgstr "Посын сэшний тайлан"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "Price"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_invoice_form_view
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_payment_form_view
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.ebarimt_pos_form_view
+msgid "Print EBarimt"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_product_product
+msgid "Product"
+msgstr "Бараа"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_product_template
+msgid "Product Template"
+msgstr "Барааны загвар"
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Product has no tax"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "Quantity"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__parent_right
+msgid "Right Parent"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_config_form_view_ebarimt
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "Send Data"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_config_form_view_ebarimt
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "Send EBarimt information to Administration"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_ebarimt_gs1barcode__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Served by"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_pos_config__library_filename
+msgid ""
+"Specific setting of library file name for POS. Each POS can use different "
+"files."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_report_pos_session__start_date
+msgid "Start Date"
+msgstr "Эхлэх огноо"
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "TOTAL"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model,name:l10n_mn_ebarimt_3_0.model_account_tax
+msgid "Tax"
+msgstr "Татвар"
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_tax__name
+msgid "Tax Name"
+msgstr "Татварын нэр"
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/ProductItem.xml:0
+#, python-format
+msgid "Tax type:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_bank_statement_line__amount_tax_city
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move__amount_tax_city
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move_line__amount_tax_city
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_payment__amount_tax_city
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order__amount_tax_city
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order_line__amount_tax_city
+msgid "Taxes City"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_bank_statement_line__amount_tax_vat
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move__amount_tax_vat
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_move_line__amount_tax_vat
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_account_payment__amount_tax_vat
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order__amount_tax_vat
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_pos_order_line__amount_tax_vat
+msgid "Taxes VAT"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_account_tax__ebarimt_tax_type_id
+msgid ""
+"The 'EBarimt Tax Type' is used for features available on different types of "
+"tax types of Mongolian EBarimt system."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.constraint,message:l10n_mn_ebarimt_3_0.constraint_ebarimt_aimag_district_code_ebarimt_aimag_district_uniq
+msgid "The code of the ebarimt Aimag/District must be unique!"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,help:l10n_mn_ebarimt_3_0.field_pos_config__aimag_district_id
+msgid ""
+"This Aimag/District will be assigned by default on new EBarimt put "
+"operation."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "Use GS1 barcode defined by Mongolian Tax Administration"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ir.model.fields,field_description:l10n_mn_ebarimt_3_0.field_res_config_settings__group_ebarimt_gs1barcode
+msgid "Use Mongolian GS1 Barcode"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ebarimt.tax.type,name:l10n_mn_ebarimt_3_0.tax_type_vat_included
+msgid "VAT"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ebarimt.tax.type,name:l10n_mn_ebarimt_3_0.tax_type_vat_zero
+msgid "VAT 0"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model:ebarimt.tax.type,name:l10n_mn_ebarimt_3_0.tax_type_vat_free
+msgid "VAT free"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "VAT number:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.report_receipt_document
+msgid "VAT:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "With a"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/account_move.py:0
+#, python-format
+msgid "You have to add same tax type products in your invoice!"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/account_move.py:0
+#, python-format
+msgid ""
+"You need to insert the customers vat before you can proceed company invoice."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "You need to select the customer before you can validate an order."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/pos_order.py:0
+#, python-format
+msgid ""
+"You need to set customers VAT number before you can proceed company pos "
+"order."
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.pos_config_form_view_ebarimt
+#: model_terms:ir.ui.view,arch_db:l10n_mn_ebarimt_3_0.res_config_settings_view_form_inherit_ebarimt
+msgid "e.g libPosAPI.so"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#: code:addons/l10n_mn_ebarimt_3_0/models/ebarimt_service.py:0
+#, python-format
+msgid ""
+"register No: %s, branch No: %s, pos Id: %s, db Dir Path: %s, count Bill: %s,"
+" count Lottery: %s"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Нийт"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Нэгж үнэ"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Нэр"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "РД:"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Тоо"
+msgstr ""
+
+#. module: l10n_mn_ebarimt_3_0
+#. openerp-web
+#: code:addons/l10n_mn_ebarimt_3_0/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Утас:"
+msgstr ""

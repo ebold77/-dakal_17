@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.cron" id="ebarimt_senddata_job">
+            <field name='name'>EBarimt Send Data</field>
+            <field name="model_id" ref="model_ebarimt_exchange"/>
+            <field name="state">code</field>
+            <field name="code">model.sendData()</field>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>days</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

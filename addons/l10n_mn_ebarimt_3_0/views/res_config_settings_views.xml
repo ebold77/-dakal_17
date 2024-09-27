@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_ebarimt" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.ebarimt</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_accounting_section']" position="after">
+                <block title="EBarimt" id="pos_ebarimt_section">
+                    <setting class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="aimag_district_id" class="col-lg-3"/>
+                            <field name="aimag_district_id"/>
+
+                            <label for="ebarimt_service_host" class="col-lg-3"/>
+                            <field name="ebarimt_service_host"/>
+
+                            <label for="ebarimt_service_port" class="col-lg-3"/>
+                            <field name="ebarimt_service_port"/>
+                            
+                            <label for="merchant_tin" class="col-lg-3"/>
+                            <field name="merchant_tin"/>
+                        </div>
+                    </setting>
+
+                    <setting class="col-12 col-lg-6 o_setting_box">
+                        <div class="mt8">
+                            <button name="ebarimt_send_data" type="object" string="Send Data" help="Send EBarimt information to Administration"/>
+                                &#x2063;<button name="ebarimt_get_information" type="object" string="Get Information" help="Get EBarimt information from Administration"/>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

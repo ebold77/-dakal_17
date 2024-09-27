@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="buy_sell_out_line_form_view" model="ir.ui.view">
+        <field name="name">buy.sell.out.line.form.view</field>
+        <field name="model">buy.sell.out.line</field>
+        <field name="arch" type="xml">
+            <form string="Buy and Sell Order out Line">
+                <sheet>
+                <group>
+                     <field name="sequence"/>
+                     <field name="product_id"/>
+                     <field name="name"/>
+                     <field name="product_qty"/>
+                     <field name="product_uom"/>
+                     <field name="list_price"/>
+                     <field name="pricelist_price"/>
+                     <field name="pricelist_discount"/>
+                     <field name="price_subtotal"/>
+                     <field name="profit_loss"/>
+                </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="buy_sell_out_line_tree_view" model="ir.ui.view">
+        <field name="name">buy.sell.out.line.tree.view</field>
+        <field name="model">buy.sell.out.line</field>
+        <field name="arch" type="xml">
+            <tree string="Buy and Sell">
+            	<field name="product_id"/>
+                <field name="name"/>
+                <field name="product_qty"/>
+                <field name="product_uom"/>
+                <field name="list_price"/>
+                <field name="pricelist_price"/>
+                <field name="pricelist_discount"/>
+                <field name="price_subtotal"/>
+               	<field name="profit_loss"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Search View -->
+		<record id="buy_sell_out_line_search_view" model="ir.ui.view">
+			<field name="name">Search Buy and Sell</field>
+			<field name="model">buy.sell.out.line</field>
+			<field name="type">search</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<search string="Search Buy and Sell">
+					<separator orientation="vertical" />
+					<field name="product_id"/>
+					<newline />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_buy_sell_out_line">
+			<field name="name">Buy and Sell</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">buy.sell.order</field>
+			<field name="binding_view_types">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="buy_sell_order_search_view" />
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+		</record>
+	
+		<menuitem id="menu_buy_sell_order" name="Out Line" parent="buy_sell.menu_buy_sell"
+			sequence="0" groups="base.group_user" action="action_buy_sell_out_line"/>
+
+</odoo>

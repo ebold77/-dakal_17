@@ -1,0 +1,120 @@
+/* All PDF Report Base Styles */
+.l10n_mn_base_report .table-l10n_mn-header {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+.l10n_mn_base_report .table-l10n_mn-header tr td {
+    font-size: 11px;
+    padding: 2px;
+}
+
+.l10n_mn_base_report .table-l10n_mn-header tr {
+    border: none;
+
+}
+
+.l10n_mn_base_report .table-l10n_mn-footer {
+    width: 90%;
+    margin: auto;
+}
+
+.l10n_mn_base_report .table-l10n_mn-footer tr td {
+    font-size: 8px;
+    padding: 2px;
+}
+
+.l10n_mn_base_report h2 {
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.l10n_mn_base_report h3 {
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.l10n_mn_base_report p {
+    margin-top: 1px;
+    margin-bottom: 0;
+    font-size: 8px;
+}
+
+.l10n_mn_base_report p.small {
+	font-style: italic;
+	text-align: justify;
+	font-size: 7px;
+}
+
+.l10n_mn_base_report b {
+	font-weight: bold;
+}
+
+.l10n_mn_base_report .table-l10n_mn-grid {
+    border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #000000;
+}
+
+.l10n_mn_base_report .table-l10n_mn-grid thead tr th,
+.l10n_mn_base_report .table-l10n_mn-grid th {
+    font-size: 10px;
+    background: #DDDDDD;
+    color: #000000;
+    font-weight: bold;
+    padding: 2px 1px;
+    text-align: center;
+	border: 1px solid #000000;
+}
+
+.l10n_mn_base_report .table-l10n_mn-grid tbody tr td {
+    font-size: 10px;
+    padding: 3px 2px;
+    border: 1px solid #000000;
+}
+
+.l10n_mn_base_report .table-l10n_mn-grid tfoot tr td {
+    font-size: 11px;
+    background: #DDDDDD;
+    color: #000000;
+    padding: 4px 5px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.l10n_mn_base_report .border {
+    border:1px solid #000000;
+}
+
+.l10n_mn_base_report h2.title {
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.l10n_mn_base_report h2.title span {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.l10n_mn_base_report strong {
+	font-size: 12px;
+}
+
+.l10n_mn_base_report div.row {
+	padding-bottom: 6px;
+	padding-top: 4px;
+}
+
+.l10n_mn_base_report .text-right {
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+.l10n_mn_base_report .table-l10n_mn-grid td.noborder {
+	border: none;
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		<template id="report_buy_sell_document">
+			<t t-call="web.external_layout">
+				<t t-foreach="docs" t-as="o">
+					<t t-call="web.external_layout">
+					<div class="row">
+						<h3 align="center"> Худалдах, худалдан авах захиалгын баримт: <span><b t-field='o.name'/></span></h3>
+                         <table class="table-l10n_mn-header">
+                             <tr><td><span>Хүлээн авсан</span>: <span><b t-field='o.company_id.name'/></span></td>
+                                 <td><span>Огноо</span>: <span><b t-field="o.date_order"/></span></td>
+                             </tr>
+                             <tr>
+                                 <td><span>ТТД</span>: <span><b t-field="o.company_id.vat"/></span></td>
+                                 <td><span>Харилцагч</span>: <span><b t-field='o.partner_id.name'/></span></td>
+                             </tr>
+                             <tr>
+                                 <td><span>Салбар нэгж</span>: <span><b t-field="o.warehouse_id.name"/></span></td>
+                                 <td><span>ТТД</span>: <span><b t-field='o.partner_id.vat'/></span></td>
+                             </tr>
+                         </table>
+                         <br/>
+                         <br/>
+                         <table class="table-l10n_mn-grid">
+                         <thead>
+                             <tr>
+                                <th width="*">№</th>
+                                <th align="center" width="45%">Барааны нэр</th>
+                                <th align="center" width="10%">Хэмжих нэгж</th>
+                                <th align="center" width="15%">Тоо ширхэг</th>
+                                <th align="center" width="15%">Нэгж үнэ</th>
+                                <th align="center" width="15%">Нийт үнэ</th>
+                             </tr>
+                         </thead>
+
+                         <tbody>
+	                             <t t-set="line_number" t-value="1"/>
+	                             <td colspan="3"><b>Гарч буй бараа</b></td>
+	                             <tr t-foreach="o.sell_order_line" t-as="pick">
+	                                 <td align="center"><span t-esc="line_number"/></td>
+	                                 <td align="left"><span t-esc="pick.product_id.name"/></td>
+	                                 <td align="center"><span t-esc="pick.product_uom.name"/></td>
+	                                 <td align="center"><span t-esc="pick.product_qty"/></td>
+	                                 <td align="center"><span t-esc="pick.bs_price"/></td>
+	                                 <td align="center"><span t-esc="pick.bs_price_total"/></td>
+	                                 <t t-set="line_number" t-value="line_number + 1"/>
+	                             </tr>
+	                             <tr>
+	                                 <td align="right"></td>
+	                                 <td colspan="4"><b>Худалдсан барааны дүн</b></td>
+	                                 <td align="center"><span t-if="o.sell_total"><b t-esc="o.sell_total"/></span></td>
+	                             </tr>
+	                             <t t-set="line_number" t-value="1"/>
+	                             <td colspan="3"><b>Ирж буй бараа</b></td>
+	                             <tr t-foreach="o.buy_order_line" t-as="pick">
+	                                 <td align="center"><span t-esc="line_number"/></td>
+	                                 <td align="left"><span t-esc="pick.product_id.name"/></td>
+	                                 <td align="center"><span t-esc="pick.product_uom.name"/></td>
+	                                 <td align="center"><span t-esc="pick.product_qty"/></td>
+	                                 <td align="center"><span t-esc="pick.bs_price"/></td>
+	                                 <td align="center"><span t-esc="pick.bs_price_total"/></td>
+	                                 <t t-set="line_number" t-value="line_number + 1"/>
+	                             </tr>
+	                             <tr>
+	                                 <td align="right"></td>
+	                                 <td colspan="4"><b>Худалдан авсан барааны дүн</b></td>
+	                                 <td align="center"><span t-if="o.buy_total"><b t-esc="o.buy_total"/></span></td>
+	                             </tr>
+	                             <tr>
+	                                 <td align="center"></td>
+                                     <td colspan="4"><b>Зөрүү дүн:</b></td>
+                                     <td align="center"><span t-if="o.price_difference"><b t-esc="o.price_difference"/></span></td>
+	                             </tr>
+                         </tbody>
+                         </table>
+                        <br/>
+                        <br/>
+                        <table class="table-l10n_mn-footer">
+                            <tr>
+                                <td width="25%">Боловсруулсан:</td>
+                                <td width="25%">..................................................................</td>
+                                <td width="25%">Баталсан:</td>
+                                <td width="25">...................................................................</td>
+                            </tr>
+                            <tr>
+                                <td>Шалгасан нягтлан бодогч</td>
+                                <td>...............................................................</td>
+                                <td rowspan="2" width="10%" align="center" valign="center">Тэмдэг</td>
+                            </tr>
+                        </table>
+					</div>
+				</t>
+				</t>
+			</t>
+		</template>
+
+		<template id="barter_report">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="o">
+					<t t-call="buy_sell.report_buy_sell_document"
+						t-lang="o.partner_id.lang" />
+				</t>
+			</t>
+		</template>
+</odoo>

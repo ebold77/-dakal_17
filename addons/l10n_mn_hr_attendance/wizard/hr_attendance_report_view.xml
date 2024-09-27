@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ирцийн дэлгэрэнгүй тайлангийн визард форм харагдац -->
+    <record id="view_hr_attendance_report_form" model="ir.ui.view">
+		<field name="name">hr.attendance.report.form</field>
+	    <field name="model">hr.attendance.report</field>
+	    <field name="arch" type="xml">
+	        <form string="HR Attendance Detail Report">
+	            <sheet>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+	       			    <notebook>
+	       					<page string="Employee">
+	       				    	<field name="employee_ids" options="{'no_create': True}"/>
+	       				    </page>
+	         		    </notebook>
+                    </group>
+                </sheet>
+	            <footer>
+	                <button name="export_report" type="object" string="Export" class="oe_highlight"/> or
+	                <button special="cancel" string="Close" type="object" class="oe_link"/>
+	            </footer>
+	        </form>
+	    </field>
+	</record>
+
+    <!-- Ирц - Тайлан - Ирцийн дэлгэрэнгүй тайлан цэсийн action -->
+    <record id="action_hr_attendance_report" model="ir.actions.act_window">
+        <field name="name">HR Attendance Detail Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_hr_attendance_report_form"/>
+        <field name="context">{'from_menu': False}</field>
+        <field name="target">new</field>
+        <field name="groups_id" eval="[(4,ref('hr_attendance.group_hr_attendance_officer'))]"></field>
+    </record>
+
+    <!-- Ирц - Тайлан цэс -->
+	<menuitem id="menu_hr_attendance_report_root" name="Reports" parent="hr_attendance.menu_hr_attendance_root" sequence="30" groups="base.group_user"/>
+
+    <!-- Ирц - Тайлан - Тайлан цэс -->
+    <menuitem id="hr_attendance.menu_hr_attendance_report" name="Attendance Analysis" parent="menu_hr_attendance_report_root" sequence="10" groups="hr_attendance.group_hr_attendance_user" action="hr_attendance.hr_attendance_action_graph"/>
+
+    <!-- Ирц - Тайлан - Ирцийн дэлгэрэнгүй тайлан цэс -->
+    <menuitem id="menu_hr_attendance_report" parent="menu_hr_attendance_report_root" action="action_hr_attendance_report" sequence="20"/>
+
+</odoo>

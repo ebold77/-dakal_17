@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+    <record id="view_picking_form_inherit_transit_order" model="ir.ui.view">
+        <field name="name">stock.picking.inherit.transit.order</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+           
+            <xpath expr="//sheet/group/group/field[@name='location_dest_id']" position="after">
+                <field name="transit_order_id" readonly="1"/>
+            </xpath>
+            
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ClientDetailsEdit" t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+        <xpath expr="//input[@name='name']" position="after">
+            <label class="ebarimt_control">
+                <input id="company_type_person" type="radio" class="ebarimt_radio" name="company_type" value="person" t-on-change="changeCompanyType" t-att-checked="props.partner.company_type === 'person'"/>Individual
+            </label>
+            <label class="ebarimt_control">
+                <input id="company_type_company" type="radio" class="ebarimt_radio" name="company_type" value="company" t-on-change="changeCompanyType" t-att-checked="props.partner.company_type === 'company'"/>Company
+            </label>
+        </xpath>
+
+        <xpath expr="//input[@name='vat']" position="after">
+            <button type="button" t-on-click="getPartnerInformation">Get</button>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('paymentmethods-container')]" position="after">
+            <div class="row_ebarimt_control">
+                <div class="col-md-12">
+                    <h2>EBarimt Tax Type</h2>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="ebarimt_control">
+                            <input id="bill_type_individual" type="radio" name="bill_type" value="B2C_RECEIPT" class="ebarimt_radio" t-on-change="changeBillType" t-att-disabled="currentOrder.to_invoice" t-model="currentOrder.bill_type"/> Individual
+                        </label>
+                        <label class="ebarimt_control">
+                            <input id="bill_type_company" type="radio" name="bill_type" value="B2B_RECEIPT" class="ebarimt_radio" t-on-change="changeBillType" t-att-disabled="currentOrder.to_invoice" t-model="currentOrder.bill_type"/> Company
+                        </label>
+                    </div>
+                     <div class="flex-row">
+                        <div class="col-md-12">
+                            <label t-if='env.pos.config.module_account' class="ebarimt_control">
+                                <input id="bill_type_invoice" type="radio" name="bill_type" value="B2B_INVOICE" class="ebarimt_radio" t-on-change="changeBillType" t-model="currentOrder.bill_type"/> Invoice
+                            </label>
+                            <!-- <label class="ebarimt_control">
+                                <input id="bill_type_no_tax" type="radio" name="bill_type" value="0" class="ebarimt_radio" t-on-change="changeBillType" t-att-disabled="currentOrder.to_invoice" t-model="currentOrder.bill_type"/> No Tax
+                            </label> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="partner-detail" style="margin-top:20px">
+                
+                    <div class="flex-row"> Регистр:
+                        <input name="register" id="register" type="text"/>
+                    </div>
+               
+                    <div class='partner-detail flex-row' style="margin-top:10px;">Байгууллагын нэр:</div>
+                    <h3 id="company_name" class="partner-detail flex-row" style="margin-top:10px;"></h3>
+                
+                
+            </div>
+        </xpath>
+
+      <!--   <xpath expr="//div[hasclass('top-content')]" position="replace">
+            <div class="top-content">
+                <div class="button back"
+                      t-on-click="showScreen('ProductScreen')">
+                    <i class="fa fa-angle-double-left fa-fw"></i>
+                    <span class="back_text">Back (ESC)</span>
+                </div>
+                <div class="top-content-center"><h1>Payment</h1></div>
+                <div class="button next" t-att-class="{ highlight: currentOrder.is_paid() and _isValidEmptyOrder() }"
+                      t-on-click="lockedValidateOrder(false)">
+                    <span class="next_text">Validate (ENT)</span>
+                    <i class="fa fa-angle-double-right fa-fw"></i>
+                </div>
+            </div>
+        </xpath> -->
+    </t>
+</templates>

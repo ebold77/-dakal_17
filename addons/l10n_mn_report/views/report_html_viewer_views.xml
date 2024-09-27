@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="report_html_output_view_form" model="ir.ui.view">
+        <field name="name">report.html.output.form</field>
+        <field name="model">oderp.report.html.output</field>
+        <field name="arch" type="xml">
+            <form string="Report Output">
+                <footer>
+                    <button name="see_report" string="See" type="object" icon="fa-eye" class="btn-primary see_report"/>
+                    or
+                    <button special="cancel" string="Close" type="object" icon="fa-close" class="oe_link"/>
+                </footer>
+                <div id="report_output_see"/>
+            </form>
+        </field>
+    </record>
+</odoo>

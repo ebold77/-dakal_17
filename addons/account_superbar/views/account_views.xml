@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+      
+      <!-- account.invoice, account.move -->
+      <record id="view_account_invoice_filter_superbar" model="ir.ui.view">
+          <field name="name">account.invoice.select.superbar</field>
+          <field name="model">account.move</field>
+          <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+          <field name="arch" type="xml">
+              <xpath expr="//search">
+                  <searchpanel view_types="list,kanban,pivot,graph">
+                    <field name="payment_state"/>
+                    <field name="company_id" groups="base.group_multi_company" icon="fa-building"/>
+                    <field name="partner_id"/>
+                    <field name="state"/>
+                  </searchpanel>
+              </xpath>
+          </field>
+      </record>
+      <!-- account.move -->
+      <record id="view_account_move_filter_superbar" model="ir.ui.view">
+          <field name="name">account.move.select.superbar</field>
+          <field name="model">account.move</field>
+          <field name="inherit_id" ref="account.view_account_move_filter"/>
+          <field name="arch" type="xml">
+              <xpath expr="//search">
+                  <searchpanel view_types="list,kanban,pivot,graph">
+                      <field name="company_id" groups="base.group_multi_company" icon="fa-building"/>
+                      <field name="journal_id"/>
+                      <field name="partner_id"/>
+                  </searchpanel>
+              </xpath>
+          </field>
+      </record>
+  </data>
+</odoo>

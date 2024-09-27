@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="dakal_driver_invoice_form_view" model="ir.ui.view">
+            <field name="name">driver.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//sheet/group/group/field[@name='partner_shipping_id']" position="after">
+					<field name="driver_id"/>
+				</xpath>
+            </field>
+        </record>
+        <record id="dakal_driver_invoice_filter_view" model="ir.ui.view">
+            <field name="name">driver.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//search/group/filter[@name='salesperson']" position="after">
+					<filter string="Driver" name="driver" domain="[]" context="{'group_by': 'driver_id'}"/>
+				</xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

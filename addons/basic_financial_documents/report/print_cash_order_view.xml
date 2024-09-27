@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Кассын зарлагын баримт -->
+	<template id="basic_financial_documents.print_cash_expense_order">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<t t-foreach="docs" t-as="o">
+					<table class="table table-sm">
+						<tr>
+							<td width='50%'>
+								<table style="width:100%">
+									<tr>
+										<td>
+											<table  style="width:100%">
+												<tr>
+													<td width='30%' style="vertical-align:top;">
+														<b><span style="font-size:8px;">НХМаягт МХ-2</span></b>
+													</td>
+													<td align="right">
+														<p style='font-size:8px; margin-right: 20px;'>Сангийн сайдын 2017 оны 12 дугаар сарын 5 өдрийн</p>
+														<p style='font-size:8px; margin-right: 20px;'> 347 тоот тушаалын хавсралт</p>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td width="80%" align="middle" style="vertical-align:top;">
+										   <img width="auto" height="50" alt="set company logo" align="middle" t-attf-src="data:image/gif;base64, #{o.company_id.logo}"/>
+									   </td>
+									</tr>
+									<tr height="30" valign="center" ><td> </td></tr>
+									<tr>
+										<td align="middle">
+											<h6>
+												<b>БЭЛЭН МӨНГӨНИЙ ЗАРЛАГЫН БАРИМТ</b>
+											</h6>
+										</td>
+									</tr>
+									<tr height="30" valign="center" ><td> </td></tr>
+									<tr>
+										<td>
+											<table  class="table-l10n_mn-grid">
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Дугаар:</span>
+													</td>
+													<td  width="280pt">
+														<b><span style="font-size:13px;" t-field="o.statement_id.name"/>/<span style="font-size:13px;"  t-field="o.sequence"/></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+												   <td>
+														<span style="font-size:13px;">Огноо:</span>
+													</td>
+													<td>
+													   <b><span style="font-size:13px;" t-field="o.date" /></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Байгууллагын нэр:</span>
+													</td>
+													<td>
+														<b><span style="font-size:13px;" t-field="o.company_id.name" /></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Мөнгө хүлээн авагч:</span>
+													</td>
+													<td>
+														<b style="font-size:13px;" t-if="o.partner_id" t-field="o.partner_id"/>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Гүйлгээний утга:</span>
+													</td>
+													<td>
+														<b style="font-size:13px;" t-if="o.payment_ref" t-field="o.payment_ref"/>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Олгосон мөнгөн дүн:</span>
+													</td>
+													<td>
+														<b><span style="font-size:13px;" t-esc="amounts.get(o.id, '0.0')"/><span t-esc="currency[o.id]['symbol']"/></b>
+													</td>
+												</tr>
+											</table>
+											<td>
+												<tr>
+													<td>
+														<span style="font-size:13px;">Мөнгөн дүн /үсгээр/:</span>
+														<b><span style="font-size:13px;" t-esc="verbose_amount.get(o.id, '')"/></b>
+													</td>
+												</tr>
+												<tr><td></td></tr>
+												<tr><td></td></tr>
+												<tr>
+													 <td>
+														<span style="font-size:13px;">Хавсаргасан баримт:</span>
+													</td>
+												</tr>
+												<tr><td></td></tr>
+												<tr><td></td></tr>
+												<tr>
+													<td>
+														<table style="margin-top: 20px; font-family: 'Arial';font-size: 13px;" width="100%;">
+															<tbody t-foreach="signature_lines[o.id]" t-as="l" id="signature_lines_tbody" >
+																<tr width="100%; border-top: 2px;">
+																	<td t-if="l['name']" style="width:50%; text-align:left" >
+																		<br/>
+																		<span t-esc="l['name']" />:
+																		<img t-if="l['signature']" t-att-src="image_data_uri(l['signature'])"  width="120" height="25"/>
+																		<span t-else=" "> _________________ </span>
+																		<span> / <span t-if="l['partner']" t-esc="l['partner']"/> <span t-else=" "> _________________ </span>/ </span>
+																	</td>
+																</tr>
+															</tbody>
+															<tr style="width:100%;">
+																<td>
+																	<br/>
+																	<span style="font-size:13px;">Хүлээлгэн өгсөн:</span>
+																	_________________ <span style="font-size:13px;">/<t style="font-size:13px;" t-esc="o.user_id.name"/>/</span>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<br/>
+																	<span style="font-size:13px;">Хүлээн авсан:</span>
+																	_________________ <span style="font-size:13px;">/<t t-esc="o.partner_id.name"/>/</span>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</td>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td><hr style="border-left: 1px solid; height: 380px; margin-left:-5px;left:50%; position:absolute; top:0;" /></td>
+							<td width='50%'>
+								<table style="width:100%; margin-left:10px;">
+									<tr>
+										<td>
+											<table  style="width:100%">
+												<tr>
+													<td width='30%' style="vertical-align:top;">
+														<b><span style="font-size:8px;">НХМаягт МХ-2</span></b>
+													</td>
+													<td align="right">
+														<p style='font-size:8px;'>Сангийн сайдын 2017 оны 12 дугаар сарын 5 өдрийн</p>
+														<p style='font-size:8px;'> 347 тоот тушаалын хавсралт</p>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td width="80%" align="middle" style="vertical-align:top;">
+										   <img width="auto" height="50" alt="set company logo" align="middle" t-attf-src="data:image/gif;base64, #{o.company_id.logo}"/>
+									   </td>
+									</tr>
+									<tr height="30" valign="center" ><td> </td></tr>
+									<tr>
+										<td align="middle">
+											<h6>
+												<b>БЭЛЭН МӨНГӨНИЙ ЗАРЛАГЫН БАРИМТ</b>
+											</h6>
+										</td>
+									</tr>
+									<tr height="30" valign="center" ><td> </td></tr>
+									<tr>
+										<td>
+											<table  class="table-l10n_mn-grid">
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Дугаар:</span>
+													</td>
+													<td  width="280pt">
+														<b><span style="font-size:13px;" t-field="o.statement_id.name"/>/<span style="font-size:13px;"  t-field="o.sequence"/></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+												   <td>
+														<span style="font-size:13px;">Огноо:</span>
+													</td>
+													<td>
+													   <b><span style="font-size:13px;" t-field="o.date" /></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Байгууллагын нэр:</span>
+													</td>
+													<td>
+														<b><span style="font-size:13px;" t-field="o.company_id.name" /></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Мөнгө хүлээн авагч:</span>
+													</td>
+													<td>
+														<b style="font-size:13px;" t-if="o.partner_id" t-field="o.partner_id"/>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Гүйлгээний утга:</span>
+													</td>
+													<td>
+														<b style="font-size:13px;" t-if="o.payment_ref" t-field="o.payment_ref"/>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Олгосон мөнгөн дүн:</span>
+													</td>
+													<td>
+														<b><span style="font-size:13px;" t-esc="amounts.get(o.id, '0.0')"/><span t-esc="currency[o.id]['symbol']"/></b>
+													</td>
+												</tr>
+											</table>
+											<td>
+												<tr>
+													<td>
+														<span style="font-size:13px;">Мөнгөн дүн /үсгээр/:</span>
+														<b><span style="font-size:13px;" t-esc="verbose_amount.get(o.id, '')"/></b>
+													</td>
+												</tr>
+												<tr><td></td></tr>
+												<tr><td></td></tr>
+												<tr>
+													 <td>
+														<span style="font-size:13px;">Хавсаргасан баримт:</span>
+													</td>
+												</tr>
+												<tr><td></td></tr>
+												<tr><td></td></tr>
+												<tr>
+													<td>
+														<table style="margin-top: 20px; font-family: 'Arial';font-size: 13px;" width="100%;">
+															<tbody t-foreach="signature_lines[o.id]" t-as="l" id="signature_lines_tbody" >
+																<tr width="100%; border-top: 2px;">
+																	<td t-if="l['name']" style="width:50%; text-align:left" >
+																		<br/>
+																		<span t-esc="l['name']" />:
+																		<img t-if="l['signature']" t-att-src="image_data_uri(l['signature'])"  width="120" height="25"/>
+																		<span t-else=" "> _________________ </span>
+																		<span> / <span t-if="l['partner']" t-esc="l['partner']"/> <span t-else=" "> _________________ </span>/ </span>
+																	</td>
+																</tr>
+															</tbody>
+															<tr style="width:100%;">
+																<td>
+																	<br/>
+																	<span style="font-size:13px;">Хүлээлгэн өгсөн:</span>
+																	_________________ <span style="font-size:13px;">/<t style="font-size:13px;" t-esc="o.user_id.name"/>/</span>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<br/>
+																	<span style="font-size:13px;">Хүлээн авсан:</span>
+																	_________________ <span style="font-size:13px;">/<t t-esc="o.partner_id.name"/>/</span>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</td>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</t>
+	         </t>
+	     </t>
+	</template>
+
+	<!-- Кассын орлогын баримт -->
+	<template id="basic_financial_documents.print_cash_income_order">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<t t-foreach="docs" t-as="o">
+					<table class="table table-sm">
+						<tr>
+							<td width='50%'>
+								<table style="width:100%">
+									<tr>
+										<td>
+											<table style="width:100%">
+												<tr>
+													<td width='30%' style="vertical-align:top;">
+														<b><span style="font-size:8px;">НХМаягт МХ-1</span></b>
+													</td>
+													<td align="right">
+														<p style='font-size:8px; margin-right: 20px;'>Сангийн сайдын 2017 оны 12 дугаар сарын 5 өдрийн</p>
+														<p style='font-size:8px; margin-right: 20px;'> 347 тоот тушаалын хавсралт</p>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td width="80%" align="middle" style="vertical-align:top;">
+										   <img width="auto" height="50" alt="set company logo" align="middle" t-attf-src="data:image/gif;base64, #{o.company_id.logo}"/>
+									   </td>
+									</tr>
+									<tr height="30" valign="center" ><td> </td></tr>
+									<tr>
+										<td align="middle">
+											<h6>
+												<b>БЭЛЭН МӨНГӨНИЙ ОРЛОГЫН БАРИМТ</b>
+											</h6>
+										</td>
+									</tr>
+									<tr height="30" valign="center" ><td> </td></tr>
+									<tr>
+										<td>
+											<table class="table-l10n_mn-grid">
+												<tr height="30" valign="center" >
+													<td>
+														<span style="font-size:13px;">Дугаар:</span>
+													</td>
+													<td width="280pt">
+														<b><span style="font-size:13px;" t-field="o.statement_id.name"/>/<span style="font-size:13px;"  t-field="o.sequence"/></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+												   <td>
+														<span style="font-size:13px;">Огноо:</span>
+													</td>
+													<td>
+													   <b><span style="font-size:13px;" t-field="o.date" /></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Байгууллагын нэр:</span>
+													</td>
+													<td>
+														<b><span style="font-size:13px;" t-field="o.company_id.name" /></b>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Mөнгө тушаагч:</span>
+													</td>
+													<td>
+														<b style="font-size:13px;" t-if="o.partner_id" t-field="o.partner_id"/>
+													</td>
+												</tr>
+												<tr height="30" valign="center">
+													<td>
+														<span style="font-size:13px;">Гүйлгээний утга:</span>
+													</td>
+													<td>
+														<b style="font-size:13px;" t-if="o.payment_ref" t-field="o.payment_ref"/>
+													</td>
+												</tr>
+												<tr height="30" valign="center" >
+													<td>
+														<span style="font-size:13px;">Тушаасан мөнгөн дүн:</span>
+													</td>
+													<td>
+														<b><span style="font-size:13px;" t-esc="amounts.get(o.id, '0.0')"/><span t-esc="currency[o.id]['symbol']"/></b>
+													</td>
+												</tr>
+											</table>
+											<td>
+												<tr>
+													<td>
+														<span style="font-size:13px;">Мөнгөн дүн /үсгээр/:</span>
+														<b><span style="font-size:13px;" t-esc="verbose_amount.get(o.id, '')"/></b>
+													</td>
+												</tr>
+												<tr><td></td></tr>
+												<tr><td></td></tr>
+												<tr>
+													 <td>
+														<span style="font-size:13px;">Хавсаргасан баримт:</span>
+													</td>
+												</tr>
+												<tr><td></td></tr>
+												<tr><td></td></tr>
+												<tr>
+													<td>
+														<table style="margin-top: 20px; font-family: 'Arial';font-size: 13px;" width="100%;">
+															<tbody t-foreach="signature_lines[o.id]" t-as="l" id="signature_lines_tbody" >
+																<tr width="100%; border-top: 2px;">
+																	<td t-if="l['name']" style="width:50%; text-align:left" >
+																		<br/>
+																		<span t-esc="l['name']" />:
+																		<img t-if="l['signature']" t-att-src="image_data_uri(l['signature'])"  width="120" height="25"/>
+																		<span t-else=" "> _________________ </span>
+																		<span> / <span t-if="l['partner']" t-esc="l['partner']"/> <span t-else=" "> _________________ </span>/ </span>
+																	</td>
+																</tr>
+															</tbody>
+															<tr style="width:100%;">
+																<td>
+																	<br/>
+																	<span style="font-size:13px;">Хүлээн авсан:</span>
+																	_________________ <span style="font-size:13px;">/<t style="font-size:13px;" t-esc="o.user_id.name"/>/</span>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<br/>
+																	<span style="font-size:13px;">Мөнгө тушаагч:</span>
+																	_________________ <span style="font-size:13px;">/<t t-esc="o.partner_id.name"/>/</span>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</td>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td><hr style="border-left: 1px solid; height: 380px; margin-left:-5px;left:50%; position:absolute; top:0;" /></td>
+							<td width='50%'>
+								<table style="width:100%; margin-left:10px;">
+									<tr>
+										<td>
+											<table  style="width:100%">
+												<tr>
+													<td width='30%' style="vertical-align:top;">
+														<b><span style="font-size:8px;">НХМаягт МХ-1</span></b>
+													</td>
+													<td align="right">
+														<p style='font-size:8px;'>Сангийн сайдын 2017 оны 12 дугаар сарын 5 өдрийн</p>
+														<p style='font-size:8px;'> 347 тоот тушаалын хавсралт</p>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr><td></td></tr>
+									<tr><td></td></tr>
+									<tr>
+										<td width="80%" align="middle" style="vertical-align:top;">
+										   <img width="auto" height="50" alt="set company logo" align="middle" t-attf-src="data:image/gif;base64, #{o.company_id.logo}"/>
+									   </td>
+									</tr>
+									<tr height="30" valign="center" ><td> </td></tr>
+									<tr>
+										<td align="middle">
+											<h6>
+												<b>БЭЛЭН МӨНГӨНИЙ ОРЛОГЫН БАРИМТ</b>
+											</h6>
+										</td>
+									</tr>
+									<tr height="30" valign="center" ><td> </td></tr>
+									<tr>
+										<td>
+											<table class="table-l10n_mn-grid">
+												<tr height="30" valign="center" >
+													<td>
+														<span style="font-size:13px;">Дугаар:</span>
+													</td>
+													<td width="280pt">
+														<b><span style="font-size:13px;" t-field="o.statement_id.name"/>/<span style="font-size:13px;"  t-field="o.sequence"/></b>
+													</td>
+												</tr>
+												<tr height="30">
+												   <td>
+														<span style="font-size:13px;">Огноо:</span>
+													</td>
+													<td>
+													   <b><span style="font-size:13px;" t-field="o.date" /></b>
+													</td>
+												</tr>
+												<tr height="30">
+													<td>
+														<span style="font-size:13px;">Байгууллагын нэр:</span>
+													</td>
+													<td>
+														<b><span style="font-size:13px;" t-field="o.company_id.name" /></b>
+													</td>
+												</tr>
+												<tr height="30">
+													<td>
+														<span style="font-size:13px;">Mөнгө тушаагч:</span>
+													</td>
+													<td>
+														<b style="font-size:13px;" t-if="o.partner_id" t-field="o.partner_id"/>
+													</td>
+												</tr>
+												<tr height="30">
+													<td>
+														<span style="font-size:13px;">Гүйлгээний утга:</span>
+													</td>
+													<td>
+														<b style="font-size:13px;" t-if="o.payment_ref" t-field="o.payment_ref"/>
+													</td>
+												</tr>
+												<tr height="30">
+													<td>
+														<span style="font-size:13px;">Тушаасан мөнгөн дүн:</span>
+													</td>
+													<td>
+														<b><span style="font-size:13px;" t-esc="amounts.get(o.id, '0.0')"/><span t-esc="currency[o.id]['symbol']"/></b>
+													</td>
+												</tr>
+											</table>
+											<td>
+												<tr>
+													<td>
+														<span style="font-size:13px;">Мөнгөн дүн /үсгээр/:</span>
+														<b><span style="font-size:13px;" t-esc="verbose_amount.get(o.id, '')"/></b>
+													</td>
+												</tr>
+												<tr><td></td></tr>
+												<tr><td></td></tr>
+												<tr>
+													 <td>
+														<span style="font-size:13px;">Хавсаргасан баримт:</span>
+													</td>
+												</tr>
+												<tr><td></td></tr>
+												<tr><td></td></tr>
+												<tr>
+													<td>
+														<table style="margin-top: 20px; font-family: 'Arial';font-size: 13px;" width="100%;">
+															<tbody t-foreach="signature_lines[o.id]" t-as="l" id="signature_lines_tbody" >
+																<tr width="100%; border-top: 2px;">
+																	<td t-if="l['name']" style="width:50%; text-align:left" >
+																		<br/>
+																		<span t-esc="l['name']" />:
+																		<img t-if="l['signature']" t-att-src="image_data_uri(l['signature'])"  width="120" height="25"/>
+																		<span t-else=" "> _________________ </span>
+																		<span> / <span t-if="l['partner']" t-esc="l['partner']"/> <span t-else=" "> _________________ </span>/ </span>
+																	</td>
+																</tr>
+															</tbody>
+															<tr style="width:100%;">
+																<td>
+																	<br/>
+																	<span style="font-size:13px;">Хүлээн авсан:</span>
+																	_________________ <span style="font-size:13px;">/<t style="font-size:13px;" t-esc="o.user_id.name"/>/</span>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<br/>
+																	<span style="font-size:13px;">Мөнгө тушаагч:</span>
+																	_________________ <span style="font-size:13px;">/<t t-esc="o.partner_id.name"/>/</span>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</td>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</t>
+	         </t>
+	     </t>
+	</template>
+</odoo>

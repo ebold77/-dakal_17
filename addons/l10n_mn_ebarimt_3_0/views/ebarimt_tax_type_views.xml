@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ebarimt_tax_type_form_view" model="ir.ui.view">
+            <field name="name">ebarimt.tax.type.form</field>
+            <field name="model">ebarimt.tax.type</field>
+            <field name="arch" type="xml">
+                <form string="EBarimt Tax Type">
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="ebarimt_tax_type_tree_view" model="ir.ui.view">
+            <field name="name">ebarimt.tax.type.tree</field>
+            <field name="model">ebarimt.tax.type</field>
+            <field name="arch" type="xml">
+                <tree string="EBarimt Tax Type List">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ebarimt_tax_type_form_action" model="ir.actions.act_window">
+            <field name="name">EBarimt Tax Type List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ebarimt.tax.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new EBarimt Tax Type.
+                </p>
+            </field>
+        </record>
+        <menuitem name='EBarimt' id='root_ebarimt_menu' parent='point_of_sale.menu_point_config_product' sequence="41"/>
+        <menuitem action="ebarimt_tax_type_form_action" id="menu_ebarimt_tax_type_form_action" parent="root_ebarimt_menu" sequence="1"/>
+    </data>
+</odoo>

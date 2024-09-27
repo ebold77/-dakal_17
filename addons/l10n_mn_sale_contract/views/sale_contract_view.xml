@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_contract_form_view" model="ir.ui.view">
+        <field name="name">sale.contract.form.view</field>
+        <field name="model">sale.contract</field>
+        <field name="arch" type="xml">
+            <form string="Sale Contract">
+            	<header>
+            		<button name="action_approve" invisible="state != 'draft'" string="Approve" type="object" class="oe_highlight" groups="account.group_account_manager"/>
+            		<button name="action_cancel" invisible="state != 'approved'" string="Cancel" type="object" class="oe_highlight"/>
+            		<button name="action_set_draft" invisible="state != 'canceled'" string="Set Draft" type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,canceled" readonly="1"/>
+            	</header>
+                <sheet>
+                    <group col="4">
+                        <field name="name" readonly="state != 'draft'" class="oe_inline" force_save="1"/>
+                        <field name="partner_id" widget="res_partner_many2one" readonly="state != 'draft'" context="{'res_partner_search_mode': 'supplier', 'show_vat': True}"
+                            placeholder="Name, TIN, Email, or Reference"
+                        />
+                        <field name="contract_type" readonly="state != 'draft'"/>
+                        <field name="start_date" readonly="state != 'draft'"/>
+                        <field name="totalAmt" readonly="state != 'draft'"/>
+                        <field name="end_date" readonly="state != 'draft'"/>
+                        <field name='percentage' readonly="state != 'draft'"/>
+                            
+                    </group>
+                    
+                    <notebook>
+                        <page string="Sale Orders">
+                            <field name="order_ids" readonly="state != 'draft'"/>
+                        </page>
+                        <page string="Invoices">
+                            <field name="invoice_ids" readonly="state != 'draft'"/>
+                        </page>
+                        <page string="Other Info">
+                        	<group>
+	                     		
+	                     		<group>
+                                    <field name="notes" class="oe_inline" placeholder="Define your terms and conditions ..." readonly="state != 'draft'"/>
+                    <div class="oe_clear"/> 
+			                     	<field name="company_id"/>
+	                     		</group>
+	                     	</group>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer oe_right">
+                    
+                        <field name="sale_total" force_save="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <field name="invoice_total" force_save="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <div class="oe_subtotal_footer_separator oe_inline">
+                            <label for="payment_total"/>
+                        </div>
+                        <field name="payment_total" nolabel="1" force_save="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    </group>
+                    
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"
+                           groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="sale_contract_tree_view" model="ir.ui.view">
+        <field name="name">sale.contract.tree.view</field>
+        <field name="model">sale.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Sale Contract">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="contract_type"/>
+                <field name="user_id"/>
+                <field name="totalAmt"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="sale_total"/>
+                <field name="invoice_total"/>
+                <field name="payment_total"/>
+                <field name="percentage"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Search View -->
+		<record id="sale_contract_search_view" model="ir.ui.view">
+			<field name="name">Search Sale Contract</field>
+			<field name="model">sale.contract</field>
+			<field name="type">search</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<search string="Search Sale Contract">
+					<separator orientation="vertical" />
+					<field name="name" />
+					<field name="partner_id" />
+					<field name="warehouse_id" />
+					<newline />
+					 <filter name="my_contracts" string="My Contracts" domain="[('user_id', '=', uid)]"/>
+                    <separator/>
+                    <filter name="draft_rfqs" string="Draft" domain="[('state', '=', 'draft')]"/>
+                    <separator/>
+                    <filter name="approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+                    <separator/>
+                    <filter name="start_date" string="Start Date" date="start_date"/>
+                    <filter name="end_date" string="End Date" date="end_date"/>
+					<group expand="0" string="Group By">
+                        <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
+                        <filter string="Partner" name="partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Created User" name="created_user" domain="[]" context="{'group_by': 'user_id'}"/>
+                       
+                        <filter string="Start Date" name="start_date" domain="[]" context="{'group_by': 'start_date'}"/>
+                         <filter string="End Date" name="end_date" domain="[]" context="{'group_by': 'end_date'}"/>
+                    </group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_sale_contract">
+			<field name="name">Sale Contracts</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sale.contract</field>
+			<field name="binding_view_types">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="sale_contract_search_view" />
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+		</record>
+	
+		<menuitem id="menu_sale_contract" name="Contracts" parent="sale.sale_order_menu"
+			sequence="2" groups="base.group_user" action="action_sale_contract"/>
+
+</odoo>

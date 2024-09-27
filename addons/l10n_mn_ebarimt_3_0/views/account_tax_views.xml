@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tax_form_l10n_mn_ebarimt_3_0" model="ir.ui.view">
+            <field name="name">account.tax.form.es.mongolian.ebarimt</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='amount_type']" position="before">
+                    <field name="ebarimt_tax_type_id" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_tax_tree_l10n_mn_ebarimt_3_0" model="ir.ui.view">
+            <field name="name">account.tax.tree.es.mongolian.ebarimt</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="after">
+                    <field name="ebarimt_tax_type_id" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
