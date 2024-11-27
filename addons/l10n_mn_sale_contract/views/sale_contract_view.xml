@@ -96,7 +96,6 @@
 					<separator orientation="vertical" />
 					<field name="name" />
 					<field name="partner_id" />
-					<field name="warehouse_id" />
 					<newline />
 					 <filter name="my_contracts" string="My Contracts" domain="[('user_id', '=', uid)]"/>
                     <separator/>
@@ -130,6 +129,6 @@
 		</record>
 	
 		<menuitem id="menu_sale_contract" name="Contracts" parent="sale.sale_order_menu"
-			sequence="2" groups="base.group_user" action="action_sale_contract"/>
+			sequence="20" groups="base.group_user" action="action_sale_contract"/>
 
 </odoo>

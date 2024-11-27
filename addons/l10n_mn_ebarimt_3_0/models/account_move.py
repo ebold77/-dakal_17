@@ -55,7 +55,8 @@ class AccountMove(models.Model):
   
     def print_ebarimt(self):
         self.ensure_one()
-        result = self.send_ebarimt()       
+        result = self.send_ebarimt()
+        print('result=========>>', result)    
         if 'lottery' in result :
                 data = { 'model': 'account.move',
                          'lottery_no': result['lottery'],

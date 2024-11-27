@@ -21,6 +21,7 @@ class AccountBankStatementLine(models.Model):
 
     def print_cash_order(self):
         # Кассын баримт хэвлэх
+        print('dssfdsf', self)
         statement = self.browse(self.ids)
         if statement.statement_id.journal_id.type == 'bank':
             data = {

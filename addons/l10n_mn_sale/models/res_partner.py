@@ -22,7 +22,9 @@ class Partner(models.Model):
     
     def action_get_info(self):
         resp = requests.get("http://info.ebarimt.mn/rest/merchant/info?regno=" + self.vat)
+   
         resp_json = json.loads(resp.text)
+        
         if resp_json['name']:
             self.name = resp_json['name']
             print('resp_json vatpayer==========', resp_json['vatpayer'])

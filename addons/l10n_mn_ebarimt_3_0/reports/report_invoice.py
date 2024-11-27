@@ -17,7 +17,7 @@ class es_report_account_invoice(models.AbstractModel):
     @api.model
     def _get_report_values(self, docids, data=None):
         active_ids = self.env.context.get('active_ids', [])
-        docs = self.env[data['model']].browse(active_ids)
+        docs = self.env[data['context']['active_model']].browse(active_ids)
         qr_code_urls = {}
         for invoice in docs:
             if invoice.display_qr_code:
@@ -26,8 +26,8 @@ class es_report_account_invoice(models.AbstractModel):
                     qr_code_urls[invoice.id] = new_code_url
         print('print data', data)
         return {'doc_ids': active_ids,
-                'doc_model': data['model'],
+                'doc_model': data['context']['active_model'],
                 'data': data,
                 'docs': docs,
-                'qr_code_urls': qr_code_urls,
+                'qr_data': qr_code_urls,
                 }

@@ -36,7 +36,7 @@ class SaleContract(models.Model):
             })
 
     name = fields.Char('Order Reference', readonly=True, copy=False, default='New')
-    warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse', default=lambda self: self.env.company.barter_warehouse_id, readonly=True, required=True)
+    # warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse', default=lambda self: self.env.company.barter_warehouse_id, readonly=True, required=True)
     company_id = fields.Many2one('res.company', 'Company', required=True, readonly=True, index=True, default=lambda self: self.env.company.id)
     partner_id = fields.Many2one('res.partner', string='Partner', required=True, change_default=True, tracking=True, domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]", help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
     

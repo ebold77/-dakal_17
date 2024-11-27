@@ -52,7 +52,7 @@ class BuySellOrder(models.Model):
     }
     
     def print_report(self):
-        return self.env.ref('buy_sell.report_print_buy_sell').report_action(self)
+        return self.env.ref('buy_sell.action_report_buysaleorder').report_action(self)
 
 
     def _get_sale_tax(self):

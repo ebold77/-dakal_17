@@ -5,7 +5,7 @@
             <field name="model_id" ref="model_res_currency"/>
             <field name="state">code</field>
             <field name="code">
-currencies = self.env['res.currency'].search([('active', '=', True), ('name', '!=', 'MNT')])
+currencies = model.search([('active', '=', True), ('name', '!=', 'MNT')])
 if currencies:
     currencies._download_currency_rate()</field>
             <field name="interval_number">1</field>

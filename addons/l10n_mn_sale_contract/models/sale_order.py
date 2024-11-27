@@ -51,7 +51,7 @@ class SaleOrderLine(models.Model):
 
     @api.onchange("product_id")
     def product_id_change(self):
-        res = super(SaleOrderLine, self).product_id_change() or {}
+        res = super(SaleOrderLine, self)._onchange_product_id_warning() or {}
         contract_type = self.order_id.contract_id.contract_type
 
         if self.product_id.is_rewards and contract_type == 'travel':

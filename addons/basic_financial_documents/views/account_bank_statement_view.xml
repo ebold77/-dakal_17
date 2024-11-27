@@ -14,14 +14,14 @@
     </record> -->
 	<record id="l10n_mn_bank_statement_inherit_mn" model="ir.ui.view">
         <field name="name">l10n.mn.bank.statement.inherit.mn</field>
-        <field name="model">account.bank.statement</field>
-        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="model">account.bank.statement.line</field>
+        <field name="inherit_id" ref="account_accountant.view_bank_statement_line_form_bank_rec_widget"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='line_ids']/tree/field[@name='amount']" position="after">
+            <xpath expr="//button[@name='action_save_new']" position="after">
                 <button name="print_cash_order" type="object" string="Print" icon="fa-print"/>
             </xpath>
-            <xpath expr="//field[@name='line_ids']/tree/field[@name='foreign_currency_id']" position="after">
-                <field name="bank_account_id" attrs="{'readonly':[('state','=','confirm')]}"/>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="bank_account_id" readonly="state =='confirm'"/>
             </xpath>
         </field>
     </record>

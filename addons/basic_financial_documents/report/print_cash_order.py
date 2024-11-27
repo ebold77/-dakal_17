@@ -34,10 +34,10 @@ class PrintCashIncomeOrder(models.AbstractModel):
             amounts[doc.id] = comma_me(abs(doc.amount))
             currency[doc.id] = {'name': curr,
                                 'symbol': symbol}
-            if report:
-                # Гарын үсгийн тохиргоо
-                report_lines = self.env['report.footer.config'].get_report_signature(report, doc.statement_id.company_id)
-                signature_lines[doc.id] = report_lines
+            # if report:
+            #     # Гарын үсгийн тохиргоо
+            #     report_lines = self.env['report.footer.config'].get_report_signature(report, doc.statement_id.company_id)
+            #     signature_lines[doc.id] = report_lines
         # if docs.move_id.journal_id.account_user_id:
         #     docs.user_id = docs.move_id.journal_id.account_user_id
         # if not docs.move_id.journal_id.account_user_id:
@@ -53,7 +53,7 @@ class PrintCashIncomeOrder(models.AbstractModel):
             'user': self.env.uid,
             # 'data_report_margin_top': 20,
             # 'data_report_header_spacing': 5,
-            'signature_lines': signature_lines,
+            # 'signature_lines': signature_lines,
         }
 
 
