@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record model="ir.ui.view" id="product_template_inherit_regester_form_view">
+        <field name="name">product.template.form.inherit.l10n_mn_stock</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+	      		<field name="register_id"/>
+            </xpath>
+            <xpath expr="//field[@name='detailed_type']" position="after">
+	      		<field name="package_qty"/>
+                <field name="tbltSizeMixture"/>
+                 <field name="tbltManufacture"/>
+                <field name="tbltType"/>
+                <field name="conditions_granting"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

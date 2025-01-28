@@ -7,6 +7,7 @@ _logger = logging.getLogger(__name__)
 
 class product_template(models.Model):
     _inherit = 'product.template'
+    
     ebarimt_gs1barcode_id = fields.Many2one('ebarimt.gs1barcode',string='EBarimt GS1 barcode',compute='_compute_ebarimt_gs1barcode_id',inverse='_set_ebarimt_gs1barcode_id')
     tax_type = fields.Char(compute='_tax_type', string='EBarimt VAT type')
 
@@ -27,6 +28,11 @@ class product_template(models.Model):
     # @api.onchange('ebarimt_gs1barcode_id')
     # def onchange_ebarimt_gs1barcode_id(self):
     #     self.barcode = self.ebarimt_gs1barcode_id.code
+
+    @api.depends('taxes_id')
+    def _tax_type(self):
+        for product in self:
+            product.tax_type = ', '.join(str(ebarimt_tax.name) for ebarimt_tax in set(product.taxes_id.mapped('ebarimt_tax_type_id')))
 
 class product_product(models.Model):
     _inherit = 'product.product'

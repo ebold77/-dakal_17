@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="EmdDiscountScreenWidget" owl="1">
+        <div class="discount-screen screen">
+            <div class="top-content d-flex align-items-center border-bottom text-center">
+	            	<div class="button back btn btn-lg btn-secondary"
+	                     t-on-click="() => this.pos.showScreen('ProductScreen')">
+	                   <i class="fa fa-angle-double-left me-2"></i>
+	                   <span class="back_text">Back</span>
+	               </div>
+	               <div class="top-content-center flex-grow-1"><h3 class="mb-0">ЖОРЫН МЭДЭЭЛЭЛ</h3></div>
+	               <div class="button back btn btn-lg btn-secondary" t-att-class="{ highlight: True }"
+	                     t-on-click="() => this._onClickCreateDiscountOrder()">
+	                   <span class="next_text">Хөнгөлөлт олгох</span>
+	                   <i class="fa fa-angle-double-right fa-fw"></i>
+	               </div>
+            </div>
+            <div class="screen-content">
+                <div class='window'>
+                    <div class="search-bar">
+                        <div>
+                            <input type="text" class="flex-grow-1 popup-input receipt-number-input" placeholder="Хяналтын дугаар"/>
+                        </div>
+                        <div>
+                            <input type="text" id="reg_no" name="reg_no" class="flex-grow-1 popup-input register-number-input top-content-center"  
+                                t-on-change="changeRegister" placeholder="Регистрийн дугаар"/>
+                        </div>
+                        <div>
+                            <i class="oe_link_icon search-medicine fa fa-search" t-on-click="() => this._onClicSearchMedicine()"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="error-field"></div>
+                    </div>
+                    <section class='medicine-details'>
+                        <div class='medicine-details-box clearfix'>
+                            <div class='medicine-details-left'>
+                                <div class="patientInfo">
+                                    <span class='label'>Овог: </span>
+                                    <span class="lastName"></span>
+                                </div>
+                                <div class="patientInfo">
+                                    <span class='label'>Регистр №: </span>
+                                    <span class="register"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Хяналтын дугаар: </span>
+                                    <span class="receiptNumber"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Хяналтын хуудасны төрөл: </span>
+                                    <span class="prescriptionType"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Хяналтын хуудасны ангилал: </span>
+                                    <span class="prescriptionTypeName" style="color:red"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Онош: </span>
+                                    <span class="receiptDiag"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Хяналтын хуудасны хүчинтэй хугацаа: </span>
+                                    <span class="receiptExpireDate"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Хяналтын хуудсыг хэвлэсэн огноо: </span>
+                                    <span class="receiptPrintedDate"></span>
+                                </div>
+                            </div>
+                            <div class='medicine-details-right'>
+                                <div class="patientInfo">
+                                    <span class='label'>Нэр: </span>
+                                    <span class="firstName"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Эмчийн шифр код:</span>
+                                    <span class="cipherCode"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>ЭМД ID:</span>
+                                    <span class="receipt_id"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Эмийн тоо:</span>
+                                    <span class="tbltCount"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Төлөв: </span>
+                                    <span class="status"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Өрхийн эмнэлэг сум, дүүрэг:</span>
+                                    <span class="hosOfficeName"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Өрхийн эмнэлгийн баг, хороо:</span>
+                                    <span class="hosSubOffName"></span>
+                                </div>
+                                <div class='medicine-detail'>
+                                    <span class='label'>Өрхийн эмнэлгийн нэр:</span>
+                                    <span class="hosName"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class='subwindow'>
+                        <div class='subwindow-container'>
+                            <div class='subwindow-container-fix touch-scrollable scrollable-y'>
+                                <table class='medicine-list' id='medicine-table'>
+                                    <thead>
+                                        <tr>
+                                            <th>ЭМД ID</th>
+                                            <th>Эмийн нэр</th>
+                                            <th>Групп ID</th>
+                                            <th>Эмийн тун хэмжээ</th>
+                                            <th>Хоног</th>
+                                            <th>Тайлбар</th>
+                                            <th>Төлөв</th>
+                                            <th>Олгох бараа</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class='medicine-list-contents'></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

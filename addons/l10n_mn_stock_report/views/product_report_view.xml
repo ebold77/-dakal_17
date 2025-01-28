@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Product Report form -->
+	<record id='view_product_report_form' model='ir.ui.view'>
+		<field name="name">product.report.form</field>
+		<field name="model">product.report</field>
+		<field name="arch" type="xml">
+			<form string="Product Report">
+				<header>
+					<button name="compute" states="draft" string="Compute" type="object" class="oe_highlight"/>
+					<button name="%(action_product_ledger_report)d" string="Export(XLSX)" type="action" class="oe_highlight"/>
+					<button name="action_to_draft" states="approved" string="Action to Draft" type="object"/>
+					<button name="validate" states="draft" string="Approve" type="object"/>
+					<field name="state" widget="statusbar" readonly="1"/>
+				</header>
+				<sheet>
+					<group>
+						<group>
+							<field name="name"/>
+							<field name="group_by"/>
+							<field name="group2_by" attrs="{'invisible': [('group_by', '!=', 'warehouse')]}"/>
+							<field name="report_view_type"/>
+							<field name="report_filter"/>
+						</group>
+						<group>
+							<field name="company_id" widget='selection' readonly="1"/>
+							<field name="date_from"/>
+							<field name="date_to"/>
+							<field name="without_transit"/>
+						</group>
+					</group>
+					<notebook>
+						<page name="warehouses" string="Warehouses">
+							<field name="warehouse_ids" options="{'no_create': True}"/>
+						</page>
+						<page name="locations" string="Locations">
+							<field name="domain_location_ids" invisible="1"/>
+							<field name="location_ids" options="{'no_create': True}" groups="stock.group_stock_multi_locations"/>
+						</page>
+						<page name="categories" string="Categories">
+							<field name="category_ids" options="{'no_create': True}"/>
+						</page>
+						<page name="brands" string="Product Brands">
+							<field name="product_brand_ids" options="{'no_create': True}"/>
+						</page>
+						<page name="products" string="Products">
+							<field name="product_ids" options="{'no_create': True}"/>
+						</page>
+						<page name="supplier" string="Suppliers">
+							<field name="supplier_ids" options="{'no_create': True}"/>
+						</page>
+					</notebook>
+					<notebook>
+						<page name="lines" string="Lines">
+							<field name="line_ids">
+								<form>
+									<group>
+										<group>
+											<field name="sequence"/>
+											<field name="name"/>
+											<field name="name2"/>
+											<field name="warehouse_id"/>
+											<field name="location_id"/>
+											<field name="category_id"/>
+											<field name="product_brand_id"/>
+											<field name="product_id"/>
+											<field name="supplier_id"/>
+										</group>
+										<group>
+											<field name="initial_qty"/>
+											<field name="initial_price"/>
+											<field name="initial_cost"/>
+											<field name="income_qty"/>
+											<field name="income_price"/>
+											<field name="income_cost"/>
+											<field name="expense_qty"/>
+											<field name="expense_price"/>
+											<field name="expense_cost"/>
+											<field name="end_qty"/>
+											<field name="end_price"/>
+											<field name="end_cost"/>
+											<field name="color" invisible="1"/>
+											<field name="report_view_type" invisible="1"/>
+										</group>
+									</group>
+								</form>
+							</field>
+						</page>
+					</notebook>
+					<group string="Description">
+						<field name="description" nolabel="1"/>
+					</group>
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+					<field name="message_ids" widget="mail_thread"/>
+				</div>
+			</form>
+		</field>
+	</record>
+
+	<!-- Product Report tree -->
+	<record id='view_product_report_tree' model='ir.ui.view'>
+		<field name="name">Product Report</field>
+		<field name="model">product.report</field>
+		<field name="arch" type="xml">
+			<tree string="Product Report">
+				<field name="name"/>
+				<field name="date_from"/>
+				<field name="date_to"/>
+				<field name="report_view_type"/>
+				<field name="report_filter"/>
+				<field name="company_id" groups="base.group_multi_company"/>
+				<field name="state"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Product Report search -->
+	<record id="product_report_search" model="ir.ui.view">
+		<field name="name">product.report.search</field>
+		<field name="model">product.report</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="name"/>
+				<field name="date_from"/>
+				<field name="date_to"/>
+				<filter string="Draft" domain="[('state', '=', 'draft')]" name="draft"/>
+				<filter string="Approved" domain="[('state', '=', 'approved')]" name="approved"/>
+				<group expand="0" string="Group by...">
+					<filter string="Date From" name="date_from" domain="" context="{'group_by':'date_from'}"/>
+					<filter string="Date To" name="date_to" domain="" context="{'group_by':'date_to'}"/>
+					<filter string="Company" name="company_id" domain="" context="{'group_by' : 'company_id'}" groups="base.group_multi_company"/>
+					<filter string="State" name="state" domain="" context="{'group_by':'state'}"/>
+					<filter string="Group By" name="group_by" domain="" context="{'group_by':'group_by'}"/>
+					<filter string="Report View Type" name="report_view_type" domain="" context="{'group_by':'report_view_type'}"/>
+					<filter string="Report Filter" name="report_filter" domain="" context="{'group_by':'report_filter'}"/>
+				</group>
+		   </search>
+		</field>
+	</record>
+
+	<!-- Product Report Line tree -->
+	<record id='view_product_report_line_tree' model='ir.ui.view'>
+		<field name="name">Product Report Line</field>
+		<field name="model">product.report.line</field>
+		<field name="arch" type="xml">
+			<tree decoration-bf="color=='bold'" decoration-info="color=='blue'">
+				<field name="sequence"/>
+				<field name="name"/>
+				<field name="name2"/>
+				<field name="report_id" invisible="1"/>
+				<field name="initial_qty"/>
+				<field name="initial_price" attrs="{'invisible': [('report_view_type', 'in', ('qty', 'qty_cost'))]}"/>
+				<field name="initial_cost" attrs="{'invisible': [('report_view_type', 'in', ('qty', 'qty_price'))]}" groups="l10n_mn_stock.group_stock_view_cost"/>
+				<field name="income_qty"/>
+				<field name="income_price" attrs="{'invisible': [('report_view_type', 'in', ('qty', 'qty_cost'))]}"/>
+				<field name="income_cost" attrs="{'invisible': [('report_view_type', 'in', ('qty', 'qty_price'))]}" groups="l10n_mn_stock.group_stock_view_cost"/>
+				<field name="expense_qty"/>
+				<field name="expense_price" attrs="{'invisible': [('report_view_type', 'in', ('qty', 'qty_cost'))]}"/>
+				<field name="expense_cost" attrs="{'invisible': [('report_view_type', 'in', ('qty', 'qty_price'))]}" groups="l10n_mn_stock.group_stock_view_cost"/>
+				<field name="end_qty"/>
+				<field name="end_price" attrs="{'invisible': [('report_view_type', 'in', ('qty', 'qty_cost'))]}"/>
+				<field name="end_cost" attrs="{'invisible': [('report_view_type', 'in', ('qty', 'qty_price'))]}" groups="l10n_mn_stock.group_stock_view_cost"/>
+				<field name="color" invisible="1"/>
+				<field name="report_view_type" invisible="1"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Product Report action -->
+	<record id="action_product_report" model="ir.actions.act_window">
+			<field name="name">Product Report</field>
+			<field name="res_model">product.report</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="view_product_report_tree"/>
+			<field name="search_view_id" ref="product_report_search"/>
+			<field name="help" type="html">
+			  <p class="oe_view_nocontent_create">
+				Click here to create new Product report
+			  </p>
+			</field>
+		</record>
+
+	<!-- Product Report menu -->
+    <menuitem action="action_product_report" id="menu_action_product_report"
+              parent="stock.menu_warehouse_report" sequence="1"/>
+</odoo>

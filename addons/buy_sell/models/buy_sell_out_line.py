@@ -84,14 +84,20 @@ class BuySellOutLine(models.Model):
     def _get_bs_price(self, product_id, pricelist_id):
         
         pricelist = self.env['product.pricelist'].browse(pricelist_id)
-        price_dict = pricelist._get_product_price(product_id, 1, self.order_id.partner_id)
+        # price_dict = pricelist._get_product_price(product_id, 1, self.order_id.partner_id)
+        price_dict = pricelist._get_product_price(
+                    product=self.product_id,
+                    quantity=1.0,
+                    currency=self.company_id.currency_id,
+                    date=self.order_id.date_order,
+                   )
         print('price_dict====>>', price_dict)
         discount = 100 - (price_dict*100/self.product_id.lst_price)
         res={
             'price' : price_dict,
             'discount': discount
             }
-        return res                     
+        return res                 
                                     
                                     
     def _get_stock_available_qty(self, product_id, warehouse_id):

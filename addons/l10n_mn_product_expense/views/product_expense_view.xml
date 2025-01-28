@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--  Show Stock Picking Action  -->
+    <record id="action_out_stock_picking" model="ir.actions.act_window">
+        <field name="name">Stock Picking</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="stock.vpicktree"/>
+        <field name="domain">[('expense_id', '=', active_id)]</field>
+    </record>
+
+    <!--  Product Expense Form  -->
+    <record id="view_product_expense_form" model="ir.ui.view">
+        <field name="name">product.expense.form</field>
+        <field name="model">product.expense</field>
+        <field name="arch" type="xml">
+            <form string="Expense form">
+                <header>
+                    <field name="workflow_id" invisible="1"/>
+                    <field name="is_creator" invisible="1"/>
+                    <field name="is_validator" invisible="1"/>
+                    <field name="check_sequence" invisible="1"/>
+                    <field name="is_stock_manager" invisible="1"/>
+                    <field name="create_date" invisible="1"/>
+                    <button name="send" string="Send" type="object" attrs="{'invisible': ['!','&amp;',('state', '=', 'draft'),('is_creator', '=', True)]}"/>
+                    <button name="previous" string="Return" type="object" attrs="{'invisible': ['!','&amp;','&amp;',('state', '=', 'waiting_approve'),('is_validator', '=', True),('check_sequence', '!=', 1)]}"/>
+                    <button name="approve" string="Approve" type="object" attrs="{'invisible': ['!','&amp;',('state', '=', 'waiting_approve'),('is_validator', '=', True)]}" class="oe_highlight" />
+                    <button name="refuse" string="Refuse" type="object" attrs="{'invisible': ['!','|','&amp;',('state', '=', 'waiting_approve'),('is_validator', '=', True),'&amp;',('is_stock_manager', '=', True), ('state', '=', 'approved')]}"/>
+                    <button name="draft" string="To draft" type="object" attrs="{'invisible': [('state', 'not in', ('cancel','refused','waiting_approve'))]}" />
+                    <button name="cancel" string="Cancel" type="object" attrs="{'invisible': ['|',('state', '!=', 'done'),('count_out_stock_picking', '!=', 0)]}" />
+                    <field name="state" widget="statusbar" statusbar_visible="waiting_approve,approved,done"/>
+                </header>
+                <sheet>
+                    <group attrs="{'invisible': [('create_date', '=', False)]}">
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="action_view_expense" class="oe_stat_button" icon="fa-history">
+                                <field name="count_out_stock_picking" widget="statinfo" string="Warehouse Expense"/>
+                            </button>
+                        </div>
+                    </group>
+                    <group>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" attrs="{'invisible': [('state', '=','draft')]}"></field>
+                            </h1>
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="date" attrs="{'readonly': [('state', 'in', ('approved','done'))]}"/>
+                            <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ('approved','done'))]}" options="{'no_create' : True}"/>
+                            <field name="stock_picking_type_id" attrs="{'readonly': [('state','in',('approved','done'))]}" options="{'no_create' : True}"/>
+                            <field name="account_id" attrs="{'required': [('must_choose_account', '=', True)], 'readonly': [('state', 'in', ('approved','done'))]}" options="{'no_create' : True}"/>
+                            <field name="analytic_account_id" attrs="{'required': [('req_analytic_account', '=', True), ('must_choose_account', '=', True)], 'readonly': [('state', 'in', ('approved','done'))]}" options="{'no_create' : True}"/>
+                            <field name="req_analytic_account" invisible="1"/>
+                            <field name="must_choose_account" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="company_id" attrs="{'readonly': [('state', 'in', ('approved','done'))]}" options="{'no_create' : True}"/>
+                            <field name="department_id" attrs="{'readonly': [('state', 'in', ('approved','done'))]}" options="{'no_create' : True}"/>
+                            <field name="employee_id" attrs="{'readonly': [('state', 'in', ('approved','done'))]}" options="{'no_create' : True}"/>
+                            <field name="create_date" readonly="1" attrs="{'invisible': [('create_date', '=', False)]}"/>
+                        </group>
+                        <field name="description" attrs="{'readonly': [('state', 'in', ('approved','done'))]}"/>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="Expense lines">
+                                <field name="expense_line_ids" context="{'default_account_id': account_id, 'default_analytic_account_id': analytic_account_id, 'default_warehouse_id': warehouse_id}">
+                                    <tree editable="bottom">
+                                        <field name="expense_id" invisible="1"/>
+                                        <field name="name" invisible="1"/>
+                                        <field name="warehouse_id" invisible="1"/>
+                                        <field name="must_choose_account" invisible="1"/>
+                                        <field name="product_id" options="{'no_create' : True}"/>
+                                        <field name="quantity" sum="Total"/>
+                                        <field name="returned_quantity" sum="Total"/>
+                                        <field name="standard_price" groups="l10n_mn_stock.group_stock_view_cost"/>
+                                        <field name="available_qty" groups="l10n_mn_stock.group_view_available_qty"/>
+                                        <field name="account_id" attrs="{'required': [('must_choose_account', '=', True)]}" options="{'no_create' : True}"/>
+                                        <field name="analytic_account_id" options="{'no_create' : True}"/>
+                                        <field name="price_subtotal" sum="Total" groups="l10n_mn_stock.group_stock_view_cost"/>
+                                        <field name="product_type"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="must_choose_account" invisible="1"/>
+                                                <field name="name" invisible="1"/>
+                                                <field name="product_id" options="{'no_create_edit': True}"/>
+                                                <field name="account_id"/>
+                                            </group>
+                                            <group>
+                                                <field name="quantity"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <group>
+                                                <field name="analytic_account_id"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Validations">
+                                <field name="history_line_ids" readonly="1">
+                                    <tree string="Validations" colors="red:action == 'pending'">
+                                        <field name="line_sequence" />
+                                        <field name="name" />
+                                        <field name="user_ids" widget="many2many_tags"/>
+                                        <field name="sent_date" />
+                                        <field name="user_id" />
+                                        <field name="action_date" />
+                                        <field name="action" />
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="history_id" />
+                                                <field name="line_sequence" />
+                                                <field name="user_ids" widget="many2many_tags"/>
+                                            </group>
+                                            <group>
+                                                <field name="user_id" />
+                                                <field name="sent_date" />
+                                                <field name="action_date" />
+                                                <field name="action" />
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="total_amount" groups="l10n_mn_stock.group_stock_view_cost"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--  Product Expense Search  -->
+    <record id="product_expense_search" model="ir.ui.view">
+        <field name="name">product.expense.search</field>
+        <field name="model">product.expense</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <group string="Filter">
+                    <field name="name" filter_domain="['|', ('name','ilike',self), ('description','ilike',self)]" string="Expence Name/Note"/>
+                    <field name="warehouse_id"/>
+                    <field name="employee_id"/>
+                    <field name="state"/>
+                    <field name="product_id"/>
+                </group>
+                <group expand="1" string="Group By">
+                    <filter string="Date" name="date_group" context="{'group_by':'date'}"/>
+                    <filter string="Department" name="department_group" context="{'group_by':'department_id'}"/>
+                    <filter string="Employee" name="employee_group" context="{'group_by':'employee_id'}"/>
+                    <filter string="State" name="state_group" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--  Product Expense Tree  -->
+    <record id="view_product_expense_tree" model="ir.ui.view">
+        <field name="name">product.expense.tree</field>
+        <field name="model">product.expense</field>
+        <field name="arch" type="xml">
+            <tree string="Expense tree">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="warehouse_id"/>
+                <field name="department_id"/>
+                <field name="employee_id"/>
+                <field name="description"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  Product Expense Action  -->
+    <record id="action_product_expense" model="ir.actions.act_window">
+        <field name="name">Product Expense</field>
+        <field name="res_model">product.expense</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_date_group':1,
+                               'search_default_department_group':1,
+                               'search_default_employee_group':1}
+        </field>
+        <field name="search_view_id" ref="product_expense_search"/>
+        <field name="view_id" ref="view_product_expense_tree"/>
+    </record>
+
+    <menuitem id="menu_product_expense_request" name="Product Expense Request" parent="mail.menu_root_discuss"/>
+    <menuitem id="menu_expense_root" name="Product Expense" parent="stock.menu_stock_root"/>
+    <menuitem id="menu_product_expense" parent="menu_expense_root" action="action_product_expense" name="Product Expense"/>
+    <menuitem id="menu_action_product_expense_my_all" name="Product Expense" sequence="100" parent="l10n_mn_product_expense.menu_product_expense_request" action="action_product_expense" />
+
+    <!-- Барааны шаардахын мөр -->
+    <!--  Product Expense Line Search  -->
+    <record id="view_product_expense_line_search" model="ir.ui.view">
+        <field name="name">product.expense.line.search</field>
+        <field name="model">product.expense.line</field>
+        <field name="arch" type="xml">
+            <search string="Product Expense Line">
+                <field name="expense_id"/>
+                <field name="warehouse_id"/>
+                <field name="product_id" />
+                <filter name="state" string="State Done" domain="[('state','=','done')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Expense" name="expense_group" context="{'group_by':'expense_id'}"/>
+                    <filter string="Expense account" name="group_account_id" domain="[]" context="{'group_by':'account_id'}"/>
+                    <filter string="Analytic account" name="group_analytic_account_id" domain="[]" context="{'group_by':'analytic_account_id'}"/>
+                    <filter string="Warehouse" name="group_warehouse" domain="[]" context="{'group_by':'warehouse_id'}"/>
+                    <filter string="State" name="group_state" domain="[]" context="{'group_by':'state'}"/>
+                    <filter string="Expense Date" name="group_date" context="{'group_by': 'date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--  Product Expense Line Tree  -->
+    <record id="view_product_expense_line_tree" model="ir.ui.view">
+        <field name="name">product.expense.line.tree</field>
+        <field name="model">product.expense.line</field>
+        <field name="arch" type="xml">
+            <tree string="Product Expense Line" create="false">
+                <field name="expense_id" invisible="1"/>
+                <field name="product_id" />
+                <field name="quantity"/>
+                <field name="returned_quantity"/>
+                <field name="available_qty" nolabel="1" groups="l10n_mn_stock.group_view_available_qty" />
+                <field name="price_subtotal" sum="" groups="l10n_mn_stock.group_stock_view_cost"/>
+                <field name="date"/>
+                <field name="warehouse_id"/>
+                <field name="account_id"/>
+                <field name="analytic_account_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  Product Expense Line Action  -->
+    <record id="action_product_expense_line" model="ir.actions.act_window">
+        <field name="name">Product Expense Line</field>
+        <field name="res_model">product.expense.line</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="view_product_expense_line_search" />
+    </record>
+
+    <!--  Product Expense Line Menu  -->
+    <menuitem action="action_product_expense_line" id="menu_action_product_expense_line" parent="menu_expense_root" sequence="20" />
+</odoo>

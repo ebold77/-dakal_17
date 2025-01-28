@@ -88,15 +88,15 @@ class PrintCashExpenseOrder(models.AbstractModel):
             amounts[doc.id] = comma_me(abs(doc.amount))
             currency[doc.id] = {'name': curr,
                                 'symbol': symbol}
-            if report:
+            # if report:
                 # Гарын үсгийн тохиргоо
-                report_lines = self.env['report.footer.config'].get_report_signature(report, doc.statement_id.company_id)
-                signature_lines[doc.id] = report_lines
+                # report_lines = self.env['report.footer.config'].get_report_signature(report, doc.statement_id.company_id)
+                # signature_lines[doc.id] = report_lines
         # if docs.move_id.journal_id.account_user_id:
         #     docs.user_id = docs.move_id.journal_id.account_user_id
         # if not docs.move_id.journal_id.account_user_id:
-        docs.user_id = self.env.uid
-
+        # docs.user_id = self.env.uid
+        print('verbose_total_dict', verbose_total_dict)
         return {
             'doc_ids': docs.ids,
             'doc_model': 'account.bank.statement.line',
@@ -108,5 +108,5 @@ class PrintCashExpenseOrder(models.AbstractModel):
             'user': self.env.uid,
             # 'data_report_margin_top': 20,
             # 'data_report_header_spacing': 5,
-            'signature_lines': signature_lines,
+            # 'signature_lines': signature_lines,
         }

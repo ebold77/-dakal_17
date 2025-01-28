@@ -3,8 +3,8 @@
 	<data>
 		<record model="ir.ui.view"
 			id="insurance_discount_list_tree_view">
-			<field name="name">insurance.discount.list.tree</field>
-			<field name="model">insurance.discount.list</field>
+			<field name="name">emd.insurance.discount.list.tree</field>
+			<field name="model">emd.insurance.discount.list</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="Insurance Discount List">
@@ -32,8 +32,8 @@
 		</record>
 		
 		<record id="insurance_discount_list_form_view" model="ir.ui.view">
-            <field name="name">insurance.discount.list.form</field>
-            <field name="model">insurance.discount.list</field>
+            <field name="name">emd.insurance.discount.list.form</field>
+            <field name="model">emd.insurance.discount.list</field>
             <field name="arch" type="xml">
                 <form string="Insurance Discount List">
                 	<header>
@@ -78,8 +78,8 @@
 
 		<record id="insurance_discount_list_search_view"
 			model="ir.ui.view">
-			<field name="name">insurance.discount.list.search.form</field>
-			<field name="model">insurance.discount.list</field>
+			<field name="name">emd.insurance.discount.list.search.form</field>
+			<field name="model">emd.insurance.discount.list</field>
 			<field name="arch" type="xml">
 				<search string="Insurance Discount List">
 					<field name="tbltNameMon" />
@@ -98,9 +98,9 @@
 
 		<record model="ir.actions.act_window"
 			id="action_insurance_discount_list_tree_view">
-			<field name="name">insurance.discount.list</field>
+			<field name="name">emd.insurance.discount.list</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">insurance.discount.list</field>
+			<field name="res_model">emd.insurance.discount.list</field>
 			<!-- <field name="domain">[('field_name','condition',criteria)]</field> 
 				<field name="view_type">form</field> -->
 			<field name="view_mode">tree,form</field>

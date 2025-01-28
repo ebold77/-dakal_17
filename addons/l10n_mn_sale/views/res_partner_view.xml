@@ -22,5 +22,18 @@
         </field>
     </record>
 
+    <record id="res_partner_mn_search_inheit" model="ir.ui.view">
+        <field name="name">res.partner.search.inherit.base</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+           
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="vat"/>
+            </xpath>
+        
+        </field>
+    </record>
+
 
 </odoo>

@@ -7,14 +7,28 @@
 		<field name="page_height">0</field>
 		<field name="page_width">0</field>
 		<field name="orientation">Portrait</field>
-		<field name="margin_top">20</field>
-		<field name="margin_bottom">0</field>
-		<field name="margin_left">7</field>
-		<field name="margin_right">7</field>
+		<field name="margin_top">10</field>
+		<field name="margin_bottom">10</field>
+		<field name="margin_left">10</field>
+		<field name="margin_right">10</field>
 		<field name="header_line" eval="False" />
-		<field name="header_spacing">20</field>
+		<field name="header_spacing">10</field>
 		<field name="dpi">90</field>
 	</record>
+
+	<!--	Төлбөрийн даалгавар -->
+	<record id="action_payment_assignment_line" model="ir.actions.report">
+		<field name="name">Payment assignment</field>
+		<field name="model">account.bank.statement.line</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">basic_financial_documents.payment_report_view</field>
+		<field name="report_file">basic_financial_documents.payment_report_view</field>
+		<field name="binding_model_id" ref="account.model_account_bank_statement_line"/>
+		<field name="binding_type">report</field>
+		<field name="print_report_name">('Payment assignment %s' % (object.date)) </field>
+		<field name="paperformat_id" ref="basic_financial_documents.paperformat_payment_assignment_line_a4"/>
+	</record>
+	
 	<!-- Кассын орлогын баримт хэвлэх -->
 	<record id="action_print_cash_income_order" model="ir.actions.report">
 		<field name="name">Print Income Expense</field>
@@ -22,6 +36,8 @@
 		<field name="report_type">qweb-pdf</field>
 		<field name="report_name">basic_financial_documents.print_cash_income_order</field>
 		<field name="report_file">basic_financial_documents.print_cash_income_order</field>
+		<field name="binding_model_id" ref="account.model_account_bank_statement_line"/>
+		<field name="binding_type">report</field>
 		<field name="print_report_name">('Cash Income - %s' % (object.date)) </field>
 		<field name="paperformat_id" ref="basic_financial_documents.paperformat_payment_assignment_line_a4"/>
 	</record>
@@ -33,7 +49,20 @@
 		<field name="report_type">qweb-pdf</field>
 		<field name="report_name">basic_financial_documents.print_cash_expense_order</field>
 		<field name="report_file">basic_financial_documents.print_cash_expense_order</field>
+		<field name="binding_model_id" ref="account.model_account_bank_statement_line"/>
+		<field name="binding_type">report</field>
 		<field name="print_report_name">('Cash Expense - %s' % (object.date)) </field>
+		<field name="paperformat_id" ref="basic_financial_documents.paperformat_payment_assignment_line_a4"/>
+	</record>
+
+
+	<record id="action_bill_balance_act" model="ir.actions.report">
+		<field name="name">Bill Balance Act Report</field>
+		<field name="model">res.partner</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">basic_financial_documents.bill_balance_act</field>
+		<field name="report_file">basic_financial_documents.bill_balance_act</field>
+		<field name="binding_type">report</field>
 		<field name="paperformat_id" ref="basic_financial_documents.paperformat_payment_assignment_line_a4"/>
 	</record>
 
@@ -52,28 +81,4 @@
 (4, ref('account.group_account_readonly'))]"/>
 	</record>-->
 
-
-
-<!--	Төлбөрийн даалгавар мөрүүд -->
-	<record id="action_payment_assignment_line" model="ir.actions.report">
-		<field name="name">Payment assignment line</field>
-		<field name="model">account.payment</field>
-		<field name="report_type">qweb-pdf</field>
-		<field name="report_name">basic_financial_documents.payment_report_view</field>
-		<field name="report_file">basic_financial_documents.payment_report_view</field>
-		<field name="binding_model_id" ref="account.model_account_payment"/>
-		<field name="binding_type">report</field>
-		<field name="print_report_name">('Cash Income') </field>
-		<field name="paperformat_id" ref="basic_financial_documents.paperformat_payment_assignment_line_a4"/>
-	</record>
-<!--	Төлбөрийн даалгавар
-	<record id="action_payment_assignment" model="ir.actions.report">
-		<field name="name">Payment assignment</field>
-		<field name="model">account.bank.statement</field>
-		<field name="report_type">qweb-pdf</field>
-		<field name="report_name">basic_financial_documents.payment_report_view_from_statement</field>
-		<field name="report_file">basic_financial_documents.payment_report_view_from_statement</field>
-		<field name="binding_model_id" ref="model_account_bank_statement"/>
-		<field name="binding_type">report</field>
-	</record>-->
 </odoo>

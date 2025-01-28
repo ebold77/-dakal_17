@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="emd_template" xml:space="preserve">
+
+    <t t-name="EmdActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('actionpad')]" position="inside">
+            <button class='button discount-pharm'
+            t-on-click="() => this._onClickDiscountPharm()">ЭМД Хөнгөлөлт</button>
+        </xpath>
+    </t>
+
+</templates>

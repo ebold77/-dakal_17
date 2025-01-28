@@ -9,7 +9,7 @@ from odoo.exceptions import UserError, ValidationError  # @UnresolvedImport
 _logger = logging.getLogger(__name__)
 
 class InsuranceDiscountList(models.Model):
-    _name = "insurance.discount.list"
+    _name = "emd.insurance.discount.list"
     _description = "Mongolian Health Insurance Discount List"
 
     tbltId = fields.Integer('EMD ID', readonly=True, store=True)
@@ -33,42 +33,38 @@ class InsuranceDiscountList(models.Model):
     tbltManufacture = fields.Char('tblt Manufacture', readonly=True, store=True)
     
     product_ids =  fields.Many2many('product.template', 'product_temp_insurance_list_rel', 'product_id' 'insurance_list_id', string="Products")
-    
-
-    # tbltUnitPrice = fields.Float('Unit Price', readonly=True, store=True)
-    # tbltDiscountPerc = fields.Float('Discount')
-    # tbltPackingCnt = fields.Char('Quantity', readonly=True, store=True)
-    # tbltMaxPrice = fields.Float('Max Price', store=True)
-
-    
+   
     
     def write(self, vals):
         for product in self.product_ids:
-            product.write({'insurance_list_id': self.id})
+            product.write({'emd_insurance_list_id': self.id})
         return super(InsuranceDiscountList, self).write(vals)
     
     @api.depends('tbltNameSales')
     def name_get(self):
         result = []
         for insurance_list in self:
-            name = insurance_list.tbltNameSales
+            if insurance_list.tbltSizeMixture:
+                
+                name = insurance_list.tbltNameSales + ' '+ insurance_list.tbltSizeMixture
+            else:
+                name = insurance_list.tbltNameSales 
             result.append((insurance_list.id, name))
         return result
     
     def get_insurense_list(self):
         access_token = None
-        list_obj = self.env['insurance.discount.list']
+        list_obj = self.env['emd.insurance.discount.list']
         pos_conf_obj = self.env['pos.config']
         config_ids = pos_conf_obj.search([('user_name','!=', False)])[0]
         token_head = {'Authorization': 'Basic VV9mZl05Qmp5WlhMbUcmZHcmOlo3JHtFenlyRDRheUN9RkxkJg=='}
         token_data = {
                 'grant_type': 'password',
-                'username': 'aptk0010', #config_ids.user_name,
-                'password': '9875321', # config_ids.password,
+                'username': config_ids.user_name,
+                'password': config_ids.password,
                 }
-        token_url = 'https://st.health.gov.mn/oauth/token?'
+        token_url = 'https://health.gov.mn/oauth/token?'
         token_response = requests.post(token_url, params=token_data, headers=token_head, verify=False)
-        print('token_response==========>>', token_response)
         if token_response.status_code == 200:
             new_data = json.loads(token_response.text)
             access_token = new_data['access_token']
@@ -78,7 +74,7 @@ class InsuranceDiscountList(models.Model):
             _logger.error(u'Аccess token авахад алдаа гарлаа.')
             raise ValidationError(u'ЭМД системтэй холбогдож чадсангүй!')
          
-        url = 'https://st.health.gov.mn/eins/prescription/getTabletFindAll?page=1&size=560&type=1&access_token='+ access_token
+        url = 'https://health.gov.mn/eins/prescription/getTabletFindAll?page=1&size=570&type=1&access_token='+ access_token
         head = {"Content-Type": "application/json"}
         params = {'field':None,
                   'value':None,
@@ -90,11 +86,11 @@ class InsuranceDiscountList(models.Model):
 
         if response.status_code == 200:
             insurancce_data = json.loads(response.text)
-            self._cr.execute(""" DELETE FROM insurance_discount_list """)
+            # self._cr.execute(""" DELETE FROM emd_insurance_discount_list """)
             for tbltData in insurancce_data['data']:
-                print('tbltData===', tbltData)
+                
                 _logger.info(u'ЭМД-н системээс авсан data tbltUnitPrice %s' % (tbltData['tbltUnitPrice']))
-                list_id =  self.env['insurance.discount.list'].search([('tbltId', '=', tbltData['id'])])
+                list_id =  self.env['emd.insurance.discount.list'].search([('tbltId', '=', tbltData['id'])])
                 if list_id:       
                     list_id[0].write({
                         'tbltNameMon': tbltData['tbltNameMon'],

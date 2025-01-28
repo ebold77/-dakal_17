@@ -13,10 +13,12 @@
     'depends': [ 'base', 'stock', 'sale_stock', 'l10n_mn', 'hr', 'l10n_mn_stock_transit'],
     'data': [
 #         'security/security.xml',
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/stock_picking_view.xml',
         'views/account_move_view.xml',
         'views/sale_order_view.xml',
+        'views/licemed_registration_view.xml',
+        'views/product_view.xml',
         # 'wizard/stock_inventory_statement_view.xml',
         # 'wizard/stock_product_balance_report_view.xml',
         # 'wizard/lot_stock_report_view.xml',

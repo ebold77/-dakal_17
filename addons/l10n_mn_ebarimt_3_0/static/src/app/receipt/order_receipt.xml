@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+     <t t-name="l10n_mn_ebarimt_3_0.OrderReceipt" t-inherit="point_of_sale.OrderReceipt"
+        t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('pos-receipt')]" position="replace">
+            <div class="pos-receipt">
+                <img t-attf-src="/web/image?model=res.company&amp;id={{props.data.headerData.company.id}}&amp;field=logo"
+                        alt="Logo" style="max-height: 80px; al"/>
+                <div class="pos-receipt-contact">
+                    <table style='width: 100%'>
+                        <strong >Борлуулагч:</strong>
+                        <tr>
+                            <td style='text-align:left;' >
+                                <t t-if="props.data.headerData.company.name">
+                                    <div><t t-esc="props.data.headerData.company.name" /></div>
+                                </t>
+                            </td>
+                            <td style='text-align:right'>
+                                <t t-if="props.data.headerData.company.phone">
+                                    <div>Утас: <t t-esc="props.data.headerData.company.phone" /></div>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style='text-align:left'>
+                                <t t-if="props.data.headerData.company.email">
+                                    <div><t t-esc="props.data.headerData.company.email" /></div>
+                                </t>
+                            </td>
+                            <td style='text-align:right'>
+                                <t t-if="props.data.headerData.company.vat">
+                                    <div>РД:<t t-esc="props.data.headerData.company.vat" /></div>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>                    
+                
+                    <t>
+                        <t t-log="props.data"/>
+                        <div>ДДТД: <span t-esc="props.data.bill_id"/></div>
+                    </t>
+                    <t t-if="props.data.cashier">
+                        <div class="cashier">
+                            <div>--------------------------------</div>
+                            <div>Үйлчилсэн: <t t-esc="props.data.cashier" /></div>
+                        </div>
+                    </t>
+                    <div>
+                        <strong t-if="props.data.bill_type == 'B2B_RECEIPT'">Худалдан авагч:</strong>
+                        <p t-if="props.data.bill_type == 'B2B_RECEIPT'">ТТД: <span t-esc="props.data.company_reg"/></p>
+                        <p t-if="props.data.bill_type == 'B2B_RECEIPT'">Нэр: <span t-esc="props.data.company_name"/></p>
+                    </div>
+                </div>
+                <br/>
+                <!--                Lines-->
+                <table class="orderlines">
+                    <colgroup>
+                        <col width='30%' />
+                        <col width='10%' />
+                        <col width='20%' />
+                        <col width='20%' />
+                        <col width='20%' />
+                    </colgroup>
+                    <tr style="border-bottom: 1px dashed black;">
+                        <th style='text-align:left'>Нэр</th>
+                        <th style='text-align:left'>Тоо</th>
+                        <th style='text-align:right'>Нэгж үнэ</th>
+                        <th style='text-align:right'>НӨАТ</th>
+                        <th style='text-align:right'>Нийт</th>
+                    </tr>
+                    <tr t-foreach="props.data.orderlines" t-as="orderline" t-key="orderline.id">
+                        <td>
+                            <t t-esc="orderline.productName"/>
+                        </td>
+                        <td>
+                            <t t-esc="orderline.qty" style='text-align:right'/>
+                        </td>
+                        <td>
+                            <!-- <t t-set="a" t-value="orderline.quantityStr"></t> -->
+                            <t t-esc="orderline.unitPrice"></t>
+                            <!-- <t t-set="c" t-value="b/a"></t>
+                            <t t-esc="c"/> -->
+                        </td>
+                        <td>
+                            <t>
+                                <!-- <span t-esc="orderline.get_all_prices().tax" style='text-align:right'/> -->
+                            </t>
+                        </td>
+                        <td style='text-align:right'>
+                            <t t-esc="orderline.price"/>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <div style="font-size: 75%;">
+                    TOTAL
+                    <span t-esc="props.formatCurrency(props.data.amount_total)" class="pos-receipt-right-align"/>
+                </div>
+                <t t-foreach="props.data.paymentlines" t-as="line" t-key="line.cid">
+                    <div style="font-size: 75%;">
+                        <t t-esc="line.name" />
+                        <span t-esc="props.formatCurrency(line.amount, false)" class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+                <div style="font-size: 75%;">
+                    CHANGE
+                    <span t-esc="props.formatCurrency(props.data.change)" class="pos-receipt-right-align"/>
+                </div>
+                <t t-if="props.data.tax_details.length > 0">
+                    <t t-foreach="props.data.tax_details" t-as="tax" t-key="tax.name">
+                        <div style="border-top: 1px dashed black; font-size: 75%;">
+                            <t t-esc="tax.name" />
+                            <span t-esc="props.formatCurrency(props.data.amount_tax, false)" class="pos-receipt-right-align"/>
+                        </div>
+                    </t>
+                </t>
+
+                <br/>
+                <div class="before-footer"/>
+                
+                <div t-if="props.data.bill_type === 'B2C_RECEIPT'" class="pos-receipt-center-align">
+                    <div>
+                        <strong>Сугалаа: <span t-esc="props.data.lottery" style="font-size: 75%; text-align: center;"/> </strong> 
+                    </div>
+                    <img  t-att-src="props.data.qrdata" class="pos-receipt-qrcode" style="width: 50%; text-align: center;" />
+                </div>
+                <div t-if="props.data.bill_type === 'B2B_RECEIPT'" class="pos-receipt-center-align">
+                    <img  t-att-src="props.data.qrdata" class="pos-receipt-qrcode" style="width: 50%; text-align: center;" />
+                </div>
+                
+                <br/><br/>
+                <!-- Footer -->
+
+            </div>
+        </xpath>
+    </t>
+</templates>

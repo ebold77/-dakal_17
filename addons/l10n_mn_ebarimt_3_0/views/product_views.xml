@@ -20,6 +20,9 @@
                 <field name="default_code" position="after">
                     <field name="ebarimt_gs1barcode_id" groups="l10n_mn_ebarimt_3_0.group_ebarimt_gs1barcode"/>
                 </field>
+                <field name="taxes_id" position="after">
+                    <field name="tax_type" force_save="1"  groups="l10n_mn_ebarimt_3_0.group_ebarimt_gs1barcode"/>
+                </field>
             </field>
         </record>
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_order_form_inherit_emd" model="ir.ui.view">
+        <field name="name">pos.order.form.inherit.emd</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="check_emd_receipt" string="Check Receipt" type="object"/>
+            </xpath>
+            <group name="order_fields" position="inside">
+                    <field name="receipt_bill_id" readonly="True"/>
+                    <field name="last_name" readonly="True"/>
+                    <field name="receipt_number" readonly="True"/>
+                    <field name="first_name" readonly="True"/>
+                </group>
+        </field>
+    </record>
+</odoo>

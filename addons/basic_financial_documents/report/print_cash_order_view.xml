@@ -26,7 +26,7 @@
 									</tr>
 									<tr>
 										<td width="80%" align="middle" style="vertical-align:top;">
-										   <img width="auto" height="50" alt="set company logo" align="middle" t-attf-src="data:image/gif;base64, #{o.company_id.logo}"/>
+										   <img width="auto" height="50" alt="set company logo" align="left" t-attf-src="data:image/gif;base64, #{o.company_id.logo}"/>
 									   </td>
 									</tr>
 									<tr height="30" valign="center" ><td> </td></tr>
@@ -46,7 +46,7 @@
 														<span style="font-size:13px;">Дугаар:</span>
 													</td>
 													<td  width="280pt">
-														<b><span style="font-size:13px;" t-field="o.statement_id.name"/>/<span style="font-size:13px;"  t-field="o.sequence"/></b>
+														<b><span style="font-size:13px;" t-field="o.name"/></b>
 													</td>
 												</tr>
 												<tr height="30" valign="center">
@@ -109,17 +109,6 @@
 												<tr>
 													<td>
 														<table style="margin-top: 20px; font-family: 'Arial';font-size: 13px;" width="100%;">
-															<!-- <tbody t-foreach="signature_lines[o.id]" t-as="l" id="signature_lines_tbody" >
-																<tr width="100%; border-top: 2px;">
-																	<td t-if="l['name']" style="width:50%; text-align:left" >
-																		<br/>
-																		<span t-esc="l['name']" />:
-																		<img t-if="l['signature']" t-att-src="image_data_uri(l['signature'])"  width="120" height="25"/>
-																		<span t-else=" "> _________________ </span>
-																		<span> / <span t-if="l['partner']" t-esc="l['partner']"/> <span t-else=" "> _________________ </span>/ </span>
-																	</td>
-																</tr>
-															</tbody> -->
 															<tr style="width:100%;">
 																<td>
 																	<br/>
@@ -182,7 +171,7 @@
 														<span style="font-size:13px;">Дугаар:</span>
 													</td>
 													<td  width="280pt">
-														<b><span style="font-size:13px;" t-field="o.statement_id.name"/>/<span style="font-size:13px;"  t-field="o.sequence"/></b>
+														<b><span style="font-size:13px;" t-field="o.name"/></b>
 													</td>
 												</tr>
 												<tr height="30" valign="center">
@@ -245,17 +234,6 @@
 												<tr>
 													<td>
 														<table style="margin-top: 20px; font-family: 'Arial';font-size: 13px;" width="100%;">
-															<tbody t-foreach="signature_lines[o.id]" t-as="l" id="signature_lines_tbody" >
-																<tr width="100%; border-top: 2px;">
-																	<td t-if="l['name']" style="width:50%; text-align:left" >
-																		<br/>
-																		<span t-esc="l['name']" />:
-																		<img t-if="l['signature']" t-att-src="image_data_uri(l['signature'])"  width="120" height="25"/>
-																		<span t-else=" "> _________________ </span>
-																		<span> / <span t-if="l['partner']" t-esc="l['partner']"/> <span t-else=" "> _________________ </span>/ </span>
-																	</td>
-																</tr>
-															</tbody>
 															<tr style="width:100%;">
 																<td>
 																	<br/>
@@ -331,7 +309,7 @@
 														<span style="font-size:13px;">Дугаар:</span>
 													</td>
 													<td width="280pt">
-														<b><span style="font-size:13px;" t-field="o.statement_id.name"/>/<span style="font-size:13px;"  t-field="o.sequence"/></b>
+														<b><span style="font-size:13px;" t-field="o.name"/></b>
 													</td>
 												</tr>
 												<tr height="30" valign="center">
@@ -394,28 +372,17 @@
 												<tr>
 													<td>
 														<table style="margin-top: 20px; font-family: 'Arial';font-size: 13px;" width="100%;">
-															<tbody t-foreach="signature_lines[o.id]" t-as="l" id="signature_lines_tbody" >
-																<tr width="100%; border-top: 2px;">
-																	<td t-if="l['name']" style="width:50%; text-align:left" >
-																		<br/>
-																		<span t-esc="l['name']" />:
-																		<img t-if="l['signature']" t-att-src="image_data_uri(l['signature'])"  width="120" height="25"/>
-																		<span t-else=" "> _________________ </span>
-																		<span> / <span t-if="l['partner']" t-esc="l['partner']"/> <span t-else=" "> _________________ </span>/ </span>
-																	</td>
-																</tr>
-															</tbody>
 															<tr style="width:100%;">
 																<td>
 																	<br/>
-																	<span style="font-size:13px;">Хүлээн авсан:</span>
+																	<span style="font-size:13px;">Хүлээлгэн өгсөн:</span>
 																	_________________ <span style="font-size:13px;">/<t style="font-size:13px;" t-esc="o.user_id.name"/>/</span>
 																</td>
 															</tr>
 															<tr>
 																<td>
 																	<br/>
-																	<span style="font-size:13px;">Мөнгө тушаагч:</span>
+																	<span style="font-size:13px;">Хүлээн авсан:</span>
 																	_________________ <span style="font-size:13px;">/<t t-esc="o.partner_id.name"/>/</span>
 																</td>
 															</tr>
@@ -469,7 +436,7 @@
 														<span style="font-size:13px;">Дугаар:</span>
 													</td>
 													<td width="280pt">
-														<b><span style="font-size:13px;" t-field="o.statement_id.name"/>/<span style="font-size:13px;"  t-field="o.sequence"/></b>
+														<b><span style="font-size:13px;" t-field="o.name"/></b>
 													</td>
 												</tr>
 												<tr height="30">
@@ -532,28 +499,17 @@
 												<tr>
 													<td>
 														<table style="margin-top: 20px; font-family: 'Arial';font-size: 13px;" width="100%;">
-															<tbody t-foreach="signature_lines[o.id]" t-as="l" id="signature_lines_tbody" >
-																<tr width="100%; border-top: 2px;">
-																	<td t-if="l['name']" style="width:50%; text-align:left" >
-																		<br/>
-																		<span t-esc="l['name']" />:
-																		<img t-if="l['signature']" t-att-src="image_data_uri(l['signature'])"  width="120" height="25"/>
-																		<span t-else=" "> _________________ </span>
-																		<span> / <span t-if="l['partner']" t-esc="l['partner']"/> <span t-else=" "> _________________ </span>/ </span>
-																	</td>
-																</tr>
-															</tbody>
 															<tr style="width:100%;">
 																<td>
 																	<br/>
-																	<span style="font-size:13px;">Хүлээн авсан:</span>
+																	<span style="font-size:13px;">Хүлээлгэн өгсөн:</span>
 																	_________________ <span style="font-size:13px;">/<t style="font-size:13px;" t-esc="o.user_id.name"/>/</span>
 																</td>
 															</tr>
 															<tr>
 																<td>
 																	<br/>
-																	<span style="font-size:13px;">Мөнгө тушаагч:</span>
+																	<span style="font-size:13px;">Хүлээн авсан:</span>
 																	_________________ <span style="font-size:13px;">/<t t-esc="o.partner_id.name"/>/</span>
 																</td>
 															</tr>

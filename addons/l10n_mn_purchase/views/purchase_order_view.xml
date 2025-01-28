@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    Inherited form view of purchase order -->
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">
+            purchase.order.view.form.inherit.order.line.sequences
+        </field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_qty']"
+                   position="after">
+                <field name="qty_available" readonly="1" force_save="1"  
+                    decoration-warning = "qty_available > 50"
+                    decoration-success="qty_available == 0" 
+                    decoration-danger="qty_available >= 100"
+                    decoration-primary="qty_available >= 20"
+                    decoration-info="qty_available >= 10"/>
+            </xpath>
+             <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']"
+                   position="after">
+                <field name="sale_price" readonly="1" force_save="1" 
+                    decoration-danger="is_expensive == True"
+                    decoration-success="is_expensive == False" 
+                    />
+                <field name="is_expensive" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

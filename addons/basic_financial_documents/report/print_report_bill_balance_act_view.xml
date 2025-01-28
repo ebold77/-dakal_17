@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="basic_financial_documents.bill_balance_act">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<t t-foreach="docs" t-as="o">
+					<div class="page l10n_mn_base_report" style="padding-left: 50px; padding:right: 30px; padding-top: -20px">
+						<table style="width:100%">
+							<tr>
+								<td align="left" style="font-size: 11px;">Form Т-3</td>
+								<td align="right" style="font-size: 11px">Attechment to Command No.347 of 2017<br>Minister of Finance</br></td>
+							</tr>
+						</table>
+						<div style="padding-top:6px"/>
+						<h6 align="center"><b>No. of residual balance guarantee</b></h6>
+						<table style="margin-top:30px; font-size:12px; ">
+							<tr>
+								<th colspan="2" align="left" style="padding-right:5px"><b>Billing</b></th>
+								<th colspan="2" align="left"><b>Payer</b></th>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">Organization name:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company.name"><b><t t-esc="company.name"/></b></t>
+										<t t-if="not company.name"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner.name"><b><t t-esc="partner.name"/></b></t>
+										<t t-if="not partner.name"><b>________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">Organization name:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner.name"><b><t t-esc="partner.name"/></b></t>
+										<t t-if="not partner.name"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company.name"><b><t t-esc="company.name"/></b></t>
+										<t t-if="not company.name"><b>________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">Address:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company.street"><b><t t-esc="company.street"/></b></t>
+										<t t-if="not company.street"><b>_______________________
+										_______________________________________________________
+										_______________________________________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner.street"><b><t t-esc="partner.street"/></b></t>
+										<t t-if="not partner.street"><b>_______________________
+										_______________________________________________________
+										_______________________________________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">Address:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner.street"><b><t t-esc="partner.street"/></b></t>
+										<t t-if="not partner.street"><b>_______________________
+										_______________________________________________________
+										_______________________________________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company.street"><b><t t-esc="company.street"/></b></t>
+										<t t-if="not company.street"><b>_______________________
+										_______________________________________________________
+										_______________________________________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:6px;">Telephone:</th>
+								<td style="padding-right:6px; padding-top:6px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company.phone"><b><t t-esc="company.phone"/></b></t>
+										<t t-if="not company.phone"><b>_____________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner.phone"><b><t t-esc="partner.phone"/></b></t>
+										<t t-if="partner.mobile"><b>, <t t-esc="partner.mobile"/></b></t>
+										<t t-if="not partner.phone and not partner.mobile"><b>_____________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:6px;">Telephone:</th>
+								<td style="padding-right:6px; padding-top:6px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner.phone"><b><t t-esc="partner.phone"/></b></t>
+										<t t-if="partner.mobile"><b>, <t t-esc="partner.mobile"/></b></t>
+										<t t-if="not partner.phone and not partner.mobile"><b>_____________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company.phone"><b><t t-esc="company.phone"/></b></t>
+										<t t-if="not company.phone"><b>_____________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">E-mail:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company.email"><b><t t-esc="company.email"/></b></t>
+										<t t-if="not company.email"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner.email"><b><t t-esc="partner.email"/></b></t>
+										<t t-if="not partner.email"><b>________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">E-mail:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner.email"><b><t t-esc="partner.email"/></b></t>
+										<t t-if="not partner.email"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company.email"><b><t t-esc="company.email"/></b></t>
+										<t t-if="not company.email"><b>________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">Bank name:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company_bank_name"><b><t t-esc="company_bank_name"/></b></t>
+										<t t-if="not company_bank_name"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner_bank_name"><b><t t-esc="partner_bank_name"/></b></t>
+										<t t-if="not partner_bank_name"><b>________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">Bank name:</th>
+								<td style="padding-top:5px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner_bank_name"><b><t t-esc="partner_bank_name"/></b></t>
+										<t t-if="not partner_bank_name"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company_bank_name"><b><t t-esc="company_bank_name"/></b></t>
+										<t t-if="not company_bank_name"><b>________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">Account number:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company_bank_number"><b><t t-esc="company_bank_number"/></b></t>
+										<t t-if="not company_bank_number"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner_bank_number"><b><t t-esc="partner_bank_number"/></b></t>
+										<t t-if="not partner_bank_number"><b>________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">Account number:</th>
+								<td style="padding-top:5px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner_bank_number"><b><t t-esc="partner_bank_number"/></b></t>
+										<t t-if="not partner_bank_number"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company_bank_number"><b><t t-esc="company_bank_number"/></b></t>
+										<t t-if="not company_bank_number"><b>________________________</b></t>
+									</t>
+								</td>
+							</tr>
+						</table>
+						<table style="width:100%">
+							<tr><h6 align="left" style="margin-top: 30px;">No. of account balances</h6></tr>
+							<tr style="margin-top:6px; margin-bottom:6px;">
+								<td style="font-size:12px;">On behalf of the claimant
+									<t t-if="total_residual &gt; 0" >
+										<t t-if="write_respondent_job_title"><b style="font-size:12px;"><t t-esc="write_respondent_job_title"/></b></t>
+										<t t-if="not write_respondent_job_title"><b style="font-size:12px;">_____________________</b></t>
+										with work
+										<t t-if="write_respondent_surname"><b style="font-size:12px;"><t t-esc="write_respondent_surname"/></b></t>
+										<t t-if="not write_respondent_surname"><b style="font-size:12px;">______________________</b></t>
+										with surname
+										<t t-if="write_respondent_firstname"><b style="font-size:12px;"><t t-esc="write_respondent_firstname"/></b></t>
+										<t t-if="not write_respondent_firstname"><b style="font-size:12px;">____________________</b></t> is a </t>
+									<t t-if="total_residual &lt; 0" >
+										<t t-if="write_partner_respondent_job_title"><b style="font-size:12px;"><t t-esc="write_partner_respondent_job_title"/></b></t>
+										<t t-if="not write_partner_respondent_job_title"><b style="font-size:12px;">_____________________</b></t>
+										with work
+										<t t-if="write_partner_respondent_surname"><b style="font-size:12px;"><t t-esc="write_partner_respondent_surname"/></b></t>
+										<t t-if="not write_partner_respondent_surname"><b style="font-size:12px;">______________________</b></t>
+										with surname
+										<t t-if="write_partner_respondent_firstname"><b style="font-size:12px;"><t t-esc="write_partner_respondent_firstname"/></b></t>
+										<t t-if="not write_partner_respondent_firstname"><b style="font-size:12px;">_______________________</b></t> is a </t>
+									on behalf of a payer
+									<t t-if="total_residual &gt; 0" >
+										<t t-if="write_partner_respondent_job_title"><b style="font-size:12px;"><t t-esc="write_partner_respondent_job_title"/></b></t>
+										<t t-if="not write_partner_respondent_job_title"><b style="font-size:12px;">________________________</b></t>
+										with work
+										<t t-if="write_partner_respondent_surname"><b style="font-size:12px;"><t t-esc="write_partner_respondent_surname"/></b></t>
+										<t t-if="not write_partner_respondent_surname"><b style="font-size:12px;">_________________________</b></t>
+										with surname
+										<t t-if="write_partner_respondent_firstname"><b style="font-size:12px;"><t t-esc="write_partner_respondent_firstname"/></b></t>
+										<t t-if="not write_partner_respondent_firstname"><b style="font-size:12px;">________________________</b></t> is a </t>
+									<t t-if="total_residual &lt; 0" >
+										<t t-if="write_respondent_job_title"><b style="font-size:12px;"><t t-esc="write_respondent_job_title"/></b></t>
+										<t t-if="not write_respondent_job_title"><b style="font-size:12px;">________________________</b></t>
+										with work
+										<t t-if="write_respondent_surname"><b style="font-size:12px;"><t t-esc="write_respondent_surname"/></b></t>
+										<t t-if="not write_respondent_surname"><b style="font-size:12px;">______________________</b></t>
+										with surname
+										<t t-if="write_respondent_firstname"><b style="font-size:12px;"><t t-esc="write_respondent_firstname"/></b></t>
+										<t t-if="not write_respondent_firstname"><b style="font-size:12px;">________________________</b></t> is a </t>
+									between the two organizations from
+									<b style="font-size:12px;"><t t-esc="start_year"/></b> year <b style="font-size:12px;"><t t-esc="start_month"/></b> month <b style="font-size:12px;"><t t-esc="start_day"/></b> day to
+									<b style="font-size:12px;"><t t-esc="stop_year"/></b> year <b style="font-size:12px;"><t t-esc="stop_month"/></b> month <b style="font-size:12px;"><t t-esc="stop_day"/></b> merge together to summarize with the detailed accounting and summary accounting records maintained by two organizations through the end of the day
+									<t t-if="total_residual &gt; 0" >
+										<t t-if="company.name">
+											<b style="font-size:12px;"><t t-esc="company.name"/></b>
+										</t>
+										<t t-if="not company.name">
+											<b style="font-size:12px;">_______________________________</b>
+										</t>
+									</t> is
+									<t t-if="total_residual &lt; 0" >
+										<t t-if="company.name"><b style="font-size:12px;"><t t-esc="company.name"/></b></t>
+										<t t-if="not company.name"><b style="font-size:12px;">_______________________________</b></t>
+									</t>
+									<t t-if="total_residual == 0" >_______________</t>
+									<t t-if="total_residual &gt; 0" >
+										<b style="font-size:12px;"><t t-esc="'{0:,.2f}'.format(total_residual)"/></b> <b style="font-size:12px;"><t t-esc="verbose_total"/></b> mutually approved to MNT receivable.
+									</t>
+									<t t-if="total_residual &lt; 0" >
+										<b style="font-size:12px;"><t t-esc="'{0:,.2f}'.format(total_residual * -1)"/></b> <b style="font-size:12px;"><t t-esc="verbose_total"/></b> mutually approved to MNT debts.
+									</t>
+									<t t-if="total_residual == 0" >
+										<b style="font-size:12px;">0</b><b style="font-size:12px;"><t t-esc="verbose_total"/></b> mutually approved to MNT debts.</t>
+									
+									The residual of this debt
+									<t t-if="type == 'cash'" >
+										<b style="font-size:12px;">Cash</b>
+									</t>
+									<t t-if="type == 'not_cash'" >
+										<b style="font-size:12px;">Not cash</b>
+									</t>
+									<t t-if="type == 'barter'" >
+										<b style="font-size:12px;">Barter</b>
+									</t>
+									<t t-if="type == 'organizations'" >
+										<b style="font-size:12px;">Between organizations</b>
+									</t>
+									<t t-if="not type" >
+										<b style="font-size:12px;">________________</b>
+									</t>
+									agreed to claim billing form.
+									<p style="margin: 35px 0px 35px 6px; font-size:13px;">(Mark)
+										<span style="padding-left:120px">Accountant of Billing organization ............................................./
+											<t t-if="total_residual &gt; 0">
+												<t t-if="company_sign"><t t-esc="company_sign"/></t>
+												<t t-if="not company_sign">________________________</t>
+											</t>
+											<t t-if="total_residual &lt; 0">
+												<t t-if="partner_sign"><t t-esc="partner_sign"/></t>
+												<t t-if="not partner_sign">________________________</t>
+											</t>/
+										</span>
+									</p>
+									<p style="margin: 0px 0px 35px 6px; font-size:13px;">(Mark)
+										<span style="padding-left:120px">Accountant of Payer organization ............................................./
+											<t t-if="total_residual &gt; 0">
+												<t t-if="partner_sign"><t t-esc="partner_sign"/></t>
+												<t t-if="not partner_sign">________________________</t>
+											</t>
+											<t t-if="total_residual &lt; 0">
+												<t t-if="company_sign"><t t-esc="company_sign"/></t>
+												<t t-if="not company_sign">________________________</t>
+											</t>/
+										</span>
+									</p>
+								</td>
+							</tr>
+						</table>
+						<table style="width:100%">
+							<tr>
+								<td align="left" style="font-size: 11px;">Form Т-3</td>
+								<td align="right" style="font-size: 11px">Attechment to Command No.347 of 2017<br>Minister of Finance</br></td>
+							</tr>
+						</table>
+						<div style="padding-top:6px"/>
+						<h6 align="center"><b>No. of residual balance guarantee</b></h6>
+						<table style="margin-top:30px; font-size:12px; ">
+							<tr>
+								<th colspan="2" align="left" style="padding-right:5px"><b>Billing</b></th>
+								<th colspan="2" align="left"><b>Payer</b></th>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">Organization name:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company.name"><b><t t-esc="company.name"/></b></t>
+										<t t-if="not company.name"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner.name"><b><t t-esc="partner.name"/></b></t>
+										<t t-if="not partner.name"><b>________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">Organization name:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner.name"><b><t t-esc="partner.name"/></b></t>
+										<t t-if="not partner.name"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company.name"><b><t t-esc="company.name"/></b></t>
+										<t t-if="not company.name"><b>________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">Address:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company.street"><b><t t-esc="company.street"/></b></t>
+										<t t-if="not company.street"><b>_______________________
+										_______________________________________________________
+										_______________________________________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner.street"><b><t t-esc="partner.street"/></b></t>
+										<t t-if="not partner.street"><b>_______________________
+										_______________________________________________________
+										_______________________________________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">Address:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner.street"><b><t t-esc="partner.street"/></b></t>
+										<t t-if="not partner.street"><b>_______________________
+										_______________________________________________________
+										_______________________________________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company.street"><b><t t-esc="company.street"/></b></t>
+										<t t-if="not company.street"><b>_______________________
+										_______________________________________________________
+										_______________________________________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:6px;">Telephone:</th>
+								<td style="padding-right:6px; padding-top:6px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company.phone"><b><t t-esc="company.phone"/></b></t>
+										<t t-if="not company.phone"><b>_____________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner.phone"><b><t t-esc="partner.phone"/></b></t>
+										<t t-if="partner.mobile"><b>, <t t-esc="partner.mobile"/></b></t>
+										<t t-if="not partner.phone and not partner.mobile"><b>_____________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:6px;">Telephone:</th>
+								<td style="padding-right:6px; padding-top:6px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner.phone"><b><t t-esc="partner.phone"/></b></t>
+										<t t-if="partner.mobile"><b>, <t t-esc="partner.mobile"/></b></t>
+										<t t-if="not partner.phone and not partner.mobile"><b>_____________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company.phone"><b><t t-esc="company.phone"/></b></t>
+										<t t-if="not company.phone"><b>_____________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">E-mail:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company.email"><b><t t-esc="company.email"/></b></t>
+										<t t-if="not company.email"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner.email"><b><t t-esc="partner.email"/></b></t>
+										<t t-if="not partner.email"><b>________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">E-mail:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner.email"><b><t t-esc="partner.email"/></b></t>
+										<t t-if="not partner.email"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company.email"><b><t t-esc="company.email"/></b></t>
+										<t t-if="not company.email"><b>________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">Bank name:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company_bank_name"><b><t t-esc="company_bank_name"/></b></t>
+										<t t-if="not company_bank_name"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner_bank_name"><b><t t-esc="partner_bank_name"/></b></t>
+										<t t-if="not partner_bank_name"><b>________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">Bank name:</th>
+								<td style="padding-top:5px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner_bank_name"><b><t t-esc="partner_bank_name"/></b></t>
+										<t t-if="not partner_bank_name"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company_bank_name"><b><t t-esc="company_bank_name"/></b></t>
+										<t t-if="not company_bank_name"><b>________________________</b></t>
+									</t>
+								</td>
+							</tr>
+							<tr>
+								<th style="padding-right:6px; padding-top:3px;">Account number:</th>
+								<td style="padding-right:6px; padding-top:3px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="company_bank_number"><b><t t-esc="company_bank_number"/></b></t>
+										<t t-if="not company_bank_number"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="partner_bank_number"><b><t t-esc="partner_bank_number"/></b></t>
+										<t t-if="not partner_bank_number"><b>________________________</b></t>
+									</t>
+								</td>
+								<th style="padding-right:6px; padding-top:3px;">Account number:</th>
+								<td style="padding-top:5px;">
+									<t t-if="total_residual &gt; 0">
+										<t t-if="partner_bank_number"><b><t t-esc="partner_bank_number"/></b></t>
+										<t t-if="not partner_bank_number"><b>________________________</b></t>
+									</t>
+									<t t-if="total_residual &lt; 0">
+										<t t-if="company_bank_number"><b><t t-esc="company_bank_number"/></b></t>
+										<t t-if="not company_bank_number"><b>________________________</b></t>
+									</t>
+								</td>
+							</tr>
+						</table>
+						<table style="width:100%">
+							<tr><h6 align="left" style="margin-top: 30px;">No. of account balances</h6></tr>
+							<tr style="margin-top:6px; margin-bottom:6px;">
+								<td style="font-size:12px;">On behalf of the claimant
+									<t t-if="total_residual &gt; 0" >
+										<t t-if="write_respondent_job_title"><b style="font-size:12px;"><t t-esc="write_respondent_job_title"/></b></t>
+										<t t-if="not write_respondent_job_title"><b style="font-size:12px;">_____________________</b></t>
+										with work
+										<t t-if="write_respondent_surname"><b style="font-size:12px;"><t t-esc="write_respondent_surname"/></b></t>
+										<t t-if="not write_respondent_surname"><b style="font-size:12px;">______________________</b></t>
+										with surname
+										<t t-if="write_respondent_firstname"><b style="font-size:12px;"><t t-esc="write_respondent_firstname"/></b></t>
+										<t t-if="not write_respondent_firstname"><b style="font-size:12px;">____________________</b></t> is a </t>
+									<t t-if="total_residual &lt; 0" >
+										<t t-if="write_partner_respondent_job_title"><b style="font-size:12px;"><t t-esc="write_partner_respondent_job_title"/></b></t>
+										<t t-if="not write_partner_respondent_job_title"><b style="font-size:12px;">_____________________</b></t>
+										with work
+										<t t-if="write_partner_respondent_surname"><b style="font-size:12px;"><t t-esc="write_partner_respondent_surname"/></b></t>
+										<t t-if="not write_partner_respondent_surname"><b style="font-size:12px;">______________________</b></t>
+										with surname
+										<t t-if="write_partner_respondent_firstname"><b style="font-size:12px;"><t t-esc="write_partner_respondent_firstname"/></b></t>
+										<t t-if="not write_partner_respondent_firstname"><b style="font-size:12px;">_______________________</b></t> is a </t>
+									on behalf of a payer
+									<t t-if="total_residual &gt; 0" >
+										<t t-if="write_partner_respondent_job_title"><b style="font-size:12px;"><t t-esc="write_partner_respondent_job_title"/></b></t>
+										<t t-if="not write_partner_respondent_job_title"><b style="font-size:12px;">________________________</b></t>
+										with work
+										<t t-if="write_partner_respondent_surname"><b style="font-size:12px;"><t t-esc="write_partner_respondent_surname"/></b></t>
+										<t t-if="not write_partner_respondent_surname"><b style="font-size:12px;">_________________________</b></t>
+										with surname
+										<t t-if="write_partner_respondent_firstname"><b style="font-size:12px;"><t t-esc="write_partner_respondent_firstname"/></b></t>
+										<t t-if="not write_partner_respondent_firstname"><b style="font-size:12px;">________________________</b></t> is a </t>
+									<t t-if="total_residual &lt; 0" >
+										<t t-if="write_respondent_job_title"><b style="font-size:12px;"><t t-esc="write_respondent_job_title"/></b></t>
+										<t t-if="not write_respondent_job_title"><b style="font-size:12px;">________________________</b></t>
+										with work
+										<t t-if="write_respondent_surname"><b style="font-size:12px;"><t t-esc="write_respondent_surname"/></b></t>
+										<t t-if="not write_respondent_surname"><b style="font-size:12px;">______________________</b></t>
+										with surname
+										<t t-if="write_respondent_firstname"><b style="font-size:12px;"><t t-esc="write_respondent_firstname"/></b></t>
+										<t t-if="not write_respondent_firstname"><b style="font-size:12px;">________________________</b></t> is a </t>
+									between the two organizations from
+									<b style="font-size:12px;"><t t-esc="start_year"/></b> year <b style="font-size:12px;"><t t-esc="start_month"/></b> month <b style="font-size:12px;"><t t-esc="start_day"/></b> day to
+									<b style="font-size:12px;"><t t-esc="stop_year"/></b> year <b style="font-size:12px;"><t t-esc="stop_month"/></b> month <b style="font-size:12px;"><t t-esc="stop_day"/></b> merge together to summarize with the detailed accounting and summary accounting records maintained by two organizations through the end of the day
+									<t t-if="total_residual &gt; 0" >
+										<t t-if="company.name">
+											<b style="font-size:12px;"><t t-esc="company.name"/></b>
+										</t>
+										<t t-if="not company.name">
+											<b style="font-size:12px;">_______________________________</b>
+										</t>
+									</t> is
+									<t t-if="total_residual &lt; 0" >
+										<t t-if="company.name"><b style="font-size:12px;"><t t-esc="company.name"/></b></t>
+										<t t-if="not company.name"><b style="font-size:12px;">_______________________________</b></t>
+									</t>
+									<t t-if="total_residual == 0" >_______________</t>
+									<t t-if="total_residual &gt; 0" >
+										<b style="font-size:12px;"><t t-esc="'{0:,.2f}'.format(total_residual)"/></b> <b style="font-size:12px;"><t t-esc="verbose_total"/></b> mutually approved to MNT receivable.
+									</t>
+									<t t-if="total_residual &lt; 0" >
+										<b style="font-size:12px;"><t t-esc="'{0:,.2f}'.format(total_residual * -1)"/></b> <b style="font-size:12px;"><t t-esc="verbose_total"/></b> mutually approved to MNT debts.
+									</t>
+									<t t-if="total_residual == 0" >
+										<b style="font-size:12px;">0</b><b style="font-size:12px;"><t t-esc="verbose_total"/></b> mutually approved to MNT debts.</t>
+									
+									The residual of this debt
+									<t t-if="type == 'cash'" >
+										<b style="font-size:12px;">Cash</b>
+									</t>
+									<t t-if="type == 'not_cash'" >
+										<b style="font-size:12px;">Not cash</b>
+									</t>
+									<t t-if="type == 'barter'" >
+										<b style="font-size:12px;">Barter</b>
+									</t>
+									<t t-if="type == 'organizations'" >
+										<b style="font-size:12px;">Between organizations</b>
+									</t>
+									<t t-if="not type" >
+										<b style="font-size:12px;">________________</b>
+									</t>
+									agreed to claim billing form.
+									<p style="margin: 35px 0px 35px 6px; font-size:13px;">(Mark)
+										<span style="padding-left:120px">Accountant of Billing organization ............................................./
+											<t t-if="total_residual &gt; 0">
+												<t t-if="company_sign"><t t-esc="company_sign"/></t>
+												<t t-if="not company_sign">________________________</t>
+											</t>
+											<t t-if="total_residual &lt; 0">
+												<t t-if="partner_sign"><t t-esc="partner_sign"/></t>
+												<t t-if="not partner_sign">________________________</t>
+											</t>/
+										</span>
+									</p>
+									<p style="margin: 0px 0px 35px 6px; font-size:13px;">(Mark)
+										<span style="padding-left:120px">Accountant of Payer organization ............................................./
+											<t t-if="total_residual &gt; 0">
+												<t t-if="partner_sign"><t t-esc="partner_sign"/></t>
+												<t t-if="not partner_sign">________________________</t>
+											</t>
+											<t t-if="total_residual &lt; 0">
+												<t t-if="company_sign"><t t-esc="company_sign"/></t>
+												<t t-if="not company_sign">________________________</t>
+											</t>/
+										</span>
+									</p>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</t>
+			</t>
+		</t>
+	</template>
+</odoo>

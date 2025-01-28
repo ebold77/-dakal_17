@@ -1,7 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_pos_insurance_list_user,insurance.discount.list.user,model_insurance_discount_list,point_of_sale.group_pos_user,1,1,0,0
-access_pos_insurance_list,insurance.discount.list,model_insurance_discount_list,l10n_mn_emd_pos.group_pharmacy_pos_manager,1,1,1,0
-access_pos_insurance_sale,pos.insurance.sale,model_pos_insurance_sale,point_of_sale.group_pos_user,1,1,1,0
-access_pos_insurance_sale_line,pos.insurance.sale.line,model_pos_insurance_sale_line,point_of_sale.group_pos_user,1,1,1,0
+access_emd_insurance_list_user,emd.insurance.discount.list.user,model_emd_insurance_discount_list,point_of_sale.group_pos_user,1,1,0,0
+access_emd_insurance_list,emd.insurance.discount.list,model_emd_insurance_discount_list,l10n_mn_emd_pos.group_pharmacy_pos_manager,1,1,1,1
+access_emd_insurance_sale,emd.insurance.sale,model_emd_insurance_sale,point_of_sale.group_pos_user,1,1,1,0
+access_emd_insurance_sale_line,emd.insurance.sale.line,model_emd_insurance_sale_line,point_of_sale.group_pos_user,1,1,1,0
 access_price_comparison_report,report.price.comparison,model_report_price_comparison,point_of_sale.group_pos_manager,1,1,1,1
 access_pos_session_report,report.pos.session,model_report_pos_session,point_of_sale.group_pos_user,1,1,1,0

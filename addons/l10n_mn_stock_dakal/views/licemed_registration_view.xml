@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view"
+			id="product_licemed_registration_tree_view">
+			<field name="name">product.licemed.registration.tree</field>
+			<field name="model">product.licemed.registration</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Product Licemed Registration">
+					<field name="name" />
+					<field name="tbltNameSales" />
+					<field name="tbltNameInter" />
+                    <field name="tbltBarCode" />
+					<field name="tbltSizeMixture" />
+                    <field name="tbltSizeUnit" />
+					<field name="tbltType" />
+					<field name="conditions_granting" />
+					<field name="tbltManufacture" />
+                    <field name="registered_company" />
+					<field name="validity_period"/>
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="product_licemed_registration_form_view" model="ir.ui.view">
+            <field name="name">product.licemed.registration.form</field>
+            <field name="model">product.licemed.registration</field>
+            <field name="arch" type="xml">
+                <form string="Product Licemed Registration">
+                	<sheet>
+	                	<group colspan="2">
+		                    <group>
+		                        <field name="name" />
+                                <field name="tbltNameSales" />
+                                <field name="tbltNameInter" />
+                                <field name="tbltBarCode" />
+                                <field name="tbltSizeMixture" />
+                                <field name="tbltSizeUnit" />
+                                
+		                    </group>
+		                    <group>
+								<field name="tbltType" />
+                                <field name="conditions_granting" />
+                                <field name="tbltManufacture" />
+                                <field name="registered_company" />
+                                <field name="validity_period"/>
+                                <field name="state" />
+							</group>
+	                	</group>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+		<record id="product_licemed_registration_search_view"
+			model="ir.ui.view">
+			<field name="name">product.licemed.registration.search.form</field>
+			<field name="model">product.licemed.registration</field>
+			<field name="arch" type="xml">
+				<search string="Product Licemed Registration">
+					<field name="name"/>
+                    <field name="tbltNameSales" />
+                    <field name="tbltNameInter" />
+                    <field name="tbltBarCode" />
+                    <field name="tbltSizeMixture" />
+                    <field name="tbltSizeUnit" />
+                    <field name="tbltType" />
+                    <field name="conditions_granting" />
+                    <field name="registered_company" />
+                    <field name="validity_period"/>
+                    <field name="state" />
+					<group expand="0" string="Group By">
+                        <filter string="Registered Company" name="registered_company" domain="[]" context="{'group_by': 'registered_company'}"/>
+                        <filter string="Type" name="tbltType" domain="[]" context="{'group_by': 'tbltType'}"/>
+                        <filter string="Conditions Granting" name="conditions_granting" domain="[]" context="{'group_by': 'conditions_granting'}"/>
+                        <filter string="Manufacture" name="tbltManufacture" domain="[]" context="{'group_by': 'tbltManufacture'}"/>
+                        <filter string="State" name="state" domain="[]" context="{'group_by': 'state'}"/>
+                    </group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window"
+			id="action_product_licemed_registration_tree_view">
+			<field name="name">product.licemed.registration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.licemed.registration</field>
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> 
+				<field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<!-- <field name="view_id" ref="product_licemed_registration_tree_view"/> -->
+		</record>
+
+		<menuitem id="product_licemed_registration_menu"
+			name="Product Licemed Registration"
+			parent="stock.menu_product_in_config_stock"
+			action="action_product_licemed_registration_tree_view" />
+
+
+	</data>
+</odoo>

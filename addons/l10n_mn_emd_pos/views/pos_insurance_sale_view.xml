@@ -2,8 +2,8 @@
 <odoo>
 	<data>
 		<record model="ir.ui.view" id="pos_insurance_sale_tree_view">
-			<field name="name">pos.insurance.sale.tree</field>
-			<field name="model">pos.insurance.sale</field>
+			<field name="name">emd.insurance.sale.tree</field>
+			<field name="model">emd.insurance.sale</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
@@ -12,6 +12,7 @@
 					<field name="lastName" />
 					<field name="firstName" />
 					<field name="register" />
+					<field name="receipt_type" />
 					<field name="totalAmt" />
 					<field name="insAmt" />
 					<field name="vatAmt" />
@@ -24,19 +25,19 @@
 		</record>
 
 		<record model="ir.ui.view" id="pos_insurance_sale_form_view">
-			<field name="name">pos.insurance.sale.form</field>
-			<field name="model">pos.insurance.sale</field>
+			<field name="name">emd.insurance.sale.form</field>
+			<field name="model">emd.insurance.sale</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
 					<header>
 					 	
-                        <button name="get_token" states="draft"
+                        <!-- <button name="get_token" states="draft"
 							type="object" string="Send" icon="fa-book" class="oe_stat_button" />
 						<button name="action_draft" states="sented"
 							type="object" string="Draft" icon="fa-book" class="oe_stat_button" />
 						<button name="get_data" states="draft"
-							type="object" string="Get Data" icon="fa-book" class="oe_stat_button" />
+							type="object" string="Get Data" icon="fa-book" class="oe_stat_button" /> -->
 
 						<field name="state" widget="statusbar"
 							statusbar_visible="draft" />
@@ -48,6 +49,7 @@
 							<field name="firstName" />
 							<field name="register" />
 							<field name="receipt_id" />
+							<field name="receipt_type" />
 							<field name="origin" />
 							<field name="user_id" />
 						
@@ -83,8 +85,8 @@
 		</record> 
 		
 		<!-- <record model="ir.ui.view" id="pos_insurance_sale_form_view">
-			<field name="name">pos.insurance.sale.form</field>
-			<field name="model">pos.insurance.sale</field>
+			<field name="name">emd.insurance.sale.form</field>
+			<field name="model">emd.insurance.sale</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
@@ -144,8 +146,8 @@
 		
 		<record id="pos_insurance_sale_search_view"
 			model="ir.ui.view">
-			<field name="name">pos.insurance.sale.search.form</field>
-			<field name="model">pos.insurance.sale</field>
+			<field name="name">emd.insurance.sale.search.form</field>
+			<field name="model">emd.insurance.sale</field>
 			<field name="arch" type="xml">
 				<search string="Pos Insurance Sale">
 					<field name="name" />
@@ -155,6 +157,12 @@
 					<field name="config_id" string="Sales sector"/>
 					<field name="origin" />
 					<field name="date" />
+					<filter string="Insurance Receipt" name="insurance_receipt"
+						domain="[('receipt_type', '=', 'insurence')]"
+						help="Insurance Receipt" />
+					<filter string="Simple Receipt" name="simple_receipt"
+						domain="[('receipt_type', '=', 'simple')]"
+						help="Simple Receipt" />
 					<filter string="Life Date end this month" name="life_date_month"
 						domain="[('date','&lt;',(context_today()+relativedelta(day=31)).strftime('%%Y-%%m-%%d')),('date','&gt;',(context_today()-relativedelta(day=1)).strftime('%%Y-%%m-%%d'))]"
 						help="Current Month" />
@@ -163,6 +171,7 @@
                         <filter string="Sales sector" name="group_by_partner_id" domain="[]" context="{'group_by': 'config_id'}"/>
                         <filter string="Salesperson" name="group_by_user_id" domain="[]" context="{'group_by': 'user_id'}"/>
                         <filter string="Partner" name="group_by_user_id" domain="[]" context="{'group_by': 'partner_id'}"/>
+						<filter string="Receipt type" name="group_by_receipt_type" domain="[]" context="{'group_by': 'receipt_type'}"/>
                     </group>
 				</search>
 			</field>
@@ -170,9 +179,9 @@
 		
 		<record model="ir.actions.act_window"
 			id="action_pos_insurance_sale_tree_view">
-			<field name="name">pos.insurance.sale</field>
+			<field name="name">emd.insurance.sale</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">pos.insurance.sale</field>
+			<field name="res_model">emd.insurance.sale</field>
 			<!-- <field name="domain">[('field_name','condition',criteria)]</field> 
 				<field name="view_type">form</field> -->
 			<field name="view_mode">tree,form</field>
@@ -181,9 +190,9 @@
 
 		<!-- <record model="ir.actions.act_window"
 			id="action_pos_insurance_sale_tree_view">
-			<field name="name">pos.insurance.sale</field>
+			<field name="name">emd.insurance.sale</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">pos.insurance.sale</field>
+			<field name="res_model">emd.insurance.sale</field>
 			<field name="domain">[('field_name','condition',criteria)]</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
@@ -196,8 +205,8 @@
 
 		
 		<record model="ir.ui.view" id="pos_insurance_sale_line_tree_view">
-			<field name="name">pos.insurance.sale.line.tree</field>
-			<field name="model">pos.insurance.sale.line</field>
+			<field name="name">emd.insurance.sale.line.tree</field>
+			<field name="model">emd.insurance.sale.line</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
@@ -216,8 +225,8 @@
 		</record>
 
 		<record model="ir.ui.view" id="pos_insurance_sale_line_form_view">
-			<field name="name">pos.insurance.sale.line.form</field>
-			<field name="model">pos.insurance.sale.line</field>
+			<field name="name">emd.insurance.sale.line.form</field>
+			<field name="model">emd.insurance.sale.line</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
@@ -240,9 +249,9 @@
 		
 		<record model="ir.actions.act_window"
 			id="action_pos_insurance_sale_tree_line_view">
-			<field name="name">pos.insurance.sale.line</field>
+			<field name="name">emd.insurance.sale.line</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">pos.insurance.sale.line</field>
+			<field name="res_model">emd.insurance.sale.line</field>
 			<!-- <field name="domain">[('field_name','condition',criteria)]</field> 
 				<field name="view_type">form</field> -->
 			<field name="view_mode">tree,form</field>
@@ -251,9 +260,9 @@
 		
 		<!-- <record model="ir.actions.act_window"
 			id="action_pos_insurance_sale_tree_line_view">
-			<field name="name">pos.insurance.sale.line</field>
+			<field name="name">emd.insurance.sale.line</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">pos.insurance.sale.line</field>
+			<field name="res_model">emd.insurance.sale.line</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="view_id" ref="dakal_mn_pharmacy_pos.pos_insurance_sale_line_tree_view" />

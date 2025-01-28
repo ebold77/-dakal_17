@@ -8,6 +8,7 @@ from datetime import date, datetime
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools.translate import _
 from .constants import *
+from datetime import timedelta
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -38,7 +39,7 @@ class PosOrder(models.Model):
         data_json = json.dumps(refund_data)
         response = requests.delete(url=ebarimt_url, data=data_json, headers=headers)
         if response.text:
-            print('response==============>>>', response.text)
+            
             try:
                 data = json.loads(response.text)
             except Exception as e:
@@ -65,14 +66,11 @@ class PosOrder(models.Model):
 
         if fiscal_position_id:
             taxes = fiscal_position_id.map_tax(taxes)
-        print('line.price_unit==== ',line.price_unit, line.discount )
         price = round(line.price_unit * (1 - (line.discount or 0.0) / 100.0),2)
-        print('price==========', price, line.qty)
         cur = line.order_id.pricelist_id.currency_id
         taxes = taxes.compute_all(price, cur, line.qty, product=line.product_id, partner=line.order_id.partner_id or False)['taxes']
         val = 0.0
         for c in taxes:
-            print('c====================',c)
             val += c.get('amount', 0.0)
         return val
 
@@ -86,10 +84,10 @@ class PosOrder(models.Model):
     @api.model
     def _order_fields(self, ui_order):
         order_fields = super(PosOrder, self)._order_fields(ui_order)
-        print('ui_order[\'bill_type\']---------------------------',ui_order['bill_type'])
         order_fields['bill_type'] = ui_order['bill_type']
         order_fields['company_reg'] = ui_order['company_reg']
         order_fields['customer_tin'] = ui_order['customer_tin']
+
         return order_fields
 
     def _tax_type(self):
@@ -108,7 +106,6 @@ class PosOrder(models.Model):
         """ Get metchant info from ebarimt REST api """
         resp = requests.get(url=urlInput)
         data = None
-        print('resp==============>>>', resp)
         if resp:
             try:
                 data = json.loads(resp.text)
@@ -120,43 +117,54 @@ class PosOrder(models.Model):
 
 
     @api.model
-    def get_customer_tin(self, urlInput):
+    def get_customer_tin(self, vat):
         """ Get metchant info from ebarimt REST api """
-
+        urlInput = "https://api.ebarimt.mn/api/info/check/getTinInfo?regNo=" + vat
         resp1 = requests.get(url=urlInput)
         data = None
-        print('resp==============>>>', resp1)
         if resp1:
             try:
                 data = json.loads(resp1.text)
             except Exception as e:
                 raise Warning(_('Error'), _('Could not connect to json device. \n%s') % e)
 
-            # data_json = json.dumps(data)
             return data
 
 
+    @api.model
+    def get_company_name(self,number):
+        names = u'%s'%number
+        datas=names.upper()
+        name = ''
+        url="http://info.ebarimt.mn/rest/merchant/info?regno="+datas
+        try:
+            r = requests.get(url)
+            n=r.json()
+            deletearg = n['name'].replace("\n","")
+            name=deletearg
+        except Exception:
+            r=' '
+            name='' 
+        return name
 
+
+        
     @api.model
     def get_ebarimt(self, server_ids):
         ebarimt_data = []
+           
+        order = self.env['pos.order'].browse(server_ids['id'])
 
-        for s in server_ids:
-            order = self.env['pos.order'].browse(s['id'])
-
-            # if order.bill_type == BILL_TYPE_NOTAX:
-            #     return ebarimt_data
-
-            if order.to_invoice:
-                return ebarimt_data
+        if order.to_invoice:
+            return ebarimt_data
+        else:
+            result = order.send_ebarimt()
+            if 'lottery' in result and 'qrData' in result :
+                ebarimt_data.append({'bill_id': result['id'], 'lottery': result['lottery'], 'qr_data': result['qrData']})
+            elif 'qrData' in result:
+                ebarimt_data.append({'bill_id': result['id'], 'qr_data': result['qrData']})
             else:
-                result = order.send_ebarimt()
-                if 'lottery' in result and 'qrData' in result :
-                    ebarimt_data.append({'bill_id': result['id'], 'lottery': result['lottery'], 'qr_data': result['qrData']})
-                elif 'qrData' in result:
-                    ebarimt_data.append({'bill_id': result['id'], 'qr_data': result['qrData']})
-                else:
-                    ebarimt_data.append({'bill_id': result['id']})
+                ebarimt_data.append({'bill_id': result['id']})
 
         return ebarimt_data
 
@@ -181,11 +189,9 @@ class PosOrder(models.Model):
         data['“inactiveId”'] = self.bill_id or ""
         data['invoiceId'] = self.account_move and self.account_move.bill_id or ""
 
-        print('oder json data------------>>', data)
         return data
 
     def generate_order_line_json(self, order_line):
-        print('eb json line price ===', order_line.price_unit)
         items = {}
         items['name'] = order_line.product_id.name
         items['barCode'] = order_line.product_id.barcode
@@ -219,12 +225,12 @@ class PosOrder(models.Model):
         for line in self.lines:
             if line.product_id.code:
                 order_lines.append(self.generate_order_line_json(line))
-        print('order_lines', order_lines)
+        
         ###################### Receipts list #################
         receipt['items'] = order_lines
         resp1 = requests.get(url=bankAccountNo_url)
         bankAccountNo = None
-        print('resp==============>>>', resp1)
+        
         if resp1:
             try:
                 data = json.loads(resp1.text)
@@ -232,9 +238,7 @@ class PosOrder(models.Model):
                 raise Warning(_('Error'), _('Could not connect to json device. \n%s') % e)
 
             data_json = json.dumps(data)
-            print('data_json', data_json)
             bankAccountNo = data_json['data']
-        print('self.amount_tax_vat', self.amount_tax_vat)
         receipt['totalAmount'] = round(self.amount_total, 2)
         receipt['totalVat'] = round(self.amount_tax_vat, 2)
         receipt['totalCityTax'] = round(self.amount_tax_city, 2)
@@ -277,7 +281,7 @@ class PosOrder(models.Model):
         headers = {"Content-Type": "application/json; charset=utf-8"}
         response = requests.post(url=ebarimt_url, headers=headers, json=order_json)
         if response.text:
-            print('response==============>>>', response.text)
+            
             try:
                 data = json.loads(response.text)
             except Exception as e:
@@ -305,15 +309,4 @@ class PosOrder(models.Model):
         return self.env.ref('l10n_mn_ebarimt_3_0.action_report_ebarimt_pos_receipt').report_action(self, data=data)
 
     
-    ##################################################### RETURN #################################################
-    # def refund(self):
-    #     """Create a copy of order  for refund order"""
-    #     refund_data = {}
-    #     refund_data['id'] = self.bill_id
-    #     refund_data['date'] = fields.Datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        
-    #     ebarimt_url = "http://" + self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+'/rest/receipt'
-    #     headers = {"Content-Type": "application/json; charset=utf-8"}
-    #     response = requests.delete(url=ebarimt_url, data=refund_data, headers=headers)
-    #     print('refund response-------------------------->>',response.json())
-    #     return super(PosOrder, self).refund()
+    

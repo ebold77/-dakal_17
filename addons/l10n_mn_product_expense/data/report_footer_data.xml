@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<!-- Тайлангийн гарын үсгийн тохиргооны мөрүүд -->
+		<record id="product_expense_report_footer_approved" model="report.footer.config.line">
+			<field name="name">Дарга</field>
+			<field name="sequence">1</field>
+		</record>
+		<record id="product_expense_report_footer_accountant" model="report.footer.config.line">
+			<field name="name">Нягтлан бодогч</field>
+			<field name="sequence">2</field>
+		</record>
+		<record id="product_expense_report_footer_given_storekeeper" model="report.footer.config.line">
+			<field name="name">Олгосон нярав</field>
+			<field name="sequence">3</field>
+		</record>
+		<record id="product_expense_report_footer_received" model="report.footer.config.line">
+			<field name="name">Хүлээн авсан</field>
+			<field name="sequence">4</field>
+		</record>
+
+		<!-- Тайлангийн гарын үсгийн тохиргоо -->
+		<record id="product_expense_report_footer" model="report.footer.config">
+			<field name="name">Product Expense report footer configure</field>
+			<field name="report_id" ref="l10n_mn_product_expense.action_report_product_expense"/>
+            <field name="line_ids" eval="[(6,0,[ref('product_expense_report_footer_approved'),ref('product_expense_report_footer_given_storekeeper'),
+            									ref('product_expense_report_footer_accountant'),ref('product_expense_report_footer_received')])]"/>
+		</record>
+    </data>
+</odoo>

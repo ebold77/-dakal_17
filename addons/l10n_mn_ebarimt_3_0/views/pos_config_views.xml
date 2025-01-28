@@ -6,38 +6,25 @@
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
         <field name="arch" type="xml">
 
-            <xpath expr="//setting[@id='other_devices']" position="inside">
-                <div class="content-group">
-                    <div>
+            <xpath expr="//div[@id='restaurant_on_create']" position="after">
+                <div id='ebarimt_div' class="row mt16 o_settings_container">
+                    <setting>
                         <h2>Mongolian EBarimt 3.0</h2>
-                    
                         <group col="4">
-                            <label for="ebarimt_service_host"/>
                             <field name="ebarimt_service_host"/>
-                            <label for="ebarimt_service_port" />
                             <field name="ebarimt_service_port"/>
-
-                            <label for="merchant_tin"/>
-                            <field name="merchant_tin"/>
-
-                            <label for="aimag_district_id"/>
-                            <field name="aimag_district_id"/>
-
-                            <label for="branch_no"/>
+                            <field name="merchant_tin"/>          
+                            <field name="aimag_district_id"/>                 
                             <field name="branch_no"/>
-
-                            <label for="pos_no"/>
                             <field name="pos_no"/>
                         </group>
                         <div class="o_setting_right_pane">
-                            <!--   <label for="library_filename" class="col-lg-3"/>
-                            <field name="library_filename" placeholder="e.g libPosAPI.so"/> -->
-                            <div>
-                                <button name="ebarimt_send_data" type="object" string="Send Data" help="Send EBarimt information to Administration"/>
-                                &#x2063;<button name="ebarimt_get_information" type="object" string="Get Information" help="Get EBarimt information from Administration"/>
-                            </div>
+                            <button name="ebarimt_send_data" type="object" string="Send Data" 
+                                help="Send EBarimt information to Administration"/>
+                            &#x2063;<button name="ebarimt_get_information" type="object" 
+                                string="Get Information" help="Get EBarimt information from Administration"/>
                         </div>
-                    </div>
+                    </setting>
                 </div>
             </xpath>
         </field>

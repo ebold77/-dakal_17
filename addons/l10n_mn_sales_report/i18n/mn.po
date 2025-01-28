@@ -1,0 +1,738 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_mn_sales_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-04 12:10+0000\n"
+"PO-Revision-Date: 2021-09-04 12:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid " Not Defined"
+msgstr " Тодорхойгүй"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Brand "
+msgstr "Бренд"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__brand_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Brands"
+msgstr "Брендүүд"
+
+#. module: l10n_mn_sales_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sales_refund_report_form
+msgid "Cancel"
+msgstr "Цуцлах"
+
+#. module: l10n_mn_sales_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Categories"
+msgstr "Барааны ангилал"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__category_ids
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__category_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sales_refund_report_form
+msgid "Category"
+msgstr "Ангилал"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Category "
+msgstr "Ангилал "
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Check by"
+msgstr "Тайлан шалгасан"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Checked By"
+msgstr "Хянасан"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,help:l10n_mn_sales_report.field_report_sales__report_type
+msgid ""
+"Choose type of sales report.                                        The "
+"report based on only sale order'Sale Order'."
+"                                        The report based on invoice of sale "
+"orders. 'Invoice' .                                        The report based "
+"on picking of sale orders. 'Shipment'."
+"                                        The report based on invoice, "
+"picking, sale order. 'Done' "
+msgstr ""
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__company_id
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__company_id
+#, python-format
+msgid "Company"
+msgstr "Компани"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Cost with Tax"
+msgstr "Нийт дүн"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Cost without Tax"
+msgstr "Дүн"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Created On"
+msgstr "Хэвлэсэн огноо: "
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__create_uid
+msgid "Created by"
+msgstr "Үүсгэгч"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__create_date
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__create_date
+msgid "Created on"
+msgstr "Үүсгэсэн"
+
+#. module: l10n_mn_sales_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_order_search_inherit_l10n_mn_sales_report
+msgid "Current year"
+msgstr "Энэ жил"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_one__customer
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_three__customer
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_two__customer
+msgid "Customer"
+msgstr "Захиалагч"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Customer "
+msgstr "Захиалагч "
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sale_order__day
+msgid "Day"
+msgstr "Өдөр"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Discount"
+msgstr "Хөнгөлөлт"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Discount with Tax"
+msgstr "Татвартай дүн"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Discount without Tax"
+msgstr "Татваргүй дүн"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__display_name
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sale_order__display_name
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__display_name
+msgid "Display Name"
+msgstr "Дэлгэрэнгүй нэр"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__report_type__done
+#, python-format
+msgid "Done"
+msgstr "Дууссан"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Duration"
+msgstr "Хугацаа"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__date_to
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__date_end
+msgid "End Date"
+msgstr "Дуусах огноо"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__group
+msgid "Group"
+msgstr "Групп"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__group_by_sale_order
+msgid "Group By Sale Order"
+msgstr "Борлуулалтын захиалгаар бүлэглэх"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__group_type
+msgid "Group Type"
+msgstr "Бүлэглэлт"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__sales_refund_report__group_type__by_partner
+msgid "Group by Partner"
+msgstr "Харилцагчаар бүлэглэх"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__sales_refund_report__group_type__by_category
+msgid "Group by Product Category"
+msgstr "Ангиллаар бүлэглэх"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__sales_refund_report__group_type__by_warehouse
+msgid "Group by Warehouse"
+msgstr "Агуулахаар бүлэглэх"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__id
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sale_order__id
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Internal Reference"
+msgstr "Дотоод код"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__report_type__invoice
+#, python-format
+msgid "Invoice"
+msgstr "Нэхэмжлэлээр"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Invoice Refund"
+msgstr "Нэхэмжлэлийн буцаалт"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales____last_update
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sale_order____last_update
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report____last_update
+msgid "Last Modified on"
+msgstr "Сүүлийн засвар хийсэн огноо"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__write_uid
+msgid "Last Updated by"
+msgstr "Сүүлийн засвар хийсэн"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__write_date
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__write_date
+msgid "Last Updated on"
+msgstr "Сүүлийн засвар хийсэн огноо"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Loan"
+msgstr "Зээлээр"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_one__location
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_three__location
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_two__location
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Location"
+msgstr "Байршил"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Location "
+msgstr "Байршил "
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__location_ids
+msgid "Locations"
+msgstr "Байрлалууд"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__lot_ids
+msgid "Lot"
+msgstr "Цуврал"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Lot Name"
+msgstr "Цувралын дугаар"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Made by"
+msgstr "Тайлан гаргасан"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sale_order__month
+msgid "Month"
+msgstr "Сар"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Net Profit"
+msgstr "Цэвэр ашиг"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Net Sales"
+msgstr "Цэвэр борлуулалт"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__sales_refund_report__group_type__no_group
+msgid "No Group"
+msgstr "Бүлэглэлтгүй"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Origin Number"
+msgstr "Баримтын дугаар"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__partner_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sales_refund_report_form
+#, python-format
+msgid "Partner"
+msgstr "Харилцагч"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__partner_ids
+msgid "Partners"
+msgstr "Харилцагч"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Percent"
+msgstr "Хувь"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Picking Refund"
+msgstr "Хүргэлтийн буцаалт"
+
+#. module: l10n_mn_sales_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sales_refund_report_form
+msgid "Print"
+msgstr "Экспорт"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Printed Date"
+msgstr "Хэвлэсэн огноо"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sales_refund_report_form
+#, python-format
+msgid "Product"
+msgstr "Бараа"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Product Bar Code"
+msgstr "Баркод"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_one__brand
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_three__brand
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_two__brand
+msgid "Product Brand"
+msgstr "Барааны бренд"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_one__categ
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_three__categ
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_two__categ
+#, python-format
+msgid "Product Category"
+msgstr "Барааны ангилал"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Product code"
+msgstr "Дотоод сурвалж"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Product name"
+msgstr "Нэр"
+
+#. module: l10n_mn_sales_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Production"
+msgstr "Үйлдвэрлэл"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__product_ids
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__product_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Products"
+msgstr "Бараанууд"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Profit for unit"
+msgstr "Нэгжид ноогдох ашиг"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Profit without Tax"
+msgstr "Ашиг(Нөат-гүй)"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Purchase Cost"
+msgstr "ББӨ"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Quantity"
+msgstr "Тоо"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Report Date"
+msgstr "Хамрах хугацаа"
+
+#. module: l10n_mn_sales_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sales_refund_report_form
+msgid "Report Options"
+msgstr "Тайлангийн Сонголтууд"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__report_type
+msgid "Report Type"
+msgstr "Тайлангийн төрөл"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Report type: %s"
+msgstr "Тайлангийн төрөл: %s"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Reverse"
+msgstr "Буцаалт"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Sale"
+msgstr "Борлуулалт"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Sale Order"
+msgstr "Борлуулалтын захиалга"
+
+#. module: l10n_mn_sales_report
+#: model:ir.actions.act_window,name:l10n_mn_sales_report.action_sale_order_pivot
+#: model:ir.ui.menu,name:l10n_mn_sales_report.menu_sale_order_pivot
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_order_pivot
+msgid "Sale order"
+msgstr "Борлуулалтын захиалга"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Sales"
+msgstr "Борлуулалт"
+
+#. module: l10n_mn_sales_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Sales Member"
+msgstr "Борлуулагч"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model,name:l10n_mn_sales_report.model_sale_order
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__report_type__sales_order
+msgid "Sales Order"
+msgstr "Борлуулалтын захиалга"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: model:ir.actions.act_window,name:l10n_mn_sales_report.action_sales_refund_report
+#: model:ir.model,name:l10n_mn_sales_report.model_sales_refund_report
+#: model:ir.ui.menu,name:l10n_mn_sales_report.menu_sales_refund_report
+#, python-format
+msgid "Sales Refund Report"
+msgstr "Борлуулалтын буцаалтын тайлан"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: model:ir.actions.act_window,name:l10n_mn_sales_report.action_sales_report
+#: model:ir.model,name:l10n_mn_sales_report.model_report_sales
+#: model:ir.ui.menu,name:l10n_mn_sales_report.menu_sales_report
+#, python-format
+msgid "Sales Report"
+msgstr "Борлуулалтын дэлгэрэнгүй тайлан"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__salesteam_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Sales Teams"
+msgstr "Борлуулалтын баг"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_one__salesman
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_three__salesman
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_two__salesman
+msgid "Salesman"
+msgstr "Борлуулагч"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Salesman "
+msgstr "Борлуулагч"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__salesperson_ids
+msgid "Salesperson"
+msgstr "Худалдагч"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_one__salesteam
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_three__salesteam
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_two__salesteam
+msgid "Salesteam"
+msgstr ""
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Salesteam "
+msgstr "Борлуулалтын баг"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__show_barcode
+msgid "See Product Bar Code"
+msgstr "Бар код харуулах"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__see_profit
+msgid "See Profit"
+msgstr "Ашиг харах эсэх"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__see_serial
+msgid "See Serial"
+msgstr "Цуврал харах эсэх"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__report_type__shipment
+#, python-format
+msgid "Shipment"
+msgstr "Тээвэрлэлт"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__stage_one
+msgid "Stage 1"
+msgstr "Шатлал 1"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__stage_two
+msgid "Stage 2"
+msgstr "Шатлал 2"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__stage_three
+msgid "Stage 3"
+msgstr "Шатлал 3"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__date_from
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__date_start
+msgid "Start Date"
+msgstr "Эхлэл огноо"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_one__supplier
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_three__supplier
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_two__supplier
+msgid "Supplier"
+msgstr "Нийлүүлэгч"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Supplier "
+msgstr "Нийлүүлэгч"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__supplier_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Suppliers"
+msgstr "Нийлүүлэгчид"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "TOTAL"
+msgstr "НИЙТ"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Tax"
+msgstr "Татвар"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Total Price"
+msgstr "Нийт дүн"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Total Purchase Cost"
+msgstr "Нийт ББӨ"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#, python-format
+msgid "Unit Price"
+msgstr "Нэгж үнэ"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Unit of measure"
+msgstr "Хэмжих нэгж"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_refund_report.py:0
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_one__warehouse
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_three__warehouse
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__stage_two__warehouse
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sales_refund_report_form
+#, python-format
+msgid "Warehouse"
+msgstr "Агуулах"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "Warehouse "
+msgstr "Агуулах "
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__warehouse_ids
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_sales_refund_report__warehouse_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+msgid "Warehouses"
+msgstr "Агуулах"
+
+#. module: l10n_mn_sales_report
+#: code:addons/l10n_mn_sales_report/wizard/sales_report.py:0
+#, python-format
+msgid "You must choose three different stages!"
+msgstr "Та заавал ялгаатай бүлэглэлт сонгох ёстой!"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__invis_location
+#: model:ir.model.fields,field_description:l10n_mn_sales_report.field_report_sales__invis_profit
+msgid "invinsible"
+msgstr "Харагдахгүй"
+
+#. module: l10n_mn_sales_report
+#: model:ir.model.fields.selection,name:l10n_mn_sales_report.selection__report_sales__report_type__loan
+msgid "loan"
+msgstr "Зээлээр"
+
+#. module: l10n_mn_sales_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sale_report_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sales_report.view_sales_refund_report_form
+msgid "or"
+msgstr "эсвэл"

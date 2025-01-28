@@ -1,22 +1,11 @@
-/** @odoo-module */
-
-import { Component } from "@odoo/owl";
+/** @odoo-module **/
 import { patch } from "@web/core/utils/patch";
+import { PosStore } from "@point_of_sale/app/store/pos_store";
 
-export class ProductCard extends Component {
-    static template = "point_of_sale.ProductCard";
-    static props = {
-        class: { String, optional: true },
-        name: String,
-        productId: Number,
-        price: String,
-        imageUrl: [String, Boolean],
-        productInfo: { Boolean, optional: true },
-        onClick: { type: Function, optional: true },
-        onProductInfoClick: { type: Function, optional: true },
-    };
-    static defaultProps = {
-        onClick: () => {},
-        class: "",
-    };
-}
+patch(PosStore.prototype, {
+    async addProductToCurrentOrder(...args) {
+        
+            await super.addProductToCurrentOrder(...args)
+        
+    },
+});

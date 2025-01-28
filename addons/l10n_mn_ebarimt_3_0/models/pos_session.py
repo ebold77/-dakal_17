@@ -13,16 +13,12 @@ _logger = logging.getLogger(__name__)
 class PosSession(models.Model):
     _inherit = 'pos.session'
 
-    def _get_combine_statement_line_vals(self, statement, amount, payment_method):
-        cashflow_id = False
-        res = super(PosSession, self)._get_combine_statement_line_vals(statement, amount, payment_method)
-        account = self._get_receivable_account(payment_method)
-        if account.cashflow_account_ids:
-            cashflow_id =  account.cashflow_account_ids[0].id
-        res.update({
-            'account_id': self._get_receivable_account(payment_method).id,
-            'partner_id': self.user_id.partner_id.id,
-            'cashflow_id': cashflow_id,
-            }
-            )
-        return res
+   
+    def _loader_params_product_product(self):
+        result = super()._loader_params_product_product()
+        result['search_params']['fields'].append('tax_type')
+
+        return result 
+
+
+    

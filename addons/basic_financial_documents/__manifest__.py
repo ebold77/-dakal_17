@@ -15,6 +15,7 @@
     """,
     'price': 0.00,
     'currency': 'EUR',
+    'license':'LGPL-3',
     'depends': [
         'account',
     ],

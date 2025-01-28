@@ -25,11 +25,10 @@ class AccountMoveReversal(models.TransientModel):
         for move in moves:
             refund_data['id'] = move.bill_id
             refund_data['date'] = fields.Datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print('refund_data============>>', refund_data)
+        
         data_json = json.dumps(refund_data)
         response = requests.delete(url=ebarimt_url, data=data_json, headers=headers)
         if response.text:
-            print('response==============>>>', response.text)
             try:
                 data = json.loads(response.text)
             except Exception as e:
