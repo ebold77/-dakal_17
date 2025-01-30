@@ -51,6 +51,71 @@ patch(Order.prototype, {
         
     },
 
+    async add_product(product, options) {
+        if (
+            this.pos.doNotAllowRefundAndSales() &&
+            this._isRefundOrder() &&
+            (!options.quantity || options.quantity > 0)
+        ) {
+            this.pos.env.services.popup.add(ErrorPopup, {
+                title: _t("Refund and Sales not allowed"),
+                body: _t("It is not allowed to mix refunds and sales"),
+            });
+            return;
+        }
+        if (this._printed) {
+            // when adding product with a barcode while being in receipt screen
+            this.pos.removeOrder(this);
+            return await this.pos.add_new_order().add_product(product, options);
+        }
+        this.assert_editable();
+        options = options || {};
+        const quantity = options.quantity ? options.quantity : 1;
+        const detail_id = options.detailId
+        const line = new Orderline(
+            { env: this.env },
+            { pos: this.pos, order: this, product: product, quantity: quantity}
+        );
+
+        line.set_detail_id(options.detailId)
+        this.fix_tax_included_price(line);
+        
+        this.set_orderline_options(line, options);
+        line.set_full_product_name();
+        var to_merge_orderline;
+        for (var i = 0; i < this.orderlines.length; i++) {
+            if (this.orderlines.at(i).can_be_merged_with(line) && options.merge !== false) {
+                to_merge_orderline = this.orderlines.at(i);
+            }
+        }
+        if (to_merge_orderline) {
+            to_merge_orderline.merge(line);
+            this.select_orderline(to_merge_orderline);
+        } else {
+            this.add_orderline(line);
+            this.select_orderline(this.get_last_orderline());
+        }
+
+        if (options.draftPackLotLines) {
+            this.selected_orderline.setPackLotLines({
+                ...options.draftPackLotLines,
+                setQuantity: options.quantity === undefined,
+            });
+        }
+
+        if (options.comboLines?.length) {
+            await this.addComboLines(line, options);
+            // Make sure the combo parent is selected.
+            this.select_orderline(line);
+        }
+        this.hasJustAddedProduct = true;
+        clearTimeout(this.productReminderTimeout);
+        this.productReminderTimeout = setTimeout(() => {
+            this.hasJustAddedProduct = false;
+        }, 3000);
+        return line;
+    },
+
     export_as_JSON() {
         const json = super.export_as_JSON(...arguments);
         json.receipt_number = this.receipt_number;
@@ -65,7 +130,7 @@ patch(Order.prototype, {
     export_for_printing() {
         // var receipt = super.prototype.export_for_printing.apply(this,arguments);
         const receipt = super.export_for_printing(...arguments);
-        receipt.company.ph_mobile = this.pos.company.ph_mobile;
+        // receipt.company.ph_mobile = this.pos.company.ph_mobile;
         return receipt;
     },
 
@@ -79,21 +144,9 @@ patch(Orderline.prototype, {
         this.emd_discount_qty = 0;
     },
 
-    set_quantity: function (quantity) {
-        this.order.assert_editable();
-        if (quantity === 'remove') {
-            this.order.remove_orderline(this);
-            return;
-        } else {
-            var quant = parseFloat(quantity) || 0;
-            this.quantity = round_pr(quant, 0.00000001);
-            this.quantityStr = '' + this.quantity;
-        }
-        
-    },
     set_detail_id: function (detail_id) {
         this.order.assert_editable();
-           this.detail_id = detail_id;
+        this.detail_id = detail_id;
     },
     // sets a emd discount [0,100]%
     set_emd_discount: function(discount){

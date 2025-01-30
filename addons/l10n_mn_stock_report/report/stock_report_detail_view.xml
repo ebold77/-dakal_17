@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Income, Expsne Both report -->
+        <record id="stock_report_detail_tree_view" model="ir.ui.view">
+            <field name="name">stock.report.detail.tree.view</field>
+            <field name="model">stock.report.detail</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+               <tree>
+                    <field name="product_id" groups="product.group_product_variant"/>
+                    <field name="categ_id"/>
+                    <field name="picking_id"/>
+                    <field name="date_expected"/>
+                    <field name="location_id"/>
+                    <field name="qty_first" sum="Нийт"/>
+                    <field name="price_unit_first"/>
+                    <field name="total_price_first" sum="Нийт"/>
+                    <field name="qty_income" sum="Нийт"/>
+                    <field name="price_unit_income"/>
+                    <field name="total_price_income" sum="Нийт"/>
+                    <field name="qty_expense" sum="Нийт"/>
+                    <field name="price_unit_expense"/>
+                    <field name="total_price_expense" sum="Нийт"/>
+                    <field name="qty_last" sum="Нийт"/>
+                    <field name="total_price_last" sum="Нийт"/>
+                    <field name="state" />
+               </tree>
+            </field>
+        </record>
+
+        <record id="stock_report_detail_pivot" model="ir.ui.view">
+             <field name="name">stock.report.detail.pivot</field>
+             <field name="model">stock.report.detail</field>
+             <field name="arch" type="xml">
+                <pivot string="Analysis">
+                    <field name="categ_id" type="row"/>
+                    <field name="product_id" type="row"/>
+                    <field name="qty_first" type="measure"/>
+                    <field name="price_unit_first" type="measure"/>
+                    <field name="total_price_first" type="measure"/>
+                    <field name="qty_income" type="measure"/>
+                    <field name="price_unit_income" type="measure"/>
+                    <field name="total_price_income" type="measure"/>
+                    <field name="qty_expense" type="measure"/>
+                    <field name="price_unit_expense" type="measure"/>
+                    <field name="total_price_expense" type="measure"/>
+                    <field name="qty_last" type="measure"/>
+                    <field name="total_price_last" type="measure"/>
+                </pivot>
+             </field>
+        </record>
+
+        <record id="stock_report_detail_search" model="ir.ui.view">
+            <field name="name">stock.report.detail.search</field>
+            <field name="model">stock.report.detail</field>
+            <field name="arch" type="xml">
+                <search string="Analysis">
+                    <field name="product_id" groups="product.group_product_variant"/>
+                    <field name="product_tmpl_id"/>
+                    <field name="partner_id"/>
+                    <field name="picking_id"/>
+                    <field name="date_expected"/>
+                    <field name="warehouse_id"/>
+                    <field name="location_id"/>
+                    <field name="categ_id"/>
+                    <field name="categ_id" filter_domain="[('categ_id', 'child_of', self)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Бараа" name="gr_product" context="{'group_by': 'product_id'}"/>
+                        <filter string="Төлөв" name="gr_state" context="{'group_by': 'state'}"/>
+                        <filter string="Ангилал" name="gr_categ" context="{'group_by': 'categ_id'}"/>
+                        <filter string="БМ данс" name="gr_account" context="{'group_by': 'account_id'}"/>
+                        <filter string="Байрлал" name="gr_location_id" context="{'group_by': 'location_id'}"/>
+                        <filter string="Агуулах" name="gr_warehouse" context="{'group_by': 'warehouse_id'}"/>
+                        <filter string="Харилцагчаар" name="gr_partner_id" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Огноогоор" name="gr_date" context="{'group_by': 'date_expected:year'}" help="Жил жилээр"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_stock_report_detail" model="ir.actions.act_window">
+            <field name="name">Бараа материалын дэлгэрэнгүй тайлан</field>
+            <field name="res_model">stock.report.detail</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="view_id" ref="stock_report_detail_pivot"/>
+            <field name="target">current</field>
+        </record>
+  
+</odoo>

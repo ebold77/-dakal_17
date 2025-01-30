@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 08:36+0000\n"
-"PO-Revision-Date: 2021-07-17 08:36+0000\n"
+"POT-Creation-Date: 2024-03-18 03:27+0000\n"
+"PO-Revision-Date: 2024-03-18 03:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,1702 +16,553 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#, python-format
-msgid "%s is "
-msgstr "%s-н "
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "%s.%s"
-msgstr "%s.%s"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "%s.%s.%s"
-msgstr "%s.%s.%s"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#, python-format
-msgid "%s] duration Product Report"
-msgstr "%s]  хугацааны бараа, материалын тайлан"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "-from"
-msgstr "-аас"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span style=\"color:\"><b>FORM I-5-1</b></span>"
-msgstr "<span style=\"color:\"><b>Баримт БМ-5-1</b></span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span style=\"color:\"><b>FORM I-5-2</b></span>"
-msgstr "<span style=\"color:\"><b>Баримт БМ-5-2</b></span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span style=\"color:\"><b>FORM I-5-3</b></span>"
-msgstr "<span style=\"color:\"><b>Баримт БМ-5-3</b></span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span width=\"10%\"><b>Revenue and Expenditure</b></span>"
-msgstr "<span width=\"10%\"><b>Орлого, Зарлагын дүн</b></span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span width=\"10%\"><b>The first balance</b></span>"
-msgstr "<span width=\"10%\"><b>Эхний үлдэгдэл</b></span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span width=\"10%\"><b>Total Balance</b></span>"
-msgstr "<span width=\"10%\"><b>Бүгд дүн</b></span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span width=\"30%\"><b>Under control :</b></span>"
-msgstr "<span width=\"30%\"><b>Хяналтаар :</b></span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span width=\"30%\">Actual balance:</span>"
-msgstr "<span width=\"30%\">Бодит үлдэгдэл:</span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span width=\"30%\">Difference:</span>"
-msgstr "<span width=\"30%\">Зөрүү:</span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Accountant :</span> ............................"
-msgstr "<span>Нягтлан бодогч :</span> ............................"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Branch and unit name : </span>"
-msgstr "<span>Салбар, нэгжийн нэр : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Company name:</span>"
-msgstr "<span>Байгууллагын нэр:</span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid ""
-"<span>Conclusions and decisions on control: </span> "
-"................................................................................................"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_pivot
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Analysis"
 msgstr ""
-"<span>Хяналтын талаарх дүгнэлт, шийдвэр: </span> "
-"................................................................................................"
 
 #. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Control period : </span>"
-msgstr "<span>Хяналтын хугацаа : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Date :</span> ......................................"
-msgstr "<span>Огноо :</span> ......................................"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Date of publication : </span>"
-msgstr "<span>Хэвлэсэн огноо : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Date: </span>.........................................."
-msgstr "<span>Огноо: </span>.........................................."
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid ""
-"<span>Defendant's explanation: </span> "
-"................................................................................................"
-msgstr ""
-"<span>Эд хариуцагчийн тайлбар: </span> "
-"................................................................................................"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Document number : <b>-----</b></span>"
-msgstr "<span>Баримтын дугаар : <b>-----</b></span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Expiry date : </span>"
-msgstr "<span>Дуусах хугацаа : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Internal code : </span>"
-msgstr "<span>Дотоод код : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Inventory barcode : </span>"
-msgstr "<span>Бараа материалын бар код : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Inventory name : </span>"
-msgstr "<span>Бараа материалын нэр : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Secure resources : </span>"
-msgstr "<span>Аюулгүй нөөц : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Serial number : </span>"
-msgstr "<span>Серийн дугаар : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid ""
-"<span>Supervised by an authorized official: </span> "
-"..........................................<span>work</span>............................................"
-msgstr ""
-"<span>Хянасан эрх бүхий албан тушаалтан: </span> "
-"..........................................<span>ажилтай</span>............................................"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid ""
-"<span>The person in charge: "
-"</span>................................................................................../...................................................../"
-msgstr ""
-"<span>Эд хариуцагч: "
-"</span>................................................................................../...................................................../"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>Top resource : </span>"
-msgstr "<span>Дээд нөөц : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "<span>U.M : </span>"
-msgstr "<span>Х.Н : </span>"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid ""
-"<span>signature in the presence: </span> "
-"........................................................................../...................................................../"
-msgstr ""
-"<span>байлцсан гарын үсэг: </span> "
-"........................................................................../...................................................../"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid ""
-"<span>signature: "
-"</span>..................................................................................../...................................................../"
-msgstr ""
-"гарын үсэг: "
-"</span>..................................................................................../...................................................../"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Accountant: "
-"......................................................................./......................................./"
-msgstr ""
-"Нягтлан бодогч: "
-"......................................................................./......................................./"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_needaction
-msgid "Action Needed"
-msgstr "Үйлдэл шаардсан"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Action to Draft"
-msgstr "Ноороглох"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__report_filter__all
-#, python-format
-msgid "All"
-msgstr "Бүгд"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Approve"
-msgstr "Зөвшөөрөх"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__state__approved
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-msgid "Approved"
-msgstr "Зөвшөөрсөн"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Arrived"
-msgstr "ИРСЭН"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_attachment_count
-msgid "Attachment Count"
-msgstr "Хавсралтын тоо"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Authorized checker: "
-"...................................work............................................."
-msgstr ""
-"Хянасан эрх бүхий албан тушаалтан: "
-"...................................ажилтай............................................."
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-#, python-format
-msgid "Balance"
-msgstr "Үлдэгдэл"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Balance Quantity"
-msgstr "Үлдэгдэл тоо хэмжээ"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Barcode"
-msgstr "Зураасан код"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report_line__color__black
-msgid "Black"
-msgstr "Хар"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report_line__color__blue
-msgid "Blue"
-msgstr "Цэнхэр"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report_line__color__bold
-msgid "Bold"
-msgstr "Тод"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group2_by__brand
-msgid "Brand"
-msgstr "Бренд"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__category_ids
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Categories"
-msgstr "Ангилал"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__category_id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__category_id
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group2_by__category
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group_by__category
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_expense_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_income_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_product_analyses_form
 msgid "Category"
 msgstr "Ангилал"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Check Duration: %s - %s"
-msgstr "Тайлан хэвлэсэн хугацаа: %s - %s"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Check: "
-msgstr "Хянасан: "
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.actions.act_window,help:l10n_mn_stock_report.action_product_report
-msgid "Click here to create new Product report"
-msgstr "Бараа, материалын тайлан шинээр үүсгэх"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_transit_report_view
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_ledger_report_form
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_move_check_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_expense_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_income_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_product_analyses_form
 msgid "Close"
 msgstr "Хаах"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__color
-msgid "Color"
-msgstr "Өнгө"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model,name:l10n_mn_stock_report.model_res_company
-msgid "Companies"
-msgstr "Компаниуд"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__company_id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__company_id
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-#, python-format
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__company_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__company_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__company_id
 msgid "Company"
 msgstr "Компани"
 
 #. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Compute"
-msgstr "Тооцоолох"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Conclusions and decisions on checks: "
-"......................................................................................"
-msgstr ""
-"Хяналтын талаарх дүгнэлт, шийдвэр: "
-"......................................................................................"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model,name:l10n_mn_stock_report.model_res_config_settings
-msgid "Config Settings"
-msgstr "Тохиргооны тохируулга"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Cost"
-msgstr "Нэгж өртөг"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Cost Price"
-msgstr "Өртөг үнэ"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Create Date"
-msgstr "Үүсгэсэн"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Created On"
-msgstr "Үүсгэсэн"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__create_uid
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__create_uid
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__create_uid
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__create_uid
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__create_uid
 msgid "Created by"
-msgstr "Үүсгэгч"
+msgstr "Үүсгэсэн хэрэглэгч"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__create_date
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__create_date
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__create_date
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__create_date
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__create_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__create_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__create_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__create_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__create_date
 msgid "Created on"
-msgstr "Үүсгэсэн"
+msgstr "Үүсгэсэн огноо"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Current Cost"
-msgstr "Одоогийн өртөг"
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__report_expense_ledger__report_type__detail
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__report_income_ledger__report_type__detail
+msgid "Detail"
+msgstr "Дэлгэрэнгүй"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Current Cost Difference"
-msgstr "Өртгийн зөрүү"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "DIFFERENCE"
-msgstr "ЗӨРҮҮ"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-#, python-format
-msgid "Date"
-msgstr "Огноо"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-msgid "Date From"
-msgstr "Эхлэх огноо"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-msgid "Date To"
-msgstr "Дуусах огноо"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Date: ................................."
-msgstr "Огноо: ................................."
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_ledger_report__sort__code
-#, python-format
-msgid "Default Code"
-msgstr "Дотоод код"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#, python-format
-msgid "Delete only draft in state"
-msgstr "Зөвхөн ноорог төлөвтэй үед л устгах боломжтой"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__description
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Description"
-msgstr "Тайлбар"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__display_name
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__display_name
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__display_name
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__display_name
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_l10n_mn_stock_report_product_move_check_report__display_name
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_res_company__display_name
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_res_config_settings__display_name
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__display_name
 msgid "Display Name"
-msgstr "Дэлгэрэнгүй нэр"
+msgstr ""
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Document"
-msgstr "Баримт"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__domain_location_ids
-msgid "Domain Location"
-msgstr "Ашиглах байрлал"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__state__draft
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-msgid "Draft"
-msgstr "Ноорог"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__draft
-msgid "Draft View"
-msgstr "Ноорог харах"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Duration"
-msgstr "Тайлант хугацаа"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "End Balance"
-msgstr "Эцсийн үлдэгдэл"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__report_filter__non_zero
-msgid "End Balance non Zero"
-msgstr "0 үлдэгдэлтэй барааг харуулахгүй"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__end_cost
-msgid "End Cost"
-msgstr "C2 Өртөг"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__date_to
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__date_to
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__end_date
-msgid "End Date"
-msgstr "Дуусах огноо"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__end_price
-msgid "End Price"
-msgstr "C2 Үнэ"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__end_qty
-msgid "End Quantity"
-msgstr "C2 Тоо"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Executive Director"
-msgstr "Гүйцэтгэх захирал"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Expense"
-msgstr "Зардал"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__expense_cost
-msgid "Expense Cost"
-msgstr "Зардал Өртөг"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__expense_price
-msgid "Expense Price"
-msgstr "Зардал Үнэ"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__expense_qty
-msgid "Expense Quantity"
-msgstr "Зардал Тоо"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-#, python-format
-msgid "Expense"
-msgstr "Зарлага"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Expense receipt number"
-msgstr "Зарлагын баримтын дугаар"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_transit_report_view
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_ledger_report_form
-msgid "Export"
-msgstr "Хэвлэх"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_move_check_report_wizard_form
-msgid "Export"
-msgstr "Экспорт"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Export(XLSX)"
-msgstr "Экспортлох(XLSX)"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "FORM PT-5-1"
-msgstr "Маягт БМ-5-1"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "FORM PT-5-2"
-msgstr "Маягт БМ-5-2"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "FORM PT-5-3"
-msgstr "Маягт БМ-5-3"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_follower_ids
-msgid "Followers"
-msgstr "Дагагчид"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Дагагчид (Сувгууд)"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_partner_ids
-msgid "Followers (Partners)"
-msgstr "Дагагчид (Харилцагчид)"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__from_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__date_from
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__date_from
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__date_from
 msgid "From Date"
 msgstr "Эхлэх огноо"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "General Accountant"
-msgstr "Ерөнхий нягтлан бодогч"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_expense_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_income_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_product_analyses_form
+msgid "Generate"
+msgstr "Боловсруулах"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__name
-msgid "Group"
-msgstr "Бүлэглэлт 1"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__group_by
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
 msgid "Group By"
-msgstr "Бүлэглэлт"
+msgstr "Бүлэглэх"
 
 #. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-msgid "Group by..."
-msgstr "Бүлэглэлт..."
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__name2
-msgid "Group2"
-msgstr "Бүлэглэлт 2"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__group2_by
-msgid "Group2 By"
-msgstr "Бүлэглэлт 2"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_l10n_mn_stock_report_product_move_check_report__id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_res_company__id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_res_config_settings__id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__id
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__id
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__id
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__id
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__id
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__id
 msgid "ID"
-msgstr "ID"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_report__message_needaction
-#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_report__message_unread
-msgid "If checked, new messages require your attention."
-msgstr "Хэрэв сонгогдсон бол, шинэ зурвасууд таны анхаарлыг шаардана."
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_report__message_has_error
-#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_report__message_has_sms_error
-msgid "If checked, some messages have a delivery error."
-msgstr "Үүнийг сонговол алдаа үүсэх үед зурвасууд ирнэ."
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__in_warehouse_id
-msgid "In Warehouse"
 msgstr ""
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-#, python-format
-msgid "Income"
-msgstr "Орлого"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__consume
+msgid "Internal Expense"
+msgstr "Дотоод зарлага"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__income_cost
-msgid "Income Cost"
-msgstr "Орлого Өртөг"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__income_price
-msgid "Income Price"
-msgstr "Орлого Үнэ"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__income_qty
-msgid "Income Quantity"
-msgstr "Орлого Тоо"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Income document number"
-msgstr "Орлогын баримтын дугаар"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Income, Expense Total"
-msgstr "Орлого, Зарлагын Дүн"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Initial Balance"
-msgstr "Эхний үлдэгдэл"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__initial_cost
-msgid "Initial Cost"
-msgstr "С1 Өртөг"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__initial_price
-msgid "Initial Price"
-msgstr "С1 Үнэ"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__initial_qty
-msgid "Initial Quantity"
-msgstr "С1 Тоо"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Install Mongolian Sale module!"
-msgstr "Mongolian Sale модулыг суулгана уу!"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Install Purchase Management module!"
-msgstr "Install Purchase Management module!"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Internal Move"
-msgstr "Дотоод хөдөлгөөн"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__inventory
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__inventory
 msgid "Inventory"
 msgstr "Тооллого"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_is_follower
-msgid "Is Follower"
-msgstr "Дагагч эсэх"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__is_residual
-msgid "Is Residual"
-msgstr "Зөвхөн үлдэгдэлтэйг харуулах"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report____last_update
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard____last_update
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report____last_update
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line____last_update
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_l10n_mn_stock_report_product_move_check_report____last_update
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_res_company____last_update
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_res_config_settings____last_update
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report____last_update
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report____last_update
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger____last_update
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger____last_update
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses____last_update
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail____last_update
 msgid "Last Modified on"
-msgstr "Сүүлд зассан огноо"
+msgstr ""
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__write_uid
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__write_uid
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__write_uid
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__write_uid
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__write_uid
 msgid "Last Updated by"
-msgstr "Сүүлийн засвар хийсэн"
+msgstr ""
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__write_date
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__write_date
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__write_date
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__write_date
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__write_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__write_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__write_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__write_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__write_date
 msgid "Last Updated on"
-msgstr "Сүүлийн засвар хийсэн огноо"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__level
-msgid "Level"
-msgstr "Төвшин"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__line_ids
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Lines"
-msgstr "Мөрүүд"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "List Price"
-msgstr "Худалдах үнэ"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__location_id
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group2_by__location
-msgid "Location"
-msgstr "Байрлал"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__location_ids
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Locations"
-msgstr "Байрлалууд"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Үндсэн хавсралт"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_move_check_report_wizard__level__manager
-msgid "Manager"
-msgstr "Менежер"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Max Stock: %s"
-msgstr "Дээд нөөц: %s"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_has_error
-msgid "Message Delivery error"
-msgstr "Алдаа үүссэн талаарх зурвас"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_ids
-msgid "Messages"
-msgstr "Зурвасууд"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Move"
-msgstr "Хөдөлгөөн"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__name
-msgid "Name"
-msgstr "Нэр"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group2_by__no_group
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group_by__no_group
-msgid "No Group"
-msgstr "Бүлэглэлтгүй"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-#, python-format
-msgid "Number"
-msgstr "Дугаар"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_needaction_counter
-msgid "Number of Actions"
 msgstr ""
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_has_error_counter
-msgid "Number of errors"
-msgstr ""
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__mrp
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__mrp
+msgid "MRP Production"
+msgstr "Үйлдвэрлэл"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_report__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr ""
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_report__message_has_error_counter
-msgid "Number of messages with delivery error"
-msgstr ""
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_report__message_unread_counter
-msgid "Number of unread messages"
-msgstr ""
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Of Document"
-msgstr "Баримтын"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__report_filter__only_minus
-msgid "Only Minus Residuals"
-msgstr "Зөвхөн хасах үлдэгдэлтэйг харах"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Order Number"
-msgstr "Захилагын дугаар"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Out"
-msgstr "ГАРСАН"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_move_check_report_wizard__level__owner
-msgid "Owner"
-msgstr "Эзэмшигч"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-#, python-format
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__category_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__partner_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__category_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__partner_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__category_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_expense_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_income_ledger_form
 msgid "Partner"
 msgstr "Харилцагч"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Point of Sale"
-msgstr "ПОС-н борлуулалт"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__pos
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__pos
+msgid "Pos Sale"
+msgstr "Посын борлуулалт"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Price Unit"
-msgstr "Нэгж үнэ"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Price changes"
-msgstr "Үнэ өөрчлөлт"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Price diff"
-msgstr "Үнийн өөрчлөлт"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_move_check_report_wizard_form
-msgid "Print"
-msgstr "Хэвлэх"
-
-#. module: l10n_mn_stock_report
-#: model:ir.actions.report,name:l10n_mn_stock_report.product_move_check_report_report
-msgid "Print product move check"
-msgstr "Бүртгэл хяналтын баримт хэвлэх"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Printed Date: %s"
-msgstr "Хэвлэсэн Огноо: %s"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__product_id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__product_id
-#, python-format
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__product_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__product_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__product_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_expense_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_income_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_product_analyses_form
 msgid "Product"
 msgstr "Бараа"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__product_brand_id
-msgid "Product Brand"
-msgstr "Барааны Бренд"
+#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_report_product_analyses
+#: model:ir.ui.menu,name:l10n_mn_stock_report.menu_action_report_product_analyses
+msgid "Product Analyses Report"
+msgstr "Бараа материалын шинжилгээ"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__product_brand_ids
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Product Brands"
-msgstr "Барааны Бренд"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_product_ledger_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_ledger_report_form
-#, python-format
-msgid "Product Ledger Report"
-msgstr "Бараа материалын товчоо тайлан"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model,name:l10n_mn_stock_report.model_product_move_check_report_wizard
-msgid "Product Move Check Wizard"
-msgstr "Бүртгэл хяналтын баримтын цонх"
-
-#. module: l10n_mn_stock_report
-#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_product_move_check_report_wizard
-#: model:ir.ui.menu,name:l10n_mn_stock_report.menu_action_product_move_check_report_wizard
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_move_check_report_wizard_form
-msgid "Product Move Report"
-msgstr "Бүртгэл хяналтын баримт"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_ledger_report__sort__name
-#, python-format
-msgid "Product Name"
-msgstr "Барааны нэр"
-
-#. module: l10n_mn_stock_report
-#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_product_report
-#: model:ir.model,name:l10n_mn_stock_report.model_product_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__report_id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__report_id
-#: model:ir.ui.menu,name:l10n_mn_stock_report.menu_action_product_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.res_config_settings_view_form_inherit_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_tree
-msgid "Product Report"
-msgstr "Бараа материалын тайлан"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model,name:l10n_mn_stock_report.model_product_report_line
-msgid "Product Report Line"
-msgstr "Бараа материалын тайлангийн мөр"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Product UoM"
-msgstr "Хэмжих нэгж"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Product keeper comment: "
-"................................................................................................"
-msgstr ""
-"Эд хариуцагчийн тайлбар: "
-"................................................................................................"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Product keeper: "
-"......................................................................./......................................./"
-msgstr ""
-"Эд хариуцагч: "
-"......................................................................./......................................./"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Product move check report"
-msgstr "Бүртгэл хяналтын баримт"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Product move check report (Cost)"
-msgstr "Бүртгэл хяналтын баримт (Өртөгөөр)"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Product move check report (Cost)(Start date=\"%s\", End date=\"%s\", "
-"Product=\"%s\",Warehouse=\"%s\",prodlot_id=\"%s\""
-msgstr ""
-"Бүртгэл хяналтын баримт (Өртөгөөр)(Эхлэх огноо=\"%s\", Дуусах огноо=\"%s\", "
-"Бараа=\"%s\",Агуулах=\"%s\",цуврал=\"%s\""
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Product move check report (Price Unit)"
-msgstr "Бүртгэл хяналтын баримт (Зарах үнээр)"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Product move check report (Price Unit)(Start date=\"%s\", End date=\"%s\", "
-"Product=\"%s\",Warehouse=\"%s\",prodlot_id=\"%s\""
-msgstr ""
-"Бүртгэл хяналтын баримт (Зарах үнээр)(Эхлэх огноо=\"%s\", Дуусах "
-"огноо=\"%s\", Бараа=\"%s\",Агуулах=\"%s\",цуврал=\"%s\""
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Product move check report (Start date=\"%s\", End date=\"%s\", "
-"Product=\"%s\",Warehouse=\"%s\",prodlot_id=\"%s\""
-msgstr ""
-"Бүртгэл хяналтын баримт (Эхлэх огноо=\"%s\", Дуусах огноо=\"%s\", "
-"Бараа=\"%s\", Агуулах=\"%s\", цуврал=\"%s\""
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"Product move check report (Warehouse =\"%s\", Product = \"%s\", Start date ="
-" \"%s\", End date = \"%s\")"
-msgstr ""
-"Бүртгэл хяналтын баримт (Агуулах =\"%s\", Бараа = \"%s\", Эхлэх огноо = "
-"\"%s\", Дуусах огноо = \"%s\")"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__prodlot_id
-msgid "Production Lot"
-msgstr "Сери дугаар"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__product_ids
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__product_ids
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_move_check_report_wizard_form
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Products"
-msgstr "Бараанууд"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__purchase
 msgid "Purchase"
 msgstr "Худалдан авалт"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "QTY"
-msgstr "Тоо хэмжээ"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__refund
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__refund
+msgid "Refund"
+msgstr "Буцаалт"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_ledger_report__report_view_type__qty
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-#, python-format
-msgid "Quantity"
-msgstr "Тоо хэмжээ"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__procure
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__procure
+msgid "Replenishment"
+msgstr "Нөхөн дүүргэлт
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Quantity on Available"
-msgstr "Боломжит үлдэгдлийн тоо"
+#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_report_expense_ledger
+#: model:ir.model,name:l10n_mn_stock_report.model_report_expense_ledger
+#: model:ir.ui.menu,name:l10n_mn_stock_report.menu_action_report_expense_ledger
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_expense_ledger_form
+msgid "Report Expense Ledger"
+msgstr "Зарлагын товчоо тайлан"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Quantity on Hand"
-msgstr "Гарт байгаа тоо"
+#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_report_income_ledger
+#: model:ir.model,name:l10n_mn_stock_report.model_report_income_ledger
+#: model:ir.ui.menu,name:l10n_mn_stock_report.menu_action_report_income_ledger
+msgid "Report Income Ledger"
+msgstr "Орлогын товчоо тайлан"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Quantity on Hand Difference"
-msgstr "Гарт байгаа тооны зөрүү"
+#: model:ir.model,name:l10n_mn_stock_report.model_report_product_analyses
+msgid "Report Product Analyses"
+msgstr "Бараа материалын шинжилгээ"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Quantity on Reserved"
-msgstr "Нөөцөлсөн тоо"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_income_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_product_analyses_form
+msgid "Report income Ledger"
+msgstr "Орлогын товчоо тайлан"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_ledger_report__report_view_type__qty_cost
-#, python-format
-msgid "Quantity, Cost"
-msgstr "Тоо хэмжээ, өртөг"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__sales
+msgid "Sales"
+msgstr "Борлуулалт"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_ledger_report__report_view_type__all
-msgid "Quantity, Cost, Price"
-msgstr "Тоо хэмжээ, өртөг, зарах үнэ"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__cost
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__cost
+msgid "Show Cost Amount?"
+msgstr "Өртөг харуулах"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_ledger_report__report_view_type__qty_price
-#, python-format
-msgid "Quantity, Price"
-msgstr "Тоо хэмжээ, зарах үнэ"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Receive warehouse"
-msgstr "Бараа хүлээн авах агуулах"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Remaining quantity"
-msgstr "Үлдэгдэл тоо хэмжээ"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.res_config_settings_view_form_inherit_stock_report
-msgid "Report"
-msgstr "Тайлан"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__report_filter
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-msgid "Report Filter"
-msgstr "Тайлангийн шүүлтүүр"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__report_type
-msgid "Report Type"
-msgstr "Тайлангийн төрөл"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__report_view_type
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__report_view_type
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__report_view_type
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-msgid "Report View Type"
-msgstr "Тайлан харах төрөл"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Report duration"
-msgstr "Тайлант хугацаа"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model,name:l10n_mn_stock_report.model_report_l10n_mn_stock_report_product_move_check_report
-msgid "Report l10n_mn_stock_report Product Move Check Report"
+#: model:ir.model,name:l10n_mn_stock_report.model_stock_report_detail
+msgid "Stock Report Detail"
 msgstr ""
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Return"
-msgstr ""
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__report_expense_ledger__report_type__summary
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__report_income_ledger__report_type__summary
+msgid "Summary"
+msgstr "Товчоо"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__swap
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__swap
+msgid "Swap"
+msgstr "Солилцоо"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "STOCK TRANSIT DETAIL REPORT"
-msgstr "НӨХӨН ДҮҮРГЭЛТИЙН ДЭЛГЭРЭНГҮЙ ТАЙЛАН"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Safety Stock: %s"
-msgstr "Аюулгүй нөөц: %s"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Sales / (%s)"
-msgstr "Борлуулалт / (%s)"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__save
-msgid "Save to document storage"
-msgstr "Баримтыг хадгалах"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Sector name: %s"
-msgstr "Салбар, нэгжийн нэр: %s"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Seq"
-msgstr "№"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__sequence
-msgid "Sequence"
-msgstr "№"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Seri"
-msgstr "Сери"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Serial"
-msgstr "Цувралын дугаар"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_res_company__zero_qty_zero_cost
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_res_config_settings__zero_qty_zero_cost
-msgid "Show 0 when quantity is 0 on Stock Report"
-msgstr "Барааны тоо хэмжээ 0 бол өртгийг автоматаар 0-р харуулна"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__show_barcode
-msgid "Show Barcode"
-msgstr "Барааны зураасан код харуулах"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__show_current_cost
-msgid "Show Current Cost"
-msgstr "Одоогийн өртөг харуулах"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__show_qty_on_hand
-msgid "Show Quantity on Hand"
-msgstr "Гарт байгаа тоо харуулах"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__show_qty_on_reserved
-msgid "Show Quantity on Reserved"
-msgstr "Нөөцөлсөн тоо харуулах"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__show_worthy_balance
-msgid "Show Worthy Resources"
-msgstr "Барааны зохистой нөөц харуулах"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__sort
-msgid "Sort"
-msgstr "Эрэмбэлэх"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__date_from
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__date_from
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__start_date
-msgid "Start Date"
-msgstr "Эхлэх огноо"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__state
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_report_search
-msgid "State"
-msgstr "Төлөв"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#, python-format
-msgid "Stock Location not found!"
-msgstr "Дотоод байрлал олдсонгүй"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__supplier_ids
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__supplier_id
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group2_by__supplier
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group_by__supplier
-msgid "Supplier"
-msgstr "Нийлүүлэгч"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Suppliers"
-msgstr "Нийлүүлэгч"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_transit_report_view
-msgid "Supply Warehouse"
-msgstr "Бараа нийлүүлэх агуулах"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Supply warehouse"
-msgstr "Бараа нийлүүлэх агуулах"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "TOTAL"
-msgstr "НИЙТ"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_transit_report_view
-msgid "TRANSIT"
-msgstr "Нөхөн дүүргэлт"
-
-#. module: l10n_mn_stock_report
-#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_stock_transit_report
-msgid "TRANSIT ORDER REPORT"
-msgstr "НӨХӨН ДҮҮРГЭЛТИЙН ТАЙЛАН"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__to_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__date_to
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__date_to
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__date_to
 msgid "To Date"
 msgstr "Дуусах огноо"
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/models/product_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Total"
-msgstr "Нийд дүн"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Total /By Tugrug/"
-msgstr "Нийт дүн /төгрөгөөр/"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Total /Cost/"
-msgstr "Нийт дүн /Өртөгөөр/"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Total /MNT/"
-msgstr "Нийт дүн /төгрөгөөр/"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Total Cost"
-msgstr "Нийт өртөг"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Total Price"
-msgstr "Нийт үнэ"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#, python-format
-msgid "Total amount"
-msgstr "Нийт дүн"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "Transit"
-msgstr "Нөхөн дүүргэлт"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__transit_order_id
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_transit_report_view
-msgid "Transit Order"
-msgstr "Нөхөн дүүргэлтийн захиалга"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__transit_order_ids
-msgid "Transit Orders"
-msgstr "Нөхөн дүүргэлтийн захиалгууд"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/report/stock_transit_report.py:0
-#: model:ir.ui.menu,name:l10n_mn_stock_report.menu_strock_transit_report
-#, python-format
-msgid "Transit order report"
-msgstr "Нөхөн дүүргэлтийн тайлан"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-#, python-format
-msgid "Type"
-msgstr "Төрөл"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Unit cost"
-msgstr "Нэгж өртөг"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Unit price"
-msgstr "Нэгж үнэ"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_unread
-msgid "Unread Messages"
-msgstr ""
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr ""
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_check_report_wizard__warehouse_id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report_line__warehouse_id
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__warehouse_id
-#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_report__group_by__warehouse
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_transit_report_view
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__warehouse_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__warehouse_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_product_analyses__warehouse_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_expense_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_income_ledger_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_report_product_analyses_form
 msgid "Warehouse"
 msgstr "Агуулах"
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_ledger_report__warehouse_group
-msgid "Warehouse Group"
-msgstr "Агуулахын бүлэглэлт"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Warehouse registration and inspection documents"
-msgstr "Агуулахын бүртгэл, хяналтын баримт"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Warehouse registration and inspection documents (at cost)"
-msgstr "Агуулахын бүртгэл, хяналтын баримт (Худалдах үнээр)"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "Warehouse registration and inspection documents (at sale price)"
-msgstr "Агуулахын бүртгэл, хяналтын баримт (Өртөг үнээр)"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__warehouse_ids
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__in_warehouse_ids
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_transit_order_report__warehouse_ids
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_report_form
-msgid "Warehouses"
-msgstr "Агуулах"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__website_message_ids
-msgid "Website Messages"
+#: model:ir.model,name:l10n_mn_stock_report.model_product_move_detail_report
+msgid "product move detail report"
 msgstr ""
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_report__website_message_ids
-msgid "Website communication history"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_expense_ledger__report_type
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_report_income_ledger__report_type
+msgid "report_type"
+msgstr " Төрөл"
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__warehouse_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__warehouse_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Агуулах"
 msgstr ""
 
 #. module: l10n_mn_stock_report
-#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_report__without_transit
-msgid "Without Transit"
-msgstr "Нөхөн дүүргэлт тооцохгүй"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Worthy Balance"
-msgstr "Зохистой нөөцийн тоо"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_ledger_report.py:0
-#, python-format
-msgid "Worthy Balance Difference"
-msgstr "Зохистой нөөцийн зөрүү"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "[Product move check report][XLS][PROCESSING] %s"
-msgstr "[Бүртгэл хяналтын баримт][XLS][PROCESSING] %s"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid "[Report][PDF][PROCESSING] %s"
-msgstr "[Report][PDF][PROCESSING] %s"
-
-#. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"attended: signature: "
-".............................................................../......................................./"
-msgstr ""
-"байлцсан: гарын үсэг: "
-".............................................................../......................................./"
-
-#. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.view_product_move_check_report_wizard_form
-msgid "or"
-msgstr "эсвэл"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model,name:l10n_mn_stock_report.model_product_ledger_report
-msgid "product.ledger.report"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__categ_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Ангилал"
 msgstr ""
 
 #. module: l10n_mn_stock_report
-#: code:addons/l10n_mn_stock_report/wizard/product_move_check_report.py:0
-#, python-format
-msgid ""
-"signature: "
-"........................................................................./......................................./"
-msgstr ""
-"гарын үсэг: "
-"........................................................................./......................................./"
-
-#. module: l10n_mn_stock_report
-#: model:ir.model,name:l10n_mn_stock_report.model_stock_transit_order_report
-msgid "stock.transit.order.report"
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__account_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "БМ данс"
 msgstr ""
 
 #. module: l10n_mn_stock_report
-#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_check_report
-msgid "to"
-msgstr "хүртэл"
+#: model:res.groups,name:l10n_mn_stock_report.group_stock_report
+msgid "БМ тайлан харах"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:res.groups,name:l10n_mn_stock_report.group_stock_see_price_unit
+msgid "БМ тайлан өртөгтэй харах"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__location_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__location_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Байрлал"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__product_tmpl_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__product_tmpl_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Бараа"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_product_move_detail_report
+#: model:ir.actions.act_window,name:l10n_mn_stock_report.action_stock_report_detail
+#: model:ir.ui.menu,name:l10n_mn_stock_report.menu_product_move_detail_report
+msgid "Бараа материалын дэлгэрэнгүй тайлан"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__categ_ids
+msgid "Барааны ангилал"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__product_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__product_id
+msgid "Барааны хувилбар"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__picking_id
+msgid "Баримт"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_move_detail_report__move_state__assigned
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__stock_report_detail__state__assigned
+msgid "Бэлэн"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_move_detail_report__move_state__assigned_done
+msgid "Бэлэн болон Дууссан"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_move_detail_report__move_state__confirmed
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__stock_report_detail__state__confirmed
+msgid "Бэлэн болохыг хүлээж байгаа"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_move_detail_report__move_state__cancel
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__stock_report_detail__state__draft
+msgid "Бүгд"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__import_wh
+msgid "Бүх агуулах ОРУУЛАХ/АРИЛГАХ"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__stock_report_detail__transfer_type__internal
+msgid "Дотоод Хөдөлгөөн"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__included_internal
+msgid "Дотоод хөдөлгөөн оруулахгүй"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__date_end
+msgid "Дуусах огноо"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_move_detail_report__move_state__done
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__stock_report_detail__state__done
+msgid "Дууссан"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Жил жилээр"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__stock_report_detail__transfer_type__outgoing
+msgid "Зарлага"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__total_price_expense
+msgid "Зарлага (нийт өртөг)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__price_unit_expense
+msgid "Зарлага (нэгж өртөг)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__qty_expense
+msgid "Зарлага (тоо хэмжээ)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__company_id
+msgid "Компани"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_tree_view
+msgid "Нийт"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__price_unit
+msgid "Нэгж өртөг"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__assigned_user_id
+msgid "Нөөцөлсөн хэрэглэгч"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__date_expected
+msgid "Огноо"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Огноогоор"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__stock_report_detail__transfer_type__incoming
+msgid "Орлого"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__total_price_income
+msgid "Орлого (нийт өртөг)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__price_unit_income
+msgid "Орлого (нэгж өртөг)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__qty_income
+msgid "Орлого (тоо хэмжээ)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_move_detail_report__product_ids
+msgid "Тайланд гарах барааг сонгоно"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_move_detail_report__product_tmpl_ids
+msgid "Тайланд гарах бараануудыг сонгоно"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__description
+msgid "Тайлбар"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,help:l10n_mn_stock_report.field_product_move_detail_report__categ_ids
+msgid "Тухайн сонгосон ангилал дахь бараануудыг тайланд гаргах"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__move_state
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__state
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Төлөв"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__move_type
+msgid "Төрөл"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_detail_report_view
+msgid "Хаах"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.product_move_detail_report_view
+msgid "Харах"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__partner_id
+msgid "Харилцагч"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_report.stock_report_detail_search
+msgid "Харилцагчаар"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__uom_id
+msgid "Хэмжих нэгж"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__transfer_type
+msgid "Шилжүүлгийн Төрөл"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_product_move_detail_report__date_start
+msgid "Эхлэх огноо"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__date_balance
+msgid "Эхний үлдэгдлийн огноо"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__total_price_first
+msgid "Эхний үлдэгдэл (нийт өртөг)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__price_unit_first
+msgid "Эхний үлдэгдэл (нэгж өртөг)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__qty_first
+msgid "Эхний үлдэгдэл (тоо хэмжээ)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields.selection,name:l10n_mn_stock_report.selection__product_move_detail_report__move_type__income_expense
+msgid "Эхний үлдэгдэл/Орлого/Зарлага/Эцсийн үлдэгдэл"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__total_price_last
+msgid "Эцсийн үлдэгдэл (нийт өртөг)"
+msgstr ""
+
+#. module: l10n_mn_stock_report
+#: model:ir.model.fields,field_description:l10n_mn_stock_report.field_stock_report_detail__qty_last
+msgid "Эцсийн үлдэгдэл (тоо хэмжээ)"
+msgstr ""

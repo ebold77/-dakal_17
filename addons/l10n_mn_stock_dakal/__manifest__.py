@@ -18,6 +18,7 @@
         'views/account_move_view.xml',
         'views/sale_order_view.xml',
         'views/licemed_registration_view.xml',
+        'views/product_general_category_view.xml',
         'views/product_view.xml',
         # 'wizard/stock_inventory_statement_view.xml',
         # 'wizard/stock_product_balance_report_view.xml',

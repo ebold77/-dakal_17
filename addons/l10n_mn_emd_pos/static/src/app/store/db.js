@@ -21,13 +21,13 @@ patch(PosDB.prototype, {
     
     get_product_by_all: function(category_id){
         var product_ids  = this.product_by_category_id[category_id];
+        
         var list = [];
         
         if (product_ids) {
             for (var i = 0, len = product_ids.length; i < len; i++) {
                 var product = this.product_by_id[product_ids[i]]
-                    list.push(product);
-
+                list.push(product);
             }
         }
         return list;

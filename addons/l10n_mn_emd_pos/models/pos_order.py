@@ -78,6 +78,7 @@ class PosOrder(models.Model):
             'product_name': product.name,
             'qty': qty
         }
+        print('ressssssssssssss', res)
         return res
 
     @api.model
@@ -93,6 +94,7 @@ class PosOrder(models.Model):
             'username': 'aptk0010', # config.user_name, # 
             'password':  '9875321', # config.password #
         }
+        access_token = ''
         emd_url = 'https://st.health.gov.mn/oauth/token?'
         response = requests.post(emd_url, params=data, headers=head, verify=False)
         
@@ -220,7 +222,8 @@ class PosOrder(models.Model):
         items = {}
         emd_datas = {}
         ins_list = order_line.product_id.emd_insurance_list_id
-        qty = order_line.qty * order_line.product_id.package_qty
+        print('qty = order_line.qty * order_line.product_id.package_qty===', type(order_line.qty), type(order_line.product_id.package_qty))
+        qty = order_line.qty * int(order_line.product_id.package_qty)
         '''
         Даатгалтай болон энгийн жороос хамаарч даатгалын дүнг тооцоолох
         '''
@@ -276,7 +279,7 @@ class PosOrder(models.Model):
                 order_lines.append(self.generate_order_line_json(line))
 
                 ins_list = line.product_id.emd_insurance_list_id
-                qty = line.qty * line.product_id.package_qty
+                qty = line.qty * int(line.product_id.package_qty)
                 '''
                 Даатгалтай болон энгийн жороос хамаарч Даатгалын дүнг тооцоолох
                 '''
@@ -292,7 +295,7 @@ class PosOrder(models.Model):
                     receipt['merchantTin'] = self.session_id.config_id.novartis_merchant_tin
                     order_json['type']='B2C_INVOICE'
                     
-                    qty = line.qty * line.product_id.package_qty
+                    qty = line.qty * int(line.product_id.package_qty)
                     total_price = line.product_id.emd_insurance_list_id.tbltUnitPrice * qty
                     tax_amount = total_price - total_price /1.1
                    
@@ -369,6 +372,7 @@ class PosOrder(models.Model):
         headers = {"Content-Type": "application/json; charset=utf-8"}
         
         self.note = order_json
+        print('order_json===========>>', order_json)
         response = requests.post(url=ebarimt_url, headers=headers, json=order_json)
         if response.text:
             
@@ -382,6 +386,7 @@ class PosOrder(models.Model):
 
         
         if data:
+            print('data===========================>>>', order_json)
             self.bill_id = data['id']
             self.receipt_bill_id = data['receipts'][0]['id']
             self.bill_printed_date = fields.Datetime.from_string(data['date'])

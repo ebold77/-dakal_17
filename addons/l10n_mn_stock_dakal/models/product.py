@@ -12,6 +12,7 @@ class ProductTemplate(models.Model):
    
     register_id = fields.Many2one('product.licemed.registration', string="Licemed Registration")
     package_qty = fields.Char('Quantity in the package')
+    general_category_id = fields.Many2one('product.general.category', 'General Category')
     tbltSizeMixture = fields.Char('Size Mixture', )
     tbltType = fields.Char('tblt Type', )
     tbltManufacture = fields.Char('Manufacture',)

@@ -39,7 +39,6 @@ export class EmdDiscountScreenWidget extends Component {
 	changeRegister(event) {
 		var register = $('#reg_no');
 		register.keyup(function (e) {
-			console.log('e.keyCode', e.keyCode)
 			if (e.keyCode === 13) {
 				$(".discount-screen .search-medicine").click();		
 				}
@@ -48,7 +47,7 @@ export class EmdDiscountScreenWidget extends Component {
 	_onClicSearchMedicine(){
 		var receiptNumber = $(".receipt-number-input").val();
 		var regNumber = $(".register-number-input").val();
-		console.log('this.env.pos============',this.pos)
+
 		var pos_id = this.pos.config.id;
 		var order = this.pos.get_order();
 		var errorTimeout;
@@ -60,9 +59,8 @@ export class EmdDiscountScreenWidget extends Component {
 				]);
 		
 		receipt_data.then((response) => {
-				console.log(response.json_data);
+				
 				var jsonRes = JSON.parse(response.json_data);
-				console.log('jsonRes=============', jsonRes)
 				var status = "";		
 				switch (parseInt(jsonRes.result['status'])) {
 					case 0:
@@ -107,7 +105,7 @@ export class EmdDiscountScreenWidget extends Component {
 				$(".medicine-details-box .tbltCount").text(jsonRes.result['tbltCount']);
 				$(".medicine-details-box .receipt_id").text(jsonRes.result['id']);
 				var receiptDetails = jsonRes.result['receiptDetails'];
-				console.log('receiptDetails=====', receiptDetails)
+				
 				if(receiptDetails.length > 0){
 					for (var i = 0; i < receiptDetails.length; i++) {
 						var receiptDetail = receiptDetails[i];	
@@ -135,7 +133,6 @@ export class EmdDiscountScreenWidget extends Component {
 				
 					// Даатгалын хөнгөлөлттэй эмээр input datalist цэнэглэх
 					var product_list = [];
-					console.log('prescriptionType===>>',parseInt(jsonRes.result['prescriptionType']))
 					if(parseInt(jsonRes.result['prescriptionType']) ==1){
 						product_list = db.get_product_by_emd_list(0);
 					}
@@ -146,10 +143,7 @@ export class EmdDiscountScreenWidget extends Component {
 					
 					var options = '';
 					for(var i = 0, len = product_list.length; i < len; i++){
-					
-						if (product_list[i]['emd_insurance_list_id']){
-							options += '<option value="'+product_list[i]['id']+ '-'+product_list[i]['display_name']+ '" />';
-							}
+						options += '<option value="'+product_list[i]['id']+ '-'+product_list[i]['display_name']+ '" />';
 						}
 					document.getElementById('screens.screenid-datalist').innerHTML = options;
 					self.pharmDiscount = jsonRes;
@@ -176,11 +170,11 @@ export class EmdDiscountScreenWidget extends Component {
 			 var qtyProd = $(this).find("td:eq(3)").text();
 			 var prod = $(this).find("td:eq(7) input[type='text']").val();
 			 var newOrderLine;
-			console.log('prod============', prod, qtyProd, detailId )
+
 			 if (prod){
-				 var prodId = prod.split('-')
-				 var product = db.get_product_by_id(prodId[0])
-				 
+				var prodId = prod.split('-')
+				var product = db.get_product_by_id(prodId[0])
+				console.log('product.package_qty============', product.package_qty) 
 				var dict = []; // create an empty array
 				
 				 // ЭМД-н хөнгөлөлт үзүүлсэн бол тухайн барааны default тоог буцаахдаа
@@ -218,27 +212,27 @@ export class EmdDiscountScreenWidget extends Component {
 		var ordersLength = orders.length;
 		var ordersCount = 0;
 		orders.forEach(function (orderElement) {
-			console.log('orderElement.price', orderElement.price, orderElement.quantity)
+			
 			var orderData = {
 				"pricelist_id": config.emd_price_list_id[0],
 				"price": orderElement.price,
 				"quantity": orderElement.quantity,
 				"productId": orderElement.product.id
 			}; // get_discount луу явуулах дата (JSON)
-			console.log('order.pharmDiscount[\'prescriptionType\']', order.prescriptionType)
+			
 			if (order.pharmDiscount['prescriptionType']==1){
-				console.log('self=========', self)
+				
 				const emd_data =  self.orm.call("pos.order", "get_emd_discount", [
 					JSON.stringify(orderData)
 						]);
 				
 				emd_data.then((response) => {
-					console.log(response.json_data);
+					
 					if (orderElement.detail_id){
 						var emd_discount = JSON.parse(response.emd_discount);
 						var max_price = JSON.parse(response.max_price);
 						var qty = JSON.parse(response.qty);
-						console.log('max_price=============================',response, max_price, emd_discount)
+
 						orderElement.set_emd_discount(emd_discount);
 						orderElement.set_unit_price(max_price);
 						orderElement.set_discount(emd_discount);
@@ -257,7 +251,6 @@ export class EmdDiscountScreenWidget extends Component {
 			else{
 				self.pos.showScreen('ProductScreen')
 			}
-
 		});
 		
 	

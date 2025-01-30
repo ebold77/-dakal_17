@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="product_move_detail_report_view" model="ir.ui.view">
+            <field name="name">product.move.detail.report wizard</field>
+            <field name="model">product.move.detail.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+               <form>
+                <group>
+                    <group col="6">
+                        <field name="date_start" />
+                        <field name="date_end" />
+                    </group>
+
+                    <group col="6">
+                        <field name="import_wh" widget="boolean_toggle"/>
+                        <field name="included_internal" widget="boolean_toggle"/>
+                    </group>
+
+                    <group col="4">
+                        <field name="warehouse_ids" required='1' colspan="4" widget="many2many_tags" options="{'no_create': True}" />
+                        <field name="location_ids" colspan="4" widget="many2many_tags" options="{'no_create': True}" 
+                            
+                            groups="stock.group_stock_multi_locations"/>
+                        <field name="move_type" widget="radio"/>
+                        <field name="move_state" widget="radio"/>
+                    </group>
+
+                    <group col="4">
+                        <field name="categ_ids" colspan="4" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="product_tmpl_ids" colspan="4" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="product_ids" widget="many2many_tags" colspan="4" options="{'no_create': True}" groups="product.group_product_variant"/>
+                    </group>
+
+                </group>
+                    <footer>
+                        <group col="6">
+                            <button icon="fa-times" special="cancel" string="Хаах" class="btn-danger"/>
+                            <button name="open_analyze_view" string="Харах" type="object"  icon="fa-eye" class="btn-success"/>
+                        </group>
+                    </footer>
+
+               </form>
+            </field>
+        </record>
+
+        <record id="action_product_move_detail_report" model="ir.actions.act_window">
+            <field name="name">Бараа материалын дэлгэрэнгүй тайлан</field>
+            <field name="res_model">product.move.detail.report</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="product_move_detail_report_view"/>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

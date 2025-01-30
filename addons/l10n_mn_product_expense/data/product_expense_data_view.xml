@@ -4,11 +4,12 @@
     
     	<!-- Sequences for product.expense -->
 		<record id="seq_product_expense" model="ir.sequence">
-            <field name="name">Product Expense</field>
+            <field name="name">Product Expense Sequence</field>
             <field name="code">product.expense</field>
-            <field name="prefix">EXPENSE/</field>
+            <field name="prefix">EXP/</field>
             <field name="padding">5</field>
             <field name="company_id" eval="False"/>
         </record>
+
 	</data>
 </odoo>

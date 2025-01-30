@@ -14,7 +14,7 @@
   'summary'              :  'Connect to the Mongolian Health Insurance System.',
   'category'             :  'point_of_sale',
   'version'              :  '17.0.1.1',  
-  'author'               :  'EMD',
+  'author'               :  'Enkhbold',
   'depends'              :  ['base', 'point_of_sale', 'l10n_mn_ebarimt_3_0',
                             ],
   'data'                 :  [
@@ -43,7 +43,7 @@
               'l10n_mn_emd_pos/static/src/scss/pos.scss',
               'l10n_mn_emd_pos/static/src/app/store/db.js',
               'l10n_mn_emd_pos/static/src/app/store/models.js',
-              # 'l10n_mn_emd_pos/static/src/app/store/product_model.js',
+             
               
       ],
       'web.assets_qweb': [     

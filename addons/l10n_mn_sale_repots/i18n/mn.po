@@ -1,0 +1,132 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_mn_sale_repots
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-11 22:54+0000\n"
+"PO-Revision-Date: 2022-09-11 22:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mn_sale_repots
+#: code:addons/l10n_mn_sale_repots/wizard/report_product_sales.py:0
+#, python-format
+msgid "Category"
+msgstr "Ангилал"
+
+#. module: l10n_mn_sale_repots
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sale_repots.profit_loss_calculation_report_xlsx_form
+msgid "Close"
+msgstr "Хаах"
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__company_id
+msgid "Company"
+msgstr "Компани"
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__date_from
+msgid "From Date"
+msgstr "Эхлэх хугацаа"
+
+#. module: l10n_mn_sale_repots
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sale_repots.profit_loss_calculation_report_xlsx_form
+msgid "Generate"
+msgstr "Боловсруулах"
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model,name:l10n_mn_sale_repots.model_report_product_sales
+msgid "Generate XLSX report for Sale's"
+msgstr ""
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_mn_sale_repots
+#: code:addons/l10n_mn_sale_repots/wizard/report_product_sales.py:0
+#, python-format
+msgid "Manufacturer"
+msgstr "Үйлдвэрлэл"
+
+#. module: l10n_mn_sale_repots
+#: code:addons/l10n_mn_sale_repots/wizard/report_product_sales.py:0
+#, python-format
+msgid "Partner"
+msgstr "Харилцагч"
+
+#. module: l10n_mn_sale_repots
+#: code:addons/l10n_mn_sale_repots/wizard/report_product_sales.py:0
+#, python-format
+msgid "Sale Type"
+msgstr "Борлуулалтын төрөл"
+
+#. module: l10n_mn_sale_repots
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sale_repots.profit_loss_calculation_report_xlsx_form
+msgid "Sales Report"
+msgstr "Борлуулалтын тайлан"
+
+#. module: l10n_mn_sale_repots
+#: code:addons/l10n_mn_sale_repots/wizard/report_product_sales.py:0
+#, python-format
+msgid "Sales Team"
+msgstr "Борлуулалтын баг"
+
+#. module: l10n_mn_sale_repots
+#: model:ir.ui.menu,name:l10n_mn_sale_repots.action_report_product_sales
+msgid "Sales's Report by Customer"
+msgstr "Борлуулалтын тайлан Харилцагчаар"
+
+#. module: l10n_mn_sale_repots
+#: code:addons/l10n_mn_sale_repots/wizard/report_product_sales.py:0
+#, python-format
+msgid "Salesperson"
+msgstr "Борлуулагч"
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__date_to
+msgid "To Date"
+msgstr "Дуусах огноо"
+
+#. module: l10n_mn_sale_repots
+#: model:ir.model.fields,field_description:l10n_mn_sale_repots.field_report_product_sales__warehouse_ids
+msgid "Warehouse"
+msgstr "Агуулах"

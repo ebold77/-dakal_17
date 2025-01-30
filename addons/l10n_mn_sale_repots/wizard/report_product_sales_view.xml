@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_sales_report_xlsx_form" model="ir.ui.view">
+        <field name="name">view.report.product.sales.form</field>
+        <field name="model">report.product.sales</field>
+        <field name="arch"  type="xml">
+            <form string="Sales Report">
+                <group col="2">
+                   <field name="company_id" readonly="1"/>
+                   <field name="date_from"/>
+                   <field name="date_to"/>    
+                   <field name="warehouse_ids"/>
+                </group>
+        
+                <footer>
+                    <button name="export_report_xls" type="object"
+                        class="btn-primary" string="Generate"/>
+                    <button special="cancel" string="Close" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_report_product_sales" model="ir.actions.act_window">
+        <field name="name">Sales Report</field>
+        <field name="res_model">report.product.sales</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="product_sales_report_xlsx_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Replace native menu, to avoid user confusion 
+    <record id="stock_account.menu_action_wizard_valuation_history" model="ir.ui.menu">
+        <field name="action" ref="stock_valuation_xlsx.stock_valuation_xlsx_action"/>
+        <field name="name">Stock Valuation XLSX</field>
+        <field name="sequence">0</field>
+    </record>
+    -->
+
+     <menuitem id="action_report_product_sales" name="Sales's Report by Customer" action="action_report_product_sales"
+                  parent="sale.menu_sale_report"
+              sequence="10"/>
+
+</odoo>

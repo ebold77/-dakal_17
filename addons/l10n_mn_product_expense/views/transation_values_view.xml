@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_expense_transaction_value_tree" model="ir.ui.view">
+        <field name="name">Гүйлгээний утга</field>
+        <field name="model">product.expense.transaction.value</field>
+        <field name="arch" type="xml">
+            <tree string="БМ шаардах" sample="1">
+                <field name="active" />
+                <field name="code" />
+                <field name="name" />
+                <field name="warehouse_id" />
+                <field name="account_id" />
+                <field name="categ_ids" />
+                <field name="company_id" groups="base.group_multi_company" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="filter_product_expense_transaction_value_view" model="ir.ui.view">
+        <field name="name">Гүйлгээний утга</field>
+        <field name="model">product.expense.transaction.value</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code" />
+                <field name="name" />
+                <field name="warehouse_id" />
+                <field name="account_id" />
+                <field name="categ_ids" />
+                <separator />
+                <group expand="1" string="Бүлэглэх...">
+                    <filter name="groupby_wh" context="{'group_by' : 'warehouse_id'}"
+                        string="Агуулахаар" />
+                    <filter name="groupby_account_id" context="{'group_by' : 'account_id'}"
+                        string="Дансаар" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_expense_transaction_value_form_view" model="ir.ui.view">
+        <field name="name">Гүйлгээний утга</field>
+        <field name="model">product.expense.transaction.value</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <field name="code" />
+                        <field name="name" />
+                        <field name="company_id" options="{'no_create': True}"
+                            groups="base.group_multi_company" />
+                        <field name="warehouse_id" options="{'no_create': True}" />
+                        <field name="account_id" options="{'no_create': True}" />
+                        <field name="categ_ids" options="{'no_create': True}" required="1"
+                            widget="many2many_tags" />
+                        <field name="active" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model='ir.actions.act_window' id='action_transaction_value'>
+        <field name="name">Гүйлгээний утга</field>
+        <field name="res_model">product.expense.transaction.value</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_product_expense_transaction_value_tree" />
+    </record>
+</odoo>

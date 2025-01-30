@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view"
+			id="product_general_category_tree_view">
+			<field name="name">product.general.category.tree</field>
+			<field name="model">product.general.category</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Product General Category">
+					<field name="name" />
+					<field name="parent_id" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="product_general_category_form_view" model="ir.ui.view">
+            <field name="name">product.general.category.form</field>
+            <field name="model">product.general.category</field>
+            <field name="arch" type="xml">
+                <form string="Product General Category">
+                	<sheet>
+	                	<group colspan="2">
+		                    <group>
+		                        <field name="name" />
+                                <field name="parent_id" />
+							</group>
+	                	</group>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+		<record id="product_general_category_search_view"
+			model="ir.ui.view">
+			<field name="name">product.general.category.search.form</field>
+			<field name="model">product.general.category</field>
+			<field name="arch" type="xml">
+				<search string="Product General Category">
+					<field name="name"/>
+                    <field name="parent_id" />
+					<group expand="0" string="Group By">
+                        <filter string="Parent Category" name="parent" domain="[]" context="{'group_by': 'parent_id'}"/>
+                    </group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window"
+			id="action_product_general_category_tree_view">
+			<field name="name">product.general.category</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.general.category</field>
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> 
+				<field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<!-- <field name="view_id" ref="product_general_category_tree_view"/> -->
+		</record>
+
+		<menuitem id="product_general_category_menu"
+			name="Product General Category"
+			parent="stock.menu_product_in_config_stock"
+			action="action_product_general_category_tree_view" />
+
+
+	</data>
+</odoo>

@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_res_users_sale_manager,access_res_users_sale_manager,base.model_res_users,sales_team.group_sale_manager,1,1,1,0
-access_stock_location_manager,stock.location.manager,stock.model_stock_location,stock.group_stock_user,1,0,1,0
-access_report_sales_manager,report.sales.manager,model_report_sales,stock.group_stock_user,1,1,1,0
-access_sales_refund_report_manager,sales.refund.report.manager,model_sales_refund_report,sales_team.group_sale_manager,1,1,1,0

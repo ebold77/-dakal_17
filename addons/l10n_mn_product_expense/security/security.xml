@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_product_expense_config">
+            <field name="name">Product Expense</field>
+            <field name="sequence">11</field>
+        </record>
+
+        <record id="group_product_expense_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_product_expense_config" />
+        </record>
+
+        <record id="group_product_expense_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_product_expense_config" />
+            <field name="implied_ids"
+                eval="[(4, ref('l10n_mn_product_expense.group_product_expense_user'))]" />
+        </record>
+
+        <record id="rule_product_expense_user" model="ir.rule">
+            <field name="name">Хэрэглэгч зөвхөн өөрийн үүсгэсэн шаардахыг устгаж болно</field>
+            <field name="model_id" ref="model_product_expense" />
+            <field name="groups"
+                eval="[(4, ref('l10n_mn_product_expense.group_product_expense_user'))]" />
+            <field name="perm_read" eval="False" />
+            <field name="perm_write" eval="False" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="True" />
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        </record>
+
+        <record model="ir.rule" id="product_expense_multi_company_rule">
+            <field name="name">Product expense multi company</field>
+            <field name="model_id" ref="l10n_mn_product_expense.model_product_expense" />
+            <field eval="True" name="global" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in',
+                company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="product_expense_line_multi_company_rule">
+            <field name="name">Product expense line multi company</field>
+            <field name="model_id" ref="l10n_mn_product_expense.model_product_expense_line" />
+            <field eval="True" name="global" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in',
+                company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="product_expense_transaction_value_multi_company_rule">
+            <field name="name">Product expense transaction value multi company</field>
+            <field name="model_id"
+                ref="l10n_mn_product_expense.model_product_expense_transaction_value" />
+            <field eval="True" name="global" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in',
+                company_ids)]</field>
+        </record>
+
+
+    </data>
+</odoo>

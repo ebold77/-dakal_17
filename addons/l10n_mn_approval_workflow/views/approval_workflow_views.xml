@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="approval_workflow_search" model="ir.ui.view">
+            <field name="name">approval.workflow.search</field>
+            <field name="model">approval.workflow</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Model" name="model_id" context="{'group_by':'model_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="approval_workflow_form" model="ir.ui.view">
+            <field name="name">approval.workflow.form</field>
+            <field name="model">approval.workflow</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="1">
+                            <group>
+                                <field name="name"/>
+                                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                <field name="model_id"/>
+                                <field name="sequence" groups="base.group_no_one"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="create_date" invisible="1"/>
+                            <field name="line_count" invisible="1"/>
+                            <button name="button_generate_steps" type="object" attrs="{'invisible':['|', ('line_count', '!=', 0),('create_date', '=', False)]}" string="Generate steps" icon="fa-random" class="oe_highlight"/>
+                        </group>
+                        <group >
+                            <field name="line_ids" nolabel="1" >
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle" groups="base.group_no_one"/>
+                                    <field name="name"/>
+                                    <field name="state_type"/>
+                                    <field name="expression"/>
+                                    <field name="attributes"/>
+                                    <field name="prev_line_id" readonly="1"/>
+                                    <field name="next_line_id" readonly="1"/>
+                                    <field name="is_edit"/>
+                                    <field name="is_print"/>
+                                    <field name="user_ids" widget="many2many_tags"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="approval_workflow_tree" model="ir.ui.view">
+            <field name="name">approval.workflow.tree</field>
+            <field name="model">approval.workflow</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle" groups="base.group_no_one"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="model_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="approval_workflow_action" model="ir.actions.act_window">
+            <field name="name">Approval Workflow</field>
+            <field name="res_model">approval.workflow</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="approval_workflow_tree"/>
+            <field name="context">{'search_default_model_id': 1}</field> 
+        </record>
+       
+        <menuitem id="menu_approval_workflow" name="Approval Workflow" action="approval_workflow_action" parent="base.menu_users" sequence="25"/>
+
+</odoo>

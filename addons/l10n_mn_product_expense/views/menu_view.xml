@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- БМ-ын шаардах -->
+	<menuitem
+		id="root_product_expense_menu"
+		name="БМ-ын шаардах"
+		sequence="26"
+		web_icon="l10n_mn_product_expense,static/description/icon.png" />
+
+	<menuitem
+		id="product_expense_menu"
+		parent="root_product_expense_menu"
+		name="БМ-ын шаардах"
+		sequence="1"
+		action="action_product_expense" />
+
+	<menuitem
+		id="product_expense_line_menu"
+		parent="root_product_expense_menu"
+		name="Шаардахын мөрүүд"
+		sequence="2"
+		action="action_product_line_expense" />
+
+	<menuitem
+		id="product_expense_transaction_value_menu"
+		name="Гүйлгээний загвар"
+		sequence="3"
+		parent="root_product_expense_menu"
+		action="action_transaction_value" />
+
+</odoo>

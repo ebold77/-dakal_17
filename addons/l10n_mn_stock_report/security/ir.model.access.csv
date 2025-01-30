@@ -1,10 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_l10n_mn_stock_transit_order_report_user,l10n.mn.stock.user.transit.order.report,model_stock_transit_order_report,stock.group_stock_user,1,1,1,0
-access_l10n_mn_stock_transit_order_report_manager,l10n.mn.stock.manager.transit.order.report,model_stock_transit_order_report,stock.group_stock_manager,1,1,1,1
-access_product_report_manager,access_product_report_manager,model_product_report,stock.group_stock_manager,1,1,1,1
-access_product_report_line_manager,access_product_report_line_manager,model_product_report_line,stock.group_stock_manager,1,1,1,1
-access_product_ledger_report_manager,access_product_ledger_report_manager,model_product_ledger_report,stock.group_stock_manager,1,1,1,1
-access_product_move_check_report_user,product.move.check.report.wizard user,model_product_move_check_report_wizard,stock.group_stock_user,1,1,1,1
-access_product_move_check_report_manager,product.move.check.report.wizard manager,model_product_move_check_report_wizard,stock.group_stock_manager,1,1,1,1
-access_l10n_mn_stock_report_user,l10n.mn.stock.user.base.report,model_report_l10n_mn_stock_report_product_move_check_report,stock.group_stock_user,1,1,1,1
-access_l10n_mn_stock_report_manager,l10n.mn.stock.manager.base.report,model_report_l10n_mn_stock_report_product_move_check_report,stock.group_stock_manager,1,1,1,1
+access_stock_product_move_detail_report,stock.product.move.detail.report,l10n_mn_stock_report.model_product_move_detail_report,stock.group_stock_user,1,1,1,0
+access_stock_report_detail_user,stock.report.detail,model_stock_report_detail,stock.group_stock_user,1,0,0,0
+access_report_expense_ledger_report,report.expense.ledger,l10n_mn_stock_report.model_report_expense_ledger,stock.group_stock_user,1,1,1,0
+access_report_income_ledger_report,report.income.ledger,l10n_mn_stock_report.model_report_income_ledger,stock.group_stock_user,1,1,1,0

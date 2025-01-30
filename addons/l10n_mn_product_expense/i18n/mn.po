@@ -1,157 +1,41 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* l10n_mn_product_expense
+# 	* bqs_product_expense
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-07 10:32+0000\n"
-"PO-Revision-Date: 2021-03-07 10:32+0000\n"
+"POT-Creation-Date: 2023-05-22 02:02+0000\n"
+"PO-Revision-Date: 2023-05-22 10:07+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-
-#. module: l10n_mn_product_expense
-#: model:ir.actions.report,print_report_name:l10n_mn_product_expense.action_report_product_expense
-msgid "('Product Expense - %s' % (object.name)) "
-msgstr "('Product Expense - %s' % (object.name))  "
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "(department name)"
-msgstr "цех, тасаг, хэлтсийн нэр"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "(name, job title)"
-msgstr "нэр, албан тушаал"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense_line__product_type
-msgid ""
-"* New: When the stock move is created and not yet confirmed.\n"
-"* Waiting Another Move: This state can be seen when a move is waiting for another one, for example in a chained flow.\n"
-"* Waiting Availability: This state is reached when the procurement resolution is not straight forward. It may need the scheduler to run, a component to be manufactured...\n"
-"* Available: When products are reserved, it is set to 'Available'.\n"
-"* Done: When the shipment is processed, the state is 'Done'."
-msgstr ""
-"* Шинэ: Агуулахын хөдөлгөөн үүсгэгдээд хараахан батлагдаагүй.\n"
-"* Өөр хөдөлгөөн хүлээж буй: Энэ хөдөлгөөн нь өөр хөдөлгөөнийг хүлээж буй, "
-"тухайлбал хэлхээт урсгалд.\n"
-"* Бэлэн болохыг хүлээж буй: Татан авалтын шийдэл хараахан тодорхой болоогүй. "
-"Энэ нь товлогчийн ажиллахыг хүлээж буй байж болох бөгөөд бүрдэл хэсгүүдийг "
-"үйлдвэрлэх захиалга үүсэхийг хүлээж байж болно...\n"
-"* Бэлэн: Бүх бараа нь нөөцлөгдсөн бөгөөд Бэлэн төлөвтэй болсон.\n"
-"* Хийгдсэн: Хүргэлт хийгдсэн."
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid ""
-"<br/>\n"
-"                                ...............................................................\n"
-"                                <br/>\n"
-"                                <span>(Company)</span>"
-msgstr ""
-"<br/>\n"
-"                                ...............................................................\n"
-"                                <br/>\n"
-"                                <span>(Компани)</span>"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid ""
-"<span>\n"
-"                                    <b>NHForm PR-6</b>\n"
-"                                </span>"
-msgstr "НХМаягт БМ-6"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid ""
-"<span>Annex to the Order No. 347 of the Minister of </span>\n"
-"                                <span>Finance dated December 5, 2017</span>"
-msgstr "Сангийн сайд 2017 оны 12 дугаар сарын 5-ны "
-"өдрийн 347 тоот тушаалын хавсралт"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "<span>Date:</span>"
-msgstr "Огноо:"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__account_id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__account_id
-msgid "Account"
-msgstr "Данс"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__action
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Action"
-msgstr "Үйлдэл"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Action Date"
-msgstr "Үйлдлийн огноо"
+"X-Generator: Poedit 3.3.1\n"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Үйлдэл шаардлагатай"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__action_date
-msgid "Action date"
-msgstr "Үйлдлийн огноо"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__history_ids
+msgid "Approval History"
+msgstr "Ажлын урсгалын түүх"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,help:l10n_mn_product_expense.field_stock_warehouse__workflow_id
-msgid "Allow expense workflow by each warehouses"
-msgstr "Агуулах бүр дээр ажлын урсгал сонгож өгөх"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__workflow_id
+msgid "Approval Workflow"
+msgstr "Ажлын урсгал"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__price_subtotal
-msgid "Amount"
-msgstr "Дүн"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__analytic_account_id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__analytic_account_id
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
-msgid "Analytic account"
-msgstr "Шинжилгээний данс"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "Approve"
-msgstr "Зөвшөөрөх"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_company__type_approve_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_config_settings__type_approve_expense
-msgid "Approve expense"
-msgstr "Шаардах хуудсыг батлах"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__res_company__type_approve_expense__1
-msgid "Approve without checking the balance of the product"
-msgstr "Барааны үлдэгдэл шалгахгүйгээр батална"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense__state__approved
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense_workflow_history__action__approved
-msgid "Approved"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__approver_id
+msgid "Approved User"
 msgstr "Баталсан"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Approved"
-msgstr "Зөвшөөрсөн"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_attachment_count
@@ -159,17 +43,9 @@ msgid "Attachment Count"
 msgstr "Хавсралтын тоо"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__available_qty
-msgid "Available quantity"
-msgstr "Боломжит тоо хэмжээ"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid ""
-"Can't find any related employee for your user. Only employee can create bill"
-" of expense."
-msgstr "Нэвтэрсэн хэрэглэгчтэй холбоотой ажилтан олдсонгүй. Зөвхөн системд ажилтанаар бүртгэгдсэн хэрэглэгч шаардах хуудас үүсгэж чадна."
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__attributes
+msgid "Attributes"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
@@ -177,192 +53,52 @@ msgid "Cancel"
 msgstr "Цуцлах"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense__state__cancel
-msgid "Cancelled"
-msgstr "Цуцлагдсан"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid ""
-"Cannot cancel product expense !\n"
-" Because picking state is Done of reception attached to this product expense."
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__company_id
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__company_id
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__company_id
+msgid "Company"
 msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__req_analytic_account
-msgid ""
-"Check this box if you want to require analytic account to account "
-"transitions."
-msgstr "Шаардах хуудсыг цуцалж чадахгүй ! Учир нь хийгдсэн төлөвтэй агуулахын баримт байна."
-
-#. module: l10n_mn_product_expense
-#: model:ir.model,name:l10n_mn_product_expense.model_res_company
-msgid "Companies"
-msgstr "Компаниуд"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__company_id
-msgid "Company"
-msgstr "Компани"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model,name:l10n_mn_product_expense.model_res_config_settings
-msgid "Config Settings"
-msgstr "Тохиргооны тохируулга"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense_workflow_history__action__confirmed
-msgid "Confirmed"
-msgstr "Батлагдсан"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Cost"
-msgstr "Өртөг"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__cost_center
-msgid "Cost center"
-msgstr "Өртгийн төв"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__count_out_stock_picking
-msgid "Count Out Stock Picking"
-msgstr "Агуулахын хөдөлгөөний тоо"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
+msgid "Confirm"
+msgstr "Батлах"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__create_uid
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__create_uid
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__create_uid
 msgid "Created by"
 msgstr "Үүсгэгч"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__create_date
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__create_date
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__create_date
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__create_date
 msgid "Created on"
-msgstr "Үүсгэсэн"
+msgstr "Үүсгэсэн огноо"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__date
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__date
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.product_expense_search
-msgid "Date"
-msgstr "Огноо"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Default Code"
-msgstr "Дотоод код"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__department_id
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.product_expense_search
-msgid "Department"
-msgstr "Хэлтэс"
+#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense_line__uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr "Агуулахын хөдөлгөөнд ашиглагдах үндсэн хэмжих нэгж."
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__description
 msgid "Description"
-msgstr "Тэмдэглэл"
+msgstr "Тайлбар"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__display_name
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__display_name
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__display_name
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_report_product_expense_templates__display_name
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_company__display_name
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_config_settings__display_name
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_picking__display_name
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_warehouse__display_name
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__display_name
 msgid "Display Name"
 msgstr "Дэлгэрэнгүй нэр"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense__state__done
-msgid "Done"
-msgstr "Дууссан"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense__state__draft
-msgid "Draft"
-msgstr "Ноорог"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__employee_id
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.product_expense_search
-msgid "Employee"
-msgstr "Ажилтан"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Employee"
-msgstr "Хүссэн"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid ""
-"Error!\n"
-"Product quantitiy must be greater than Zero."
-msgstr ""
-"Анхаар!\n"
-"Барааны тоо хэмжээ \"0\" байж болохгүй."
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.product_expense_search
-msgid "Expence Name/Note"
-msgstr "Шаардах дугаар/Тэмдэглэл"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__expense_id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__history_id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_picking__expense_id
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
-msgid "Expense"
-msgstr "Шаардах хуудас"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_warehouse__expense_account_id
-msgid "Expense Account"
-msgstr "Шаардахын данс"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
-msgid "Expense Date"
-msgstr "Шаардахын огноо"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
-msgid "Expense account"
-msgstr "Шаардахын данс"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "Expense form"
-msgstr "Шаардах"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__expense_line_ids
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__product_expense_line
 msgid "Expense line"
 msgstr "Шаардахын мөр"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "Expense lines"
-msgstr "Шаардахын мөрүүд"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_tree
-msgid "Expense tree"
-msgstr "Шаардах"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.product_expense_search
-msgid "Filter"
-msgstr "Шүүлтүүр"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_follower_ids
@@ -370,44 +106,25 @@ msgid "Followers"
 msgstr "Дагагчид"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Дагагчид(Суваг)"
-
-#. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Дагагчид(Харилцагчид)"
+msgstr "Дагагчид (Харицлагчид)"
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "From"
-msgstr "Хэнээс"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_search
+msgid "Group By..."
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Given"
-msgstr "Олгосон"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.product_expense_search
-msgid "Group By"
-msgstr "Бүлэглэх"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.message_link_for_picking_expense
-msgid "Has been"
-msgstr "Дараахаас"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__id
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_report_product_expense_templates__id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_company__id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_config_settings__id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_picking__id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_warehouse__id
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__id
 msgid "ID"
 msgstr ""
 
@@ -419,72 +136,60 @@ msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__message_has_error
+#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__res_company__type_approve_expense__0
-msgid ""
-"If the balance of the product is checked and the required quantity is not "
-"reached, it will not be approved"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__is_edit
+msgid "Is Edit"
 msgstr ""
-"Барааны үлдэгдэл шалгаж, шаардсан тоонд хүрэхгүй бол батлахгүй"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__is_creator
-msgid "Is Creator"
-msgstr "Үүсгэгч эсэх"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_is_follower
 msgid "Is Follower"
-msgstr "Дагагч эсэх"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__is_stock_manager
-msgid "Is Stock Manager"
-msgstr "Агуулахын менежер эсэх"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__is_validator
-msgid "Is Validator"
-msgstr "Батлагч эсэх"
+#: model:ir.model,name:l10n_mn_product_expense.model_account_move_line
+msgid "Journal Item"
+msgstr "Журналын бичилт"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense____last_update
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line____last_update
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history____last_update
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_report_product_expense_templates____last_update
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_company____last_update
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_config_settings____last_update
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_picking____last_update
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_warehouse____last_update
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value____last_update
 msgid "Last Modified on"
 msgstr "Сүүлд зассан огноо"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__write_uid
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__write_uid
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__write_uid
 msgid "Last Updated by"
-msgstr "Сүүлд засвар хийсэн"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__write_date
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__write_date
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__write_date
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__write_date
 msgid "Last Updated on"
-msgstr "Сүүлд засвар хийсэн огноо"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__stock_picking_type_id
-msgid "Location"
-msgstr "Байрлал"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
+msgid "Lines"
+msgstr "Мөрүүд"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_main_attachment_id
 msgid "Main Attachment"
-msgstr "Хавсралт"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:res.groups,name:l10n_mn_product_expense.group_product_expense_manager
+msgid "Manager"
+msgstr "Менежер"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_has_error
@@ -494,260 +199,109 @@ msgstr ""
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_ids
 msgid "Messages"
-msgstr "Зурвасууд"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__must_choose_account
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__must_choose_account
-msgid "Must Choose Account"
-msgstr "Заавал данс сонгох хэрэгтэй"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__name
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__name
-msgid "Name"
-msgstr "Нэр"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid "Not enough quantity!. Product %s"
-msgstr "Боломжит тоо хэмжээ хүрэлцэхгүй байна!. Бараа: %s"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__next_line_id
+msgid "Next Step"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_needaction_counter
 msgid "Number of Actions"
-msgstr "Үйлдлийн тоо"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_has_error_counter
 msgid "Number of errors"
-msgstr "Алдааны тоо"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Илгээгдээгүй алдаатай зурвасын тоо"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__message_unread_counter
 msgid "Number of unread messages"
-msgstr "Уншаагүй зурвасууд"
-
-#. module: l10n_mn_product_expense
-#: model:ir.actions.report,name:l10n_mn_product_expense.action_report_product_expense
-msgid "Print Product Expense"
-msgstr "Шаардах хуудас"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__product_id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__product_id
-msgid "Product"
-msgstr "Бараа"
-
-#. module: l10n_mn_product_expense
-#: model:ir.actions.act_window,name:l10n_mn_product_expense.action_product_expense
-#: model:ir.model,name:l10n_mn_product_expense.model_product_expense
-#: model:ir.ui.menu,name:l10n_mn_product_expense.menu_action_product_expense_my_all
-#: model:ir.ui.menu,name:l10n_mn_product_expense.menu_expense_root
-#: model:ir.ui.menu,name:l10n_mn_product_expense.menu_product_expense
-msgid "Product Expense"
-msgstr "Шаардах"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid ""
-"Product Expense Created:                                            <b>\n"
-"                                </b> ..............................\n"
-"                                 /"
 msgstr ""
-"Шаардах хуудас бичсэн:                                            <b>\n"
-"                                </b> ..............................\n"
-"                                 /"
 
 #. module: l10n_mn_product_expense
-#: model:ir.actions.act_window,name:l10n_mn_product_expense.action_product_expense_line
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__prev_line_id
+msgid "Previous Step"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model,name:l10n_mn_product_expense.model_product_expense
+#: model:ir.module.category,name:l10n_mn_product_expense.module_product_expense_config
+msgid "Product Expense"
+msgstr "БМ-ын шаардах"
+
+#. module: l10n_mn_product_expense
 #: model:ir.model,name:l10n_mn_product_expense.model_product_expense_line
-#: model:ir.ui.menu,name:l10n_mn_product_expense.menu_action_product_expense_line
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_tree
 msgid "Product Expense Line"
-msgstr "Шаардахын бараа"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.ui.menu,name:l10n_mn_product_expense.menu_product_expense_request
-msgid "Product Expense Request"
-msgstr "Шаардах хуудас"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_picking__product_expense_id
+msgid "Product expense"
+msgstr "БМ-ын шаардах"
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_expense_res_config_settings
-msgid "Product Expense Workflow"
-msgstr "Шаардах хуудасны ажлын урсгал"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model,name:l10n_mn_product_expense.model_product_expense_workflow_history
-msgid "Product Expense Workflow History"
-msgstr "Шаардах хуудасны ажлын урсгалын түүх"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Product Expense №"
-msgstr "Шаардах хуудас №"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Product Name"
-msgstr "Бараа материалын нэр"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid "Product expense delete only draft state!"
-msgstr "Зөвхөн ноорог төлөвтэй шаардах хуудас устгах боломжтой!"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid "Product expense delete only own!"
-msgstr "Зөвхөн өөрийн үүсгэсэн шаардах хуудсыг устгах боломжтой!"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid "Product expense line is not created"
-msgstr "Шаардахын мөр үүсээгүй байна"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__product_type
-msgid "Product type"
-msgstr "Барааны төлөв"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Purpose"
-msgstr "Зориулалт"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__quantity
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Quantity"
-msgstr "Тоо хэмжээ"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "Refuse"
-msgstr "Татгалзах"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense__state__refused
-msgid "Refused"
-msgstr "Татгалзсан"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense_workflow_history__action__rejected
-msgid "Rejected"
-msgstr "Татгалзсан"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model,name:l10n_mn_product_expense.model_report_product_expense_templates
-msgid "Report Product Expense"
-msgstr "Шаардах хуудсын баримт"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__req_analytic_account
-msgid "Require analytic account"
-msgstr "Шинжилгээний данс шаардах"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense_workflow_history__action__return
 #: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
 msgid "Return"
 msgstr "Буцаах"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense__state__returned
-msgid "Returned"
-msgstr "Буцаагдсан"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__returned_quantity
-msgid "Returned Quantity"
-msgstr "Буцаасан тоо хэмжээ"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.product_expense_search
-msgid "Search"
-msgstr "Хайх"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "Send"
-msgstr "Илгээх"
+msgid "SUM"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Sent Date"
-msgstr "Илгээсэн огноо"
+#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense_line__categ_id
+msgid "Select category for the current product"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__sent_date
-msgid "Sent date"
-msgstr "Илгээсэн огноо"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
+msgid "Set to draft"
+msgstr "Ноороглох"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__standard_price
-msgid "Standard Price"
-msgstr "Өртөг"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__signature_html
+msgid "Signature Html"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__state
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__state
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.product_expense_search
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__workflow_line_id
 msgid "State"
 msgstr "Төлөв"
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
-msgid "State Done"
-msgstr "Дууссан төлөвтэй шаардахын бараа"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__state_type
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__state_type
+msgid "State Type"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.actions.act_window,name:l10n_mn_product_expense.action_out_stock_picking
-msgid "Stock Picking"
-msgstr "Агуулахын үйл ажиллагаа"
+#: model:ir.model,name:l10n_mn_product_expense.model_stock_move
+msgid "Stock Move"
+msgstr "Барааны хөдөлгөөн"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__stock_picking_ids
-msgid "Stock picking"
-msgstr "Агуулахын үйл ажиллагаа"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid "There is no workflow defined!"
-msgstr "Шаардах хуудсыг батлах хэрэглэгчийг тохируулаагүй тул хадгалах боломжгүй!"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "To draft"
-msgstr "Ноороглох"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "Total"
-msgstr "Дүн"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__total_amount
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Total Amount"
-msgstr "Нийт дүн"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Total Amount:"
-msgstr "Нийт дүн:"
+#: model:ir.model,name:l10n_mn_product_expense.model_product_expense_transaction_value
+msgid "Transaction value"
+msgstr "Гүйлгээний загвар"
 
 #. module: l10n_mn_product_expense
 #: model:ir.model,name:l10n_mn_product_expense.model_stock_picking
@@ -755,129 +309,335 @@ msgid "Transfer"
 msgstr "Шилжүүлэг"
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Unit of Measure"
-msgstr "Хэмжих нэгж"
-
-#. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_unread
 msgid "Unread Messages"
-msgstr "Уншаагүй зурвасууд"
+msgstr ""
 
 #. module: l10n_mn_product_expense
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr "Уншаагүй зурвасын тоолуур"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "Validations"
-msgstr "Батлагчид"
+#: model:res.groups,name:l10n_mn_product_expense.group_product_expense_user
+msgid "User"
+msgstr "Хэрэглэгч"
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__user_id
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Validator"
-msgstr "Батлагч"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__date_user
+msgid "User Date"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__user_ids
-msgid "Validators"
-msgstr "Батлагчид"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__visible_workflow_line_ids
+msgid "Visible Workflow Lines"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__name
-msgid "Verification Step"
-msgstr "Батлах алхам"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense_workflow_history__action__waiting
-msgid "Waiting"
-msgstr "Хүлээгдсэн"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields.selection,name:l10n_mn_product_expense.selection__product_expense__state__waiting_approve
-msgid "Waiting for approve"
-msgstr "Батлахаар хүлээгдсэн"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model,name:l10n_mn_product_expense.model_stock_warehouse
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__warehouse_id
 #: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__warehouse_id
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
 msgid "Warehouse"
-msgstr "Агуулах"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: code:addons/l10n_mn_product_expense/models/product_expense.py:0
+#, python-format
+msgid ""
+"You cannot delete a product expense which is done. You should reopen it "
+"instead."
+msgstr "Нооргоос бусад шаардах устгах боломжгүй. Эхлээд ноороглоно уу."
 
 #. module: l10n_mn_product_expense
 #: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
-msgid "Warehouse Expense"
-msgstr "Зарлага"
-
-#. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid ""
-"Warning!\n"
-"You must select supply warehouse before add expense line!"
-msgstr ""
-"Анхаар!\n"
-"Мөр үүсгэхээс өмнө агуулах сонгоно!"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Where"
-msgstr "Хаана"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__workflow_id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_company__workflow_id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_res_config_settings__workflow_id
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_stock_warehouse__workflow_id
-msgid "Workflow"
-msgstr "Ажлын урсгал"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__history_line_ids
-msgid "Workflow History"
-msgstr "Ажлын урсгалын түүх"
-
-#. module: l10n_mn_product_expense
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__check_sequence
-#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_workflow_history__line_sequence
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "Workflow Step"
-msgstr "Ажлын урсгалын алхам"
-
-#. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.report_product_expense_document
-msgid "_________________________________________________________________"
+msgid "fix analytics"
 msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.message_link_for_picking_expense
-msgid "created"
-msgstr "үүсгэгдсэн"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.filter_product_expense_transaction_value_view
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_search
+msgid "Агуулахаар"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.message_link_for_picking_expense
-msgid "from:"
-msgstr ":"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__employee_id
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__employee_id
+msgid "Ажилтан"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.message_link_for_picking_expense
-msgid "modified"
-msgstr "засварлагдсан"
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
+msgid "Ажилтанаар"
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__account_analytic_id
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__account_analytic_id
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__account_analytic_id
+msgid "Аналитик данс"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
+msgid "Аналитик дансаар"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__categ_id
+msgid "Ангилал"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.actions.act_window,name:l10n_mn_product_expense.action_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__expense_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_transaction_value_tree
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_tree
+msgid "БМ шаардах"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
+msgid "БМ шаардахаар"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
+msgid "БМ шаардахын мөрүүд"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.ui.menu,name:l10n_mn_product_expense.product_expense_menu
+#: model:ir.ui.menu,name:l10n_mn_product_expense.root_product_expense_menu
+msgid "БМ-ын шаардах"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__product_id
+msgid "Бараа"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: code:addons/l10n_mn_product_expense/models/product_expense.py:0
 #, python-format
+msgid "Бараа зарлагадах мэдээллийг оруулна уу!"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__product_expense_line
+msgid "Бараа зарлагдах мэдээлэл"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
+msgid "Бараагаар"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__categ_ids
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__categ_ids
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__categ_ids
+msgid "Барааны ангилал"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__date_validator
+msgid "Баталсан огноо"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__validator_id
+msgid "Баталсан хэрэглэгч"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_search
+msgid "Батласан хэрэглэгчээр"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.filter_product_expense_transaction_value_view
+msgid "Бүлэглэх..."
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__transaction_value_id
+#: model:ir.ui.menu,name:l10n_mn_product_expense.product_expense_transaction_value_menu
+msgid "Гүйлгээний загвар"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.actions.act_window,name:l10n_mn_product_expense.action_transaction_value
+msgid "Гүйлгээний утга"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__account_id
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__account_id
+msgid "Данс"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.filter_product_expense_transaction_value_view
+msgid "Дансаар"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__name
+msgid "Дугаар"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__cost
+msgid "Дэд дүн"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__code
+msgid "Загварын код"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__name
+msgid "Загварын нэр"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__expense_picking_ids
+msgid "Зарлага хийсэн хөдөлгөөнүүд"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: code:addons/l10n_mn_product_expense/models/product_expense.py:0
+#, python-format
+msgid "Зарлагадах байрлал олдсонгүй!"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
+msgid "Зарлагын Баримт"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__expense_picking_count
+msgid "Зарлагын баримтын тоо"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
+msgid "Зарлагын мэдээлэл"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__active
+msgid "Идэвхитэй эсэх"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__warehouse_id
+msgid "Нийлүүлэх агуулах"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__cost_total
+msgid "Нийт үнэ"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_form
+msgid "Тайлбар..."
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__date_planned
+msgid "Товлосон огноо"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_search
+msgid "Товлосон огноогоор"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__date_planned
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_line_search
+msgid "Товолсон огноо"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__qty
+msgid "Тоо хэмжээ"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model_terms:ir.ui.view,arch_db:l10n_mn_product_expense.view_product_expense_search
+msgid "Төлөвөөр"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__warehouse_id
+msgid "Хамааралтай агуулах"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__partner_id
+msgid "Харилцагч"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__department_id
+msgid "Хэлтэс/нэгж"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__uom_id
+msgid "Хэмжих нэгж"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__department_id
+msgid "Хэрэв хэлтэс дээрх зардал бол сонгоно"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,help:l10n_mn_product_expense.field_product_expense__partner_id
 msgid ""
-"The selected account requires a analytic account, so please select the analytic account on the line"
-msgstr "Сонгосон данс шинжилгээний данс шаардах данс тул шинжилгээний дансыг мөрөн дээр сонгож өгнө үү"
+"Хэрэв ямар нэг борлуулалтанд зориулж дагалдах барааг зарлагадаж байгаа бол "
+"энд өөр харилцагч сонгоно."
+msgstr ""
 
 #. module: l10n_mn_product_expense
-#: code:addons/l10n_mn_product_expense/model/product_expense.py:0
-#, python-format
-msgid "The number of product expense quantity is 0"
-msgstr "Шаардахын мөрүүдын тоо хэмжээ 0 байна"
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__user_id
+msgid "Хэрэглэгч"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.actions.act_window,name:l10n_mn_product_expense.action_product_line_expense
+#: model:ir.ui.menu,name:l10n_mn_product_expense.product_expense_line_menu
+msgid "Шаардахын мөрүүд"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense__analytic_tag_ids
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_transaction_value__analytic_tag_ids
+msgid "Шинжилгээний пайз"
+msgstr ""
+
+#. module: l10n_mn_product_expense
+#: model:ir.model.fields,field_description:l10n_mn_product_expense.field_product_expense_line__available_qty
+msgid "Үлдэгдэл"
+msgstr ""
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Дагагчид (Суваг)"
+
+#~ msgid "Inventory Locations"
+#~ msgstr "Нөөцийн байрлалууд"

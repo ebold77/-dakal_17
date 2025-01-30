@@ -3,8 +3,8 @@
 
     <t t-name="EmdActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
 		<xpath expr="//div[hasclass('actionpad')]" position="inside">
-            <button class='button discount-pharm'
-            t-on-click="() => this._onClickDiscountPharm()">ЭМД Хөнгөлөлт</button>
+            <button class='button discount-pharm btn w-45 rounded-0 fw-bolder'
+            t-on-click="() => this._onClickDiscountPharm()">ЭМД ЖОР</button>
         </xpath>
     </t>
 
