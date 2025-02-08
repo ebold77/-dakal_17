@@ -44,19 +44,19 @@ class SaleOrder(models.Model):
                 _logger.info(u'Product Name:  %s ' % product.product_tmpl_id.name)
                 vals={'product_id': product.id,
                         'bar_code': product.barcode,
+                        'image_512':product.image_512,
                         'category': categ_name,
                         'product_name': product.product_tmpl_id.name,
-                        'unit_name': product.uom_id.name,
+                        'tbltSizeMixture': product.tbltSizeMixture,
+                        'tbltManufacture': product.tbltManufacture,
+                        'tbltType': product.tbltType,
+                        'conditions_granting': product.conditions_granting,
+                        'general_category_id': product.general_category_id.name,
+                        'uom_id': product.uom_id.id,
                         'uldegdel_qty': qty_available,
                         'sale_price': price,
-                        # 'manu_name': product.product_brand_ept_id.name,
                         'note': product.description,
-                        'conditions_granting': product.conditions_granting,
-                        'tbltManufacture': product.tbltManufacture,
-                        'general_category_id': product.general_category_id.name
-                        # 'product_name_inter': product_name_inter,
-                        # 'maximum_qty_per_sale':product.maximum_qty_per_sale,
-                        }
+                   }
                 
                 product_lot_ids = self.env['stock.lot'].search([('product_id', '=', product.id),
                                 ('expiration_date', '>=', datetime.today().strftime('%Y-%m-%d 23:23:59')),
@@ -96,19 +96,18 @@ class SaleOrder(models.Model):
                         
                         vals={'product_id': product.id,
                                 'bar_code': product.barcode,
+                                'image_128':product.image_128,
                                 'category': categ_name,
                                 'product_name': product.product_tmpl_id.name,
-                                'unit_name': product.uom_id.name,
+                                'tbltSizeMixture': product.tbltSizeMixture,
+                                'tbltManufacture': product.tbltManufacture,
+                                'tbltType': product.tbltType,
+                                'conditions_granting': product.conditions_granting,
+                                'general_category_id': product.general_category_id.name,
+                                'uom_id': product.uom_id.id,
                                 'uldegdel_qty': qty_available,
                                 'sale_price': price,
-                                # 'manu_name': product.product_brand_ept_id.name,
                                 'note': product.description,
-                                'conditions_granting': product.conditions_granting,
-                                'tbltManufacture': product.tbltManufacture,
-                                'general_category_id': product.general_category_id.name
-                                # 'product_name_inter': product_name_inter,
-                                # 'maximum_qty_per_sale':product.maximum_qty_per_sale,
-                                # 'discounted_price':discounted_price,
                                 }
                         _logger.info(u'Categ Name:  %s ' % categ_name)
                         _logger.info(u'Product Name:  %s ' % product.product_tmpl_id.name)
