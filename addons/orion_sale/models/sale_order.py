@@ -27,24 +27,30 @@ class SaleOrder(models.Model):
             qty_available = product.with_context({'warehouse': warehouse.id}).qty_available
             product_name_inter = ''
             if qty_available >0:
-                categ_name = ''
-                if product.insurance_list_id:
-                        product_name_inter =  product.insurance_list_id.tbltNameInter 
-                price = pricelist._get_product_price(product, qty_available, 1)
-                discounted_price = discounted_pricelist._get_product_price(product, qty_available, 1)
-                if product.public_categ_ids:
-                            for categ in product.public_categ_ids:
-                                categ_name = categ.name
-                _logger.info(u'Categ Name:  %s ' % categ_name)
+                
+                if product.emd_insurance_list_id:
+                        product_name_inter =  product.emd_insurance_list_id.tbltNameInter 
+                price = pricelist._get_product_price(
+                                product= product,
+                                quantity=1.0,
+                                currency=self.company_id.currency_id,
+                                date=self.date_order,
+                            )
+                discounted_price = discounted_pricelist._get_product_price(
+                                product= product,
+                                quantity=1.0,
+                                currency=self.company_id.currency_id,
+                                date=self.date_order,
+                            )
                 _logger.info(u'Product Name:  %s ' % product.product_tmpl_id.name)
                 vals={'product_id': product.id,
                         'bar_code': product.barcode,
-                        'category': categ_name,
+                        'category': product.product_tmpl_id.general_category_id.name,
                         'product_name': product.product_tmpl_id.name,
                         'unit_name': product.uom_id.name,
                         'uldegdel_qty': qty_available,
                         'sale_price': price,
-                        'manu_name': product.product_brand_ept_id.name,
+                        'manu_name': product.tbltManufacture,
                         'note': product.description,
                         'product_name_inter': product_name_inter,
                         'maximum_qty_per_sale':product.maximum_qty_per_sale,
@@ -55,35 +61,43 @@ class SaleOrder(models.Model):
             for sub_categ in category.search([('id', 'child_of', category.ids)]):
                 for product in self.env['product.product'].search([('categ_id', 'in', sub_categ.ids)]):
                     qty_available = product.with_context({'warehouse': warehouse.id}).qty_available
+
                     product_name_inter = ''
-                    categ_name = ''
+
                     if qty_available >0:
                         
-                        # if product.insurance_list_id:
-                        #     product_name_inter =  product.insurance_list_id.tbltNameInter 
+                        if product.emd_insurance_list_id:
+                            product_name_inter =  product.emd_insurance_list_id.tbltNameInter 
                         
-                        price = pricelist._get_product_price(product, qty_available, 1)
-                        if product.public_categ_ids:
-                            for categ in product.public_categ_ids:
-                                categ_name = categ.name
-                        discounted_price = discounted_pricelist._get_product_price(product, qty_available, 1)
+                        price = pricelist._get_product_price(
+                                product= product,
+                                quantity=1.0,
+                                currency=self.company_id.currency_id,
+                                date=self.date_order,
+                            )
+                        discounted_price = discounted_pricelist._get_product_price(
+                                product= product,
+                                quantity=1.0,
+                                currency=self.company_id.currency_id,
+                                date=self.date_order,
+                            )
                         vals={'product_id': product.id,
                                 'bar_code': product.barcode,
-                                'category': categ_name,
+                                'category': product.product_tmpl_id.general_category_id.name,
                                 'product_name': product.product_tmpl_id.name,
                                 'unit_name': product.uom_id.name,
                                 'uldegdel_qty': qty_available,
                                 'sale_price': price,
-                                'manu_name': product.product_brand_ept_id.name,
+                                'manu_name': product.tbltManufacture,
                                 'note': product.description,
                                 'product_name_inter': product_name_inter,
                                 'maximum_qty_per_sale':product.maximum_qty_per_sale,
                                 'discounted_price':discounted_price,
                                 }
-                        _logger.info(u'Categ Name:  %s ' % categ_name)
+                        _logger.info(u'Categ Name:  %s ' % product.product_tmpl_id.general_category_id.name)
                         _logger.info(u'Product Name:  %s ' % product.product_tmpl_id.name)
                         products.append(vals)
-        print('products===================================>>\n')
+
         return products
 
     ############# Нэг харилцагч Регистрийн дугаараар Татах ################

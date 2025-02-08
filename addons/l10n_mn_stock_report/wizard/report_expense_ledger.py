@@ -310,7 +310,6 @@ class ReportExpenseLedger(models.TransientModel):
         output = io.BytesIO()
         workbook = xlsxwriter.Workbook(output, {'in_memory': True})
         wiz = self.read()[0]
-        print('wiz=======================', wiz)
         comp = self.env.user.company_id.name
         
         format0 = workbook.add_format({'font_size': 10, 'align': 'left', 'bold': True})

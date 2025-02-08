@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- Khanbank Currency Rate -->
+        <record id="khanbank_currency_rate_search" model="ir.ui.view">
+            <field name="name">khanbank.currency.rate.search</field>
+            <field name="model">khanbank.currency.rate</field>
+            <field name="arch" type="xml">
+                <search string="Khanbank Currency Rates">
+                    <field name="name" string="Date"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="khanbank_currency_rate_tree" model="ir.ui.view">
+            <field name="name">khanbank.currency.rate.tree</field>
+            <field name="model">khanbank.currency.rate</field>
+            <field name="arch" type="xml">
+                <tree string="Khanbank Currency Rates">
+                    <field name="name"/>
+                    <field name="currency_id"/>
+                    <field name="mid_rate" digits="[12,12]"/>
+                    <field name="buy_rate" digits="[12,12]"/>
+                    <field name="sell_rate" digits="[12,12]"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="khanbank_currency_rate_form" model="ir.ui.view">
+            <field name="name">khanbank.currency.rate.form</field>
+            <field name="model">khanbank.currency.rate</field>
+            <field name="arch" type="xml">
+                <form string="Khanbank Currency Rate">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="mid_rate" digits="[12,12]"/>
+                                <field name="buy_rate" digits="[12,12]"/>
+
+                            </group>
+                            <group>
+                                <field name="currency_id"/>
+                                <field name="sell_rate" digits="[12,12]"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="act_khanbank_view_currency_rates" model="ir.actions.act_window">
+            <field name="name">Khanbank Currency Rates</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">khanbank.currency.rate</field>
+            <field name='view_mode'>tree,form</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="khanbank_currency_rate_search"/>
+            <field name='view_id' ref='khanbank_currency_rate_tree'/>
+        </record>
+
+        <!-- Khanbank Currency -->
+        <record id="khanbank_currency_search" model="ir.ui.view">
+            <field name="name">khanbank.currency.search</field>
+            <field name="model">khanbank.currency</field>
+            <field name="arch" type="xml">
+                <search string="Khanbank Currencies">
+                    <field name="name" string="Date"/>
+                    <field name="symbol"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="khanbank_currency_tree" model="ir.ui.view">
+            <field name="name">khanbank.currency.tree</field>
+            <field name="model">khanbank.currency</field>
+            <field name="arch" type="xml">
+                <tree string="Khanbank Currencies">
+                    <field name="symbol"/>
+                    <field name="name"/>
+                    <field name="rate_ids" invisible="1"/>
+                    <field name="date"/>
+                    <field name="mid_rate" digits="[12,12]"/>
+                    <field name="buy_rate" digits="[12,12]"/>
+                    <field name="sell_rate" digits="[12,12]"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="khanbank_currency_form" model="ir.ui.view">
+            <field name="name">khanbank.currency.form</field>
+            <field name="model">khanbank.currency</field>
+            <field name="arch" type="xml">
+                <form string="Khanbank Currency">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" string="Rates" type="action"
+                                    name="%(act_khanbank_view_currency_rates)d"
+                                    icon="fa-money" widget="statinfo"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="rate_ids" invisible="1"/>
+                                <field name="date"/>
+                                <field name="buy_rate" digits="[12,12]"/>
+                            </group>
+                            <group>
+                                <field name="symbol"/>
+                                <field name="mid_rate" digits="[12,12]"/>
+                                <field name="sell_rate" digits="[12,12]"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="act_khanbank_view_currency" model="ir.actions.act_window">
+            <field name="name">Khanbank Currency</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">khanbank.currency</field>
+            <field name='view_mode'>tree,form</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="khanbank_currency_search"/>
+            <field name='view_id' ref='khanbank_currency_tree'/>
+        </record>
+
+        <!-- Khanbank Bank -->
+        <record id="khanbank_bank_form" model="ir.ui.view">
+            <field name="name">khanbank.bank.view.form</field>
+            <field name="model">khanbank.bank</field>
+            <field name="arch" type="xml">
+                <form string="Khanbank Bank">
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="bic"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="khanbank_bank_tree" model="ir.ui.view">
+            <field name="name">khanbank.bank.view.tree</field>
+            <field name="model">khanbank.bank</field>
+            <field name="arch" type="xml">
+                <tree string="Khanbank Banks">
+                    <field name="name"/>
+                    <field name="bic"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="khanbank_bank_search" model="ir.ui.view">
+            <field name="name">khanbank.bank.view.search</field>
+            <field name="model">khanbank.bank</field>
+            <field name="arch" type="xml">
+                <search string="Banks">
+                    <field name="name"/>
+                    <field name="bic"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="act_khanbank_view_bank" model="ir.actions.act_window">
+            <field name="name">Khanbank Banks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">khanbank.bank</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="khanbank_bank_search"/>
+            <field name="view_id" ref="khanbank_bank_tree"/>
+        </record>
+
+        <menuitem name='Khanbank' id='khanbank_root_menu' parent='account.menu_finance_configuration'/>
+        <menuitem action="act_khanbank_view_bank" id="khanbank_bank"
+                  parent="khanbank_root_menu" sequence='2'/>
+        <menuitem action="act_khanbank_view_currency" id="khanbank_currency"
+                  parent="khanbank_root_menu" sequence='4'/>
+        <menuitem action="act_khanbank_view_currency_rates" id="khanbank_currency_rate"
+                  parent="khanbank_root_menu" sequence='6'/>
+    </data>
+</odoo>

@@ -33,10 +33,10 @@
                         <group>
                             <field name="create_date" invisible="1"/>
                             <field name="line_count" invisible="1"/>
-                            <button name="button_generate_steps" type="object" attrs="{'invisible':['|', ('line_count', '!=', 0),('create_date', '=', False)]}" string="Generate steps" icon="fa-random" class="oe_highlight"/>
+                            <button name="button_generate_steps" type="object" invisible="'line_count', '!=', 0" string="Generate steps" icon="fa-random" class="oe_highlight"/>
                         </group>
                         <group >
-                            <field name="line_ids" nolabel="1" >
+                            <field name="line_ids">
                                 <tree editable="bottom">
                                     <field name="sequence" widget="handle" groups="base.group_no_one"/>
                                     <field name="name"/>

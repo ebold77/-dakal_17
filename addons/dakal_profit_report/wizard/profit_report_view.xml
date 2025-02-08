@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="profit_loss_calculation_report_xlsx_form" model="ir.ui.view">
+	    <field name="name">profit.calculation.report.xlsx.form</field>
+	    <field name="model">profit.calculation.report</field>
+	    <field name="arch"  type="xml">
+	        <form string="Profit and Loss Calculation Report">
+	            <group col="2">
+		           <field name="company_id" readonly="1"/>
+                   <field name="start_date"/>
+                   <field name="end_date"/>       	
+	            </group>
+               
+	            <footer>
+	                <button name="export_report_xls" type="object"
+	                    class="btn-primary" string="Generate"/>
+	                <button special="cancel" string="Close" class="btn-default"/>
+	            </footer>
+	        </form>
+	    </field>
+	</record>
+
+	<record id="profit_loss_calculation_report_xlsx_action" model="ir.actions.act_window">
+	    <field name="name">Cost Percentage Calculation Report</field>
+	    <field name="res_model">profit.calculation.report</field>
+	    <field name="view_mode">form</field>
+	    <field name="target">new</field>
+	</record>
+
+	<!-- Replace native menu, to avoid user confusion 
+	<record id="stock_account.menu_action_wizard_valuation_history" model="ir.ui.menu">
+	    <field name="action" ref="stock_valuation_xlsx.stock_valuation_xlsx_action"/>
+	    <field name="name">Stock Valuation XLSX</field>
+	    <field name="sequence">0</field>
+	</record>
+	-->
+
+	 <menuitem id="menu_profit_loss_calculation" name="Cost Percentage Calculated Report" action="profit_loss_calculation_report_xlsx_action"
+	              parent="account.account_reports_management_menu"
+              sequence="1"/>
+
+</odoo>

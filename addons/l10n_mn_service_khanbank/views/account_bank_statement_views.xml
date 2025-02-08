@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_bank_statement_form_khanbank" model="ir.ui.view">
+            <field name="name">account_bank_statement_form_khanbank</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="account.view_bank_statement_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='amount']" position="after">
+                    <field name="online_partner_bank_account" readonly="True"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

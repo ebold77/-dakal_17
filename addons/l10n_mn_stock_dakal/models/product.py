@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
+from datetime import datetime
+
 from odoo import api, fields, models, _
 from odoo import exceptions
 import odoo.addons.decimal_precision as dp  # @UnresolvedImport
@@ -23,6 +25,8 @@ class ProductTemplate(models.Model):
         ('prescription_drug', 'Мансууруулах эмийн жороор'),
         ('use_medical', 'Эмнэлгийн нөхцөлд хэрэглэнэ')
     ], string='Conditions Granting')
+    maximum_qty_per_sale = fields.Float('Нэг захиалгын дээд хэмжээ', default=0)
+    availability_qty_per_day = fields.Float('Нэг өдрийн захиалгын дээд тоо хэмжээ', default=0)
     
     @api.onchange('register_id')
     def onchange_register_id(self):

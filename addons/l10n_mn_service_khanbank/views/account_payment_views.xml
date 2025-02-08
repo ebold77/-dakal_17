@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_payment_form_inherit_khanbank" model="ir.ui.view">
+        <field name="name">account.payment.form.khanbank</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_bank_id']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': [('show_partner_bank_account','!=',True)], 'required': ['&amp;',('show_partner_bank_account','=',True),('state','=','draft')],
+                    'readonly': [('state','!=','draft')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='ref']" position="attributes">
+                <attribute name="attrs">
+                    {'required':['|',('direct_khanbank_pay','=',True),('payment_method_code','=','khanbank')]}
+                </attribute>
+            </xpath>
+            <field name="payment_method_id" position="after">
+                <field name="journal_currency_id" invisible="1"/>
+                <field name="show_khanbank_data" invisible="1"/>
+                <field name="direct_khanbank_pay"
+                       attrs="{'invisible': [('payment_method_code','!=', 'khanbank')], 'readonly': [('state','!=','draft')]}"
+                       groups="es_bank_service_khanbank.group_account_manager_khanbank"/>
+                <field name="loginName" attrs="{'invisible': [('direct_khanbank_pay', '=', False)]}"/>
+                <field name="tranPassword" password="True"
+                       attrs="{'invisible': [('direct_khanbank_pay', '=', False)]}"/>
+                <field name="transaction_currency_type" force_save="True"
+                       attrs="{'invisible': ['&amp;',('direct_khanbank_pay','=',False),('payment_method_code','!=','khanbank')],
+                                                                                                   'readonly': ['|',('state','!=','draft'),'&amp;',('direct_khanbank_pay','=',False),('payment_method_code','!=','khanbank')],
+                                                                                                   'required': ['|',('direct_khanbank_pay','=',True),('payment_method_code','=','khanbank')]}"/>
+                <field name="account_balance" readonly="True" force_save="True"
+                       attrs="{'invisible': ['&amp;',('direct_khanbank_pay','=',False),('payment_method_code','!=','khanbank')]}"/>
+                <field name="transaction_type"
+                       attrs="{'invisible': ['&amp;',('direct_khanbank_pay','=',False),('payment_method_code','!=','khanbank')]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

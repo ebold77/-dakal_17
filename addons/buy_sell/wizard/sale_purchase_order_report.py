@@ -6,6 +6,7 @@ import pytz
 import json
 import datetime
 import io
+import base64
 from odoo import api, fields, models, _
 from odoo.tools import date_utils
 try:
@@ -27,30 +28,34 @@ class SalePurchaseOrderReport(models.TransientModel):
     end_date = fields.Date(
         string='End Date',
         default=date.today())
-    
-    def export_xls(self):
-        data = {
-            'ids': self.ids,
-            'model': self._name,
-            'start_date': self.start_date,
-            'end_date': self.end_date,
 
-        }
-        return {
-            'type': 'ir.actions.report',
-            'data': {'model': 'sale.purchase.order.report',
-                     'options': json.dumps(data, default=date_utils.json_default),
-                     'output_format': 'xlsx',
-                     'report_name': 'SPO report',
-                     },
-            'report_type': 'xlsx'
-        }
+    datas = fields.Binary('File', readonly=True)
+    datas_fname = fields.Char('Filename', readonly=True)
+    
+    # def export_xls(self):
+    #     data = {
+    #         'ids': self.ids,
+    #         'model': self._name,
+    #         'start_date': self.start_date,
+    #         'end_date': self.end_date,
+
+    #     }
+    #     return {
+    #         'type': 'ir.actions.report',
+    #         'data': {'model': 'sale.purchase.order.report',
+    #                  'options': json.dumps(data, default=date_utils.json_default),
+    #                  'output_format': 'xlsx',
+    #                  'report_name': 'SPO report',
+    #                  },
+    #         'report_type': 'xlsx'
+    #     }
 
 
     def get_lines(self, data):
         lines = []
-        start_date =  data['start_date'] + ' 00:00:00'
-        end_date =  data['end_date'] + ' 23:59:59'
+        
+        start_date =  data['start_date'].strftime("%Y-%m-%d") + ' 00:00:00'
+        end_date =  data['end_date'].strftime("%Y-%m-%d") + ' 23:59:59'
         
         self._cr.execute("""SELECT spo.id, partner.name as partner_name, spo.date_order, s_o.name as sale_ref, sum(out_line.product_qty) AS out_qty, \
             sum(out_line.bs_price_total) AS out_barter_price, sum(out_line.list_price_total) AS out_list_price, \
@@ -80,12 +85,16 @@ class SalePurchaseOrderReport(models.TransientModel):
             lines.append(vals)
         return lines
 
-    def get_xlsx_report(self, data, response):
+    def get_xlsx_report(self):
         output = io.BytesIO()
         workbook = xlsxwriter.Workbook(output, {'in_memory': True})
-        lines = self.browse(data['ids'])
+        wiz = self.read()[0]
+        print('wiz=======================', wiz)
+        # lines = self.browse(wiz['ids'])
      
         comp = self.env.user.company_id.name
+        report_name = 'Buy Sell Ledger Report'
+        filename = report_name
         
         sheet = workbook.add_worksheet('Barter')
         sheet.set_landscape()
@@ -106,8 +115,8 @@ class SalePurchaseOrderReport(models.TransientModel):
         red_mark.set_align('center')
         sheet.merge_range(0, 1, 0, 10, u'Байгууллагын нэр: %s' %comp, format0)
         sheet.merge_range(1, 1, 1, 10, u'Худалдах худалдан авалтын товчоо тайлан', format0)
-        sheet.merge_range(2, 1, 2, 10, u'Эхлэх огноо: %s' %data['start_date'], format0)
-        sheet.merge_range(3, 1, 3, 10, u'Дуусах огноо: %s' %data['end_date'], format0)
+        sheet.merge_range(2, 1, 2, 10, u'Эхлэх огноо: %s' %wiz['start_date'], format0)
+        sheet.merge_range(3, 1, 3, 10, u'Дуусах огноо: %s' %wiz['end_date'], format0)
         user = self.env['res.users'].browse(self.env.uid)
         tz = pytz.timezone(user.tz if user.tz else 'UTC')
         times = pytz.utc.localize(datetime.datetime.now()).astimezone(tz)
@@ -139,10 +148,10 @@ class SalePurchaseOrderReport(models.TransientModel):
         sheet.write(row+1, 18, u'Цэвэр борлуулах үнэ', format1)
         sheet.merge_range(row,19, row+1, 19, u'Бартерийн боломжит ашиг', format1)
         row +=2
-        get_line = self.get_lines(data)
+        # get_line = self.get_lines(wiz)
 
-        start_date =  data['start_date'] + ' 00:00:00'
-        end_date =  data['end_date'] + ' 23:59:59'
+        start_date =  wiz['start_date'].strftime("%Y-%m-%d") + ' 00:00:00'
+        end_date =  wiz['end_date'].strftime("%Y-%m-%d") + ' 23:59:59'
 
         spo_obj = self.env['buy.sell.order'].search([('date_order', '>=', start_date),
                                                     ('date_order','<=', end_date),
@@ -236,6 +245,13 @@ class SalePurchaseOrderReport(models.TransientModel):
         sheet.merge_range(row+3, 2, row+3, 8, u'Ерөнхий нягтлан бодогч: \t\t\t\t\t\t/\t\t\t\t\t\t/' , font_size_8_l)
 
         workbook.close()
-        output.seek(0)
-        response.stream.write(output.read())
+        out = base64.encodebytes(output.getvalue())
+        self.write({'datas': out, 'datas_fname': filename})
         output.close()
+        filename += '%2Exlsx'
+
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': 'web/content/?model='+self._name+'&id='+str(self.id)+'&field=datas&download=true&filename='+filename,
+        }

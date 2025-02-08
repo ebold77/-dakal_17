@@ -67,7 +67,7 @@ class ProductExpense(models.Model):
     def onchange_employee_id(self):
         if self.employee_id:
             self.department_id = self.employee_id.sudo().department_id
-            self.partner_id = self.employee_id.sudo().address_home_id
+            self.partner_id = self.employee_id.sudo().user_id.partner_id
         else:
             self.department_id = False
             self.partner_id = False

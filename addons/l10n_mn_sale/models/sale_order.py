@@ -30,14 +30,15 @@ class SaleOrder(models.Model):
     warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse' )
     is_contract = fields.Selection([('no_contract', 'No Contract'),
                                ('contract', 'Contract'),
-                               ('loan_contract', 'Loan Contract')], string='Is Contract', default='no_contract')
+                               ('loan_contract', 'Loan Contract')], string='Is Contract', default='no_contract', compute='_compute_is_contract',)
 
-       
-    @api.onchange('partner_id')
-    def _onchange_partner_id(self):
+
+    @api.depends('partner_id')
+    def _compute_is_contract(self):
         self.is_contract = self.partner_id.is_contract
         self.partner_employee_phone = self.partner_id.mobile
 
+  
     def _prepare_invoice(self):
         invoice_vals = super(SaleOrder, self)._prepare_invoice()
         invoice_vals.update({'warehouse_id': self.warehouse_id.id,
@@ -46,3 +47,5 @@ class SaleOrder(models.Model):
                             })
 
         return invoice_vals
+
+    

@@ -5,6 +5,7 @@ import pytz
 import json
 import datetime
 import io
+import base64
 from odoo import api, fields, models, _
 from odoo.tools import date_utils
 try:
@@ -19,26 +20,7 @@ class ReportincomeLedger(models.TransientModel):
     _name = 'report.income.ledger'
     # _inherit = 'abstract.report.model'
     _description = 'Report Income Ledger'
-    
-    # def _get_pos_install(self):
-    #     '''
-    #         Посын модуль суусан эсэхийг шалгана.
-    #     '''
-    #     pos_obj = self.env['ir.module.module'].search([('state','=','installed'), ('name','=','point_of_sale')]) 
-    #     if pos_obj:
-    #         return True
-    #     return False
-    
-    # def _get_mrp_install(self):
-    #     '''
-    #         Үйлдвэрлэлийн модуль суусан эсэхийг шалгана.
-    #     '''
-    #     mrp_obj = self.env['ir.module.module'].search([('state','=','installed'), ('name','=','mrp')]) 
-    #     if mrp_obj:
-    #         return True
-    #     return False
 
-    
     company_id = fields.Many2one('res.company', 'Company', readonly=True, default=lambda self: self.env.company.id)
     warehouse_ids = fields.Many2many('stock.warehouse', 'report_income_ledger_warehouse_rel',
                             'wizard_id', 'warehouse_id', 'Warehouse')
@@ -59,6 +41,9 @@ class ReportincomeLedger(models.TransientModel):
     mrp =        fields.Boolean('MRP Production', default = True)
     report_type =       fields.Selection([('detail','Detail'),('summary','Summary')], 'report_type', default='summary', required=True)
     cost =       fields.Boolean('Show Cost Amount?', default = True)
+
+    datas = fields.Binary('File', readonly=True)
+    datas_fname = fields.Char('Filename', readonly=True)
     # pos_install =   fields.Boolean('Pos Install', default=_get_pos_install)
     # mrp_install =   fields.Boolean('MRP Install', default=_get_mrp_install)
         
@@ -73,35 +58,10 @@ class ReportincomeLedger(models.TransientModel):
           (form.date_from, form.date_to, wnames)
         return body
 
-
-    def export_report_xls(self):
-       
-        data = {
-            'ids': self.ids,
-            'model': self._name,
-            'start_date': self.date_from,
-            'end_date': self.date_to,
-            'report_type': self.report_type,
-            'pos': self.pos,
-            'procure': self.procure,
-            'refund': self.refund,
-            'inventory': self.inventory,
-            'purchase': self.pos,
-             }
-        return {
-            'type': 'ir.actions.report',
-            'data': {'model': 'report.income.ledger',
-                     'options': json.dumps(data, default=date_utils.json_default),
-                     'output_format': 'xlsx',
-                     'report_name': 'Орлогын товчоо тайлан',
-                     },
-            'report_type': 'xlsx'
-        }
-
     def get_lines(self, data, picking_type_id):
         lines = []
-        start_date =  data['start_date'] + ' 00:00:00'
-        end_date =  data['end_date'] + ' 23:59:59'
+        start_date =  data['date_from'].strftime("%Y-%m-%d") + ' 00:00:00'
+        end_date =  data['date_to'].strftime("%Y-%m-%d") + ' 23:59:59'
    
         res = {}
         name_dict = {}
@@ -109,7 +69,7 @@ class ReportincomeLedger(models.TransientModel):
         cost_list = []
         income_query = """
                SELECT sp.id as picking_id, sp.date_done as date_done, sp.name as name, sp.origin as origin, sp.partner_id as partner_name, 
-               sum(sm_l.qty_done) AS product_qty, sum(sm.price_unit * sm_l.qty_done) as cost_amount 
+               sum(sm_l.quantity) AS product_qty, sum(sm.price_unit * sm_l.quantity) as cost_amount 
                FROM stock_picking AS sp
                JOIN stock_move_line AS sm_l ON sm_l.picking_id = sp.id
                JOIN product_product AS pp ON sm_l.product_id = pp.id
@@ -130,13 +90,13 @@ class ReportincomeLedger(models.TransientModel):
         self._cr.execute("SELECT cast(m.date as date) AS date, m.id AS move_id, m.origin_returned_move_id AS return_id, rp.id as partner_name, "
                             "m.product_id AS prod_id, p.id as picking_id, p.name as name, p.origin as origin,"
                             "(CASE WHEN m.purchase_line_id is not null THEN 'purchase' "
-                                "WHEN m.inventory_id is not null THEN 'inventory' "
+                                # "WHEN m.inventory_id is not null THEN 'inventory' "
                                 "WHEN m.picking_id is not null and p.transit_order_id is not null THEN 'procure' "+select_type+" "
                                 "WHEN m.orderpoint_id is not null THEN 'procure' "
                                 "WHEN m.origin_returned_move_id is not null THEN 'refund' ELSE 'pos' END) AS rep_type, "
-                            "SUM(sm_l.qty_done) AS qty, "
-                            "SUM(coalesce((m.price_unit * sm_l.qty_done),0)) AS cost, "
-                            "SUM(coalesce((m.price_unit * sm_l.qty_done),0)) AS amount "
+                            "SUM(sm_l.quantity) AS qty, "
+                            "SUM(coalesce((m.price_unit * sm_l.quantity),0)) AS cost, "
+                            "SUM(coalesce((m.price_unit * sm_l.quantity),0)) AS amount "
                         "FROM stock_move AS m "
                             "LEFT JOIN stock_picking AS p ON (m.picking_id = p.id) "
                             "JOIN stock_move_line AS sm_l ON sm_l.move_id = m.id "
@@ -181,8 +141,6 @@ class ReportincomeLedger(models.TransientModel):
             if r['rep_type'] == 'procure' and not data['procure']:
                 continue
             if r['rep_type'] == 'refund' and not data['refund']:
-                continue
-            if r['rep_type'] == 'inventory' and not data['inventory']:
                 continue
             if r['rep_type'] == 'purchase' and not data['purchase']:
                 continue
@@ -264,7 +222,7 @@ class ReportincomeLedger(models.TransientModel):
 
 
         #         #     price_query = """
-        #         #         SELECT sp.id as picking_id, sum(sol.price_total* sol.discount/100) as discount, sum(sol.price_unit * sm_l.qty_done) as listprice_ammount, 
+        #         #         SELECT sp.id as picking_id, sum(sol.price_total* sol.discount/100) as discount, sum(sol.price_unit * sm_l.quantity) as listprice_ammount, 
         #         #         sum(sol.price_tax) as price_tax, sum(sol.price_subtotal) as price_subtotal, 
         #         #         sum(sol.price_total) as price_total, sum(svl.value) as cost_amount 
         #         #        FROM stock_picking AS sp
@@ -306,10 +264,11 @@ class ReportincomeLedger(models.TransientModel):
 
         return res
 
-    def get_xlsx_report(self, data, response):
+    def export_report_xls(self):
         output = io.BytesIO()
         workbook = xlsxwriter.Workbook(output, {'in_memory': True})
-        wiz = self.browse(data['ids'])
+        wiz = self.read()[0]
+        print('wiz=======================', wiz)
         
         comp = self.env.user.company_id.name
         
@@ -330,15 +289,18 @@ class ReportincomeLedger(models.TransientModel):
         format1.set_align('center')
         red_mark.set_align('center')
 
+        report_name = 'Stock Income Ledger Report'
+        filename = report_name
+
         
-        for warehouse in wiz.warehouse_ids:
-            
+        for warehouse_id in wiz['warehouse_ids']:
+            warehouse = self.env['stock.warehouse'].browse(warehouse_id)
             sheet = workbook.add_worksheet(warehouse.name)
             sheet.set_landscape()
             sheet.merge_range(0, 1, 0, 10, u'Байгууллагын нэр: %s' %comp, format0)
             sheet.merge_range(1, 1, 1, 10, u'Орлогын товчоо тайлан', format0)
-            sheet.merge_range(2, 1, 2, 10, u'Эхлэх огноо: %s' %data['start_date'], format0)
-            sheet.merge_range(3, 1, 3, 10, u'Дуусах огноо: %s' %data['end_date'], format0)
+            sheet.merge_range(2, 1, 2, 10, u'Эхлэх огноо: %s' %wiz['date_from'], format0)
+            sheet.merge_range(3, 1, 3, 10, u'Дуусах огноо: %s' %wiz['date_to'], format0)
             user = self.env['res.users'].browse(self.env.uid)
             tz = pytz.timezone(user.tz if user.tz else 'UTC')
             times = pytz.utc.localize(datetime.datetime.now()).astimezone(tz)
@@ -366,7 +328,7 @@ class ReportincomeLedger(models.TransientModel):
             
             row +=1
             j = 0
-            get_line = self.get_lines(data, warehouse.in_type_id.id)
+            get_line = self.get_lines(wiz, warehouse.in_type_id.id)
 
             for val in get_line.values():
 
@@ -383,8 +345,8 @@ class ReportincomeLedger(models.TransientModel):
                     name = u'Солилцоо'
                 elif val['name'] == 'refund':
                     name = u'Буцаалт'
-                elif val['name'] == 'inventory':
-                    name = u'Тооллого'
+                # elif val['name'] == 'inventory':
+                #     name = u'Тооллого'
                 sheet.merge_range(row, 0, row, 4, name, format1)
                 sum_row = row
                 total_cost = 0
@@ -429,7 +391,14 @@ class ReportincomeLedger(models.TransientModel):
             sheet.merge_range(row+3, 2, row+3, 8, u'Эд хариуцагч  .................................. (                                   )' , font_size_8_l)
 
         workbook.close()
-        output.seek(0)
-        response.stream.write(output.read())
+        out = base64.encodebytes(output.getvalue())
+        self.write({'datas': out, 'datas_fname': filename})
         output.close()
+        filename += '%2Exlsx'
+
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': 'web/content/?model='+self._name+'&id='+str(self.id)+'&field=datas&download=true&filename='+filename,
+        }
     

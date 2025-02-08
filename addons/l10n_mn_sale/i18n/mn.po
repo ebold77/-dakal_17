@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_mn_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-03 02:48+0000\n"
+"PO-Revision-Date: 2025-02-03 02:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mn_sale
+#: model:ir.model,name:l10n_mn_sale.model_res_partner
+msgid "Contact"
+msgstr "Харилцах хаяг"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields.selection,name:l10n_mn_sale.selection__res_partner__is_contract__contract
+#: model:ir.model.fields.selection,name:l10n_mn_sale.selection__sale_order__is_contract__contract
+msgid "Contract"
+msgstr "Гэрээтэй"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_sale_order__amount_discount
+msgid "Discount"
+msgstr "Хөнгөлөлт"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_sale_order__partner_employee_phone
+msgid "Employee Phone"
+msgstr "Захиалагч ажилтаны утасны дугаар"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_res_partner__partner_employee_name
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_res_users__partner_employee_name
+msgid "Employee name"
+msgstr "Захиалагч ажилтаны нэр"
+
+#. module: l10n_mn_sale
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sale.res_partner_mn_inheit
+msgid "Get"
+msgstr "Татах"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_res_partner__is_contract
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_res_users__is_contract
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_sale_order__is_contract
+msgid "Is Contract"
+msgstr "Гэрээтэй эсэх"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_res_partner__is_vatpayer
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_res_users__is_vatpayer
+msgid "Is Vatpaye"
+msgstr "НӨАТ төлөгч эсэх"
+
+#. module: l10n_mn_sale
+#: model:ir.model,name:l10n_mn_sale.model_account_move
+msgid "Journal Entry"
+msgstr "Ажил гүйлгээ"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields.selection,name:l10n_mn_sale.selection__res_partner__is_contract__loan_contract
+#: model:ir.model.fields.selection,name:l10n_mn_sale.selection__sale_order__is_contract__loan_contract
+msgid "Loan Contract"
+msgstr "Зээлийн гэрээтэй"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_res_partner__name
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_res_users__name
+msgid "Name"
+msgstr "Нэр"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields.selection,name:l10n_mn_sale.selection__res_partner__is_contract__no_contract
+#: model:ir.model.fields.selection,name:l10n_mn_sale.selection__sale_order__is_contract__no_contract
+msgid "No Contract"
+msgstr "Гэрээгүй"
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_account_bank_statement_line__pricelist_id
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_account_move__pricelist_id
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_account_payment__pricelist_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sale.dakal_warehouse_invoice_filter_view
+msgid "Pricelist"
+msgstr "Үнийн хүснэгт"
+
+#. module: l10n_mn_sale
+#: model:ir.model,name:l10n_mn_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Борлуулалтын захиалга"
+
+#. module: l10n_mn_sale
+#. odoo-python
+#: code:addons/l10n_mn_sale/models/res_partner.py:0
+#, python-format
+msgid ""
+"The customer with the registration number %s is not registered.                     \n"
+" Please check the company of registration number."
+msgstr "%s регистрийн дугаартай харилцагч бүртгэлгүй байна. Регистрийн дугаараа шалгана уу."
+
+#. module: l10n_mn_sale
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_account_bank_statement_line__warehouse_id
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_account_move__warehouse_id
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_account_payment__warehouse_id
+#: model:ir.model.fields,field_description:l10n_mn_sale.field_sale_order__warehouse_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_sale.dakal_warehouse_invoice_filter_view
+msgid "Warehouse"
+msgstr "Агуулах"

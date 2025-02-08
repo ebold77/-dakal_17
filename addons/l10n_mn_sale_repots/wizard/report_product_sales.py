@@ -6,6 +6,7 @@ import pytz
 import json
 import datetime
 import io
+import base64
 from odoo import api, fields, models, _
 from odoo.tools import date_utils
 try:
@@ -43,31 +44,13 @@ class ReportProductSales(models.TransientModel):
 
     company_id = fields.Many2one('res.company', 'Company', readonly=True, default=lambda self: self.env.company.id)
     warehouse_ids = fields.Many2many('stock.warehouse', 'report_product_sales_warehouse_rel','wizard_id', 'warehouse_id', 'Warehouse')
-    # root_type = fields.Selection([('month','Month'),('warehouse','Warehouse')],'Column Type', required=True)
+    
     date_from = fields.Date('From Date', required=True, default=lambda *a: time.strftime('%Y-01-01'))
-    # date_to = fields.Date('To Date', required=True, default=lambda *a: time.strftime('%Y-08-31'))
     date_to = fields.Date('To Date', required=True, default=lambda *a: time.strftime('%Y-%m-%d'))
-    # group_by = fields.Selection(get_group_by, 'Group By')
-    # group_by2 = fields.Selection(get_group_by, 'Group By 2')
-    # team_ids =  fields.Many2many('crm.case.section', 'report_product_sales_team_rel', 'wizard_id', 'team_id', 'Sales Team')
-    # user_ids =  fields.Many2many('res.users', 'report_product_sales_user_rel', 'wizard_id', 'user_id', 'Salesperson')
-    # partner_ids = fields.Many2many('res.partner', 'report_product_sales_partner_rel', 'wizard_id', 'partner_id', 'Partner')
-    # category_ids = fields.Many2many('product.category', 'report_product_sales_category_rel', 'wizard_id', 'category_id', 'Category')
-    # product_ids = fields.Many2many('product.product', 'report_product_sales_product_rel', 'wizard_id', 'product_id', 'Product')
-    # sale_categ_ids = fields.Many2many('sale.category', 'report_product_sales_sale_categ_rel', 'wizard_id', 'category_id', 'Sales Type')
-    # cost = fields.Boolean('Show Cost Amount')
-    # gain = fields.Boolean('Show Gain')
-    # total= fields.Boolean('Show Total')
-    # sales = fields.Boolean('Sales')
-    # pos = fields.Boolean('Sales of Pos')
-    # pos_install = fields.Boolean('Pos Install')
-    # tax = fields.Selection([('tax','with Tax'),('notax','without Tax')], 'Gain Type')
-    # report_type =         fields.Selection([('detail','Detail'),('summary','Summary')], 'Type', required=True)
-    # barcode =      fields.Boolean('Barcode')
-    # price =        fields.Boolean('List Price')
-    # category =     fields.Boolean('Product Category')
-    # pos_category = fields.Boolean('Pos Category')
-    # show_partner = fields.Boolean('Show Partner')
+
+    datas = fields.Binary('File', readonly=True)
+    datas_fname = fields.Char('Filename', readonly=True)
+    
 
     def _get_warehouse(self, context=None):
         user = self.env['res.users'].browse(uid)
@@ -81,43 +64,29 @@ class ReportProductSales(models.TransientModel):
         user = self.env['res.users'].browse(uid)
         return ([user and user.id]) or []
 
-    def export_report_xls(self):
+    # def export_report_xls(self):
        
-        data = {
-            'ids': self.ids,
-            'model': self._name,
-            'start_date': self.date_from,
-            'end_date': self.date_to,
-            'company_partner': self.company_id.partner_id.id,
-            'warehouse_ids': self.warehouse_ids
-             }
-        return {
-            'type': 'ir.actions.report',
-            'data': {'model': 'report.product.sales',
-                     'options': json.dumps(data, default=date_utils.json_default),
-                     'output_format': 'xlsx',
-                     'report_name': 'Борлуулалтын тайлан',
-                     },
-            'report_type': 'xlsx'
-        }
-
-
-    # def get_return(self, product_id, partner_id, order_name):
-
-    #     return_invoice_line_query = """
-    #            SELECT aml.quantity as return_qty, aml.discount AS re_discount FROM account_move_line AS aml
-    #            JOIN account_move AS am ON am.id = aml.move_id 
-    #            WHERE aml.product_id = %s
-    #            AND am.partner_id = %s AND am.invoice_origin = %s
-    #           """
-    #     params = product_id, partner_id, order_name
-
-    #     self._cr.execute(return_invoice_line_query, params)
-    #     aml_query_obj = self._cr.dictfetchall()
+    #     wiz = {
+    #         'ids': self.ids,
+    #         'model': self._name,
+    #         'date_from': self.date_from,
+    #         'date_to': self.date_to,
+    #         'company_partner': self.company_id.partner_id.id,
+    #         'warehouse_ids': self.warehouse_ids
+    #          }
+    #     return {
+    #         'type': 'ir.actions.report',
+    #         'wiz': {'model': 'report.product.sales',
+    #                  'options': json.dumps(wiz, default=date_utils.json_default),
+    #                  'output_format': 'xlsx',
+    #                  'report_name': 'Борлуулалтын тайлан',
+    #                  },
+    #         'report_type': 'xlsx'
+    #     }
 
     # Борлуулалтын мэдээлэл авах
-    def get_sale_line(self, partner_id, warehouse_id, start_date, end_date):
-        sale_data = []
+    def get_sale_line(self, partner_id, warehouse_id, date_from, date_to):
+        sale_wiz = []
         invoice_line_query = """
             SELECT rp.id as partner_id, rp.name as pname, rp.vat as vat, rp.phone as phone,  
             SUM(sol.qty_delivered)as qty, SUM(sol.price_unit * sol.qty_delivered * sol.discount/100)  AS discount,  
@@ -135,7 +104,7 @@ class ReportProductSales(models.TransientModel):
                 WHERE so.date_order >= %s AND so.date_order <= %s AND so.state in ('sale', 'done') AND so.source_id IS NULL AND so.partner_id=%s AND so.warehouse_id=%s 
                 GROUP BY rp.id, rp.name, rp.vat, rp.phone, am.move_type;
               """
-        params = start_date, end_date, partner_id, warehouse_id
+        params = date_from, date_to, partner_id, warehouse_id
 
         self._cr.execute(invoice_line_query, params)
         inv_line_query_obj = self._cr.dictfetchall()
@@ -145,14 +114,14 @@ class ReportProductSales(models.TransientModel):
 
     # Харилцагчийн мэдээлэл авах
 
-    def get_lines(self, data, warehouse_id):
+    def get_lines(self, wiz, warehouse_id):
         lines = []
-        start_date =  data['start_date']# + ' 00:00:00'
-        end_date =  data['end_date'] #+ ' 23:59:59'
+        date_from =  wiz['date_from'].strftime("%Y-%m-%d")# + ' 00:00:00'
+        date_to =  wiz['date_to'].strftime("%Y-%m-%d") #+ ' 23:59:59'
         
         amount = return_amount = 0
         return_discount = return_qty = 0
-        company_id = data['company_partner']
+        company_id = wiz['company_id'][0]
         vals = {}
 
         invoice_query = """
@@ -162,14 +131,14 @@ class ReportProductSales(models.TransientModel):
                 JOIN res_partner AS rp ON rp.id = so.partner_id
                 WHERE so.date_order >= %s AND so.date_order <= %s GROUP BY rp.id ORDER BY rp.name;
               """
-        params = start_date, end_date
-
+        params = date_from, date_to
+        print('params', params)
         self._cr.execute(invoice_query, params)
         inv_query_obj = self._cr.dictfetchall()
-        
+        print('inv_query_obj', inv_query_obj)
         for line in inv_query_obj:
             
-            
+            print('line', line)
             vals = {
                 'partner_id': line['partner_id'],
                 'partner_name': line['partner_name'],
@@ -183,10 +152,10 @@ class ReportProductSales(models.TransientModel):
 
         return lines
 
-    def get_xlsx_report(self, data, response):
+    def export_report_xls(self):
         output = io.BytesIO()
         workbook = xlsxwriter.Workbook(output, {'in_memory': True})
-        wiz = self.browse(data['ids'])
+        wiz = self.read()[0]
         
         comp = self.env.user.company_id.name
         
@@ -207,21 +176,24 @@ class ReportProductSales(models.TransientModel):
         format1.set_align('center')
         red_mark.set_align('center')
 
-
-        for warehouse in wiz.warehouse_ids:
-            
+        for warehouse_id in wiz['warehouse_ids']:
+            warehouse = self.env['stock.warehouse'].browse(warehouse_id)
             sheet = workbook.add_worksheet(warehouse.name)
             sheet.set_landscape()
+
+            report_name = u'Борлуулалтын дэлгэрэнгүй тайлан'
+            filename = report_name
+
             sheet.merge_range(0, 1, 0, 10, u'Байгууллагын нэр: %s' %comp, format0)
             sheet.merge_range(1, 1, 1, 14, u'Борлуулалтын дэлгэрэнгүй тайлан', format11)
-            sheet.merge_range(2, 1, 2, 10, u'Эхлэх огноо: %s' %data['start_date'], format0)
-            sheet.merge_range(3, 1, 3, 10, u'Дуусах огноо: %s' %data['end_date'], format0)
+            sheet.merge_range(2, 1, 2, 10, u'Эхлэх огноо: %s' %wiz['date_from'], format0)
+            sheet.merge_range(3, 1, 3, 10, u'Дуусах огноо: %s' %wiz['date_to'], format0)
             sheet.merge_range(2, 11, 2, 13, u'Хэвлэсэн: %s' %datetime.datetime.now().strftime("%Y-%m-%d"), format0)
             sheet.merge_range(3, 11, 3, 13, u'Салбар: %s' %warehouse.name, format0)
             
-            start_month = datetime. datetime. strptime(data['start_date'], "%Y-%m-%d").month
+            start_month = datetime. datetime. strptime(wiz['date_from'].strftime("%Y-%m-%d"), "%Y-%m-%d").month
            
-            end_month = datetime. datetime. strptime(data['end_date'], "%Y-%m-%d").month
+            end_month = datetime. datetime. strptime(wiz['date_to'].strftime("%Y-%m-%d"), "%Y-%m-%d").month
             user = self.env['res.users'].browse(self.env.uid)
             tz = pytz.timezone(user.tz if user.tz else 'UTC')
             times = pytz.utc.localize(datetime.datetime.now()).astimezone(tz)
@@ -281,7 +253,7 @@ class ReportProductSales(models.TransientModel):
             sum_row = 9
             a = 10
             
-            get_line = self.get_lines(data, warehouse.id)
+            get_line = self.get_lines(wiz, warehouse.id)
             
             if start_month == end_month:    
                 row +=1
@@ -311,7 +283,7 @@ class ReportProductSales(models.TransientModel):
                         is_contract = u'Зээлийн Гэрээтэй'
                     elif each['is_contract'] == 'no_contract':
                         is_contract = u'Гэрээгүй'
-                    sale_line =  self.get_sale_line(partner_id, warehouse.id, data['start_date'], data['end_date'])
+                    sale_line =  self.get_sale_line(partner_id, warehouse.id, wiz['date_from'], wiz['date_to'])
                     if sale_line:
                         j += 1
                         for res_line in sale_line:
@@ -369,7 +341,7 @@ class ReportProductSales(models.TransientModel):
                     sheet.write(row, 5, is_contract, font_size_8)
                     sheet.write(row, 6, amount_due, font_size_8)
                     ############### Нийт дүнг харуулах #################
-                    sale_line =  self.get_sale_line(partner_id, warehouse.id, data['start_date'], data['end_date'])
+                    sale_line =  self.get_sale_line(partner_id, warehouse.id, wiz['date_from'], wiz['date_to'])
                     for res_line in sale_line:
                         if res_line['partner_id'] == partner_id and res_line['move_type']=='out_invoice':
                             sheet.write(row, 7, float(res_line['qty'] or 0), font_size_8)
@@ -386,14 +358,14 @@ class ReportProductSales(models.TransientModel):
                     col = 13
                     for sar in range(start_month, end_month+1):
                         
-                        currentDate = datetime.datetime.strptime(data['end_date'], "%Y-%m-%d")
+                        currentDate =wiz['date_to']
                         
                         return_discount = return_amount = so_price_total = 0
                         firstDayOfMonth = datetime.date(currentDate.year, sar, 1)
                         lastDayOfMonth = datetime.date(currentDate.year, sar, calendar.monthrange(currentDate.year, sar)[1])
-                      
-                        if sar == datetime.datetime.strptime(data['start_date'], "%Y-%m-%d").month:
-                            sale_line =  self.get_sale_line(partner_id, warehouse.id, data['start_date'], lastDayOfMonth)
+                        print(' wiz[date_from].month',  wiz['date_from'], lastDayOfMonth)
+                        if sar == wiz['date_from'].month:
+                            sale_line =  self.get_sale_line(partner_id, warehouse.id, wiz['date_from'], lastDayOfMonth)
                             for res_line in sale_line:
                                 if res_line['partner_id'] == partner_id and res_line['move_type']=='out_invoice':
                                     sheet.write(row, col+1, float(res_line['qty'] or 0), font_size_8)
@@ -408,7 +380,7 @@ class ReportProductSales(models.TransientModel):
                                     return_discount = res_line['invoice_discount']
                                 sheet.write(row, col+7, so_price_total or 0, font_size_8)
                             col = col+7
-                        elif sar != datetime.datetime.strptime(data['start_date'], "%Y-%m-%d").month and datetime.datetime.strptime(data['end_date'], "%Y-%m-%d")> datetime.datetime.combine(lastDayOfMonth, datetime.time(0, 0)):
+                        elif sar != wiz['date_from'].month and wiz['date_to']> lastDayOfMonth:
                             sale_line =  self.get_sale_line(partner_id, warehouse.id, firstDayOfMonth, lastDayOfMonth)
                             len_sale_line = 0
                             for res_line in sale_line:
@@ -428,8 +400,8 @@ class ReportProductSales(models.TransientModel):
                                 # if len_sale_line == 1:
                             col = col+7
                        
-                        elif sar != datetime.datetime.strptime(data['start_date'], "%Y-%m-%d").month and  datetime.datetime.strptime(data['end_date'], "%Y-%m-%d")<= datetime.datetime.combine(lastDayOfMonth, datetime.time(0, 0)):
-                            sale_line =  self.get_sale_line(partner_id, warehouse.id, firstDayOfMonth, data['end_date'])
+                        elif sar != wiz['date_from'].month and  wiz['date_to']<= lastDayOfMonth:
+                            sale_line =  self.get_sale_line(partner_id, warehouse.id, firstDayOfMonth, wiz['date_to'])
                             
                             for res_line in sale_line:
                                 if res_line['partner_id'] == partner_id and res_line['move_type']=='out_invoice':
@@ -458,6 +430,13 @@ class ReportProductSales(models.TransientModel):
             sheet.merge_range(row+3, 2, row+3, 8, u'Ерөнхий нягтлан бодогч: \t\t\t\t\t\t/\t\t\t\t\t\t/' , font_size_8_l)
 
         workbook.close()
-        output.seek(0)
-        response.stream.write(output.read())
-        output.close()    
+        out = base64.encodebytes(output.getvalue())
+        self.write({'datas': out, 'datas_fname': filename})
+        output.close()
+        filename += '%2Exlsx'
+
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': 'web/content/?model='+self._name+'&id='+str(self.id)+'&field=datas&download=true&filename='+filename,
+        }   

@@ -20,6 +20,7 @@
         'views/licemed_registration_view.xml',
         'views/product_general_category_view.xml',
         'views/product_view.xml',
+        'views/stock_lot_view.xml',
         # 'wizard/stock_inventory_statement_view.xml',
         # 'wizard/stock_product_balance_report_view.xml',
         # 'wizard/lot_stock_report_view.xml',

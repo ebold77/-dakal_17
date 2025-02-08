@@ -14,18 +14,18 @@
 
                     <button name="action_next_workflow_step" string="Confirm" class="btn-primary"
                         type="object"
-                        attrs="{'invisible': ['|', ('next_line_id', '=', False), ('state_type','=','done')]}" />
+                        invisible = "['|', ('next_line_id', '=', False), ('state_type','=','done')]" />
                     <button name="action_prev_workflow_step" string="Return" class="btn-warning"
                         type="object"
-                        attrs="{'invisible': ['|', ('prev_line_id', '=', False), ('state_type', 'in', ['done', 'cancel'])]}" />
+                        invisible = "['|', ('prev_line_id', '=', False), ('state_type', 'in', ['done', 'cancel'])]" />
                     <field name="workflow_line_id" widget="statusbar"
                         domain="[('id','in', visible_workflow_line_ids)]" />
                     <button name="action_cancel_workflow_step" string="Cancel" class="btn-danger"
                         type="object"
-                        attrs="{'invisible': ['|', ('state_type', 'in', ['cancel']), ('workflow_id', '=', False)]}" />
+                        invisible = "['|', ('state_type', 'in', ['cancel']), ('workflow_id', '=', False)]" />
                     <button name="action_draft_workflow_step" string="Set to draft"
                         class="btn-secondary" type="object"
-                        attrs="{'invisible': ['|', ('state_type', '!=', 'cancel'), ('workflow_id', '=', False)]}" />
+                        invisible="['|', ('state_type', '!=', 'cancel'), ('workflow_id', '=', False)]" />
                 </header>
                 <sheet>
                     <div class="pull-left">
@@ -45,18 +45,18 @@
                     </div>
                     <group col="4">
                         <field name="employee_id" options="{'no_create': True}"
-                            attrs="{'readonly': [('is_edit', '=', False)]}" />
+                            readonly = "is_edit, '=', False" />
                         <field name="workflow_id" options="{'no_create': True}"
-                            attrs="{'readonly': [('state_type', '!=', 'draft')]}" />
+                            readonly ="'state_type', '!=', 'draft'" />
                         <!-- Dates -->
                         <field name="department_id" options="{'no_create': True}" readonly="1"
                             force_save="1" />
-                        <field name="date_planned" attrs="{'readonly': [('is_edit', '=', False)]}" />
+                        <field name="date_planned" readonly= "is_edit, '=', False" />
                         <field name="company_id" options="{'no_create': True}"
                             groups="base.group_multi_company" />
 
                         <field name="description" nolabel="1" colspan="4" placeholder="Тайлбар..."
-                            attrs="{'readonly': [('is_edit', '=', False)]}" />
+                            readonly ="is_edit, '=', False" />
 
                         <newline />
 
@@ -67,16 +67,16 @@
 
                     <group col="4">
                         <field name="transaction_value_id"
-                            attrs="{'readonly': [('is_edit', '=', False)]}" />
+                            readonly= "is_edit, '=', False" />
                         <field name="partner_id" options="{'no_create': True}" force_save="1"
-                            attrs="{'readonly': [('is_edit', '=', False)]}" />
+                            readonly= "is_edit, '=', False" />
 
                         <field name="warehouse_id" force_save="1" options="{'no_create': True}"
-                            attrs="{'readonly': [('is_edit', '=', False)]}" />
+                            readonly= "is_edit, '=', False" />
                         <field name="create_date" />
 
                         <field name="account_id" options="{'no_create': True}" force_save="1"
-                            attrs="{'readonly': [('is_edit', '=', False)]}" />
+                            readonly= "is_edit, '=', False" />
                     </group>
 
                     <notebook>
@@ -84,7 +84,7 @@
                             <group>
                                 <field name="product_expense_line" nolabel="1"
                                     widget="one2many_list"
-                                    colspan="4" attrs="{'readonly': [('is_edit', '=', False)]}">
+                                    colspan="4">
                                     <tree string="Lines" editable="bottom">
                                         <field name="categ_ids" invisible="1" />
                                         <field name="product_id" options="{'no_create': True}"

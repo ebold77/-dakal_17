@@ -9,7 +9,7 @@
     'description': """Mongolian Sales""",
     'license':'LGPL-3',
     'website': '',
-    'depends': [ 'base', 'sale', 'l10n_mn'],
+    'depends': [ 'base', 'sale', 'l10n_mn', 'l10n_mn_stock_dakal'],
     'data': [
 #         'security/security.xml',
 #         'security/ir.model.access.csv',

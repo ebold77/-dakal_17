@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_profit_calculation_report_admin,profit.calculation.report,model_profit_calculation_report,account.group_account_manager,1,1,1,1
+access_profit_calculation_report_user,profit.calculation.report,model_profit_calculation_report,account.group_account_user,1,1,1,0

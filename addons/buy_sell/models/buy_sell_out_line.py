@@ -50,12 +50,22 @@ class BuySellOutLine(models.Model):
         
         self.bs_price_total = self.bs_price * self.product_qty
         pricelist = self.company_id.base_pricelist_id
-        list_price = pricelist._get_product_price(self.product_id , 1, self.order_id.partner_id)
+        list_price = pricelist._get_product_price(
+                    product=self.product_id,
+                    quantity=1.0,
+                    currency=self.company_id.currency_id,
+                    date=self.order_id.date_order,
+        )
         list_price_total = list_price * self.product_qty
         self.discount_total = (list_price_total*self.pricelist_discount)/100
         
         sale_pricelist = self.company_id.sale_pricelist_id
-        sale_price = sale_pricelist._get_product_price(self.product_id , 1, self.order_id.partner_id)
+        sale_price = sale_pricelist._get_product_price(
+                    product=self.product_id,
+                    quantity=1.0,
+                    currency=self.company_id.currency_id,
+                    date=self.order_id.date_order,
+        )
         self.list_price_total = sale_price* self.product_qty
         
     @api.onchange('product_id')
@@ -66,7 +76,12 @@ class BuySellOutLine(models.Model):
         sale_pricelist = self.company_id.sale_pricelist_id
         
         # Reset date, price and quantity since _onchange_quantity will provide default values
-        list_price = pricelist._get_product_price(self.product_id , 1, self.order_id.partner_id)
+        list_price = pricelist._get_product_price(
+                    product=self.product_id,
+                    quantity=1.0,
+                    currency=self.company_id.currency_id,
+                    date=self.order_id.date_order,
+        )
         
         self.list_price = list_price
         self.product_uom = self.product_id.uom_po_id or self.product_id.uom_id

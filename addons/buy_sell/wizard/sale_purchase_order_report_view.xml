@@ -19,7 +19,7 @@
 	            </group>
 
 	            <footer>
-	                <button name="export_xls" type="object"
+	                <button name="get_xlsx_report" type="object"
 	                    class="btn-primary" string="Generate"/>
 	                <button special="cancel" string="Close" class="btn-default"/>
 	            </footer>

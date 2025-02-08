@@ -12,7 +12,6 @@
     'depends': [
         'hr',
         'product',
-        'l10_mn_base',
     ],
     'data': [
         "security/security.xml",
