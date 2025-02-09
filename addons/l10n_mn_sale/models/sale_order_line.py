@@ -20,7 +20,6 @@ class SaleOrderLine(models.Model):
     def _onchange_serial_number(self):
         print('asdasdsa', self.lot_id.product_expiry_alert)
         if self.product_id:
-            data = self.order_id.get_online_product()
-            print('data========', data)
+        
             qty_available = self.product_id.with_context({'warehouse': self.order_id.warehouse_id.id, 'lot_id': self.lot_id.id}).qty_available
             self.lot_available_qty = qty_available

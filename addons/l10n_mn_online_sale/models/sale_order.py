@@ -129,27 +129,62 @@ class SaleOrder(models.Model):
        
         return products
 
-    def get_online_product_datas(self):
-        data = {}
+    def search_online_product(self, domain = []):
+        products = []
+        warehouse = self.env.user.company_id.online_warehouse_id
+        pricelist = self.env.user.company_id.online_sale_pricelist_id
+        product_ids = self.env['product.product'].search(domain)
         
-        lots= []
-        product_lot_ids = self.env['stock.lot'].search([('product_id', '=', self.id),
-                                ('expiration_date', '>=', datetime.today().strftime('%Y-%m-%d 23:23:59')),
-                                ])
-       
-        qty_available_all = self.with_context({'warehouse': warehouse_id}).qty_available
-        for lot  in product_lot_ids:
-            lot_item = {}
-            qty_available = self.with_context({'warehouse': warehouse_id, 'lot_id': lot.id}).qty_available
-            if qty_available > 0:
-                lot_item['id'] = lot.id
-                lot_item['name'] = lot.name
-                lot_item['quantity'] = qty_available
-                lot_item['expiration_date'] = lot.expiration_date,
-                lots.append(lot_item)
-        data['product_id'] = self.id
-        data['qty_available_all'] = qty_available_all
-        data['lots'] = lots
+        if product_ids:
+            for product in product_ids:
+                qty_available = product.with_context({'warehouse': warehouse.id}).qty_available
+                # product_name_inter = ''
+                lots= []
+                if qty_available >0:
+                    categ_name = ''
+                    # if product.insurance_list_id:
+                    #         product_name_inter =  product.insurance_list_id.tbltNameInter 
+                    price = pricelist._get_product_price(
+                            product=product,
+                            quantity=1.0,
+                            currency=self.company_id.currency_id,
+                            date=self.date_order,
+                        )
+                    if product.product_tmpl_id.categ_id:
+                                for categ in product.product_tmpl_id.categ_id:
+                                    categ_name = categ.name
+                    _logger.info(u'Categ Name:  %s ' % categ_name)
+                    _logger.info(u'Product Name:  %s ' % product.product_tmpl_id.name)
+                    vals={'product_id': product.id,
+                            'bar_code': product.barcode,
+                            'image_512':product.image_512,
+                            'category': categ_name,
+                            'product_name': product.product_tmpl_id.name,
+                            'tbltSizeMixture': product.tbltSizeMixture,
+                            'tbltManufacture': product.tbltManufacture,
+                            'tbltType': product.tbltType,
+                            'conditions_granting': product.conditions_granting,
+                            'general_category_id': product.general_category_id.name,
+                            'uom_id': product.uom_id.id,
+                            'uldegdel_qty': qty_available,
+                            'sale_price': price,
+                            'note': product.description,
+                    }
+                    
+                    product_lot_ids = self.env['stock.lot'].search([('product_id', '=', product.id),
+                                    ('expiration_date', '>=', datetime.today().strftime('%Y-%m-%d 23:23:59')),
+                                    ])
+                    for lot  in product_lot_ids:
+                        lot_item = {}
+                        qty_available = product.with_context({'warehouse': warehouse.id, 'lot_id': lot.id}).qty_available
+                        if qty_available > 0:
+                            lot_item['name'] = lot.name
+                            lot_item['quantity'] = qty_available
+                            lot_item['expiration_date'] = lot.expiration_date,
+                            lots.append(lot_item)
+                
+                    vals['lots'] = lots
+                    products.append(vals)
 
        
-        return data
+        return products
