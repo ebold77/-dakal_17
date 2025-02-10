@@ -81,7 +81,11 @@ class StockTransitOrderLine(models.Model):
     supply_warehouse_id = fields.Many2one('stock.warehouse', related='transit_order_id.supply_warehouse_id', store=True, readonly=True, search='_search_supply_warehouse_id', string='Supply Warehouse')
     warehouse_id = fields.Many2one('stock.warehouse', related='transit_order_id.warehouse_id', store=True, readonly=True, search='_search_warehouse_id', string='Receive Warehouse')
     date_order = fields.Datetime(related='transit_order_id.date_order', store=True, readonly=True, string='Date Order')
-   
+    
+    lot_id = fields.Many2one(comodel_name='stock.lot', string='Seial', 
+         check_company=True)
+    lot_available_qty = fields.Float(string="Available QTY")
+
     @api.model
     def search(self, args, offset=0, limit=0, order=None, count=False):
         args = list(args)
@@ -134,6 +138,13 @@ class StockTransitOrderLine(models.Model):
     #     for obj in self:
     #         obj.configure_allowed_product_on_wh = obj.company_id.sudo().configure_allowed_product_on_wh if obj.company_id else self.env.company.sudo().configure_allowed_product_on_wh
 
+    @api.onchange('lot_id')
+    def _onchange_serial_number(self):
+        if self.product_id:
+        
+            qty_available = self.product_id.with_context({'warehouse': self.order_id.warehouse_id.id, 'lot_id': self.lot_id.id}).qty_available
+            self.lot_available_qty = qty_available
+            
     def _prepare_stock_moves(self, picking, location_id, location_dest_id, warehouse, picking_type_id ):
         """ Prepare the stock moves data for one order line. This function returns a list of
         dictionary ready to be used in stock.move's create()
