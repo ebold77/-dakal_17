@@ -129,7 +129,7 @@ class SaleOrder(models.Model):
        
         return products
 
-    def search_online_product(self, domain = []):
+    def search_online_product(self, domain):
         _logger.info(u'domain================///============:  %s ' % domain)
         products = []
         warehouse = self.env.user.company_id.online_warehouse_id
