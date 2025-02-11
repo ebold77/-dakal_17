@@ -19,7 +19,8 @@ class SaleOrderLine(models.Model):
     @api.onchange('lot_id')
     def _onchange_serial_number(self):
         if self.product_id:
-        
+            # optional_product_ids = self.order_id.get_online_product()
+            # print('=========================== data ============================>>', optional_product_ids)
             qty_available = self.product_id.with_context({'warehouse': self.order_id.warehouse_id.id, 'lot_id': self.lot_id.id}).qty_available
             self.lot_available_qty = qty_available
 

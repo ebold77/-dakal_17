@@ -142,9 +142,9 @@ class StockTransitOrderLine(models.Model):
     def _onchange_serial_number(self):
         if self.product_id:
         
-            qty_available = self.product_id.with_context({'warehouse': self.order_id.warehouse_id.id, 'lot_id': self.lot_id.id}).qty_available
+            qty_available = self.product_id.with_context({'warehouse': self.supply_warehouse_id.id, 'lot_id': self.lot_id.id}).qty_available
             self.lot_available_qty = qty_available
-            
+
     def _prepare_stock_moves(self, picking, location_id, location_dest_id, warehouse, picking_type_id ):
         """ Prepare the stock moves data for one order line. This function returns a list of
         dictionary ready to be used in stock.move's create()

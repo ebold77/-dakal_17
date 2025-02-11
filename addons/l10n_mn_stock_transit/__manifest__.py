@@ -10,7 +10,7 @@
     'sequence': 335,
     'description': """Mongolian Stock""",
     'website': '',
-    'depends': [ 'base', 'stock'],
+    'depends': [ 'base', 'stock',],
     'data': [
 # #         'security/security.xml',
         'security/ir.model.access.csv',

@@ -93,7 +93,7 @@
 									<field name="name" readonly="state != 'draft'"/>
 									<field name="box_qty" sum="Total Box" readonly="state != 'draft'"/>
 									<field name="product_qty" sum="Total" readonly="state != 'draft'"/>
-									<field name="lot_id" domain="[('product_id', '=', product_id), ('expiration_date', '>=',context_today().strftime('%Y-%m-%d 23:23:59'))]"/>
+									<field name="lot_id" domain="[('product_id', '=', product_id)]"/>
 									<field name="lot_available_qty"/>
 									<field name="product_uom_id" string="UOM" readonly="state != 'draft'"/>
 									<field name="balance"/>
@@ -101,7 +101,6 @@
 									<field name="price_unit"/>
 									<field name="sub_total" sum="Total"/>
 									<field name="state" invisible="1" />
-									<field name="company_id" invisible="1" />
 								</tree>
 							</field>
 							<div class="oe_clear" />
