@@ -171,10 +171,10 @@ class SaleOrder(models.Model):
                     _logger.info(u'Categ Name:  %s ' % categ_name)
                     _logger.info(u'Product Name:  %s ' % product.product_tmpl_id.name)
                     optional_product_ids =[]
-                        if product.optional_product_ids:
-                            for pt in product.optional_product_ids:
-                                optional_product = self.env['product.product'].search([('product_tmpl_id', '=', pt.id)])
-                                optional_product_ids.append(optional_product.id)
+                    if product.optional_product_ids:
+                        for pt in product.optional_product_ids:
+                            optional_product = self.env['product.product'].search([('product_tmpl_id', '=', pt.id)])
+                            optional_product_ids.append(optional_product.id)
                     vals={'product_id': product.id,
                             'bar_code': product.barcode,
                             'image_512':product.image_512,
