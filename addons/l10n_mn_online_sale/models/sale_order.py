@@ -73,6 +73,7 @@ class SaleOrder(models.Model):
                     lot_item = {}
                     qty_available = product.with_context({'warehouse': warehouse.id, 'lot_id': lot.id}).qty_available
                     if qty_available > 0:
+                        lot_item['id'] = lot.id
                         lot_item['name'] = lot.name
                         lot_item['quantity'] = qty_available
                         lot_item['expiration_date'] = lot.expiration_date,
@@ -201,6 +202,7 @@ class SaleOrder(models.Model):
                         lot_item = {}
                         qty_available = product.with_context({'warehouse': warehouse.id, 'lot_id': lot.id}).qty_available
                         if qty_available > 0:
+                            lot_item['id'] = lot.id
                             lot_item['name'] = lot.name
                             lot_item['quantity'] = qty_available
                             lot_item['expiration_date'] = lot.expiration_date,
