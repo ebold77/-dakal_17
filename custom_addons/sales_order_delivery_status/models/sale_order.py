@@ -67,8 +67,8 @@ class SaleOrder(models.Model):
                     lambda x: x.qty_delivered < x.product_uom_qty):
                 rec.delivery_status = 'partial'
             elif all(o.qty_delivered == o.product_uom_qty for o in orderlines):
-                rec.delivery_status = 'delivered'
+                rec.delivery_status = 'full'
             if any(p.state in ('waiting', 'confirmed') for p in pickings):
                 rec.delivery_status = 'processing'
             if not orderlines and service_orderlines and rec.state == 'sale':
-                rec.delivery_status = 'delivered'
+                rec.delivery_status = 'full'
