@@ -203,7 +203,7 @@ class ApprovalWorkflowLine(models.Model):
                 return True
             raise UserError('Not exist user for notification.')
 
-        channel_obj = self.env['mail.channel']
+        channel_obj = self.env['discuss.channel']
         for partner in partners:
             if self.env.user.partner_id != partner:
                 notification_ids = [(0, 0, {
@@ -211,8 +211,8 @@ class ApprovalWorkflowLine(models.Model):
                         'notification_type': 'inbox'
                         })]
                 partner_ids = partner.ids
-                channel = self.env['mail.channel'].channel_get([partner.id])
-                channel_id = self.env['mail.channel'].browse(channel["id"])
+                channel = self.env['discuss.channel'].channel_get([partner.id])
+                channel_id = self.env['discuss.channel'].browse(channel["id"])
                 notification = _('<div class="o_mail_notification">created <a href="#" class="o_channel_redirect" data-oe-id="%s">#%s</a></div>') % (channel_id.id, channel_id.name,)
                 channel_id.message_post(
                         body=html,

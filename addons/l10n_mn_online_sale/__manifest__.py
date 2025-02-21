@@ -16,7 +16,8 @@
         # 'data/mail_data.xml',
         
         'views/res_config_view.xml',
-
+        'views/res_users_view.xml',
+        'views/product_category_view.xml',
         
         # 'wizard/invoice_warehouse_settings_view.xml',
     ],

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_users_view_online_sale_form" model="ir.ui.view">
+        <field name="name">res.users.form.online.sale</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='signature']" position="after">
+                <field name="is_web_admin" />
+            </xpath>
+        </field>
+    </record>
+      
+</odoo>

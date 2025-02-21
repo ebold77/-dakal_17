@@ -1,8 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-"access_khanbank_bank_all","khanbank_bank_all","model_khanbank_bank",,1,0,0,0
-"access_khanbank_bank_advisor","khanbank_bank_advisor","model_khanbank_bank","account.group_account_manager",1,1,1,1
-"access_khanbank_currency_all","khanbank_currency_all","model_khanbank_currency",,1,0,0,0
-"access_khanbank_currency_manager","khanbank_currency_manager","model_khanbank_currency","account.group_account_manager",1,1,1,1
-"access_khanbank_currency_rate_all","khanbank_currency_rate_all","model_khanbank_currency_rate",,1,0,0,0
-"access_khanbank_currency_rate_manager","khanbank_currency_rate_manager","model_khanbank_currency_rate","account.group_account_manager",1,1,1,1
-"access_khanbank_currency_import_manager","khanbank_currency_import_manager","model_khanbank_wizard","account.group_account_manager",1,1,1,1

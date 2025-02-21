@@ -9,6 +9,7 @@ Base module extension to generate xlsx report
     'website': "https://www.teamup4solutions.com",
     "category": "Customizations",
     "version": "17.0.0.0",
+    'license'              :  'LGPL-3',
     'depends': ['base', 'web'],
     "external_dependencies": {"python": ["xlsxwriter", "xlrd"]},
     'data': [
@@ -21,3 +22,4 @@ Base module extension to generate xlsx report
         ],
     },
 }
+

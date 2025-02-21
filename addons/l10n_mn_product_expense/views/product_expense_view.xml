@@ -14,18 +14,18 @@
 
                     <button name="action_next_workflow_step" string="Confirm" class="btn-primary"
                         type="object"
-                        invisible = "['|', ('next_line_id', '=', False), ('state_type','=','done')]" />
+                        invisible = "next_line_id ==  False or state_type == 'done'" />
                     <button name="action_prev_workflow_step" string="Return" class="btn-warning"
                         type="object"
-                        invisible = "['|', ('prev_line_id', '=', False), ('state_type', 'in', ['done', 'cancel'])]" />
+                        invisible = "prev_line_id == False or state_type in ['done', 'cancel']" />
                     <field name="workflow_line_id" widget="statusbar"
                         domain="[('id','in', visible_workflow_line_ids)]" />
                     <button name="action_cancel_workflow_step" string="Cancel" class="btn-danger"
                         type="object"
-                        invisible = "['|', ('state_type', 'in', ['cancel']), ('workflow_id', '=', False)]" />
+                        invisible = "state_type in ['cancel'] or workflow_id == False" />
                     <button name="action_draft_workflow_step" string="Set to draft"
                         class="btn-secondary" type="object"
-                        invisible="['|', ('state_type', '!=', 'cancel'), ('workflow_id', '=', False)]" />
+                        invisible=" state_type != 'cancel' or workflow_id == False" />
                 </header>
                 <sheet>
                     <div class="pull-left">
@@ -47,7 +47,7 @@
                         <field name="employee_id" options="{'no_create': True}"
                             readonly = "is_edit, '=', False" />
                         <field name="workflow_id" options="{'no_create': True}"
-                            readonly ="'state_type', '!=', 'draft'" />
+                            readonly ="state_type != 'draft'" />
                         <!-- Dates -->
                         <field name="department_id" options="{'no_create': True}" readonly="1"
                             force_save="1" />
@@ -80,13 +80,11 @@
                     </group>
 
                     <notebook>
-                        <page string="Зарлагын мэдээлэл" class="oe_page_title" accesskey="C">
+                        <page string="Зарлагын мэдээлэл">
                             <group>
-                                <field name="product_expense_line" nolabel="1"
-                                    widget="one2many_list"
-                                    colspan="4">
+                                <field name="product_expense_line">
                                     <tree string="Lines" editable="bottom">
-                                        <field name="categ_ids" invisible="1" />
+                                        <field name="categ_ids" column_invisible="True" />
                                         <field name="product_id" options="{'no_create': True}"
                                             domain="[('categ_id','child_of', categ_ids)]" />
                                         <field name="categ_id" />
@@ -128,7 +126,7 @@
                     decoration-danger="state_type == 'cancel'"
                 />
                 <field name="approver_id" />
-                <field name="state_type" invisible="1" />
+                <field name="state_type" column_invisible="True" />
             </tree>
         </field>
     </record>
