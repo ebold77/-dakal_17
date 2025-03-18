@@ -90,14 +90,15 @@ class BuySellOrder(models.Model):
         for order in self:
             if order.sale_order_id:
                 if order.sale_order_id.state == 'sale' and order.state == 'approved':
-                    pick =  self.env['stock.picking'].search([('sale_id', '=', order.sale_order_id.id)])
-                    if pick['state'] =='done':
-                        order.delivered = True
-                        if order.state in ('approved', 'received'):
-                            order.action_deliver()
-                    else:
-                        order.delivered = False
-                        return  order.delivered
+                    picking_ids =  self.env['stock.picking'].search([('sale_id', '=', order.sale_order_id.id)])
+                    for pick in picking_ids:
+                        if pick['state'] =='done':
+                            order.delivered = True
+                            if order.state in ('approved', 'received'):
+                                order.action_deliver()
+                        else:
+                            order.delivered = False
+                            return  order.delivered
                 else:
                     order.delivered = False
                     return  order.delivered
