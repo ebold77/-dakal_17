@@ -39,6 +39,11 @@ class BuySellOutLine(models.Model):
     def onchange_bs_price(self):
         if self.product_qty > 0:
             self.bs_price_total = self.bs_price * self.product_qty
+
+    @api.onchange('list_price')
+    def onchange_list_price(self):
+        if self.product_qty > 0:
+            self.list_price_total = self.list_price * self.product_qty
             
     @api.onchange('product_qty')
     def onchange_product_qty(self):
