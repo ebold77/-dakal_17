@@ -154,7 +154,7 @@ class BuySellOrder(models.Model):
             seq_date = None
             if 'date_order' in vals:
                 seq_date = fields.Datetime.context_timestamp(self, fields.Datetime.to_datetime(vals['date_order']))
-            vals['name'] = self.env['ir.sequence'].next_by_code('buy.sell.order', sequence_date=seq_date) or '/'
+            vals['name'] = self.env['ir.sequence'].get('buy.sell.order')
         return super(BuySellOrder, self).create(vals)
     
     def action_sent(self):
