@@ -156,9 +156,8 @@ class BuySellOrder(models.Model):
     
     def action_sent(self):
         if self.name == 'New':
-            seq_date = None
-            vals['name'] = self.env['ir.sequence'].get('buy.sell.order')
-        self.write({'state': "sent"})
+            seq_name = self.env['ir.sequence'].get('buy.sell.order')
+        self.write({'state': "sent", 'name' = seq_name})
         return True
 
     def unlink(self):
