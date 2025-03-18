@@ -1,0 +1,644 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_mn_stock_transit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-18 01:27+0000\n"
+"PO-Revision-Date: 2025-03-18 01:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.actions.report,print_report_name:l10n_mn_stock_transit.action_report_transit_order
+msgid "'Transit Order - %s' % (object.name)"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid ""
+"...................................................barter_report................"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "<span>Нийлүүлэх агуулах</span>:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "<span>Огноо</span>:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "<span>Сонгосон маршрут</span>:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "<span>Харилцагч</span>:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "<span>Хүлээн авах агуулах</span>:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "<span>Хүлээн авах ажилбар </span>:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Approve"
+msgstr "Батлах"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields.selection,name:l10n_mn_stock_transit.selection__stock_transit_order__state__approved
+msgid "Approved"
+msgstr "Батлагдсан"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__lot_available_qty
+msgid "Available QTY"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__availability
+msgid "Available Qty"
+msgstr "Боломжит тоо"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__balance
+msgid "Balance Qty"
+msgstr "Үлдэгдэл"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__box_qty
+msgid "Box Quantity"
+msgstr "Хайрцаг тоо"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_calendar
+msgid "Calendar View"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Cancel"
+msgstr "Цуцлах"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields.selection,name:l10n_mn_stock_transit.selection__stock_transit_order__state__cancel
+msgid "Cancelled"
+msgstr "Цуцлагдсан"
+
+#. module: l10n_mn_stock_transit
+#. odoo-python
+#: code:addons/l10n_mn_stock_transit/models/stock_transit_order.py:0
+#, python-format
+msgid ""
+"Cannot cancel replenishment order !\n"
+" Because picking state is Done of reception attached to this replenishment order."
+msgstr "Агуулахын баримт дууссан төлөвтэй нөхөн дүүргэлтийг цуцлах боломжгүй"
+
+#. module: l10n_mn_stock_transit
+#. odoo-python
+#: code:addons/l10n_mn_stock_transit/models/stock_transit_order.py:0
+#, python-format
+msgid ""
+"Cannot cancel replenishment order ! \n"
+" Because picking state is Done shipping document attached to this replenishment order."
+msgstr "Агуулахын баримт дууссан төлөвтэй нөхөн дүүргэлтийг цуцлах боломжгүй"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__company_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__company_id
+msgid "Company"
+msgstr "Компани"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "Confirmed"
+msgstr "Батлагдсан"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__create_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__date_order
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__date_order
+msgid "Date Order"
+msgstr "Захиалгын огноо"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__name
+msgid "Description"
+msgstr "Тайлбар"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields.selection,name:l10n_mn_stock_transit.selection__stock_transit_order__state__done
+msgid "Done"
+msgstr "Дууссан"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields.selection,name:l10n_mn_stock_transit.selection__stock_transit_order__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "Draft"
+msgstr "Ноорог"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__driver_id
+msgid "Driver"
+msgstr "Жолооч"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "Group By"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__id
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,help:l10n_mn_stock_transit.field_stock_transit_order__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,help:l10n_mn_stock_transit.field_stock_transit_order__message_has_error
+#: model:ir.model.fields,help:l10n_mn_stock_transit.field_stock_transit_order__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "In Shipments"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__receipt_count
+msgid "Incoming Shipments"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Incoming Shipments to Receive Warehouse"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__is_stock_manager
+msgid "Is Stock Manager"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__write_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__move_assign_date
+msgid "Move assign date"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "My Created Orders"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__name
+msgid "Name"
+msgstr "Дугаар"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__note
+msgid "Note"
+msgstr "Тэмдэглэл"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Notes"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,help:l10n_mn_stock_transit.field_stock_transit_order__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,help:l10n_mn_stock_transit.field_stock_transit_order__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "Old Transit Number"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__order_line_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Order Lines"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#. odoo-python
+#: code:addons/l10n_mn_stock_transit/models/stock_transit_order.py:0
+#, python-format
+msgid "Order line is not created"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "Ordered Date"
+msgstr "Захиалгын огноо"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Out Shipments"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__shipment_count
+msgid "Outgoing Shipments"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Outgoing Shipments from Supply Warehouse"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__transit_order_id
+msgid "Parent Transit Order"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__partner_id
+msgid "Partner"
+msgstr "Харилцагч"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__picking_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Picking List"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__route_id
+msgid "Preferred Route"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__price_unit
+msgid "Price Unit"
+msgstr "Нэгж үнэ"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.actions.report,name:l10n_mn_stock_transit.action_report_transit_order
+msgid "Print Order"
+msgstr "Хэвлэх"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__procurement_group_id
+msgid "Procurement group"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model,name:l10n_mn_stock_transit.model_product_template
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__product_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__product_id
+msgid "Product"
+msgstr "Бараа"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__product_uom_id
+msgid "Product Unit of Measure"
+msgstr "Хэмжих нэгж"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model,name:l10n_mn_stock_transit.model_product_product
+msgid "Product Variant"
+msgstr "Барааны хувилбар"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__product_qty
+msgid "Quantity"
+msgstr "Тоо"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_product_product__box_qty
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_product_template__box_qty
+msgid "Quantity in the Box"
+msgstr "Хайрцаг дахь тоо"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__receive_date
+msgid "Receive Date"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__receive_picking_type_id
+msgid "Receive Location"
+msgstr "Хүлээн авсан огноо"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__warehouse_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__warehouse_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+msgid "Receive Warehouse"
+msgstr "Хүлээн авах агуулах"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__is_received
+msgid "Received"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_tree
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_transit_order_line_pivot
+msgid "Replenishment Lines"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.actions.act_window,name:l10n_mn_stock_transit.action_stock_transit_order
+#: model:ir.model,name:l10n_mn_stock_transit.model_stock_transit_order
+#: model:ir.ui.menu,name:l10n_mn_stock_transit.menu_action_stock_transit_order
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_tree
+msgid "Replenishment Order"
+msgstr "Нөхөн дүүргэлт"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.actions.act_window,name:l10n_mn_stock_transit.action_stock_transit_order_line
+#: model:ir.model,name:l10n_mn_stock_transit.model_stock_transit_order_line
+#: model:ir.ui.menu,name:l10n_mn_stock_transit.menu_action_stock_transit_order_line
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+msgid "Replenishment Order Line"
+msgstr "Нөхөн дүүргэлтийн мөр"
+
+#. module: l10n_mn_stock_transit
+#. odoo-python
+#: code:addons/l10n_mn_stock_transit/models/stock_transit_order.py:0
+#, python-format
+msgid "Replenishment receivement has been complete."
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__user_id
+msgid "Responsible"
+msgstr "Хариуцагч"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__route_id
+msgid "Route"
+msgstr "Маршрут"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__date_planned
+msgid "Scheduled Date"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__lot_id
+msgid "Seial"
+msgstr "Серийн дугаар"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__state
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "State"
+msgstr "Төлөв"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__state
+msgid "Status"
+msgstr "Төлөв"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__sub_total
+msgid "Sub Total"
+msgstr "Дэд дүн"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__is_supplied
+msgid "Supplied"
+msgstr "Нийлүүлсэн"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__supply_picking_type_id
+msgid "Supply Location"
+msgstr "Нийлүүлэх ажилбар"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__supply_warehouse_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order_line__supply_warehouse_id
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "Supply Warehouse"
+msgstr "Нийлүүлэх агуулах"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "To draft"
+msgstr "Ноороглох"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Total"
+msgstr "Нийт"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "Total Box"
+msgstr "Нийт хайрцаг"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model,name:l10n_mn_stock_transit.model_stock_picking
+msgid "Transfer"
+msgstr "Шилжүүлэг"
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_picking__transit_order_id
+msgid "Transit Order"
+msgstr "Нөхөн дүүргэлт"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_form
+msgid "UOM"
+msgstr "Хэмжих нэгж"
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.view_stock_transit_order_search
+msgid "Warehouse"
+msgstr "Агуулах"
+
+#. module: l10n_mn_stock_transit
+#. odoo-python
+#: code:addons/l10n_mn_stock_transit/models/stock_transit_order_line.py:0
+#, python-format
+msgid ""
+"Warning!\n"
+"You must select supply warehouse before add order line!"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,field_description:l10n_mn_stock_transit.field_stock_transit_order__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model:ir.model.fields,help:l10n_mn_stock_transit.field_stock_transit_order__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#. odoo-python
+#: code:addons/l10n_mn_stock_transit/models/stock_transit_order.py:0
+#, python-format
+msgid ""
+"You can not delete this transit order. You can only be deleted during the "
+"drafts!"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "Бараа захиалгын баримт:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "Барааны код"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "Барааны нэр"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "Баталсан:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "Захиалга өгсөн:"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "Тоо ширхэг"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "Хэмжих нэгж"
+msgstr ""
+
+#. module: l10n_mn_stock_transit
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_transit.report_stock_transit_order_document
+msgid "Шалгасан нягтлан бодогч"
+msgstr ""

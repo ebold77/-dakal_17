@@ -1,0 +1,35 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="sales_performance_report_view" model="ir.ui.view">
+            <field name="name">sales.performance.report wizard</field>
+            <field name="model">sales.performance.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="6">
+                        <field name="date_start" />
+                        <field name="date_end" />
+                    </group>
+                
+                    <footer>
+                        <group col="6">
+                            <button icon="fa-times" special="cancel" string="Хаах" class="btn-danger"/>
+                            <button name="open_analyze_view" string="Харах" type="object"  icon="fa-eye" class="btn-success"/>
+                        </group>
+                    </footer>
+
+               </form>
+            </field>
+        </record>
+
+        <record id="action_sales_performance_report" model="ir.actions.act_window">
+            <field name="name">Борлуулалтын гүйцэтгэл</field>
+            <field name="res_model">sales.performance.report</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sales_performance_report_view"/>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

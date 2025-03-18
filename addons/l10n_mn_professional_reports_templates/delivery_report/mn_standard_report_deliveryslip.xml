@@ -759,7 +759,7 @@
 							<t
 								t-call="l10n_mn_professional_reports_templates.mn_std_report_deliveryslip_document"
 								t-lang="o.partner_id.lang" />
-						</t>s
+						</t>
 						<t t-if="o.company_id.stock_template == 'odoo_standard'">
 							<t
 								t-call="l10n_mn_professional_reports_templates.odoo_std_report_deliveryslip_document"

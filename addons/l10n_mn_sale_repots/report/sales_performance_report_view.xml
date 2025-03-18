@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Income, Expsne Both report -->
+        <record id="sales_performance_report_tree_view" model="ir.ui.view">
+            <field name="name">sales.performance.report.tree.view</field>
+            <field name="model">sales.performance.report</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+               <tree>
+                    <field name="date" widget="date"/>
+                    <field name="order_reference" optional="show"/>
+                    <field name="partner_id" optional="hide"/>
+                    <field name="user_id" optional="show" widget="many2one_avatar_user"/>
+                    <field name="team_id" optional="show"/>
+                    <field name="company_id" optional="show" groups="base.group_multi_company"/>
+                    <field name="sales_total" optional="show" sum="Sales of Total"/>
+                    <field name="invoice_reference" optional="show"/>
+                    <field name="invoiced_total" optional="show" sum="Invoice of Total"/>
+                    <field name="payment_total" optional="show" sum="Payment of Total"/>
+                    <field name="performace" optional="show"/>
+                    <field name="currency_id" column_invisible="True"/>
+               </tree>
+            </field>
+        </record>
+
+        <record id="sales_performance_report_pivot" model="ir.ui.view">
+             <field name="name">sales.performance.report.pivot</field>
+             <field name="model">sales.performance.report</field>
+             <field name="arch" type="xml">
+                <pivot string="Analysis">
+                    <field name="user_id" type="row"/>
+                    <field name="partner_id" type="row"/>
+                    <field name="sales_total" type="measure"/>
+                    <field name="invoiced_total" type="measure"/>
+                    <field name="payment_total" type="measure"/>
+                    <field name="performace" type="measure"/>
+                </pivot>
+             </field>
+        </record>
+
+        <record id="sales_performance_report_search" model="ir.ui.view">
+            <field name="name">sales.performance.report.search</field>
+            <field name="model">sales.performance.report</field>
+            <field name="arch" type="xml">
+                <search string="Analysis">
+                    <field name="user_id"/>
+                    <field name="partner_id"/>
+                  
+                    <group expand="0" string="Group By">
+                        <filter string="Борлуулагч" name="gr_product" context="{'group_by': 'user_id'}"/>
+                        <filter string="Харилцагчаар" name="gr_partner_id" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Огноогоор" name="gr_date" context="{'group_by': 'date:year'}" help="Жил жилээр"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_sales_performance_report" model="ir.actions.act_window">
+            <field name="name">Борлуулалтын гүйцэтгэл</field>
+            <field name="res_model">sales.performance.report</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="view_id" ref="sales_performance_report_pivot"/>
+            <field name="target">current</field>
+        </record>
+  
+</odoo>
