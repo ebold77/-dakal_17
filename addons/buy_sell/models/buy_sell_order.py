@@ -151,13 +151,13 @@ class BuySellOrder(models.Model):
     @api.model_create_multi
     def create(self, vals):
         if self.name == 'New':
-            seq_date = None
-            if 'date_order' in vals:
-                seq_date = fields.Datetime.context_timestamp(self, fields.Datetime.to_datetime(vals['date_order']))
             vals['name'] = self.env['ir.sequence'].get('buy.sell.order')
         return super(BuySellOrder, self).create(vals)
     
     def action_sent(self):
+        if self.name == 'New':
+            seq_date = None
+            vals['name'] = self.env['ir.sequence'].get('buy.sell.order')
         self.write({'state': "sent"})
         return True
 
