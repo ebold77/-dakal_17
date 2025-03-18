@@ -49,6 +49,7 @@ class BuySellOutLine(models.Model):
     def onchange_pricelist_discount(self):
         if self.product_qty > 0:
             self.discount_total = (self.list_price_total*self.pricelist_discount)/100
+            self.list_price_total = self.list_price_total = self.discount_total
             
     @api.onchange('product_qty')
     def onchange_product_qty(self):
