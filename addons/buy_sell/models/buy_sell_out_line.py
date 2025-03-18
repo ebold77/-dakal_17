@@ -29,7 +29,7 @@ class BuySellOutLine(models.Model):
     product_uom = fields.Many2one('uom.uom', string='Unit of Measure', readonly=True)
     bs_price = fields.Float(string='Buy and Sell Price', required=True, digits='Product Price')
     list_price = fields.Float(string='List Price', required=True, digits='Product Price')
-    pricelist_discount = fields.Float(string='PriceList Discount', required=True, digits='Discount', readonly=True)
+    pricelist_discount = fields.Float(string='PriceList Discount', required=True, digits='Discount')
     stock_available_qty = fields.Float(string='stock_available_qty', required=True, digits='Product', readonly=True)
     month_average_amount = fields.Float(string='Month average sale amount', required=True, digits='Product', readonly=True)
     bs_price_total = fields.Float(string='Buy and Sell Total Price', store=True, readonly=True)
