@@ -235,6 +235,9 @@ class PosOrder(models.Model):
         emd_datas['insAmount']= insAmt 
         emd_datas['detailId']= order_line.detail_id 
         emd_datas['tbltId']= ins_list.tbltId
+
+        # if order_line.product_id.emd_insurance_list_id.tbltManufacture == 'BULK_PROCUREMENT_DRUG':
+        #     emd_datas['lotNo']= ins_list.tbltId
                  
         prod_name = order_line.product_id.with_context({'lang': 'mn_MN'}).name
         items['name'] = prod_name

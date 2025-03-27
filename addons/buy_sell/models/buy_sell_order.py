@@ -148,11 +148,11 @@ class BuySellOrder(models.Model):
     profit_loss_buy = fields.Monetary(string='Profit and Loss Sale', store=True, readonly=True, compute='_amount_all')
     profit_loss_sale = fields.Monetary(string='Profit and Loss Buy', store=True, readonly=True, compute='_amount_all')
     
-    @api.model_create_multi
-    def create(self, vals):
-        if self.name == 'New':
-            vals['name'] = self.env['ir.sequence'].get('buy.sell.order')
-        return super(BuySellOrder, self).create(vals)
+    # @api.model_create_multi
+    # def create(self, vals):
+    #     if self.name == 'New':
+    #         vals['name'] = self.env['ir.sequence'].get('buy.sell.order')
+    #     return super(BuySellOrder, self).create(vals)
     
     def action_sent(self):
         if self.name == 'New':
