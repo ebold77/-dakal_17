@@ -158,6 +158,8 @@ class BuySellOrder(models.Model):
         if self.name == 'New':
             seq_name = self.env['ir.sequence'].get('buy.sell.order')
             self.write({'state': "sent", 'name': seq_name})
+        else:
+            self.write({'state': "sent"})
         return True
 
     def unlink(self):
