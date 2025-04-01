@@ -6,7 +6,7 @@ class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
     
-    ebarimt_service_host = fields.Char(related='company_id.ebarimt_service_host', readonly=False, string='Ebarimt service address', default= 'localhost')
+    ebarimt_service_host = fields.Char(related='company_id.ebarimt_service_host', readonly=False, string='Ebarimt service address', default= '202.21.110.237')
     ebarimt_service_port = fields.Char(related='company_id.ebarimt_service_port', readonly=False, string='Ebarimt service port', default= '7080')
     aimag_district_id = fields.Many2one('ebarimt.aimag.district', related='company_id.aimag_district_id', string="Aimag/District", readonly=False, required=True, help="This Aimag/District will be assigned by default on new EBarimt put operation.")
     merchant_tin = fields.Char(related='company_id.merchant_tin', readonly=False, string='Merchant Tin')
