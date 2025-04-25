@@ -60,8 +60,9 @@ class ProductTemplate(models.Model):
             if self.register_id.state != 'registered':
                 raise UserError(_("You can only create items from a drug registry that has a registered status."))
             else:
+                manu = self.register_id.tbltManufacture.split()
                 self.write({
-                    'name':self.register_id.tbltNameSales +' '+self.register_id.tbltSizeMixture+' №'+self.register_id.tbltSizeUnit,
+                    'name':self.register_id.tbltNameSales +' '+self.register_id.tbltSizeMixture+' №'+self.register_id.tbltSizeUnit + '/'+manu[0]+' '+ manu[1]+'/',
                     'barcode':self.register_id.tbltBarCode,
                     'package_qty': package_qty,
                     'tbltSizeMixture': self.register_id.tbltSizeMixture,

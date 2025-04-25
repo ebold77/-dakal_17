@@ -334,7 +334,7 @@ class PosOrder(models.Model):
             data = {}
             data['approvalCode'] = "123456"
             data['rrn'] = "123456789456"
-            data['date'] = (fields.Datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            data['date'] = str(fields.Datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             if p.payment_method_id.is_cash_count:
                 payment['code'] = "CASH"
                 payment['paidAmount'] = round(p.amount, 2)
@@ -389,12 +389,9 @@ class PosOrder(models.Model):
 
         
         if data:
-            print('data===========================>>>', order_json)
+            print('data===========================>>>', data)
             self.bill_id = data['id']
             self.receipt_bill_id = data['receipts'][0]['id']
-            self.bill_printed_date = fields.Datetime.from_string(data['date'])
-            insurance_id = False
-          
             insurance_obj = self.env['emd.insurance.sale']
             insuranceLine_obj = self.env['emd.insurance.sale.line']
             invoice_obj = self.env['account.move']

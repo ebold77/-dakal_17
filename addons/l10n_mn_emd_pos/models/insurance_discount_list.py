@@ -74,7 +74,7 @@ class InsuranceDiscountList(models.Model):
             _logger.error(u'Аccess token авахад алдаа гарлаа.')
             raise ValidationError(u'ЭМД системтэй холбогдож чадсангүй!')
          
-        url = 'https://health.gov.mn/eins/prescription/getTabletFindAll?page=1&size=570&type=1&access_token='+ access_token
+        url = 'https://health.gov.mn/eins/prescription/getTabletFindAll?page=1&size=1000&type=1&access_token='+ access_token
         head = {"Content-Type": "application/json"}
         params = {'field':None,
                   'value':None,

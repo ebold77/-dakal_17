@@ -12,6 +12,12 @@
 						options="{'currency_field': 'currency_id'}" />
 
 				</xpath>
+				<xpath expr="//tree//field[@name='price_unit']" position="attributes">
+					<attribute name="readonly">1</attribute>
+				</xpath>
+				<xpath expr="//tree//field[@name='discount']" position="attributes">
+					<attribute name="readonly">1</attribute>
+				</xpath>
 				<xpath expr="//tree//field[@name='product_uom_qty']" position="before">
                 	<field name="lot_id" domain="[('product_id', '=', product_id), ('expiration_date', '>=',context_today().strftime('%Y-%m-%d 23:23:59'))]"/>
 					<field name="lot_available_qty"/>

@@ -93,7 +93,6 @@
 								<th>Х.Н</th>
 								<th>Тоо</th>
 								<th>Нэгж үнэ</th>
-								<th>Хөн</th>
 								<th width="10%">Нийт дүн</th>
 							</tr>
 						</thead>
@@ -135,14 +134,9 @@
 									<td style="text-align: right">
 										<span t-field="move.quantity" />
 									</td>
-									<t t-set="price" t-value="move.move_id.sale_line_id.get_price_discount()['base_price']" />
+									<t t-set="price" t-value="(1 - move.move_id.sale_line_id.discount/100)* move.move_id.sale_line_id.price_unit"  />
 									<td style="text-align: right">
 										<span t-esc="round(price,2)" />
-									</td>
-									<t t-set="pricelist_disc" t-value="move.move_id.sale_line_id.get_price_discount()['discount']" />
-									<t t-set="display_discount" t-value="pricelist_disc"/>
-									<td>
-										<span t-esc="display_discount" />
 									</td>
 									<td style="text-align: right">
 										<span>
