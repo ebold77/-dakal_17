@@ -88,9 +88,10 @@ class SaleOrder(models.Model):
         else:
       
             # for sub_categ in category.search([('id', 'child_of', category.ids)]):
+            _logger.info(u'Offset===============:  %s ' % offset)
             pp =  self.env['product.product'].search([('is_online', '=', True)], offset, limit)
             for product in pp:
-
+                _logger.info(u'product===============:  %s ' % product.name)
                 qty_available = product.with_context({'warehouse': warehouse.id}).qty_available
                 # product_name_inter = ''
                 categ_name = ''

@@ -205,16 +205,25 @@ class PosOrder(models.Model):
     def generate_order_json(self):
         data = {}
 
-        data['totalAmount'] = round(self.amount_total, 2)
-        data['totalVat'] = round((self.amount_total - self.amount_total/1.1), 2)
-        data['totalCityTax'] = round(self.amount_tax_city, 2)
+        data['reportMonth'] = None
         data['districtCode'] = self.session_id.config_id.aimag_district_id.code or self.env['ebarimt.aimag.district'].search([('name','ilike',self.env.user.company_id.state_id.name)]).code
         data['merchantTin'] = self.session_id.config_id.merchant_tin
-        data['posNo'] = (self.session_id.config_id.pos_no or str(1)).zfill(4)
-        data['type'] = self.bill_type
         data['branchNo'] = (self.session_id.config_id.branch_no or str(1)).zfill(3)
-        data['date'] = (fields.Datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        data['posNo'] = (self.session_id.config_id.pos_no or str(1)).zfill(4)
+        data['billIdSuffix'] = self.env['ir.sequence'].next_by_code('ebarimt.billid.suffix')
+        data['type'] = self.bill_type
 
+        if self.bill_type == 'B2B_RECEIPT':
+            data['customerNo'] = self.company_reg 
+            data['customerTin'] = self.customer_tin
+
+        data['totalAmount'] = round(self.amount_total, 2)
+        data['totalVat'] = round(self.amount_tax_vat, 2)
+        data['totalCityTax'] = round(self.amount_tax_city, 2)
+        data['taxType'] = self.tax_type
+        data['“inactiveId”'] = self.bill_id or ""
+        data['invoiceId'] = self.account_move and self.account_move.bill_id or ""
+        data['date'] = (fields.Datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         return data
 
     def generate_order_line_json(self, order_line):
@@ -237,7 +246,8 @@ class PosOrder(models.Model):
         emd_datas['tbltId']= ins_list.tbltId
 
         # if order_line.product_id.emd_insurance_list_id.tbltManufacture == 'BULK_PROCUREMENT_DRUG':
-        #     emd_datas['lotNo']= ins_list.tbltId
+        for lot_line in order_line.pack_lot_ids:
+            emd_datas['lotNo']= lot_line.lot_name
                  
         prod_name = order_line.product_id.with_context({'lang': 'mn_MN'}).name
         items['name'] = prod_name
@@ -347,20 +357,20 @@ class PosOrder(models.Model):
                 payment['data'] = data
             payments.append(payment)
         order_json['payments'] = payments
-
-        access_token = self.get_access_token(self.session_id.config_id)[0]
-        query_params = {
-            'access_token':[access_token]
+        if self.receipt_number:
+            access_token = self.get_access_token(self.session_id.config_id)[0]
+            query_params = {
+                'access_token':[access_token]
+                }
+            exchange_data = {
+                "ЭМД-н систем рүү жорын мэдээлэл илгээх":{
+                    "queryParams": query_params
+                }
             }
-        exchange_data = {
-            "ЭМД-н систем рүү жорын мэдээлэл илгээх":{
-                "queryParams": query_params
-            }
-        }
-        order_json['exchangeData'] = exchange_data
+            order_json['exchangeData'] = exchange_data
         ###################### GetInformation #################
 
-        info_url = "http://" +self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+"/rest/info"
+        info_url = "https://" +self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+"/rest/info"
         headers = {"Content-Type": "application/json; charset=utf-8"}
         response = requests.get(url=info_url, headers=headers)
         if response:
@@ -371,11 +381,11 @@ class PosOrder(models.Model):
                 _logger.error(e)
         ###################### SendData #################
          
-        ebarimt_url = "http://" + self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+'/rest/receipt'
+        ebarimt_url = "https://" + self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+'/rest/receipt'
         headers = {"Content-Type": "application/json; charset=utf-8"}
         
         self.note = order_json
-        print('order_json===========>>', order_json)
+        # print('order_json===========>>', order_json)
         response = requests.post(url=ebarimt_url, headers=headers, json=order_json)
         if response.text:
             
@@ -389,7 +399,7 @@ class PosOrder(models.Model):
 
         
         if data:
-            print('data===========================>>>', data)
+            # print('data===========================>>>', data)
             self.bill_id = data['id']
             self.receipt_bill_id = data['receipts'][0]['id']
             insurance_obj = self.env['emd.insurance.sale']

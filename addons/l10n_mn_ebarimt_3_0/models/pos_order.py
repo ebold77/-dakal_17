@@ -87,7 +87,7 @@ class PosOrder(models.Model):
         order_fields['bill_type'] = ui_order['bill_type']
         order_fields['company_reg'] = ui_order['company_reg']
         order_fields['customer_tin'] = ui_order['customer_tin']
-
+        print('order_fields.customer_tin', order_fields['customer_tin'])
         return order_fields
 
     def _tax_type(self):
@@ -127,7 +127,7 @@ class PosOrder(models.Model):
                 data = json.loads(resp1.text)
             except Exception as e:
                 raise Warning(_('Error'), _('Could not connect to json device. \n%s') % e)
-
+            
             return data
 
 
