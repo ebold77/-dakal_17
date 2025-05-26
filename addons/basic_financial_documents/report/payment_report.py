@@ -19,6 +19,7 @@ class PaymentReportView(models.AbstractModel):
         signature_lines = {}
         for doc in docs:
             word = verbose_numeric(abs(doc.amount))
+            print('wwwwwwwwwwwwwwww', word)
             curr = u''
             div_curr = u''
             symbol = u''

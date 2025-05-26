@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_product_licemed_registration,product_licemed_registration,model_product_licemed_registration,stock.group_stock_user,1,1,1,1
 access_product_general_category,product_general_category,model_product_general_category,stock.group_stock_user,1,1,1,1
+access_stock_inventory_statement,stock_inventory_statement,model_stock_inventory_statement,,1,1,1,1
+access_stock_product_balance,stock_product_balance,model_stock_product_balance,stock.group_stock_user,1,1,1,1

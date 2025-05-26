@@ -13,8 +13,9 @@
     'data': [
 #         'security/security.xml',
 #         'security/ir.model.access.csv',
+        'report/sale_report_views.xml',
         'wizard/report_product_sales_view.xml',
-        'wizard/sales_performance_report_wizard.xml',
+        # 'wizard/sales_performance_report_wizard.xml',
     ],
     'installable': True,
     'auto_install': False,

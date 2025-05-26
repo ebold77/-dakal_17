@@ -16,3 +16,9 @@ class ProductTemplate(models.Model):
         rec = self.emd_insurance_list_id.id
         res = self.env['emd.insurance.discount.list'].browse(rec)
         res.write({'product_ids':[(4,self._origin.id)]})
+
+
+# class ProductProduct(models.Model):
+#     _inherit = 'product.product'
+
+#     package_qty = fields.Integer(related='product_tmpl_id.package_qty', string='Quantity in the package')

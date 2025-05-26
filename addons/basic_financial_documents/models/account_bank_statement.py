@@ -23,11 +23,14 @@ class AccountBankStatementLine(models.Model):
         # Кассын баримт хэвлэх
         statement = self.browse(self.ids)
         if self.journal_id.type == 'bank':
+            
             data = {
                 'is_statement_line': True
             }
+            print('is_statement_line====', data)
             return self.env.ref('basic_financial_documents.action_payment_assignment_line').report_action(self, data)
         else:
+            print('self.amount====', self.amount)
             if self.amount > 0:
                 return self.env.ref('basic_financial_documents.action_print_cash_income_order').report_action(self)
             else:

@@ -107,7 +107,7 @@ class SaleOrder(models.Model):
         _logger.info(u' %s дугаар илгээсэн байна. ' % regno)
         try:
             if regno:
-                partner_ids = self.env['res.partner'].search([('vat', '=', regno),('category_id', '=', 71)])
+                partner_ids = self.env['res.partner'].search([('vat', '=', regno)])
                 if partner_ids:
                     for partner in partner_ids:
                         if partner.phone:
@@ -144,7 +144,7 @@ class SaleOrder(models.Model):
             'warehouse_id': self.env.user.company_id.orion_warehouse_id.id,
             'pricelist_id': self.env.user.company_id.orion_sale_pricelist_id.id,
             'payment_term_id': 1,
-            'website_id': 1,
+            # 'website_id': 1,
             'state': 'draft',
             'note': note,
         }

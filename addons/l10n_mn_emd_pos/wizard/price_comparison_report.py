@@ -8,6 +8,7 @@ import pytz
 import json
 import datetime
 import io
+import base64   
 from odoo import api, fields, models, _
 from odoo.tools import date_utils
 try:
@@ -22,31 +23,32 @@ class ReportProductSales(models.TransientModel):
     _name = 'report.price.comparison'
     _description = 'Generate XLSX report for Price Comparison'
 
-    
+    datas = fields.Binary('File', readonly=True)
+    datas_fname = fields.Char('Filename', readonly=True)
 
     company_id = fields.Many2one('res.company', 'Company', readonly=True, default=lambda self: self.env.company.id)
     date = fields.Date('Date', required=True, default=lambda *a: time.strftime('%Y-%m-%d'))
     pricelist_ids = fields.Many2many('product.pricelist', 'price_comparison_report_rel','wizard_id', 'pricelist_id', 'Pricelist')
     product_ids = fields.Many2many('product.product', 'price_comparison_report_product_rel', 'wizard_id', 'product_id', 'Product')
 
-    def export_report_xls(self):
-       
-        data = {
-            'ids': self.ids,
-            'model': self._name,
-            'date': self.date,
-            'pricelist_ids': self.pricelist_ids,
-            'product_ids': self.product_ids
-             }
-        return {
-            'type': 'ir.actions.report',
-            'data': {'model': 'report.price.comparison',
-                     'options': json.dumps(data, default=date_utils.json_default),
-                     'output_format': 'xlsx',
-                     'report_name': 'Үнийн харьцуулалтын тайлан',
-                     },
-            'report_type': 'xlsx'
-        }
+    # def export_report_xls(self):
+    #     print(';;;;;;;;;;;;;;;;;;;;saddddddddddddddddddddd', self)
+    #     data = {
+    #         'ids': self.ids,
+    #         'model': self._name,
+    #         'date': self.date,
+    #         'pricelist_ids': self.pricelist_ids,
+    #         'product_ids': self.product_ids
+    #          }
+    #     return {
+    #         'type': 'ir.actions.report',
+    #         'data': {'model': 'report.price.comparison',
+    #                  'options': json.dumps(data, default=date_utils.json_default),
+    #                  'output_format': 'xlsx',
+    #                  'report_name': 'Үнийн харьцуулалтын тайлан',
+    #                  },
+    #         'report_type': 'xlsx'
+    #     }
 
 
     # Харилцагчийн мэдээлэл авах
@@ -63,10 +65,10 @@ class ReportProductSales(models.TransientModel):
         
         return lines
 
-    def get_xlsx_report(self, data, response):
+    def export_report_xls(self):
         output = io.BytesIO()
         workbook = xlsxwriter.Workbook(output, {'in_memory': True})
-        wiz = self.browse(data['ids'])
+        wiz = self.read()[0]
         
         comp = self.env.user.company_id.name
         
@@ -88,7 +90,8 @@ class ReportProductSales(models.TransientModel):
         red_mark.set_align('center')
 
 
-        
+        report_name = u'Үнийн харьцуулалтын тайлан'
+        filename = report_name
             
         sheet = workbook.add_worksheet('sheet')
         sheet.set_landscape()
@@ -112,15 +115,15 @@ class ReportProductSales(models.TransientModel):
         sheet.write(row+1, 4, u'Өртөг', format1)
         col = 5
         j = 1
-        for price_list in wiz.pricelist_ids:
-            col_count = len(wiz.pricelist_ids)
-            
-            sheet.merge_range(row, 5, row, col_count+4, u'Үнийн хүснэгт', format1)
+        for pricelist_id in wiz['pricelist_ids']:
+            col_count = len(wiz['pricelist_ids'])
+            price_list = self.env['product.pricelist'].search([('id','=',pricelist_id)])
+            sheet.merge_range(row, 6, row, col_count+4, u'Үнийн хүснэгт', format1)
             sheet.write(row+1, col, price_list.name, format1)
             sheet.set_column(col, col, 13)
             col +=1
-        if wiz.product_ids:
-            products = wiz.product_ids
+        if wiz['product_ids']:
+            products = wiz['product_ids']
         else:
             products = self.get_products() 
         row += 1
@@ -132,15 +135,28 @@ class ReportProductSales(models.TransientModel):
             sheet.write(row, 3, product.name, font_size_8_l_b)
             sheet.write(row, 4, product.standard_price, font_size_8_l_b)
             col = 5
-            for price_list in wiz.pricelist_ids:
-                sale_price = price_list.get_product_price(product, 1, 1)
-                sheet.write(row, col, sale_price, font_size_8)
+            for pricelist_id in wiz['pricelist_ids']:
+                price_list = self.env['product.pricelist'].search([('id','=',pricelist_id)])
+                price_dict = price_list._get_product_price(
+                    product= product,
+                    quantity=1.0,
+                    currency=self.company_id.currency_id,
+                    date=wiz['date'],
+                )
+                sheet.write(row, col, price_dict, font_size_8)
                 col += 1
             j += 1
                 
             
 
         workbook.close()
-        output.seek(0)
-        response.stream.write(output.read())
-        output.close()    
+        out = base64.encodebytes(output.getvalue())
+        self.write({'datas': out, 'datas_fname': filename})
+        output.close()
+        filename += '%2Exlsx'
+
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': 'web/content/?model='+self._name+'&id='+str(self.id)+'&field=datas&download=true&filename='+filename,
+        }

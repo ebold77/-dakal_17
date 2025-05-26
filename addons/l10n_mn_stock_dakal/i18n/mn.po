@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 08:37+0000\n"
-"PO-Revision-Date: 2025-01-30 08:37+0000\n"
+"POT-Creation-Date: 2025-05-26 06:48+0000\n"
+"PO-Revision-Date: 2025-05-26 06:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -58,9 +58,34 @@ msgid "Attachment Count"
 msgstr ""
 
 #. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_lot__available_to_choose
+msgid "Available"
+msgstr "Бэлэн"
+
+#. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__tbltBarCode
 msgid "BarCode"
 msgstr "Баркод"
+
+#. module: l10n_mn_stock_dakal
+#. odoo-python
+#: code:addons/l10n_mn_stock_dakal/wizard/stock_inventory_statement.py:0
+#: code:addons/l10n_mn_stock_dakal/wizard/stock_product_balance.py:0
+#, python-format
+msgid "Category"
+msgstr "Ангилал"
+
+#. module: l10n_mn_stock_dakal
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_inventory_statement_report_xlsx_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_product_balance_report_xlsx_form
+msgid "Close"
+msgstr "Хаах"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__company_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__company_id
+msgid "Company"
+msgstr "Компани"
 
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__conditions_granting
@@ -73,12 +98,16 @@ msgstr "Олгох нөхцөл"
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__create_uid
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__create_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__create_date
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__create_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__create_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__create_date
 msgid "Created on"
 msgstr ""
 
@@ -91,8 +120,11 @@ msgstr ""
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__display_name
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_lot__display_name
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Дэлгэрэнгүй нэр"
 
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_sale_order__driver_id
@@ -109,6 +141,24 @@ msgstr "Жолооч"
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_account_payment__driver_id
 msgid "Driver name"
 msgstr "Жолоочийн нэр"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__end_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__end_date
+msgid "End Date"
+msgstr "Дуусах огноо"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__datas
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__datas
+msgid "File"
+msgstr "Файл"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__datas_fname
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__datas_fname
+msgid "Filename"
+msgstr "Файлын нэр"
 
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__message_follower_ids
@@ -135,6 +185,22 @@ msgid "General Category"
 msgstr "Ерөнхий ангилал"
 
 #. module: l10n_mn_stock_dakal
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_inventory_statement_report_xlsx_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_product_balance_report_xlsx_form
+msgid "Generate"
+msgstr "Боловсруулах"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model,name:l10n_mn_stock_dakal.model_stock_inventory_statement
+msgid "Generate XLSX report for stock move between 2 dates"
+msgstr ""
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model,name:l10n_mn_stock_dakal.model_stock_product_balance
+msgid "Generate XLSX report for stock product balance between 2 dates"
+msgstr ""
+
+#. module: l10n_mn_stock_dakal
 #: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.product_general_category_search_view
 #: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.product_licemed_registration_search_view
 msgid "Group By"
@@ -149,6 +215,8 @@ msgstr ""
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__id
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__id
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__id
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__id
 msgid "ID"
 msgstr ""
 
@@ -197,12 +265,16 @@ msgstr "Ажил гүйлгээ"
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__write_uid
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__write_uid
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__write_date
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__write_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__write_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -213,11 +285,25 @@ msgid "Licemed Registration"
 msgstr "Эмийн бүртгэл"
 
 #. module: l10n_mn_stock_dakal
+#: model:ir.model,name:l10n_mn_stock_dakal.model_stock_lot
+msgid "Lot/Serial"
+msgstr "Серийн дугаар"
+
+#. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__tbltManufacture
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_product__tbltManufacture
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_template__tbltManufacture
 #: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.product_licemed_registration_search_view
 msgid "Manufacture"
+msgstr "Үйлдвэрлэгч"
+
+#. module: l10n_mn_stock_dakal
+#. odoo-python
+#: code:addons/l10n_mn_stock_dakal/wizard/stock_inventory_statement.py:0
+#: code:addons/l10n_mn_stock_dakal/wizard/stock_product_balance.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_inventory_statement_report_xlsx_form
+#, python-format
+msgid "Manufacturer"
 msgstr "Үйлдвэрлэгч"
 
 #. module: l10n_mn_stock_dakal
@@ -247,6 +333,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__name
 msgid "Name"
 msgstr "Нэр"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
 
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__activity_date_deadline
@@ -297,20 +389,57 @@ msgid "Parent Category"
 msgstr "Дээд ангилал"
 
 #. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__partner_ids
+msgid "Partner"
+msgstr "Харилцагч"
+
+#. module: l10n_mn_stock_dakal
+#. odoo-python
+#: code:addons/l10n_mn_stock_dakal/wizard/stock_inventory_statement.py:0
+#: code:addons/l10n_mn_stock_dakal/wizard/stock_product_balance.py:0
+#, python-format
+msgid "Pos Category"
+msgstr "Пос ангилал"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__pos_install
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__pos_install
+msgid "Pos Install"
+msgstr ""
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__pricelist_id
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__pricelist_id
+msgid "Pricelist"
+msgstr "Үнийн хүснэгт"
+
+#. module: l10n_mn_stock_dakal
 #: model:ir.model,name:l10n_mn_stock_dakal.model_product_template
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__product_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__product_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_inventory_statement_report_xlsx_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_product_balance_report_xlsx_form
 msgid "Product"
 msgstr "Бараа"
 
 #. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__prod_categ_ids
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__prod_categ_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_inventory_statement_report_xlsx_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_product_balance_report_xlsx_form
+msgid "Product Category"
+msgstr "Барааны ангилал"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model,name:l10n_mn_stock_dakal.model_product_general_category
 #: model:ir.ui.menu,name:l10n_mn_stock_dakal.product_general_category_menu
 #: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.product_general_category_form_view
 #: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.product_general_category_search_view
 #: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.product_general_category_tree_view
 msgid "Product General Category"
-msgstr "Барааны ерөнхий ангилал"
+msgstr "Эмийн бүртгэл"
 
 #. module: l10n_mn_stock_dakal
-#: model:ir.model,name:l10n_mn_stock_dakal.model_product_general_category
 #: model:ir.model,name:l10n_mn_stock_dakal.model_product_licemed_registration
 #: model:ir.ui.menu,name:l10n_mn_stock_dakal.product_licemed_registration_menu
 #: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.product_licemed_registration_form_view
@@ -358,6 +487,12 @@ msgid "Responsible User"
 msgstr "Хариуцагч"
 
 #. module: l10n_mn_stock_dakal
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_inventory_statement_report_xlsx_form
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_product_balance_report_xlsx_form
+msgid "SIS XLSX"
+msgstr ""
+
+#. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__message_has_sms_error
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__message_has_sms_error
 msgid "SMS Delivery error"
@@ -379,10 +514,21 @@ msgid "Sales Order"
 msgstr "Борлуулалтын захиалга"
 
 #. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__show_package
+msgid "Show package?"
+msgstr ""
+
+#. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_product__tbltSizeMixture
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_template__tbltSizeMixture
 msgid "Size Mixture"
 msgstr "Тун хэмжээ"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__start_date
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_product_balance__start_date
+msgid "Start Date"
+msgstr "Эхлэх огноо"
 
 #. module: l10n_mn_stock_dakal
 #: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.product_licemed_registration_search_view
@@ -403,6 +549,18 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.actions.act_window,name:l10n_mn_stock_dakal.stock_inventory_statement_report_xlsx_action
+#: model:ir.ui.menu,name:l10n_mn_stock_dakal.menu_stock_inventory_statement
+msgid "Stock Inventory Statement Report"
+msgstr "Агуулахын нөөцийн тайлан"
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.actions.act_window,name:l10n_mn_stock_dakal.stock_product_balance_report_xlsx_action
+#: model:ir.ui.menu,name:l10n_mn_stock_dakal.menu_stock_product_balance
+msgid "Stock Product balance Report"
+msgstr "Бараа материалын үлдэгдэл"
 
 #. module: l10n_mn_stock_dakal
 #: model:ir.model.fields.selection,name:l10n_mn_stock_dakal.selection__product_licemed_registration__state__suspended
@@ -431,6 +589,12 @@ msgid "Validity period"
 msgstr "Хүчинтэй хугацаа"
 
 #. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_stock_inventory_statement__warehouse_ids
+#: model_terms:ir.ui.view,arch_db:l10n_mn_stock_dakal.stock_inventory_statement_report_xlsx_form
+msgid "Warehouse"
+msgstr "Агуулах"
+
+#. module: l10n_mn_stock_dakal
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_general_category__website_message_ids
 #: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_licemed_registration__website_message_ids
 msgid "Website Messages"
@@ -454,7 +618,7 @@ msgstr ""
 #. module: l10n_mn_stock_dakal
 #: model:ir.actions.act_window,name:l10n_mn_stock_dakal.action_product_general_category_tree_view
 msgid "product.general.category"
-msgstr ""
+msgstr "Эмийн ерөнхий ангилал"
 
 #. module: l10n_mn_stock_dakal
 #: model:ir.actions.act_window,name:l10n_mn_stock_dakal.action_product_licemed_registration_tree_view
@@ -494,6 +658,18 @@ msgstr ""
 #: model:ir.model.fields.selection,name:l10n_mn_stock_dakal.selection__product_licemed_registration__conditions_granting__prescription_drug
 #: model:ir.model.fields.selection,name:l10n_mn_stock_dakal.selection__product_template__conditions_granting__prescription_drug
 msgid "Мансууруулах эмийн жороор"
+msgstr ""
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_product__maximum_qty_per_sale
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_template__maximum_qty_per_sale
+msgid "Нэг захиалгын дээд хэмжээ"
+msgstr ""
+
+#. module: l10n_mn_stock_dakal
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_product__availability_qty_per_day
+#: model:ir.model.fields,field_description:l10n_mn_stock_dakal.field_product_template__availability_qty_per_day
+msgid "Нэг өдрийн захиалгын дээд тоо хэмжээ"
 msgstr ""
 
 #. module: l10n_mn_stock_dakal

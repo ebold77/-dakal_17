@@ -248,6 +248,7 @@ class PosOrder(models.Model):
         # if order_line.product_id.emd_insurance_list_id.tbltManufacture == 'BULK_PROCUREMENT_DRUG':
         for lot_line in order_line.pack_lot_ids:
             emd_datas['lotNo']= lot_line.lot_name
+            _logger.info(u'Жорын цувралын дугаар:::::::::::::::::: %s', emd_datas['lotNo'])
                  
         prod_name = order_line.product_id.with_context({'lang': 'mn_MN'}).name
         items['name'] = prod_name
@@ -370,7 +371,7 @@ class PosOrder(models.Model):
             order_json['exchangeData'] = exchange_data
         ###################### GetInformation #################
 
-        info_url = "https://" +self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+"/rest/info"
+        info_url = "http://" +self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+"/rest/info"
         headers = {"Content-Type": "application/json; charset=utf-8"}
         response = requests.get(url=info_url, headers=headers)
         if response:
@@ -381,12 +382,14 @@ class PosOrder(models.Model):
                 _logger.error(e)
         ###################### SendData #################
          
-        ebarimt_url = "https://" + self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+'/rest/receipt'
+        ebarimt_url = "http://" + self.session_id.config_id.ebarimt_service_host +':'+ self.session_id.config_id.ebarimt_service_port+'/rest/receipt'
         headers = {"Content-Type": "application/json; charset=utf-8"}
         
         self.note = order_json
         # print('order_json===========>>', order_json)
+        _logger.info("EMD send request ==============>>> %s", order_json)
         response = requests.post(url=ebarimt_url, headers=headers, json=order_json)
+        _logger.info("\n\n EMD send request response ==============>>> %s\n\n", response.text)
         if response.text:
             
             try:
